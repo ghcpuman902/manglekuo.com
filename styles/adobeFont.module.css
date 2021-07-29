@@ -1,0 +1,13 @@
+.title{
+    font-family: source-han-sans-traditional, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 100px;
+}
+
+.text{
+    font-family: source-han-serif-tc, serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 56px;
+}
