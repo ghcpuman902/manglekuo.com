@@ -43,3 +43,32 @@ pre::-webkit-scrollbar-thumb {
   background-color: rgb(191, 191, 191);
   border-radius: 4px;
 }
+
+footer{
+  display: flex;
+  align-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+footer svg{
+  width: 40px;
+  margin: 10px;
+}
+
+svg.GitHub{
+  fill:#181717;
+}
+
+svg.Instagram{
+  fill:#E4405F;
+}
+
+svg.Behance {
+  fill:#1769FF;
+}
+
+svg.LinkedIn{
+  fill:#0A66C2;
+}
+
