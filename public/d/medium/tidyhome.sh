@@ -115,44 +115,70 @@ then
 fi
 
 
+
+
+
 ignoredFoldersArray=( ${(ps/\n/)ignoredFolders} );
+# Convert string to array
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-getRidOfUsername() {
+shortenPath() {
+	# Replace the target part of path to nothing
 	echo "${1//$target}"
 }
 
 result=$(stat -f '%Sm£%N£%z' -t '%FT%T' $target.* $target* | sort -rn);
 resultArray=( ${(ps/\n/)result} );
+# Get an array of files and directories within the target directory, sorted by last modified date, in dec order
 
 for FILE in $resultArray
 do 
 	fileProps=( ${(ps/£/)FILE} );
+	# Split the line into array using the pound sign
 
-	folderPath=$(getRidOfUsername ${fileProps[2]});
+	folderPath=$(shortenPath ${fileProps[2]});
 
 
 	if [[ " ${ignoredFoldersArray[@]} " =~ " ${folderPath} " ]]; then
+		# When folderPath is included in the ignoredFoldersArray
 		echo "$folderPath is ignored.\n"
 	else
 		if [ -d ${fileProps[2]} ] && [ "$(ls -A ${fileProps[2]})" ]; then
-
-			newPath="${fileProps[2]}";
+			# Check if is directory and directory not empty
 
 			if [ "$recursivelySearch" = true ]; then
-
-				newestFile=$(find ${fileProps[2]} -type f -print0 | xargs -0 stat -q -f "%Sm£%N£%z" -t '%FT%T' | sort -nr | head -5 | awk 'BEGIN {FS="£"} function human(x) { if (x<1000) {return x} else {x/=1024} s="kMGTEPZY"; while (x>=1000 && length(s)>1) {x/=1024; s=substr(s,2)} return int(x+0.5) substr(s,1,1) } {print "|----"$2"\t"human($3)"B\t"$1}' | column -s$'\t' -t);
-				echo -e "|$folderPath\t$(numfmt --to=iec-i --suffix=B ${fileProps[3]})\t${fileProps[1]}\n$newestFile\n";
+				# Do recurseve search
+				newestFiles=$(find ${fileProps[2]} -type f -print0 | xargs -0 stat -q -f "%Sm£%N£%z" -t '%FT%T' | sort -nr | head -5 | awk 'BEGIN {FS="£"} function human(x) { if (x<1000) {return x} else {x/=1024} s="kMGTEPZY"; while (x>=1000 && length(s)>1) {x/=1024; s=substr(s,2)} return int(x+0.5) substr(s,1,1) } {print "|----"$2"\t"human($3)"B\t"$1}' | column -s$'\t' -t);
+				# find to recursively search
+				# xargs for better efficiency
+				# stat to get last modified date, file name, file size
+				# sort to sort in dec order
+				# head to trim the result to only top 5
+				# awk to change the display order to file name, file size, last modified date
+				# awk also added the formatting for the file size
+				# colume to make displayed result pretty
+				echo -e "|$folderPath\t$(numfmt --to=iec-i --suffix=B ${fileProps[3]})\t${fileProps[1]}\n$newestFiles\n";
+				# numfmt to format the file size
 
 			else
-
-				resultSubDir=$(stat -q -f "%Sm£%N£%z" -t '%FT%T' $newPath/* | sort -rn | head -5 | awk 'BEGIN {FS="£"} function human(x) { if (x<1000) {return x} else {x/=1024} s="kMGTEPZY"; while (x>=1000 && length(s)>1) {x/=1024; s=substr(s,2)} return int(x+0.5) substr(s,1,1) } {print "|----"$2"\t"human($3)"B\t"$1}' | column -s$'\t' -t);	
-				echo -e "|$folderPath\t$(numfmt --to=iec-i --suffix=B ${fileProps[3]})\t${fileProps[1]}\n$(getRidOfUsername $resultSubDir)";
+				# Don't do recurseve search
+				subDir="${fileProps[2]}";
+				resultSubDir=$(stat -q -f "%Sm£%N£%z" -t '%FT%T' $subDir/* | sort -rn | head -5 | awk 'BEGIN {FS="£"} function human(x) { if (x<1000) {return x} else {x/=1024} s="kMGTEPZY"; while (x>=1000 && length(s)>1) {x/=1024; s=substr(s,2)} return int(x+0.5) substr(s,1,1) } {print "|----"$2"\t"human($3)"B\t"$1}' | column -s$'\t' -t);	
+				# stat to get last modified date, file name, file size
+				# sort to sort in dec order
+				# head to trim the result to only top 5
+				# awk to change the display order to file name, file size, last modified date
+				# awk also added the formatting for the file size
+				# colume to make displayed result pretty
+				echo -e "|$folderPath\t$(numfmt --to=iec-i --suffix=B ${fileProps[3]})\t${fileProps[1]}\n$(shortenPath $resultSubDir)";
+				# numfmt to format the file size
 
 			fi
 		else
-			echo -e "|$(getRidOfUsername ${fileProps[2]})\t$(numfmt --to=iec-i --suffix=B ${fileProps[3]})\t${fileProps[1]}"
+			# When it is not a directory, but a file
+			echo -e "|$(shortenPath ${fileProps[2]})\t$(numfmt --to=iec-i --suffix=B ${fileProps[3]})\t${fileProps[1]}"
+			# numfmt to format the file size
+							
 		fi
 	fi
 
