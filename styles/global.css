@@ -27,6 +27,19 @@ img {
   display: block;
 }
 
+blockquote {
+  overflow-x: scroll;
+}
+
+blockquote::-webkit-scrollbar {
+  height: 4px;
+}
+ 
+blockquote::-webkit-scrollbar-thumb {
+  background-color: rgb(191, 191, 191);
+  border-radius: 4px;
+}
+
 pre{
   background: #eee;
     padding: 1em;
