@@ -10,6 +10,8 @@ I tried hard to learn zsh script today, and I want to make a note about it.
 - If you can't find any result on Google searching with "zsh script how to", just try with "bash script how to"
 - No error message when something is undefiend. 
 - Very particular about how things are defined and nested. If you can, use a seperate variable, don't nest things.
+- For both the shell and the script, new line and array are kind of interchangable. its even more so in bash, where spaces have the same behaviour. Save the array output as a variable, so it's forced to be converted to string, for a more predictable behaviour.
+- You can use all the power of Linux shell within it, like awk and sort, inside a $().
 
 Template:
 ```
@@ -23,6 +25,11 @@ Template:
 myFunc() {
     echo "The input is $1";
 }
+
+# Using function is like runing things in shells, no parenthesis involved.
+myFunc "use myFunc directly";
+
+echo $(myFunc "use myFunc as input for echo");
 
 echo "====Terms & Conditions====
 - Stay strong
