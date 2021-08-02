@@ -9,6 +9,17 @@ export const siteTitle = 'Mangle Kuo'
 
 export default function Layout({ children, home }) {
   return (
+    <>
+    <div className={utilStyles.banner}>
+          <Image
+            priority
+            src="/images/20210802DSC09306.jpg"
+            // className={utilStyles.borderCircle}
+            height={1350}
+            width={2400}
+            alt={name}
+          />
+    </div>
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
@@ -29,30 +40,10 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         {home ? (
           <>
-            <Image
-              priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
-              height={108}
-              width={108}
-              alt={name}
-            />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
           <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/profile.jpg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
                 <a className={utilStyles.colorInherit}>{name}</a>
@@ -78,5 +69,6 @@ export default function Layout({ children, home }) {
 
       </footer>
     </div>
+    </>
   )
 }

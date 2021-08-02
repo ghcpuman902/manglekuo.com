@@ -50,3 +50,23 @@
   .lightText {
     color: #666;
   }
+
+  .banner {
+    width: 100%;
+
+  }
+
+
+  
+
+@media (min-width: 1200px) {
+  .banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  .banner>div{
+    position: absolute;
+    top: -300px;
+  }
+}
