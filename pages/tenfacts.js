@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import tenFactsStyles from '../styles/tenFacts.module.css'
 import { useState, useEffect, useRef } from 'react';
 import Matter from 'matter-js'
@@ -11,9 +12,9 @@ let Engine = Matter.Engine,
 
 
 
-const STATIC_DENSITY = 15;
-const PARTICLE_SIZE = 6;
-const PARTICLE_BOUNCYNESS = 1.1;
+// const STATIC_DENSITY = 15;
+// const PARTICLE_SIZE = 6;
+const PARTICLE_BOUNCYNESS = 1.01;
 const THICKNESS = 100;
 const WALL_HEIGHT = 10000;
 
@@ -29,210 +30,160 @@ new ones fall down
 
 
 
-const quotesString = 
-`CURIOSITY IS MY SUPER POWER
-Let’s be honest I’m only 24 and I don’t know who I am and what I want
-I’m bad at writing
-I didn’t finish my physics degree at Imperial College London
-I watch web development videos all the time
-I love drinking craft beer but I’m terrible at remembering everything
-I’m GAY
-I’m from Taiwan
-I enjoy doing photography
-Looking for a job in web development that’s creativity involved.
-My name is Mangle Kuo
-My Instagram is @MangleKuo
-I love listening to Jolin Tsai, MAMAMOO, Lorde
-Currently I work for a AR glasses design house
-Keep up with the good work
+const quotesArr = [
+`My name is Mangle Kuo`,
+<>My Instagram is <a target="_blank" href="https://www.instagram.com/manglekuo/">@MangleKuo</a></>,
+`❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ TAP TO POP`,
+`I watch web development videos all the time 🌐`,
+`I love drinking craft beer 🍺 and have been preparing for the BJCP exam`,
+`I speak fluent Mandarin & English`,
+`I’m GAY 🏳️‍🌈`,
+`I’m from and based in Taiwan 🇹🇼`,
+`I enjoy doing photography 📷`,
+<>Listening to: <br/>NEXT EPISODE <br/>by AKMU <br/>Solar Power <br/>by Lorde <br/>Happier Than Ever <br/>by Billie Eilish</>,
+`Currently I work for a AR glasses design house`,
+`Looking for a job in web development that’s creativity involved.`,
+`CURIOSITY IS MY SUPER POWER 🦸‍♂️`,
+`I’m bad at writing ✒️`,
+`I didn’t finish my physics degree at Imperial College London`,
+`Keep up with the good work`,
+`My high school was in London, UK`,
+`My mum side family are from XiAn, China, where I did my year 1-4`,
+`I'm interested in cities`,
+<Link href="/"><a>← Back to home</a></Link>,
 
-Taipei / London`;
+];
 
 // const quotesString = 
 // `A
 // B`;
 
 
-const quotesArr = quotesString.split("\n");
-
 const Trfrm2Dtext = (x,y,a) => {
   return `translate(${x}px, ${y}px) rotate(${a * (180/Math.PI)}deg)`;
 }
 
 
+const generateCardVertices = (x,y,w,h) => {
+  let r = 15;
+  let vArr = [];
+  vArr.push({x: x-w/2, y: y-h/2+r});
+  vArr.push({x: x-w/2+r, y: y-h/2});
+  vArr.push({x: x+w/2-r, y: y-h/2});
+  vArr.push({x: x+w/2, y: y-h/2+r});
+  vArr.push({x: x+w/2, y: y+h/2-r});
+  vArr.push({x: x+w/2-r, y: y+h/2});
+  vArr.push({x: x-w/2+r, y: y+h/2});
+  vArr.push({x: x-w/2, y: y+h/2-r});
 
+  return vArr;
+}
 
 
 const Card = (props) => {
-    const cardRef = useRef(null);
+  const cardRef = useRef(null);    
 
-    const [isShow, setIsShow] = useState(true);
-    const [isAdded, setIsAdded] = useState(false);
-    const [matterBodyId, setMatterBodyId] = useState(null);
+  const [isShow, setIsShow] = useState(true);
 
-    let matterBody, renderCard;
+  const matterBody = useRef();
 
-    useEffect(() => {
-      let {world, engine, runner} = props;
-      console.log("world",world);
+  const isAdded = useRef(false);
 
-      if (world && cardRef.current && !isAdded) {
-        // console.log(cardRef.current.getBoundingClientRect());
-        let {x,y,width,height} = cardRef.current.getBoundingClientRect();
-        let [initX,initY,initWidth,initHeight] = [x,y,width,height];
-        matterBody = Bodies.rectangle(initX+(initWidth/2), initY+(initHeight/2), initWidth, initHeight, {
-            restitution: PARTICLE_BOUNCYNESS,
-        });
+  const initX = useRef(),
+        initY = useRef(),
+        initWidth = useRef(),
+        initHeight = useRef();
 
-        Composite.add(
-          world,
-          [matterBody],
-        );
-        setMatterBodyId(matterBody.id);
-        setIsAdded(true);
-      }
 
-      return () => {
-        if (world && matterBodyId) {
+  const requestRef = useRef();
+  const animateThisCard = () => {
 
-          let thisCard = world.bodies.find(element => element.id == matterBodyId);  
-          console.log("unmounted",thisCard);
-            if(thisCard){
-              Composite.remove(
-                world,
-                thisCard,
-              )
-              window.cancelAnimationFrame(renderCard);
-            }
-        }
-      };
-    });
-
-    // useEffect(() => {
-    //   let {world, engine, runner} = props;
-
-    //   if (world && matterBodyId) {
-    //     console.log(matterBodyId,isShow,Composite.get(world, matterBodyId));
-    //     if(!isShow && Composite.get(world, matterBodyId)){
-    //       let matterBody = Composite.get(world, matterBodyId);
-    //       Composite.remove(
-    //         world,
-    //           matterBody,
-    //       )
-    //       window.cancelAnimationFrame(renderCard);
-    //     }
-    //   }
-    // }, [isShow]);
-
-    useEffect(() => {
-      let {world, engine, runner} = props;
-
-      if (world && matterBodyId) {
-
-  
-        let {x,y,width,height} = cardRef.current.getBoundingClientRect();
-        let [initX,initY,initWidth,initHeight] = [x,y,width,height];
-
-        renderCard = () => {
-            
-          if(isShow && cardRef.current){
-            // console.log("renderCard");
-            // console.log(world);
-            // console.log(`added card id ${matterBodyId}`);
-            let thisCard = world.bodies.find(element => element.id == matterBodyId);  
-            // console.log(thisCard);
-
-            // console.log(`${thisCard.angle}º, x:${thisCard.position.x} y:${thisCard.position.y} `);
-
-            // console.log(cardRef.current);
-            let Trfrm2D = Trfrm2Dtext(thisCard.position.x-initX-initWidth/2, thisCard.position.y-initY-initHeight/2,thisCard.angle );
-            cardRef.current.style.transform = Trfrm2D;
-            window.requestAnimationFrame(renderCard);
-          }
+    if (cardRef.current && !isAdded.current) {
+      // console.log(cardRef.current.getBoundingClientRect());
+      let {x,y,width,height} = cardRef.current.getBoundingClientRect();
+      [initX.current,initY.current,initWidth.current,initHeight.current] = [x,y,width,height];
       
-        };
+      matterBody.current = Bodies.fromVertices(initX.current+(initWidth.current/2)+Math.floor(Math.random()*window.innerWidth), initY.current+(initHeight.current/2)+(props.id-4)*200, generateCardVertices(x+Math.floor(Math.random()*window.innerWidth),y+(props.id-4)*200,width,height), {
+          restitution: PARTICLE_BOUNCYNESS,
+      });
 
-      }
-    },[matterBodyId]);
 
-    return isShow?(
-        <div ref={cardRef} className={tenFactsStyles.card} onClick={ () => {setIsShow(false)} }>
-            <p>{props.text}</p>
-        </div>
-    ):null;
+      props.addBody(matterBody.current);
+      isAdded.current = true;
+    }
+
+    if (cardRef.current && isShow && isAdded.current && props.getAnglePos(props.id)) {
+
+          
+      const thisCard = props.getAnglePos(props.id);
+
+
+      // console.log(`${thisCard.angle}º, x:${thisCard.position.x} y:${thisCard.position.y} `);
+
+      // console.log(cardRef.current);
+      // let Trfrm2D = Trfrm2Dtext(thisCard.position.x-initX.current-initWidth.current/2, thisCard.position.y-initY.current-initHeight.current/2,thisCard.angle );
+      
+      let Trfrm2D = `rotate(${thisCard.angle * (180/Math.PI)}deg)`;
+      cardRef.current.style.transform = Trfrm2D;
+      cardRef.current.style.position = `absolute`;
+      cardRef.current.style.left = `${thisCard.position.x-initX.current-initWidth.current/2}px`;
+      cardRef.current.style.top = `${thisCard.position.y-initY.current-initHeight.current/2}px`;
+      // console.log(thisCard.position.x-initX.current-initWidth.current/2, thisCard.position.y-initY.current-initHeight.current/2,thisCard.angle );
+      
+    }
+    requestRef.current = requestAnimationFrame(animateThisCard);
+  }
+  
+  useEffect(() => {
+    requestRef.current = requestAnimationFrame(animateThisCard);
+    return () => {
+      window.cancelAnimationFrame(animateThisCard);
+      
+    };
+  }, []);
+
+  const handleClick = () => {
+    if(props.children != (<Link href="/"><a>← Back to home</a></Link>)){
+      setIsShow(false);
+      props.rmvBody(matterBody.current.id);
+    }
+  }
+
+  return isShow?(
+    <div ref={cardRef} className={tenFactsStyles.card} onClick={handleClick}>
+        <p>{props.children}</p>
+    </div>
+  ):null;
 }
 
 
 export default function tenFacts() {
-    const boxRef = useRef(null)
-    const canvasRef = useRef(null)
+    const boxRef = useRef(null);
+    const canvasRef = useRef(null);
 
     const [constraints, setContraints] = useState()
-    const [world, setWorld] = useState()
 
-    let engine, render, runner;
-
-    const handleResize = () => {
-        setContraints(boxRef.current.getBoundingClientRect())
-    }
-
-    useEffect(() => {
-      // When component mount
-      let view = boxRef.current.getBoundingClientRect();
-      const WIDTH = view.width, 
-            HEIGHT = view.height;
-
-      // create an engine
-      engine = Engine.create({gravity: {x:0,y:-1}});
-
-      // create an rederer for debug 
-      // render = Render.create({
-      //   element: boxRef.current,
-      //   engine: engine,
-      //   canvas: canvasRef.current,
-      //   options: {
-      //     width: WIDTH,
-      //     height: HEIGHT,
-      //     background: 'rgba(255, 0, 0, 0.5)', // 'transparent',
-      //     wireframes: false,
-      //   },
-      // })
+    const world = useRef();
+    const engine = useRef();
+    const runner = useRef();  
 
 
+    const rqusAnimtRef = useRef();
+    const animate = () => {
+      if (world.current != undefined) {
+        let view = boxRef.current.getBoundingClientRect();
+        const WIDTH = view.width, 
+              HEIGHT = view.height;
 
-      // create two walls and a ground
-      var roof = Bodies.rectangle(WIDTH/2, 0-THICKNESS/2, WIDTH, THICKNESS, { isStatic: true });
-
-      var wallLeft = Bodies.rectangle(0-THICKNESS/2, (HEIGHT+WALL_HEIGHT)/2, THICKNESS, HEIGHT+WALL_HEIGHT, { isStatic: true });
-      var wallRight = Bodies.rectangle(WIDTH+THICKNESS/2, (HEIGHT+WALL_HEIGHT)/2, THICKNESS, HEIGHT+WALL_HEIGHT, { isStatic: true });
-      var ball = Bodies.circle(40, HEIGHT, 30, { restitution: PARTICLE_BOUNCYNESS });
-
-      // add all of the bodies to the world
-      Composite.add(engine.world, [roof, wallLeft, wallRight, ball])
-
-      // run the renderer
-      // Render.run(render)
-
-      // console.log(render.engine.world.bodies[3].position.x);
-
-
-      // create runner
-      runner = Runner.create();
-
-      // run the engine
-      Runner.run(runner, engine);
-
-      (function render() {
         let canvas = canvasRef.current;
+        canvas.opacity=0;
         let context = canvas.getContext('2d');
 
         canvas.width = WIDTH;
         canvas.height = HEIGHT;
 
-        var bodies = Composite.allBodies(engine.world);
-        // console.log(bodies);
-    
-        window.requestAnimationFrame(render);
+        var bodies = world.current.bodies;
+      //  console.log(bodies);
     
         context.fillStyle = '#aaa';
         context.fillRect(0, 0, canvas.width, canvas.height);
@@ -254,36 +205,65 @@ export default function tenFacts() {
         context.lineWidth = 1;
         context.strokeStyle = '#000';
         context.stroke();
-    })();
-
-
-
-
-      setContraints(boxRef.current.getBoundingClientRect())
-      setWorld(engine.world)
-      window.addEventListener('resize', handleResize)
-      
-      return () => {
-        window.removeEventListener('resize', handleResize)
       }
-    }, [])
+      rqusAnimtRef.current = requestAnimationFrame(animate);
+    }
+    
+
 
     useEffect(() => {
-      if (constraints) {
+      let view = boxRef.current.getBoundingClientRect();
+      const WIDTH = view.width, 
+            HEIGHT = view.height;
+      // create an engine
+      engine.current = Engine.create({gravity: {x:0,y:-0.2}});
+      
+      var roof = Bodies.rectangle(WIDTH/2, 0-THICKNESS/2, WIDTH, THICKNESS, { isStatic: true, friction: 0.1 });
+      var wallLeft = Bodies.rectangle(0-THICKNESS/2, (HEIGHT+WALL_HEIGHT)/2, THICKNESS, HEIGHT+WALL_HEIGHT, { isStatic: true, friction: 0.1 });
+      var wallRight = Bodies.rectangle(WIDTH+THICKNESS/2, (HEIGHT+WALL_HEIGHT)/2, THICKNESS, HEIGHT+WALL_HEIGHT, { isStatic: true, friction: 0.1 });
+      var ball = Bodies.circle(400, HEIGHT, 5, { restitution: PARTICLE_BOUNCYNESS });
+
+      // add all of the bodies to the world
+      Composite.add(engine.current.world, [roof, wallLeft, wallRight, ball])
+      // create runner
+      runner.current = Runner.create();
+      // run the engine
+      Runner.run(runner.current, engine.current);
+
+      world.current = engine.current.world;
+
+
+      setContraints(boxRef.current.getBoundingClientRect());
+
+      rqusAnimtRef.current = requestAnimationFrame(animate);
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        cancelAnimationFrame(rqusAnimtRef.current);
+        window.removeEventListener('resize', handleResize)
+      }
+    }, []);
+
+
+
+
+    const handleResize = () => {
+      setContraints(boxRef.current.getBoundingClientRect())
+    }
+
+    useEffect(() => {
+      if (constraints && canvasRef.current) {
         let view = constraints;
         const WIDTH = view.width, 
               HEIGHT = view.height;
-        // Dynamically update canvas and bounds
-        // scene.bounds.max.x = WIDTH
-        // scene.bounds.max.y = HEIGHT
-        // scene.options.width = WIDTH
-        // scene.options.height = HEIGHT
-        // scene.canvas.width = WIDTH
-        // scene.canvas.height = HEIGHT
-        // Dynamically update floor
 
+        let canvas = canvasRef.current;
 
-        var bodies = Composite.allBodies(world);
+        canvas.width = WIDTH;
+        canvas.height = HEIGHT;
+
+        var bodies = world.current.bodies;
+
         const roof = bodies[0];
         const wallLeft = bodies[1];
         const wallRight = bodies[2];
@@ -325,22 +305,51 @@ export default function tenFacts() {
         ])
 
       }
-    }, [world, constraints])
-    
+    }, [constraints])
 
 
+
+
+    const getAnglePos = (id) => {
+      if (world.current != undefined) {
+        var bodies = world.current.bodies;
+        return bodies.filter(val => val.id==id)[0];
+      }
+      return "BE";
+    }
+
+    const addBody = (body) => {
+      Composite.add(
+        world.current,
+        [body],
+      );
+    }
+
+    const rmvBody = (bodyID) => {
+      console.log(`removing ID`,bodyID);
+      let thisCard = world.current.bodies.find(el => el.id == bodyID); 
+      console.log(`removing`,thisCard); 
+      if(thisCard){
+        console.log(`removing`,thisCard);
+        Composite.remove(
+          world.current,
+          thisCard,
+        )
+      }
+    }
 
     return (
       <>
         <Head>
             <title>10 facts about me</title>
+            <link rel="stylesheet" href="https://use.typekit.net/wxd0kfu.css" />
         </Head>
         <div ref={boxRef} className={tenFactsStyles.main}>
-        <canvas ref={canvasRef} />
+        <canvas ref={canvasRef} style={{display:`none`}}/>
         {
             quotesArr.map((val, idx) => {
                 return (
-                    <Card key={idx} text={val} world={world} engine={engine} runner={runner}  constraints={constraints} />
+                    <Card key={idx+5} id={idx+5} getAnglePos={getAnglePos} addBody={addBody} rmvBody={rmvBody}>{val}</Card>
                 )
             })
         }

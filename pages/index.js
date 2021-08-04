@@ -26,7 +26,7 @@ export default function Home({ allPostsData }) {
     {
       key: "53a482e39fd6",
       link: "https://manglekuo.medium.com/develop-on-macos-dont-clutter-your-home-folder-as-i-did-53a482e39fd6",
-      title: "Develop on macOS: don’t clutter your home folder as I did…",
+      title: "Develop on macOS: don't clutter your home folder like I did…",
       date: "2021-04-21"
     },
     {
@@ -84,6 +84,8 @@ export default function Home({ allPostsData }) {
         <p>Hi, I'm Mangle Kuo, I'm working on this site to get a job, please check again soon, hope it will impress you!</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Try some of this:</h2>
+        <a href="/tenfacts">Ten facts about me</a>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (

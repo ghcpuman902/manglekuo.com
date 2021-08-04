@@ -1,12 +1,12 @@
 ---
 title: 'Android Language XML Search'
 date: '2021-07-30'
-description: 'This project allows you to search through the translations cames with the Android 8 OS, but you can use it with any Android source code.'
+description: 'This project allows you to search through the translations xml files cames with the Android 8 OS, but you can use it with any Android source code.'
 ---
 
 [Demo](https://next.manglekuo.com/androidlangxmlsearch/index.html)
 
-This project allows you to search through the translations cames with the Android 8 OS, but you can use it with any Android source code.
+This project allows you to search through the translations xml files cames with the Android 8 OS, but you can use it with any Android source code.
 
 They came in the form of XML files, and the file structure will look something like this:
 

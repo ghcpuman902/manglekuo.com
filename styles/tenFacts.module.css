@@ -1,10 +1,10 @@
 .main {
-    background-color: #436E55;
+    background-color: #62ffa4;
     min-width: 100%;
     min-height: 100%;
     position: absolute;
     top: 0; bottom: 0; left: 0; right: 0;
-    display: flex;
+    /* display: flex;
     flex-flow: row wrap;
     flex-direction: row;
     flex-wrap: wrap;
@@ -12,24 +12,35 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding-left: 20px;
-    padding-top: 20px;
+    padding-top: 20px; */
     z-index: -2;
     overflow: scroll;
 }
 
+
+.main::-webkit-scrollbar {
+height: 0px;
+width: 0px;
+}
+
+.main::-webkit-scrollbar-thumb {
+background-color: rgba(255, 255, 255,0);
+border-radius: 0px;
+}
+
 .card {
     z-index: 1;
-	-webkit-flex: initial;
+	/* -webkit-flex: initial;
 	-moz-flex: initial;
 	flex: initial;
-	align-self: auto;
+	align-self: auto; */
     height: 220px;
     width: 150px;
-    border: #2A4535 solid 1px;
+    border: #a7cefd solid 1px;
     box-sizing: border-box;
     border-radius: 15px;
     background-color: #fff;
-    display: flex;
+    /* display: flex; */
     margin: 20px;
 }
 
@@ -37,7 +48,10 @@
     /* height: 192px; */
     width: 122px;
     margin: 15px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: nimbus-sans-condensed, Impact, Haettenschweiler, 'Arial Narrow Bold',sans-serif;
+    font-weight: 900;
+    font-style: normal;
     font-size: 20px;
     line-height: 24px;
     vertical-align: text-bottom;
