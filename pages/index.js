@@ -5,6 +5,9 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 
+                    // DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
+const description = "I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. Looking for a new job.";
+
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
   return {
@@ -81,12 +84,13 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Hi, I'm Mangle Kuo, I'm working on this site to get a job, please check again soon, hope it will impress you!</p>
+        <p>Hi, I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. I'm working on this site to get a job, please check again soon, hope it will impress you!</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Try some of this:</h2>
-        <a href="/tenfacts">Ten facts about me</a>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+      
+          <a href="/tenfacts">Ten facts about me</a>
+        
+        <h2 className={utilStyles.headingLg}>I write about:</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
@@ -100,7 +104,7 @@ export default function Home({ allPostsData }) {
           </li>
           ))}
         </ul>
-        <h2 className={utilStyles.headingLg}>Medium.com</h2>
+        <h2 className={utilStyles.headingLg}>(on medium.com ⬇️)</h2>
         <ul className={utilStyles.list}>
           {
             mediumArticles.map((val) => (

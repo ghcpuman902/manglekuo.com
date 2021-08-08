@@ -13,7 +13,7 @@ I tried hard to learn zsh script today, and I want to make a note about it.
 - For both the shell and the script, new line and array are kind of interchangable. its even more so in bash, where spaces have the same behaviour. Save the array output as a variable, so it's forced to be converted to string, for a more predictable behaviour.
 - You can use all the power of Linux shell within it, like awk and sort, inside a $().
 
-Template:
+Cookbook / Template:
 ```
 #!/bin/zsh
 
@@ -82,6 +82,34 @@ done
 # Refer to the array
 echo ${resultsArray[2]}
 echo "2nd item of array is ${resultsArray[2]}";
+
+# Do math
+var=10
+echo $((var+5))
+
+# Wait 10s
+sleep 10;
+
+# Do countdown
+
+countdown() {
+	count=$1;
+	echo "$count - Begin countdown";
+	sleep 1;
+	while true; do
+		count=$((count-1));
+		if [ "$count" -lt 1 ]
+		then
+			break
+		fi
+		echo "$count";
+		sleep 1;
+	done
+	echo "$count - End countdown";
+}
+
+
+countdown 14;
 
 
 ```

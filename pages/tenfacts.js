@@ -3,7 +3,7 @@ import Link from 'next/link'
 import tenFactsStyles from '../styles/tenFacts.module.css'
 import { useState, useEffect, useRef } from 'react';
 import Matter from 'matter-js'
-// module aliases
+// module aliases for the 2d Physics engine, matter.js
 let Engine = Matter.Engine,
     Runner = Matter.Runner,
     Render = Matter.Render,
@@ -11,6 +11,13 @@ let Engine = Matter.Engine,
     Composite = Matter.Composite;
 
 
+
+///////////////////////////////////////////
+///////////PAGE CONFIGURATIONS/////////////
+///////////////////////////////////////////
+
+                    // DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
+const description = "This is one experiment with my personal website. It creats description cards of facts about me, and they floats to the top.";
 
 // const STATIC_DENSITY = 15;
 // const PARTICLE_SIZE = 6;
@@ -25,7 +32,10 @@ falling from above
 click or tap to disapear
 new ones fall down
 
-
+TODO:
+- Add animations for popping
+- Add interaction using cursor / touch
+- Add interation using gravity
 */
 
 
@@ -57,6 +67,12 @@ const quotesArr = [
 // const quotesString = 
 // `A
 // B`;
+
+
+
+///////////////////////////////////////////
+///////////////////////////////////////////
+///////////////////////////////////////////
 
 
 const Trfrm2Dtext = (x,y,a) => {
@@ -343,6 +359,7 @@ export default function tenFacts() {
         <Head>
             <title>10 facts about me</title>
             <link rel="stylesheet" href="https://use.typekit.net/wxd0kfu.css" />
+            <meta name="description" content={description}></meta>
         </Head>
         <div ref={boxRef} className={tenFactsStyles.main}>
         <canvas ref={canvasRef} style={{display:`none`}}/>

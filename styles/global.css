@@ -8,6 +8,16 @@ body {
   font-size: 18px;
 }
 
+/* body {
+  background-color: #181717;
+  color: rgb(220, 220, 220);
+}
+@media screen and (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+} */
 
 * {
   box-sizing: border-box;
@@ -57,31 +67,5 @@ pre::-webkit-scrollbar-thumb {
   border-radius: 4px;
 }
 
-footer{
-  display: flex;
-  align-items: center;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-}
-footer svg{
-  width: 40px;
-  margin: 10px;
-}
 
-svg.GitHub{
-  fill:#181717;
-}
-
-svg.Instagram{
-  fill:#E4405F;
-}
-
-svg.Behance {
-  fill:#1769FF;
-}
-
-svg.LinkedIn{
-  fill:#0A66C2;
-}
 
