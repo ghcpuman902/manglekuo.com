@@ -113,3 +113,36 @@ countdown 14;
 
 
 ```
+
+Example of doing debug:
+
+```
+#!/bin/bash
+
+PS4='+${BASH_SOURCE}:${LINENO} '
+echo "start..."
+set -x
+echo "today is :"$(date +'%Y-%m-%d')
+set +x
+echo "end..."
+
+
+
+
+
+IS_DEBUG="on"
+
+function _DEBUG()
+{
+   [ "$IS_DEBUG" == "on" ] && $@
+}
+
+va=1
+_DEBUG echo 'old value:'$va
+
+let va++
+echo 'new value:'$va
+
+
+```
+
