@@ -7,7 +7,7 @@ body {
   line-height: 1.6;
   font-size: 18px;
   background-color: #111;
-  color: #eee
+  color: #eee;
 }
 
 body::-webkit-scrollbar {
@@ -54,11 +54,11 @@ a:hover {
 }
 
 strong {
-  text-decoration: underline;
-  text-decoration-thickness: 5px;
-  text-decoration-color: #ffdd00;
   text-shadow: 0px 2px 0px black;
+  box-shadow: 0px 5px 0px #ffdd00;
+
 }
+
 
 img {
   max-width: 100%;

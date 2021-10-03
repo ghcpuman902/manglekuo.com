@@ -63,6 +63,6 @@ This is quite important as it affects how each press feels, my friend had a coll
 
 # The conclusion
 
-It did not make me type faster, or type more accurately compare to the MacBook Keyboard I'm used to, but it makes each of my day easier to get up.
-
 **Surround yourself with things you like.**
+
+It did not make me type faster, or type more accurately compare to the MacBook Keyboard I'm used to, but it makes each of my day easier to get up.
