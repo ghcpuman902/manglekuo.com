@@ -11,12 +11,13 @@ description: 'Getting my first custom mechanical keyboard, KDB Fans D67 lite kit
 
 I'm so excited to get this!
 
-For those of you who don't know what is mechanical keyboard and why mechanical keyboard, please watch these two videos:
+For those of you who don't know what is mechanical keyboard and why mechanical keyboard, please watch these videos:
 
+- [Why Mechanical Keyboards? - Taeha Types](https://www.youtube.com/watch?v=Qr3nYR15wxU)
+- [Anatomy of a Custom Mechanical Keyboard - Taeha Types](https://www.youtube.com/watch?v=1NpNygIrnaQ)
 - [Joma in MYC - I spent $5000 on custom mechanical keyboards](https://www.youtube.com/watch?v=C0f2pu0EVSg)
-- [Why Mechanical Keyboards? Taeha Types](https://www.youtube.com/watch?v=Qr3nYR15wxU)
 
-**I'm not trying to explain anything here, I just want to show off.**
+**I'm not trying to explain anything or review anything here, I just want to show off.**
 
 The keyboard has 3 parts, [the kit](https://kbdfans.com/products/kbd67lite), [the keycaps](https://drop.com/buy/drop-biip-mt3-extended-custom-keycap-set) and the [switches](https://kbdfans.com/products/ic-ttc-bluish-white-switch-10-pcs)
 
@@ -44,6 +45,8 @@ The actual set is more that can be put on this kit, I have 4 boxes because it's 
 
 For example, **the ABC123 are in one set, and the ⌘⎋⇧⇪⏎⌥⌃⌫ are in another set.** I also got one set for the smiley Mac Finders symbol, and one set to swap to default US standard "#3" to British standard "£3". 
 
+This particular one comes with a very curved in profile, which requires a bit of time to get used to. 
+
 ![Closed up top shot](/images/d67-lite-plus-mt3-2048/DSC00559.jpg)
 ![Closed up side shot](/images/d67-lite-plus-mt3-2048/DSC00564.jpg)
 ![Super close up](/images/d67-lite-plus-mt3-2048/DSC00568.jpg)
@@ -65,4 +68,4 @@ This is quite important as it affects how each press feels, my friend had a coll
 
 **Surround yourself with things you like.**
 
-It did not make me type faster, or type more accurately compare to the MacBook Keyboard I'm used to, but it makes each of my day easier to get up.
+It did not make me type faster, or type more accurately compare to the MacBook Keyboard I'm used to, but it makes each of my day easier to get by.

@@ -4,40 +4,28 @@ date: '2021-07-30'
 description: 'This project allows you to search through the translations xml files cames with the Android 8 OS, but you can use it with any Android source code.'
 ---
 
-[Demo](https://next.manglekuo.com/androidlangxmlsearch/index.html)
+# Intro
 
-This project allows you to search through the translations xml files came with the Android 8 OS, but you can use it with any Android source code.
+- [Demo](https://next.manglekuo.com/androidlangxmlsearch/index.html)
+- [GitHub page of the code](https://github.com/ghcpuman902/androidlangxmlsearch)
+
+**This project allows you to search through the translations xml files came with the Android 8**, but you can use it with any Android source code.
 
 They came in the form of XML files, and the file structure will look something like this:
 
-```
-|-android8-res-xml
-  |-external
-   |---svox
-   |-----PicoLangInstallerDeuDeu    <-- App Name
-   |-------res
-   |---------drawable
-   |---------layout
-   |---------raw
-   |---------values
-   |-----------strings.xml    <-- xml file comtaining the entry
-   |---------values-de
-   |---------values-es
-   |---------values-es-rUS
-   |---------values-fr
-   |---------values-it
-   |---------values-zh-rCN
-   |---------values-zh-rTW
-   ...
-```
+![Folder Tree for Android 8](/images/android-lang-xml-search/folderTree.png)
 
-The "value-" folder containing the XML file has the language code in its name, and inside the XML, it has entries with msgID and the string in that language.
+The "value-_lang_" folders containing the XML files, and inside each of them, there is a `strings.xml`, which has entries of UI texts with msgID and the string in the language defined in the folder name (see pic below).
 
-The ideal is to extract all entries of all languages into one JSON file and use a React interface to search through it.
+![Inside XML](/images/android-lang-xml-search/insideXML.png)
+
+Inside _android8-res-xml/packages/apps/TV/res/values-en-rGB/strings.xml_
+
+**The ideal is to extract all entries of all languages into one JSON file and use a React interface to search through it.**
 
 This project is helpful if you are working on an Android App and want to see what translation came with the system that you can use directly. Or to calibrate any of your new translations that are UI related, or if you enjoy flipping through a dictionary that's full of OS phrases.
 
-## Install and Run
+# Install and Run
 
 You don't have to run it locally yourself unless you want to play around with it. The [demo](https://manglekuo.com/androidlangxmlsearch/index.html) on my website will work perfectly fine for the uses described above.
 
@@ -50,7 +38,7 @@ npm run dev
 
 Then follow the output in the terminal.
 
-## Generating your own androidMsgs.json (Optional)
+# Generating your own androidMsgs.json (Optional)
 
 This project comes with an androidMsgs.json containing all msgs from a version of Android 8. If you want to extract a different JSON file from another version of Android, you can do so with the `generateJson.js`.
 
@@ -67,7 +55,7 @@ If no directory is specified, it will go through the directory it is in. It has 
 
 > Here is an example of a folder with the structure mentioned above, from the current Android open-sourced code: [https://cs.android.com/android/platform/superproject/+/master:frameworks/base/packages/](https://cs.android.com/android/platform/superproject/+/master:frameworks/base/packages/), if you want to try generate yourself, download this folder.
 
-Once a list of XML files is obtained, it goes through all entries within the XML files, checks if they are a valid entry, and adds them to a big JSON object and output it as `androidMsgs2.json` which you can rename and replace.
+Once a list of XML files is obtained, it goes through all entries within the XML files, checks if they are a valid entry, and adds them to a big JSON object and output it as `androidMsgs2.json` which you can rename and replace `androidMsgs.json` used for the React interface.
 
 `androidMsgs.json` has the following structure:
 
@@ -167,4 +155,11 @@ Once a list of XML files is obtained, it goes through all entries within the XML
     ...
 }
 ```
+
+The MsgID is now the key, inside is an object with each lang code as the key, and the string as the value.
+
+
+# Ending
+
+I hope you find this project useful.
 

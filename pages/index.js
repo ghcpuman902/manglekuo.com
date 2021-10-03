@@ -82,6 +82,7 @@ export default function Home({ allPostsData }) {
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
+        <meta name="Description" CONTENT={description} />
       </Head>
       <section className={utilStyles.headingMd}>
         <p>Hi, I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. I'm working on this site to get a job, please check again soon, hope it will impress you!</p>
@@ -90,7 +91,7 @@ export default function Home({ allPostsData }) {
       
           <a href="/tenfacts">Ten facts about me</a>
         
-        <h2 className={utilStyles.headingLg}>I write about:</h2>
+        <h1 className={utilStyles.headingLg}>I write about:</h1>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
@@ -104,7 +105,7 @@ export default function Home({ allPostsData }) {
           </li>
           ))}
         </ul>
-        <h2 className={utilStyles.headingLg}>(on medium.com ⬇️)</h2>
+        <h1 className={utilStyles.headingLg}>(on medium.com ⬇️)</h1>
         <ul className={utilStyles.list}>
           {
             mediumArticles.map((val) => (
@@ -121,6 +122,11 @@ export default function Home({ allPostsData }) {
         
         </ul>
       </section>
+      <footer>
+        <br />
+        <center><strong>Surround yourself with things you like.</strong></center>
+        <br />
+      </footer>
     </Layout>
   );
 }
