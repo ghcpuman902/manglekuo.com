@@ -1,74 +1,85 @@
 .container {
-    max-width: 36rem;
-    padding: 0 1rem;
-    margin: 0rem auto 6rem;
-  }
-  
-  .header {
-    display: flex;
-    flex-direction: row;
-    align-items: right;
-    justify-content: space-between;
-  }
-  
-  .backToHome {
-    margin: 3rem 0 0;
-  }
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 0rem auto 6rem;
+}
 
-  .social{
-    display: flex;
-    align-items: center;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    margin: 2em auto;
-  }
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  justify-content: space-between;
+}
 
-  .social svg{
-    width: 40px;
-    height: 40px;
-  }
-  
-  .GitHub{
-    fill:#181717;
-  }
-  
-  .Instagram{
-    fill:#E4405F;
-  }
-  
-  .Behance {
-    fill:#1769FF;
-  }
+.backToHome {
+  margin: 3rem 0 0;
+}
 
-  .Flickr{
-    fill:#0063DC;
-  }
-  
-  .LinkedIn{
-    fill:#0A66C2;
-  }
+.social{
+  display: flex;
+  align-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 2em auto;
+}
 
-  .social>a{
-    background-color: rgb(255, 255, 255);
-    width: 60px;
-    height: 60px;
-    padding: 10px;
-  }
+.social svg{
+  width: 40px;
+  height: 40px;
+}
 
-  .social>a:hover{
-    transform: scale(1.1);
-    transition: transform 200ms ease-out;
-  }
+.GitHub{
+  fill:#181717;
+}
 
-  .social>a:first-child{
-    padding-left: 30px;
-    width: 80px;
-    border-radius: 30px 0px 0px 30px;
-  }
-  .social>a:last-child{
-    padding-right: 30px;
-    width: 80px;
-    border-radius: 0px 30px 30px 0px;
-  }
+.Instagram{
+  fill:#E4405F;
+}
 
+.Behance {
+  fill:#1769FF;
+}
+
+.Flickr{
+  fill:#0063DC;
+}
+
+.LinkedIn{
+  fill:#0A66C2;
+}
+
+.social>a{
+  background-color: rgb(255, 255, 255);
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+}
+
+.social>a:hover{
+  transform: scale(1.1);
+  transition: transform 200ms ease-out;
+}
+
+.social>a:first-child{
+  padding-left: 30px;
+  width: 80px;
+  border-radius: 30px 0px 0px 30px;
+}
+.social>a:last-child{
+  padding-right: 30px;
+  width: 80px;
+  border-radius: 0px 30px 30px 0px;
+}
+
+
+.scrollToTop{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  font-size: 2em;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+}

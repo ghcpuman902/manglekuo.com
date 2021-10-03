@@ -6,7 +6,7 @@ description: 'This project allows you to search through the translations xml fil
 
 [Demo](https://next.manglekuo.com/androidlangxmlsearch/index.html)
 
-This project allows you to search through the translations xml files cames with the Android 8 OS, but you can use it with any Android source code.
+This project allows you to search through the translations xml files came with the Android 8 OS, but you can use it with any Android source code.
 
 They came in the form of XML files, and the file structure will look something like this:
 
