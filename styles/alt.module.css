@@ -51,6 +51,7 @@
     right: 0;
     bottom: 0;
     line-height: 1em;
+    font-weight: 400;
 }
 
 .topRight{
@@ -61,6 +62,7 @@
     writing-mode: vertical-rl;
     text-orientation: mixed;
     transform: rotate(180deg);
+    font-weight: 400;
 }
 
 .bottomLeft{
@@ -70,4 +72,5 @@
     line-height: 1em;
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    font-weight: 400;
 }
