@@ -23,7 +23,7 @@ function Animation() {
 
     return (
         <>
-            <video onClick={handleClick} className={altStyles.video} src="/images/Output5_1.mp4" width="820" height="880" autoPlay={true} muted={true}>
+            <video onClick={handleClick} className={altStyles.video} src="/images/Output5_1.mp4" width="820" height="880" autoPlay={true} muted={true} playsInline={true}>
             </video>
             {/* {showButtons && <a className={altStyles.replay}>Replay</a>} */}
         </>
