@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import altStyles from '../styles/alt.module.css'
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 
                     // DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
 const description = "I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. Looking for a new job.";
@@ -23,7 +23,7 @@ function Animation() {
 
     return (
         <>
-            <video onClick={handleClick} className={altStyles.video} src="/images/Output5_1.mp4" width="820" height="880" autoPlay={true} muted={true} playsInline={true}>
+            <video onClick={handleClick} className={altStyles.video} src="/images/Output6.mp4" width="820" height="880" autoPlay={true} muted={true} playsInline={true}>
             </video>
             {/* {showButtons && <a className={altStyles.replay}>Replay</a>} */}
         </>
@@ -31,6 +31,50 @@ function Animation() {
 }
 
 export default function alt() {
+
+    const findMeeTextList = [
+        "→ Find mee",
+        "→ Gind mek",
+        "→ Gond mck",
+        "← Go d ack",
+        "← Go dack",
+        "← Go back"
+    ];
+
+    let fMInx = useRef(0);
+    let [fMText, setFMText] = useState(findMeeTextList[fMInx.current]);
+
+    function changeFindMeText(inc){
+        let last = 0; // timestamp of the last render() call
+        function render(now) {
+            // console.log(now,fMInx+inc);
+            if(fMInx.current+inc < 0 || fMInx.current+inc > findMeeTextList.length-1){
+
+            }else{
+                // console.log("inside",(now - last));
+                if(!last || (now - last) >= 100) {
+                    console.log("inside inside",(now - last),fMInx.current+inc);
+                    last = now;
+                    fMInx.current = fMInx.current+inc;
+                    setFMText(findMeeTextList[fMInx.current]);
+                }
+                requestAnimationFrame(render);
+            }
+        }
+        requestAnimationFrame(render);
+    }
+
+    function handleFindMeeClick(){
+
+        if(fMInx.current == 0){
+            changeFindMeText(1);
+        }
+        if(fMInx.current == findMeeTextList.length-1){
+            changeFindMeText(-1);
+        }
+        
+    }
+
   return (
     <>
         <Head>
@@ -44,11 +88,12 @@ export default function alt() {
             </section>
             <section>
                 <div className={altStyles.topLeft}>Mangle Kuo</div>
-                <div className={altStyles.topRight}>Projects</div>
-                <div className={altStyles.bottomLeft}>List of blogs</div>
-                <div className={altStyles.bottomRight}>→ Ways to find me</div>
+                <div className={altStyles.topRight}>Things I did</div>
+                <div className={altStyles.bottomLeft}>Things I wrote</div>
+                <div className={altStyles.bottomRight} onClick={handleFindMeeClick}>{fMText}</div>
             </section>
         </div>
     </>
   );
 }
+
