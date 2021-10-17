@@ -1,5 +1,12 @@
+.root {
+    --main-bg: rgb(255, 255, 255);
+    --secondary-bg: rgb(255, 255, 255);
+    --main-txt: rgb(0, 0, 0);
+}
+
 .main{
-    background-color: #fff;
+    composes: root;
+    background-color: var(--main-bg);
     width: 100%;
     height: 100%;
     display: flex;
@@ -9,12 +16,14 @@
 
 }
 .whiteBG{
-    background-color: #fff;
+    composes: root;
+    background-color: var(--main-bg);
     width: 100vw;
     height: 100vh;
 }
 
 .video{
+    composes: root;
     width: calc(100vw - 100px)!important;
     height: calc(100vh - 320px)!important;
     margin: 140px 50px;
@@ -22,20 +31,24 @@
 }
 
 .replay{
-    color: #000;
+    composes: root;
+    color: var(--main-txt);
     text-align: center;
 }
 
 .fixedTexts{
+    composes: root;
     position: fixed;
     font-size: 2em;
     margin: 0.4em;
     padding: 0;
     box-sizing: border-box;
-    color: #000;
+    color: var(--main-txt);
     font-family: tuppence,serif;
     font-weight: 700;
     font-style: normal;
+
+    z-index: 100;
 
 }
 
@@ -52,6 +65,7 @@
     bottom: 0;
     line-height: 1em;
     font-weight: 400;
+    z-index: 150;
 }
 
 .topRight{
@@ -73,4 +87,104 @@
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-weight: 400;
+}
+
+
+.overlay{
+    composes: root;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--secondary-bg);
+    position: fixed;
+    z-index: 110;
+    top: 0;
+    overflow: hidden;
+    clip: rect(auto, auto, auto, auto);
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+}
+
+.closed{
+    composes: root;
+    left: 100vw;
+    transition: left cubic-bezier(0.4, 0.14, 1, 1) 1000ms;
+
+}
+
+.open{
+    composes: root;
+    left: 0;
+    transition: left cubic-bezier(0, 0, 0.3, 1) 600ms;
+
+}
+
+
+
+
+
+.findMeContentWrapper{
+    composes: root;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.findMeContent{
+    composes: root;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* margin-left: -200px; */
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%); 
+    color: var(--main-txt);
+    font-family: tuppence,serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+
+.findMeContent svg{
+  width: 50px;
+  height: 50px;
+  margin-right: 0.5em;
+}
+
+.findMeContent>a{
+    padding: 0px;
+    margin: 1em 0;
+    display: flex;
+    color: var(--main-txt);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: flex-end;
+}
+
+
+
+.Twitter{
+fill:#1DA1F2;
+}
+
+.GitHub{
+fill:#333;
+}
+
+.Instagram{
+fill:#E4405F;
+}
+
+.Behance {
+fill:#1769FF;
+}
+
+.Flickr{
+fill:#0063DC;
+}
+
+.LinkedIn{
+fill:#0A66C2;
 }
