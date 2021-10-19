@@ -27,7 +27,10 @@
     width: calc(100vw - 100px)!important;
     height: calc(100vh - 320px)!important;
     margin: 140px 50px;
-
+    background-image: url('data:image/svg+xml;utf8,<svg id="aeb0a3f9-d114-4a3c-b3e8-a9bfd83748e3" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="820" height="880" viewBox="0 0 820 880"><rect x="112.362" y="19.055" width="595.276" height="841.89" transform="translate(26.073 -22.926) rotate(3.308)"/></svg>');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .replay{
@@ -100,6 +103,7 @@
     top: 0;
     overflow: hidden;
     clip: rect(auto, auto, auto, auto);
+    -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%);
     background: linear-gradient(145deg, #e6e6e6, #ffffff);
 }
 
@@ -147,22 +151,28 @@
 }
 
 .findMeContent svg{
-  width: 50px;
-  height: 50px;
-  margin-right: 0.5em;
+  width: 40px;
+  height: 40px;
+  margin-right: 40px;
 }
 
 .findMeContent>a{
     padding: 0px;
-    margin: 1em 0;
+    margin: 2em 0;
     display: flex;
     color: var(--main-txt);
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
     align-items: flex-end;
+    text-decoration: none;
+    font-size: 0.4em;
 }
 
+
+.findMeContent>a:first-child{
+    margin-top: 0;
+}
 
 
 .Twitter{
