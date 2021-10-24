@@ -6,7 +6,7 @@ import {useEffect, useState, useRef} from 'react'
                     // DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
 const description = "I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. Looking for a new job.";
 
-function Animation() {
+function AnimationVideoPlayer() {
 
     function handleClick(e){
         console.log(e);
@@ -27,12 +27,20 @@ function FindMe() {
 
 
     const findMeeTextList = [
-        "→ Find mee",
-        "→ Gind mek",
-        "→ Gond mck",
-        "← Go d ack",
-        "← Go dack",
-        "← Go back"
+        "⇱ Find mee",
+        "⇲ Go babe",
+        "⇲ Go bass",
+        "⇲ Go base",
+        "⇲ Go bake",
+        "⇲ Go back"
+    ];
+    const findMeeTextListRev = [
+        "⇱ Find mee",
+        "⇱ Funk mee",
+        "⇱ Find sea",
+        "⇱ Fcuk mee",
+        "⇱ Find wee",
+        "⇲ Go back"
     ];
 
     let fMInx = useRef(0);
@@ -51,7 +59,7 @@ function FindMe() {
                     console.log("inside inside",(now - last),fMInx.current+inc);
                     last = now;
                     fMInx.current = fMInx.current+inc;
-                    setFMText(findMeeTextList[fMInx.current]);
+                    setFMText(inc>0?findMeeTextList[fMInx.current]:findMeeTextListRev[fMInx.current]);
                 }
                 requestAnimationFrame(render);
             }
@@ -78,7 +86,7 @@ function FindMe() {
             <div className={`${altStyles.overlay} ${showOverlay?altStyles.open:altStyles.closed}`}>
                 <div className={altStyles.findMeContentWrapper}>
                     <div className={altStyles.findMeContent}>
-                        <a target="_blank" rel="noopener" href="https://github.com/ghcpuman902">
+                        {/* <a target="_blank" rel="noopener" href="https://github.com/ghcpuman902">
                             <svg className={altStyles.Twitter} role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M21.543,7.10409c.01463.21158.01463.42316.01463.63668a13.915,13.915,0,0,1-14.01,14.01v-.0039A13.93944,13.93944,0,0,1,0,19.53943a10.01717,10.01717,0,0,0,1.172.07118,9.88733,9.88733,0,0,0,6.11529-2.11188,4.93012,4.93012,0,0,1-4.60012-3.41938,4.908,4.908,0,0,0,2.223-.08483A4.92434,4.92434,0,0,1,.96039,9.1682V9.10579A4.89257,4.89257,0,0,0,3.19512,9.722,4.93007,4.93007,0,0,1,1.67118,3.14748a13.97523,13.97523,0,0,0,10.148,5.14418,4.92855,4.92855,0,0,1,8.391-4.49092A9.88049,9.88049,0,0,0,23.337,2.60537a4.94232,4.94232,0,0,1-2.16453,2.72322A9.79284,9.79284,0,0,0,24,4.55345,10.00318,10.00318,0,0,1,21.543,7.10409Z"/></svg>
                             Twitter @MangleKuo
                         </a>
@@ -105,12 +113,29 @@ function FindMe() {
                         <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/mangle-k-84198691/">
                             <svg className={altStyles.LinkedIn} role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                             LinkedIn Mangle Kuo
-                        </a>
+                        </a> */}
+                        <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
+                        <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
+                        <SocialLink link="https://www.instagram.com/ghcpuman902/" type="Instagram" tag="@ghcpuman902" />
+                        <SocialLink link="https://www.instagram.com/manglekuo/" type="Instagram" tag="@manglekuo" />
+                        <SocialLink link="https://www.behance.net/gallery/65814819/Collection-of-works" type="Behance" tag="mangle-kuo" />
+                        <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
+                        <SocialLink link="https://www.linkedin.com/in/mangle-k-84198691/" type="LinkedIn" tag="Mangle Kuo" />
+                        <SocialLink link="mailto:manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
+
                     </div>
                 </div>
             </div>
         </>
     );
+}
+
+function SocialLink(props) {
+    return (<a target="_blank" rel="noopener" href={props.link}>
+        <span className={altStyles.type}>{props.type}</span>
+        <span className={altStyles.dot}></span>
+        <span className={altStyles.tag}>{props.tag}</span>
+    </a>);
 }
 
 export default function Alt() {
@@ -122,9 +147,9 @@ export default function Alt() {
             <meta name="Description" CONTENT={description} />
             <link rel="stylesheet" href="https://use.typekit.net/yor5kzq.css"></link>
         </Head>
-        <div className={altStyles.whiteBG}>
-            <section className={altStyles.main}>
-                <Animation />
+        <main className={altStyles.main}>
+            <section className={altStyles.videoSection}>
+                <AnimationVideoPlayer />
             </section>
             <section>
                 <div className={altStyles.topLeft}>Mangle Kuo</div>
@@ -132,7 +157,7 @@ export default function Alt() {
                 <div className={altStyles.bottomLeft}>Things I wrote</div>
                 <FindMe />
             </section>
-        </div>
+        </main>
     </>
   );
 }
