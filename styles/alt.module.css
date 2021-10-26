@@ -23,102 +23,107 @@
 
     }
 
-
-
-
-
-    .video{
-        composes: root;
-        width: calc(100vw - 100px)!important;
-        height: calc(100vh - 320px)!important;
-        margin: 140px 50px;
-        background-image: url('data:image/svg+xml;utf8,<svg id="aeb0a3f9-d114-4a3c-b3e8-a9bfd83748e3" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="820" height="880" viewBox="0 0 820 880"><rect x="112.362" y="19.055" width="595.276" height="841.89" transform="translate(26.073 -22.926) rotate(3.308)"/></svg>');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-
-    .replay{
-        composes: root;
-        color: var(--main-txt);
-        text-align: center;
-    }
+        .video{
+            composes: root;
+            width: calc(100vw - 100px)!important;
+            height: calc(100vh - 320px)!important;
+            margin: 140px 50px;
+            background-image: url('data:image/svg+xml;utf8,<svg id="aeb0a3f9-d114-4a3c-b3e8-a9bfd83748e3" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="820" height="880" viewBox="0 0 820 880"><rect x="112.362" y="19.055" width="595.276" height="841.89" transform="translate(26.073 -22.926) rotate(3.308)"/></svg>');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
 
     .fixedTexts{
         composes: root;
         position: fixed;
-        font-size: 2em;
+        font-size: 1.5em;
         margin: 0.4em;
         padding: 0;
         box-sizing: border-box;
         color: var(--main-txt);
         font-family: tuppence,serif;
-        font-weight: 700;
+        font-weight: 400;
+        line-height: 1em;
         font-style: normal;
-        font-variant-ligatures: ;
-        font-variant-ligatures: common-ligatures,contextual,discretionary-ligatures,diagonal-fractions,lining-nums;
-        -moz-font-feature-settings: "liga", "clig","calt","dlig","frac","lnum";
-        -webkit-font-feature-settings: "liga", "clig","calt","dlig","frac","lnum";
-        font-feature-settings: "liga", "clig","calt","dlig","frac","lnum";
+        font-variant-ligatures: common-ligatures,contextual,discretionary-ligatures,diagonal-fractions;
+        -moz-font-feature-settings: "liga", "clig","calt","dlig","frac";
+        -webkit-font-feature-settings: "liga", "clig","calt","dlig","frac";
+        font-feature-settings: "liga", "clig","calt","dlig","frac";
 
-
-    
-    /* font-variant-numeric: ordinal;
-    -moz-font-feature-settings: "ordn";
-    -webkit-font-feature-settings: "ordn";
-    font-feature-settings: "ordn"; */
-
-        z-index: 100;
-
+        /* font-variant-numeric: ordinal;,lining-nums
+        -moz-font-feature-settings: "ordn";,"lnum"
+        -webkit-font-feature-settings: "ordn";,"lnum"
+        font-feature-settings: "ordn";,"lnum" */
     }
 
-    .topLeft{
+    .MangleKuo{
         composes: fixedTexts;
         left: 0;
         top: 0;
         line-height: 0.5em;
+        font-weight: 700;
     }
 
-    .bottomRight{
-        composes: fixedTexts;
-        right: 0;
-        bottom: 0;
-        line-height: 1em;
-        font-weight: 400;
-        z-index: 150;
-    }
-
-    .topRight{
+    .ThingsIdid{
         composes: fixedTexts;
         right: 0;
         top: 0;
-        line-height: 1em;
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(180deg);
-        font-weight: 400;
     }
 
-    .bottomLeft{
+    .ThingsIwrote{
         composes: fixedTexts;
         left: 0;
         bottom: 0;
-        line-height: 1em;
         writing-mode: vertical-rl;
         text-orientation: mixed;
-        font-weight: 400;
+    }
+
+    .Findmee{
+        composes: fixedTexts;
+        right: 0;
+        bottom: 0;
+    }
+
+    .z-0{
+        z-index: 0;
+    }
+    .z-1{
+        z-index: 100;
+    }
+
+    .z-2{
+        z-index: 200;
+    }
+    .z-3{
+        z-index: 300;
+    }
+
+    .z-4{
+        z-index: 400;
+    }
+    .z-5{
+        z-index: 500;
+    }
+
+    .z-6{
+        z-index: 600;
+    }
+    .z-7{
+        z-index: 700;
     }
 
 
-    .overlay{
+    .FindmeeCover{
         composes: root;
         width: 100vw;
         height: 100vh;
         background-color: var(--secondary-bg);
         position: fixed;
-        z-index: 110;
-        /* top: 0;
-        left: 0; */
+
         overflow: hidden;
         clip: rect(auto, auto, auto, auto);
         /* -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%);
@@ -130,16 +135,14 @@
         border-radius: 400px 0px 0px 0px;
     }
 
-    .closed{
-        composes: root;
+    .FindmeeCover.closed{
         left: 100vw;
         top: 100vh;
         transition: left cubic-bezier(0.4, 0.14, 1, 1) 1000ms, top cubic-bezier(0.4, 0.14, 1, 1) 1000ms;
 
     }
 
-    .open{
-        composes: root;
+    .FindmeeCover.open{
         left: 0;
         top: 0;
         transition: left cubic-bezier(0, 0, 0.3, 1) 600ms, top cubic-bezier(0, 0, 0.3, 1) 600ms;
@@ -266,12 +269,12 @@
 
     .type {
         order: 1;
-        background-color: #fff;
+        background-color: #ddd;
     }
     
     .tag {
         order: 3;
-        background-color: #fff;
+        background-color: #ddd;
     }
     .dot {
         composes: root;
@@ -284,51 +287,29 @@
 
 
 
-    .Twitter{
-    fill:#1DA1F2;
-    }
 
-    .GitHub{
-    fill:#333;
-    }
-
-    .Instagram{
-    fill:#E4405F;
-    }
-
-    .Behance {
-    fill:#1769FF;
-    }
-
-    .Flickr{
-    fill:#0063DC;
-    }
-
-    .LinkedIn{
-    fill:#0A66C2;
-    }
 
 
 @media (min-width: 1500px) {
     .main{
-        font-size: 1.5em;
+        font-size: 24px;
     }
 }
 
 @media (min-width: 2300px) {
     .main{
-        font-size: 2.0em;
+        font-size: 32px;
     }
 }
 
 @media (min-width: 3900px) {
     .main{
-        font-size: 3.0em;
+        font-size: 48px;
     }
 }
 
 @media (min-width: 7600px) {
     .main{
-        font-size: 4.0em;
+        font-size: 64px;
     }
 }
