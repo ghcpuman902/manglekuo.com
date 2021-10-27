@@ -22,88 +22,12 @@ function AnimationVideoPlayer() {
     );
 }
 
-function FindMe() {
-
-    const findMeeTextList = [
-        "⇱ Find mee",
-        "⇲ Go babe",
-        "⇲ Go bass",
-        "⇲ Go base",
-        "⇲ Go bake",
-        "⇲ Go back"
-    ];
-    const findMeeTextListRev = [
-        "⇱ Find mee",
-        "⇱ Funk mee",
-        "⇱ Find sea",
-        "⇱ Fcuk mee",
-        "⇱ Find wee",
-        "⇲ Go back"
-    ];
-
-    let fMInx = useRef(0);
-    let [fMText, setFMText] = useState(findMeeTextList[fMInx.current]);
-    let [showOverlay, setShowOverlay] = useState(false);
-
-    function changeFindMeText(inc){
-        let last = 0; // timestamp of the last render() call
-        function render(now) {
-            // console.log(now,fMInx+inc);
-            if(fMInx.current+inc < 0 || fMInx.current+inc > findMeeTextList.length-1){
-
-            }else{
-                // console.log("inside",(now - last));
-                if(!last || (now - last) >= (inc>0?120:200)) {
-                    console.log("inside inside",(now - last),fMInx.current+inc);
-                    last = now;
-                    fMInx.current = fMInx.current+inc;
-                    setFMText(inc>0?findMeeTextList[fMInx.current]:findMeeTextListRev[fMInx.current]);
-                }
-                requestAnimationFrame(render);
-            }
-        }
-        requestAnimationFrame(render);
-    }
-
-    function handleFindMeeClick(){
-
-        if(fMInx.current == 0){
-            changeFindMeText(1);
-            setShowOverlay(true);
-        }
-        if(fMInx.current == findMeeTextList.length-1){
-            changeFindMeText(-1);
-            setShowOverlay(false);
-        }
-        
-    }
-
-    return (
-        <>
-            <div className={altStyles.bottomRight} onClick={handleFindMeeClick}>{fMText}</div>
-            <div className={`${altStyles.overlay} ${showOverlay?altStyles.open:altStyles.closed}`}>
-                <div className={altStyles.findMeContentWrapper}>
-                    <div className={altStyles.findMeContent}>
-                        <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
-                        <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
-                        <SocialLink link="https://www.instagram.com/ghcpuman902/" type="Instagram" tag="@ghcpuman902" />
-                        <SocialLink link="https://www.instagram.com/manglekuo/" type="Instagram" tag="@manglekuo" />
-                        <SocialLink link="https://www.behance.net/gallery/65814819/Collection-of-works" type="Behance" tag="mangle-kuo" />
-                        <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
-                        <SocialLink link="https://www.linkedin.com/in/mangle-k-84198691/" type="LinkedIn" tag="Mangle Kuo" />
-                        <SocialLink link="mailto:manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
-                    </div>
-                </div>
-            </div>
-        </>
-    );
-}
 
 function SocialLink(props) {
     return (<a target="_blank" rel="noopener" href={props.link}>
         <span className={altStyles.type}>{props.type}</span>
-        <span className={altStyles.dot}></span>
-        <span className={altStyles.tag}>{props.tag}</span>
+        {/* <span className={altStyles.dot}></span>
+        <span className={altStyles.tag}>{props.tag}</span> */}
     </a>);
 }
 
@@ -269,7 +193,7 @@ export default function Alt() {
     <>
         <Head>
             <title>Mangle Kuo</title>
-            <meta name="Description" CONTENT={description} />
+            <meta name="Description" content={description} />
             <link rel="stylesheet" href="https://use.typekit.net/yor5kzq.css"></link>
         </Head>
         <main className={altStyles.main}>

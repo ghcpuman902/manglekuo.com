@@ -26,8 +26,8 @@
         .video{
             composes: root;
             width: calc(100vw - 100px)!important;
-            height: calc(100vh - 320px)!important;
-            margin: 140px 50px;
+            height: calc(100vh - 200px)!important;
+            margin: 100px 50px;
             background-image: url('data:image/svg+xml;utf8,<svg id="aeb0a3f9-d114-4a3c-b3e8-a9bfd83748e3" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="820" height="880" viewBox="0 0 820 880"><rect x="112.362" y="19.055" width="595.276" height="841.89" transform="translate(26.073 -22.926) rotate(3.308)"/></svg>');
             background-position: center;
             background-repeat: no-repeat;
@@ -37,7 +37,7 @@
     .fixedTexts{
         composes: root;
         position: fixed;
-        font-size: 1.5em;
+        font-size: 1.4em;
         margin: 0.4em;
         padding: 0;
         box-sizing: border-box;
@@ -46,76 +46,47 @@
         font-weight: 400;
         line-height: 1em;
         font-style: normal;
-        font-variant-ligatures: common-ligatures,contextual,discretionary-ligatures,diagonal-fractions;
-        -moz-font-feature-settings: "liga", "clig","calt","dlig","frac";
-        -webkit-font-feature-settings: "liga", "clig","calt","dlig","frac";
-        font-feature-settings: "liga", "clig","calt","dlig","frac";
+        font-variant-ligatures: common-ligatures,contextual,discretionary-ligatures,diagonal-fractions,lining-nums;
+        -moz-font-feature-settings: "liga", "clig","calt","dlig","frac","lnum";
+        -webkit-font-feature-settings: "liga", "clig","calt","dlig","frac","lnum";
+        font-feature-settings: "liga", "clig","calt","dlig","frac","lnum";
 
-        /* font-variant-numeric: ordinal;,lining-nums
-        -moz-font-feature-settings: "ordn";,"lnum"
-        -webkit-font-feature-settings: "ordn";,"lnum"
-        font-feature-settings: "ordn";,"lnum" */
-    }
-
-    .MangleKuo{
-        composes: fixedTexts;
-        left: 0;
-        top: 0;
-        line-height: 0.5em;
-        font-weight: 700;
+        /* font-variant-numeric: ordinal;
+        -moz-font-feature-settings: "ordn";
+        -webkit-font-feature-settings: "ordn";
+        font-feature-settings: "ordn"; */
     }
 
-    .ThingsIdid{
-        composes: fixedTexts;
-        right: 0;
-        top: 0;
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        transform: rotate(180deg);
-    }
+        .MangleKuo{
+            composes: fixedTexts;
+            left: 0;
+            top: 0;
+            line-height: 0.5em;
+            font-weight: 700;
+        }
 
-    .ThingsIwrote{
-        composes: fixedTexts;
-        left: 0;
-        bottom: 0;
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-    }
+        .ThingsIdid{
+            composes: fixedTexts;
+            right: 0;
+            top: 0;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
 
-    .Findmee{
-        composes: fixedTexts;
-        right: 0;
-        bottom: 0;
-    }
+        .ThingsIwrote{
+            composes: fixedTexts;
+            left: 0;
+            bottom: 0;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
 
-    .z-0{
-        z-index: 0;
-    }
-    .z-1{
-        z-index: 100;
-    }
-
-    .z-2{
-        z-index: 200;
-    }
-    .z-3{
-        z-index: 300;
-    }
-
-    .z-4{
-        z-index: 400;
-    }
-    .z-5{
-        z-index: 500;
-    }
-
-    .z-6{
-        z-index: 600;
-    }
-    .z-7{
-        z-index: 700;
-    }
-
+        .Findmee{
+            composes: fixedTexts;
+            right: 0;
+            bottom: 0;
+        }
 
     .FindmeeCover{
         composes: root;
@@ -126,13 +97,21 @@
 
         overflow: hidden;
         clip: rect(auto, auto, auto, auto);
-        /* -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%);
-        background: linear-gradient(145deg, #e6e6e6, #ffffff); */
-        background: url(/images/SocialBGV2@0.5x.jpg) no-repeat;
+        /* background: url(/images/SocialBGV2@0.5x.jpg) no-repeat; */
+        background: url(/images/SocialCloseUp_P3_2000.jpg) no-repeat;
         background-attachment: fixed;
         background-position: center center;
         background-size: cover; 
         border-radius: 400px 0px 0px 0px;
+    }
+
+    @media (min-width: 1500px) {
+        .FindmeeCover{
+            background: url(/images/SocialCloseUp_P3_4000.jpg) no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            background-size: cover; 
+        }
     }
 
     .FindmeeCover.closed{
@@ -153,140 +132,132 @@
 
 
 
-    .findMeContentWrapper{
-        composes: root;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    /* .findMeContent{
-        composes: root;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        /* margin-left: -200px; */
-        /* bring your own prefixes */
-        /* transform: translate(-50%, -50%); 
-        color: var(--main-txt);
-        font-family: tuppence,serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 2em;
-    } */
-
-    /* .findMeContent svg{
-    width: 40px;
-    height: 40px;
-    margin-right: 40px;
-    }
-
-    .findMeContent>a{
-        padding: 0px;
-        margin: 0.6em 0;
-        display: flex;
-        color: var(--main-txt);
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-items: flex-end;
-        text-decoration: none;
-        font-size: 1em;
-    }
-
-
-    .findMeContent>a:first-child{
-        margin-top: 0;
-    }  */
-
-
-
-    .findMeContent {
-        composes: root;
-        /* max-width: 40em; */
-        /* min-width: 16em; */
-        /* width: 40em; */
-        padding: 0;
-        overflow-x: hidden;
-        list-style: none;
-
-        /* color: var(--main-txt);
-        font-family: tuppence,serif;
-        font-weight: 400;
-        font-style: normal; */
-        /* font-size: 2em; */
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        
-    }
-
-    .findMeContent a{
-        padding: 0px;
-        margin: 1.5em 0;
-        display: flex;
-        color: var(--main-txt);
-        text-shadow: 
-        #fff 0px 0px 2px,
-        #fff 0px 0px 100px;
-        font-family: tuppence,serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 1em;
-        text-decoration: none;
-        flex: 0 1 800px; /*  No stretching: */
-        margin: 0.5em 2em 0.5em 4em;
-    }
-
-    @media (min-width: 1500px) {
-        .findMeContent a{
-            flex: 0 1 1200px; /*  No stretching: */
+        .findMeContentWrapper{
+            composes: root;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
+
+
+            .findMeContent {
+                composes: root;
+                padding: 0;
+                overflow-x: hidden;
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                
+            }
+
+                .findMeContent a{
+                    padding: 0px;
+                    margin: 1.5em 0;
+                    /* display: flex; */
+                    /* color: var(--main-txt);
+                    text-shadow: 
+                    #fff 0px 0px 2px,
+                    #fff 0px 0px 100px; */
+                    color: rgb(255, 255, 255);
+                    color: color(display-p3 1 1 1);
+                    /* text-shadow: 
+                    #fff 0px 0px 2px,
+                    #fff 0px 0px 6px,
+                    #fff 0px 0px 15px; */
+                    font-family: tuppence,serif;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-size: 1.2em;
+                    text-decoration: none;
+                    flex: 0 1 800px; /*  No stretching: */
+                    margin: 0.5em 2em 0.1em 4em;
+                    text-align: right;
+                }
+
+                .findMeContent a:hover{
+                    text-shadow: 
+                    #fff 0px 0px 2px,
+                    #fff 0px 0px 6px,
+                    #fff 0px 0px 15px,
+                    #fff 0px 0px 2px,
+                    #fff 0px 0px 4px,
+                    #fff 0px 0px 10px;
+
+                }
+
+                @media (min-width: 1500px) {
+                    .findMeContent a{
+                        flex: 0 1 1200px; /*  No stretching: */
+                    }
+                }
+
+                @media (min-width: 2300px) {
+                    .findMeContent a{
+                        flex: 0 1 2000px; /*  No stretching: */
+                    }
+                }
+
+                @media (min-width: 3900px) {
+                    .findMeContent a{
+                        flex: 0 1 3800px; /*  No stretching: */
+                    }
+                }
+
+                @media (min-width: 7600px) {
+                    .findMeContent a{
+                        flex: 0 1 7000px; /*  No stretching: */
+                    }
+                }
+
+
+                    .type {
+                        order: 1;
+                        /* background-color: #ddd; */
+                    }
+                    
+                    .tag {
+                        order: 3;
+                        /* background-color: #ddd; */
+                    }
+                    .dot {
+                        composes: root;
+                        /* flex-grow: 1;
+                        order: 2; */
+                        height: 1em;
+                        /* border-bottom: double 4px var(--main-txt); */
+                        margin: 0 0.5em;
+                    }
+
+
+    .z-0{
+        z-index: 0;
     }
-
-    @media (min-width: 2300px) {
-        .findMeContent a{
-            flex: 0 1 2000px; /*  No stretching: */
-        }
+    .z-1{
+        z-index: 100;
     }
-
-    @media (min-width: 3900px) {
-        .findMeContent a{
-            flex: 0 1 3800px; /*  No stretching: */
-        }
+    .z-2{
+        z-index: 200;
     }
-
-    @media (min-width: 7600px) {
-        .findMeContent a{
-            flex: 0 1 7000px; /*  No stretching: */
-        }
+    .z-3{
+        z-index: 300;
     }
-
-
-    .type {
-        order: 1;
-        background-color: #ddd;
+    .z-4{
+        z-index: 400;
     }
-    
-    .tag {
-        order: 3;
-        background-color: #ddd;
+    .z-5{
+        z-index: 500;
     }
-    .dot {
-        composes: root;
-        flex-grow: 1;
-        order: 2;
-        height: 1em;
-        border-bottom: double 4px var(--main-txt);
-        margin: 0 0.5em;
+    .z-6{
+        z-index: 600;
     }
-
-
-
+    .z-7{
+        z-index: 700;
+    }
 
 
 
