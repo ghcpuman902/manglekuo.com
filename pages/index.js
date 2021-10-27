@@ -89,8 +89,8 @@ export default function Home({ allPostsData }) {
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
       
-          <a href="/tenfacts">Ten facts about me</a>
-          <a href="/alt">New landing page</a>
+          <a href="/tenfacts">Ten facts about me</a><br />
+          <a href="/alt">New front page (work in progress)</a>
         
         <h1 className={utilStyles.headingLg}>I write about:</h1>
         <ul className={utilStyles.list}>

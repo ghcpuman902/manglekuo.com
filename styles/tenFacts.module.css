@@ -43,6 +43,11 @@ border-radius: 0px;
     background-color: #fff;
     /* display: flex; */
     margin: 20px;
+    color: #000;
+}
+
+.card a{
+    color: #000;
 }
 
 .card>p{
