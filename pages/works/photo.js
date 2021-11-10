@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import photoStyle from '../styles/photo.module.css'
+import photoStyle from '/styles/photo.module.css'
 
 
 
