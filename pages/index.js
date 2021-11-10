@@ -82,7 +82,7 @@ export default function Home({ allPostsData }) {
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
-        <meta name="Description" CONTENT={description} />
+        <meta name="Description" content={description} />
       </Head>
       <section className={utilStyles.headingMd}>
         <p>Hi, I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. I'm working on this site to get a job, please check again soon, hope it will impress you!</p>

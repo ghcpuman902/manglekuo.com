@@ -24,10 +24,14 @@ function AnimationVideoPlayer() {
 
 
 function SocialLink(props) {
+    let typeChars = props.type.split("").map(
+        (char) => 
+                <span key={char}>
+                    {char}
+                </span>
+    );
     return (<a target="_blank" rel="noopener" href={props.link}>
-        <span className={altStyles.type}>{props.type}</span>
-        {/* <span className={altStyles.dot}></span>
-        <span className={altStyles.tag}>{props.tag}</span> */}
+        <span className={altStyles.type}>{typeChars}</span>
     </a>);
 }
 

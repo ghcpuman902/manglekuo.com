@@ -1,0 +1,12 @@
+.digit{
+    font-size: 24px;
+    font-family: monospace;
+    margin: 0.2em;
+    border-bottom: 3px solid #222;
+}
+
+.input{
+    font-size: 24px;
+    font-family: monospace;
+    letter-spacing: 0.2em;
+}

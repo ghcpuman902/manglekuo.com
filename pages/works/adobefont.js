@@ -1,5 +1,5 @@
-import Layout from '../components/layout'
-import adobeLoader from "../lib/adobeLoader";
+import Layout from '../../components/layout'
+import adobeLoader from "../../lib/adobeLoader";
 import fontStyles from '../styles/adobeFont.module.css'
 import Head from 'next/head'
 import { useEffect } from 'react'
