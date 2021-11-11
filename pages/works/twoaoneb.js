@@ -342,7 +342,7 @@ function TwoAOneBHacker(){
                     
         });
         //generate frequency count
-        let frequency = Array(4).fill(Array(10).fill(1));
+        let frequency = Array(4).fill(Array(10).fill(0));
         emptyArray.map( (number,index) => {
             frequency[0][number.answer[0]]+=1;
             frequency[1][number.answer[1]]+=1;
@@ -356,11 +356,11 @@ function TwoAOneBHacker(){
             const std = Math.max(...frequency[n1])-avg;
             console.log(std);
             digitBias[n1] = std;
-            for (let n2 = 0; n2 < 10; n2++) {
-                if(state.numHistory.flat().join("").indexOf(n2) < 0){
-                    frequency[n1][n2] += 2;
-                }
-            }
+            // for (let n2 = 0; n2 < 10; n2++) {
+            //     if(state.numHistory.flat().join("").indexOf(n2) < 0){
+            //         frequency[n1][n2] += 2;
+            //     }
+            // }
         }
         // digitBias = digitBias.map(v => {v/Math.min(digitBias)});
         console.log(digitBias);
@@ -379,7 +379,7 @@ function TwoAOneBHacker(){
         emptyArray.sort((a,b) => (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : (Math.floor(Math.random()*3)-1)));
         // console.log(emptyArray);
 
-        handleFillDigit(emptyArray?emptyArray[emptyArray.length-1].answer:[1,2,3,4]);
+        handleFillDigit(emptyArray[emptyArray.length-1].answer?emptyArray[emptyArray.length-1].answer:[1,2,3,4]);
 
         dispatch({type: "updateListOfAllNumbers",payload:{listOfAllNumbers:emptyArray,probabilities:frequency}});
 
