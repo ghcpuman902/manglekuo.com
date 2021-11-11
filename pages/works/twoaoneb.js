@@ -379,7 +379,7 @@ function TwoAOneBHacker(){
         emptyArray.sort((a,b) => (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : (Math.floor(Math.random()*3)-1)));
         // console.log(emptyArray);
 
-        handleFillDigit(emptyArray[0]?emptyArray[0].answer:[1,2,3,4]);
+        handleFillDigit(emptyArray?emptyArray[emptyArray.length-1].answer:[1,2,3,4]);
 
         dispatch({type: "updateListOfAllNumbers",payload:{listOfAllNumbers:emptyArray,probabilities:frequency}});
 
