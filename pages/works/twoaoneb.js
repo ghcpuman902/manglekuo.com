@@ -297,6 +297,10 @@ function TwoAOneBHacker(){
 
     const handleConfirm = (e) => {
         e.preventDefault();
+
+        if(state.listOfAllNumbers.length <= 1){
+            return;
+        }
         if(findRepeatFirstN2(state.inputNumVals.join("")) == -1){
             dispatch({type:"pushToHistory"});
         }else{
@@ -321,6 +325,9 @@ function TwoAOneBHacker(){
     }
 
     useEffect(() => {
+        if(state.listOfAllNumbers.length <= 1){
+            return;
+        }
         let emptyArray = [];
 
         //Use previous result
@@ -374,12 +381,12 @@ function TwoAOneBHacker(){
         });
 
 
-
-
         emptyArray.sort((a,b) => (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : (Math.floor(Math.random()*3)-1)));
         // console.log(emptyArray);
 
-        handleFillDigit(emptyArray[emptyArray.length-1].answer?emptyArray[emptyArray.length-1].answer:[1,2,3,4]);
+        if(emptyArray.length > 0){
+            handleFillDigit(emptyArray[emptyArray.length-1].answer?emptyArray[emptyArray.length-1].answer:[1,2,3,4]);
+        }
 
         dispatch({type: "updateListOfAllNumbers",payload:{listOfAllNumbers:emptyArray,probabilities:frequency}});
 
