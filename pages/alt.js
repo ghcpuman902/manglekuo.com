@@ -223,7 +223,7 @@ export default function Alt() {
                             <SocialLink link="https://www.instagram.com/manglekuo/" type="Instagram" tag="@manglekuo" />
                             <SocialLink link="https://www.behance.net/gallery/65814819/Collection-of-works" type="Behance" tag="mangle-kuo" />
                             <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
-                            <SocialLink link="https://www.linkedin.com/in/mangle-k-84198691/" type="LinkedIn" tag="Mangle Kuo" />
+                            <SocialLink link="https://www.linkedin.com/in/manglekuo" type="LinkedIn" tag="Mangle Kuo" />
                             <SocialLink link="mailto:manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
                         </div>
                     </div>
