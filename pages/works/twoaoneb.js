@@ -157,6 +157,7 @@ function TwoAOneBGame() {
 
 function Table({data,max}) {
     let returnJsx = [];
+    console.log("preTable",data);
     for (let idx = 0; idx < data.length; idx++) {
         const val = data[idx];
         for (let i = 0; i < val.length; i++) {
@@ -349,13 +350,20 @@ function TwoAOneBHacker(){
                     
         });
         //generate frequency count
-        let frequency = Array(4).fill(Array(10).fill(0));
+        // let frequency = Array(4).fill(Array(10).fill(0));
+        let frequency = [
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0],
+        ];
         emptyArray.map( (number,index) => {
             frequency[0][number.answer[0]]+=1;
             frequency[1][number.answer[1]]+=1;
             frequency[2][number.answer[2]]+=1;
             frequency[3][number.answer[3]]+=1;
         });
+        console.log("frequency",frequency);
         let digitBias = [1,1,1,1];
         for (let n1 = 0; n1 < 4; n1++) {
             const sum = frequency[n1].reduce( (a, b) => {return a + b}, 0);
@@ -363,13 +371,13 @@ function TwoAOneBHacker(){
             const std = Math.max(...frequency[n1])-avg;
             console.log(std);
             digitBias[n1] = std;
-            // for (let n2 = 0; n2 < 10; n2++) {
-            //     if(state.numHistory.flat().join("").indexOf(n2) < 0){
-            //         frequency[n1][n2] += 2;
-            //     }
-            // }
+            for (let n2 = 0; n2 < 10; n2++) {
+                if(state.numHistory.flat().join("").indexOf(n2) < 0){
+                    frequency[n1][n2] += 2;
+                }
+            }
         }
-        // digitBias = digitBias.map(v => {v/Math.min(digitBias)});
+        digitBias = digitBias.map(v => {v/Math.min(digitBias)});
         console.log(digitBias);
         emptyArray = emptyArray.map( (number,index) => {
             let score = frequency[0][number.answer[0]]*digitBias[0] +
