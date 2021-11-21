@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import altStyles from '../styles/alt.module.css'
 import {useEffect, useState, useRef, useReducer} from 'react'
+import copy from 'copy-to-clipboard';
 
                     // DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
 const description = "I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. Looking for a new job.";
@@ -23,14 +24,29 @@ function AnimationVideoPlayer() {
 }
 
 
-function SocialLink(props) {
-    let typeChars = props.type.split("").map(
+function SocialLink({type, link}) {
+    const [isShowEmailCopied, setIsShowemailCopied] = useState(false);
+    let typeChars = type.split("").map(
         (char) => 
-                <span key={char}>
+                <span key={char+Math.random()}>
                     {char}
                 </span>
     );
-    return (<a target="_blank" rel="noopener" href={props.link}>
+
+    let copyEmail = (e) => {
+        e.preventDefault();
+        copy(link);
+        setIsShowemailCopied(true);
+        setTimeout(() => {
+            setIsShowemailCopied(false);
+        }, 6000);
+    }
+    if(type=="Email"){
+        return (<a target="_blank" id="email" rel="noopener" href="#" onClick={(e)=>{copyEmail(e)}}>
+            <span className={altStyles.type}>{isShowEmailCopied?(<>Email copied ✓</>):(<>Copy Email</>)}</span>
+        </a>);
+    }
+    return (<a target="_blank" rel="noopener" href={link}>
         <span className={altStyles.type}>{typeChars}</span>
     </a>);
 }
@@ -199,13 +215,21 @@ export default function Alt() {
             <title>Mangle Kuo</title>
             <meta name="Description" content={description} />
             <link rel="stylesheet" href="https://use.typekit.net/yor5kzq.css"></link>
+            <meta key="theme-color-light" name="theme-color" 
+              content="#ffffff" 
+              media="(prefers-color-scheme: light)" />
+            <meta key="theme-color-dark" name="theme-color" 
+                content="#000000" 
+                media="(prefers-color-scheme: dark)" />
         </Head>
         <main className={altStyles.main}>
             <section className={altStyles.videoSection}>
                 <AnimationVideoPlayer />
             </section>
             <section className={altStyles.fixedTexts}>                
-                <div className={`${altStyles.MangleKuo} ${altStyles['z-'+state.zOrder.indexOf('MangleKuo')]}`}>Mangle Kuo</div>
+                <div className={`${altStyles.MangleKuo} ${altStyles['z-'+state.zOrder.indexOf('MangleKuo')]}`}>Mangle Kuo
+                    <div className={altStyles.moon} />
+                </div>
 
                 <div className={`${altStyles.ThingsIdid} ${altStyles['z-'+state.zOrder.indexOf('ThingsIdid')]}`}>Things I did</div>
                 <div className={`${altStyles.ThingsIdidCover} ${altStyles['z-'+state.zOrder.indexOf('ThingsIdidCover')]}`}></div>
@@ -224,7 +248,7 @@ export default function Alt() {
                             <SocialLink link="https://www.behance.net/gallery/65814819/Collection-of-works" type="Behance" tag="mangle-kuo" />
                             <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
                             <SocialLink link="https://www.linkedin.com/in/manglekuo" type="LinkedIn" tag="Mangle Kuo" />
-                            <SocialLink link="mailto:manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
+                            <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,19 @@
     --secondary-bg: rgb(255, 255, 255);
     --main-txt: rgb(0, 0, 0);
 }
+@media (prefers-color-scheme: dark) {
+    .root {
+        --main-bg: rgb(0, 0, 0);
+        --secondary-bg: rgb(0, 0, 0);
+        --main-txt: rgb(204, 204, 204);
+    }
+    .video{
+        filter:invert();
+    }
+    .FindmeeCover{
+        filter: brightness(0.8);
+    }
+}
 
 .main{
     composes: root;
@@ -64,6 +77,33 @@
             line-height: 0.5em;
             font-weight: 700;
         }
+            .moon{
+                background-color: #fff;
+                width: 0.2em;
+                height: 0.2em;
+                position: absolute;
+                right: -10px;
+                top: 0;
+                border-radius: 100px;
+            }
+            .moon::after{
+                content: ' ';
+                background-color: #fff;
+                width: 0.2em;
+                height: 0.2em;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                border-radius: 100px;
+                transition: transform;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .moon::after{
+                    background-color: #000;
+                    transform: translate(-2px,-1px);
+                }
+            }
 
         .ThingsIdid{
             composes: fixedTexts;
@@ -152,7 +192,7 @@
             .findMeContent {
                 composes: root;
                 padding: 0;
-                overflow-x: hidden;
+                /* overflow-x: hidden; */
                 list-style: none;
                 display: flex;
                 flex-wrap: wrap;
@@ -193,6 +233,12 @@
                     #fff 0px 0px 2px,
                     #fff 0px 0px 4px,
                     #fff 0px 0px 10px;
+
+                }
+                .findMeContent a:active{
+                    text-shadow: 
+                    #fff 0px 0px 2px,
+                    #fff 0px 0px 6px;
 
                 }
 
@@ -271,11 +317,18 @@
     .main{
         font-size: 24px;
     }
+    .FindmeeCover{
+        border-radius: 600px 0px 0px 0px;
+    }
+
 }
 
 @media (min-width: 2300px) {
     .main{
         font-size: 32px;
+    }
+    .FindmeeCover{
+        border-radius: 800px 0px 0px 0px;
     }
 }
 
@@ -283,10 +336,16 @@
     .main{
         font-size: 48px;
     }
+    .FindmeeCover{
+        border-radius: 1200px 0px 0px 0px;
+    }
 }
 
 @media (min-width: 7600px) {
     .main{
         font-size: 64px;
+    }
+    .FindmeeCover{
+        border-radius: 1600px 0px 0px 0px;
     }
 }
