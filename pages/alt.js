@@ -209,6 +209,10 @@ export default function Alt() {
         
     }
 
+    let zOrder = (page) => {
+       return state.zOrder.indexOf(page);
+    }
+
   return (
     <>
         <Head>
@@ -227,18 +231,18 @@ export default function Alt() {
                 <AnimationVideoPlayer />
             </section>
             <section className={altStyles.fixedTexts}>                
-                <div className={`${altStyles.MangleKuo} ${altStyles['z-'+state.zOrder.indexOf('MangleKuo')]}`}>Mangle Kuo
+                <div className={`${altStyles.MangleKuo} ${altStyles['z-'+zOrder('MangleKuo')]}`}>Mangle Kuo
                     <div className={altStyles.moon} />
                 </div>
 
-                <div className={`${altStyles.ThingsIdid} ${altStyles['z-'+state.zOrder.indexOf('ThingsIdid')]}`}>Things I did</div>
-                <div className={`${altStyles.ThingsIdidCover} ${altStyles['z-'+state.zOrder.indexOf('ThingsIdidCover')]}`}></div>
+                <div className={`${altStyles.ThingsIdid} ${altStyles['z-'+zOrder('ThingsIdid')]}`}>Things I did</div>
+                <div className={`${altStyles.ThingsIdidCover} ${altStyles['z-'+zOrder('ThingsIdidCover')]}`}></div>
 
-                <div className={`${altStyles.ThingsIwrote} ${altStyles['z-'+state.zOrder.indexOf('ThingsIwrote')]}`}>Things I wrote</div>
-                <div className={`${altStyles.ThingsIwroteCover} ${altStyles['z-'+state.zOrder.indexOf('ThingsIwroteCover')]}`}></div>
+                <div className={`${altStyles.ThingsIwrote} ${altStyles['z-'+zOrder('ThingsIwrote')]}`}>Things I wrote</div>
+                <div className={`${altStyles.ThingsIwroteCover} ${altStyles['z-'+zOrder('ThingsIwroteCover')]}`}></div>
 
-                <div className={`${altStyles.Findmee} ${altStyles['z-'+state.zOrder.indexOf('Findmee')]}`} onClick={handleFindmeeClick}>{state.fMText}</div>
-                <div className={`${altStyles.FindmeeCover} ${altStyles['z-'+state.zOrder.indexOf('FindmeeCover')]} ${state.isOpen.FindmeeCover?altStyles.open:altStyles.closed}`}>
+                <div className={`${altStyles.Findmee} ${altStyles['z-'+zOrder('Findmee')]}`} onClick={handleFindmeeClick}>{state.fMText}</div>
+                <div className={`${altStyles.FindmeeCover} ${altStyles['z-'+zOrder('FindmeeCover')]} ${state.isOpen.FindmeeCover?altStyles.open:altStyles.closed}`}>
                     <div className={altStyles.findMeContentWrapper}>
                         <div className={altStyles.findMeContent}>
                             <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
