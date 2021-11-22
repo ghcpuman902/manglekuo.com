@@ -50,7 +50,7 @@ const quotesArr = [
 `I’m GAY 🏳️‍🌈`,
 `I’m from and based in Taiwan 🇹🇼`,
 `I enjoy doing photography 📷`,
-<>Listening to: <br/>NEXT EPISODE <br/>by AKMU <br/>Solar Power <br/>by Lorde <br/>Happier Than Ever <br/>by Billie Eilish</>,
+<>Listening to: <br/>30 <br/>by Adele <br/>Friends That Break Your Heart<br/>by James Blake <br/>Savage <br/>by aespa</>,
 `Currently I work for a AR glasses design house`,
 `Looking for a job in web development that’s creativity involved.`,
 `CURIOSITY IS MY SUPER POWER 🦸‍♂️`,

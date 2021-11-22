@@ -133,13 +133,12 @@
         width: 100vw;
         height: 100vh;
         background-color: var(--secondary-bg);
-        background-color: #AA0000;
         position: fixed;
 
         overflow: hidden;
         clip: rect(auto, auto, auto, auto);
         /* background: url(/images/SocialBGV2@0.5x.jpg) no-repeat; */
-        background: #AA0000 url(/images/SocialCloseUp_P3_2000_P80.jpg) no-repeat;
+        background: #0cd2d5 url(/images/SocialCloseUp_P3_2000_P80.jpg) no-repeat;
         background-attachment: fixed;
         background-position: center center;
         background-size: cover; 
@@ -148,7 +147,7 @@
 
     @media (min-width: 1500px) {
         .FindmeeCover{
-            background: #AA0000 url(/images/SocialCloseUp_P3_4000_P80.jpg) no-repeat;
+            background: #0cd2d5 url(/images/SocialCloseUp_P3_4000_P80.jpg) no-repeat;
             background-attachment: fixed;
             background-position: center center;
             background-size: cover; 
