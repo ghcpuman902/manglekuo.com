@@ -26,6 +26,6 @@ export default async function handler(req, res) {
       const result = await sendCopyMessage(req.body)
       res.status(200).json({ result })
     } catch (err) {
-      res.status(500).json({ error: 'failed to push data' })
+      res.status(500).json({ result: JSON.stringify(err) })
     }
 }
