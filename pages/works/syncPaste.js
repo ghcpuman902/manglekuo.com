@@ -25,7 +25,7 @@ export default function Post() {
             method: 'POST',
             body: JSON.stringify({message: e.target.value})
         }).then(response => response.json())
-        .then(data => {console.log(data.result)});
+        .then(data => {console.log("POST result",data.result)});
     }
 
 
