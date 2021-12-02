@@ -50,10 +50,11 @@
     .fixedTexts{
         composes: root;
         position: fixed;
-        font-size: 1.4em;
+        font-size: 1.96em;
         margin: 0.4em;
         padding: 0;
         box-sizing: border-box;
+        cursor: pointer;
         color: var(--main-txt);
         font-family: tuppence,serif;
         font-weight: 400;
@@ -70,221 +71,334 @@
         font-feature-settings: "ordn"; */
     }
 
-        .MangleKuo{
-            composes: fixedTexts;
-            left: 0;
+    .MangleKuo{
+        composes: fixedTexts;
+        left: 0;
+        top: 0;
+        line-height: 0.5em;
+        font-weight: 700;
+    }
+        .moon{
+            background-color: #fff;
+            width: 0.2em;
+            height: 0.2em;
+            position: absolute;
+            right: -10px;
             top: 0;
-            line-height: 0.5em;
-            font-weight: 700;
+            border-radius: 100px;
         }
-            .moon{
-                background-color: #fff;
-                width: 0.2em;
-                height: 0.2em;
-                position: absolute;
-                right: -10px;
-                top: 0;
-                border-radius: 100px;
-            }
+        .moon::after{
+            content: ' ';
+            background-color: #fff;
+            width: 0.2em;
+            height: 0.2em;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            border-radius: 100px;
+            transition: transform;
+        }
+
+        @media (prefers-color-scheme: dark) {
             .moon::after{
-                content: ' ';
-                background-color: #fff;
-                width: 0.2em;
-                height: 0.2em;
-                position: absolute;
-                right: 0px;
-                top: 0px;
-                border-radius: 100px;
-                transition: transform;
+                background-color: #000;
+                transform: translate(-2px,-1px);
             }
-
-            @media (prefers-color-scheme: dark) {
-                .moon::after{
-                    background-color: #000;
-                    transform: translate(-2px,-1px);
-                }
-            }
-
-        .ThingsIdid{
-            composes: fixedTexts;
-            right: 0;
-            top: 0;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transform: rotate(180deg);
         }
 
-        .ThingsIwrote{
-            composes: fixedTexts;
-            left: 0;
-            bottom: 0;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-        }
-
-        .Findmee{
-            composes: fixedTexts;
-            right: 0;
-            bottom: 0;
-        }
-
-    .FindmeeCover{
-        composes: root;
-        width: 100vw;
-        height: 100vh;
-        background-color: var(--secondary-bg);
-        position: fixed;
-
-        overflow: hidden;
-        clip: rect(auto, auto, auto, auto);
-        /* background: url(/images/SocialBGV2@0.5x.jpg) no-repeat; */
-        background: #0cd2d5 url(/images/SocialCloseUp_P3_2000_P80.jpg) no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-        background-size: cover; 
-        border-radius: 400px 0px 0px 0px;
+    .ThingsIdid{
+        composes: fixedTexts;
+        right: 0;
+        top: 0;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
     }
 
-    @media (min-width: 1500px) {
-        .FindmeeCover{
-            background: #0cd2d5 url(/images/SocialCloseUp_P3_4000_P80.jpg) no-repeat;
+        .ThingsIdidCover{
+            composes: root;
+            width: 100vw;
+            height: 100vh;
+            background-color: #f0f000;
+            position: fixed;
+
+            overflow: hidden;
+            clip: rect(auto, auto, auto, auto);
+            /* background: url(/images/SocialBGV2@0.5x.jpg) no-repeat; */
+            /* background: #0cd2d5 url(/images/SocialCloseUp_P3_2000_P80.jpg) no-repeat; */
             background-attachment: fixed;
             background-position: center center;
             background-size: cover; 
-        }
-    }
-
-    .FindmeeCover.closed{
-        left: 100vw;
-        top: 100vh;
-        transition: left cubic-bezier(0.4, 0.14, 1, 1) 1000ms, top cubic-bezier(0.4, 0.14, 1, 1) 1000ms;
-        /* left: 0; top: 0;
-        transform: translate(100%,100%);
-        transition: transform cubic-bezier(0.4, 0.14, 1, 1) 1000ms; */
-
-    }
-
-    .FindmeeCover.open{
-        left: 0;
-        top: 0;
-        transition: left cubic-bezier(0, 0, 0.3, 1) 600ms, top cubic-bezier(0, 0, 0.3, 1) 600ms;
-        /* left: 0; top: 0;
-        transform: translate(0%,0%);
-        transition: transform cubic-bezier(0, 0, 0.3, 1) 600ms;  */
-
-    }
-
-
-
-
-
-        .findMeContentWrapper{
-            composes: root;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            border-radius: 400px 0px 0px 0px;
         }
 
-
-            .findMeContent {
-                composes: root;
-                padding: 0;
-                /* overflow-x: hidden; */
-                list-style: none;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-
-                
+        @media (min-width: 1500px) {
+            .ThingsIdidCover{
+                border-radius: 600px 0px 0px 0px;
+            }
+        }
+    
+        @media (min-width: 2300px) {
+            .ThingsIdidCover{
+                border-radius: 800px 0px 0px 0px;
+            }
+        }
+    
+        @media (min-width: 3900px) {
+            .ThingsIdidCover{
+                border-radius: 1200px 0px 0px 0px;
+            }
+        }
+    
+        @media (min-width: 7600px) {
+            .ThingsIdidCover{
+                border-radius: 1600px 0px 0px 0px;
+            }
+        }
+            .ThingsIdidCover.closed{
+                left: 100vw;
+                top: 0;
+                transition: left cubic-bezier(0.4, 0.14, 1, 1) 1000ms, top cubic-bezier(0.4, 0.14, 1, 1) 1000ms;
+                /* left: 0; top: 0;
+                transform: translate(100%,100%);
+                transition: transform cubic-bezier(0.4, 0.14, 1, 1) 1000ms; */
+        
+            }
+            .ThingsIdidCover.open{
+                left: 0;
+                top: 0;
+                transition: left cubic-bezier(0, 0, 0.3, 1) 600ms, top cubic-bezier(0, 0, 0.3, 1) 600ms;
+                /* left: 0; top: 0;
+                transform: translate(0%,0%);
+                transition: transform cubic-bezier(0, 0, 0.3, 1) 600ms;  */
             }
 
-                .findMeContent a{
-                    padding: 0px;
-                    margin: 1.5em 0;
-                    /* display: flex; */
-                    /* color: var(--main-txt);
-                    text-shadow: 
-                    #fff 0px 0px 2px,
-                    #fff 0px 0px 100px; */
-                    color: rgb(255, 255, 255);
-                    color: color(display-p3 1 1 1);
-                    /* text-shadow: 
-                    #fff 0px 0px 2px,
-                    #fff 0px 0px 6px,
-                    #fff 0px 0px 15px; */
-                    font-family: tuppence,serif;
-                    font-weight: 700;
-                    font-style: normal;
-                    font-size: 1.2em;
-                    text-decoration: none;
-                    flex: 0 1 800px; /*  No stretching: */
-                    margin: 0.5em 2em 0.1em 4em;
-                    text-align: right;
-                }
+            .ThingsIdidWrapper{
+                display: flex;
+                height: 100%;
+                /* flex-direction: row; */
+                flex-wrap: nowrap;
+                align-items: stretch;
+                overflow-x: auto;
+                border-radius: 200px 0px 0px 0px;
+                padding-left: 30em;
+                padding-bottom: 10em;
+            }
 
-                .findMeContent a:hover{
-                    text-shadow: 
-                    #fff 0px 0px 2px,
-                    #fff 0px 0px 6px,
-                    #fff 0px 0px 15px,
-                    #fff 0px 0px 2px,
-                    #fff 0px 0px 4px,
-                    #fff 0px 0px 10px;
+            .ThingsIdidWrapper::-webkit-scrollbar {
+                width: 0px;
+                height: 0px;
+            
+            }
+            
+            .ThingsIdidWrapper::-webkit-scrollbar-track {
+                padding: 0px;
+            }
+            
+            .ThingsIdidWrapper::-webkit-scrollbar-thumb {
+                background-color: #eee;
+                border: 0px #000 solid;
+                border-radius: 0px;
+            }
 
-                }
-                .findMeContent a:active{
-                    text-shadow: 
-                    #fff 0px 0px 2px,
-                    #fff 0px 0px 6px;
+            .ThingsIdidBox{
+                flex: 0 0 auto;
+                margin: 50px;
+                width: 400px;
+                border-radius: calc( 600px - 50px);
+                background: linear-gradient(145deg, #d8d800, #ffff00);
+                box-shadow:  20px 20px 60px #cccc00,
+                             -20px -20px 60px #ffff00;
+                color: #fff;
 
-                }
+            }
+            .ThingsIdidBox>h1{
 
-                @media (min-width: 1500px) {
-                    .findMeContent a{
-                        flex: 0 1 1200px; /*  No stretching: */
-                    }
-                }
+                color: #fff;
+            }
 
-                @media (min-width: 2300px) {
-                    .findMeContent a{
-                        flex: 0 1 2000px; /*  No stretching: */
-                    }
-                }
+    /* END OF THINGS I DID */
 
-                @media (min-width: 3900px) {
-                    .findMeContent a{
-                        flex: 0 1 3800px; /*  No stretching: */
-                    }
-                }
+    .ThingsIwrote{
+        composes: fixedTexts;
+        left: 0;
+        bottom: 0;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
 
-                @media (min-width: 7600px) {
-                    .findMeContent a{
-                        flex: 0 1 7000px; /*  No stretching: */
-                    }
-                }
+    /* END OF THINGSIWROTE */
 
+    .Findmee{
+        composes: fixedTexts;
+        right: 0;
+        bottom: 0;
+    }
 
-                    .type {
-                        order: 1;
-                        /* background-color: #ddd; */
-                    }
+        .FindmeeCover{
+            composes: root;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--secondary-bg);
+            position: fixed;
+
+            overflow: hidden;
+            clip: rect(auto, auto, auto, auto);
+            /* background: url(/images/SocialBGV2@0.5x.jpg) no-repeat; */
+            background: #0cd2d5 url(/images/SocialCloseUp_P3_2000_P80.jpg) no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            background-size: cover; 
+            border-radius: 400px 0px 0px 0px;
+        }
+
+        @media (min-width: 1500px) {
+            .FindmeeCover{
+                background: #0cd2d5 url(/images/SocialCloseUp_P3_4000_P80.jpg) no-repeat;
+                background-attachment: fixed;
+                background-position: center center;
+                background-size: cover; 
+                border-radius: 600px 0px 0px 0px;
+            }
+        }
+
+        @media (min-width: 2300px) {
+            .FindmeeCover{
+                border-radius: 800px 0px 0px 0px;
+            }
+        }
+
+        @media (min-width: 3900px) {
+            .FindmeeCover{
+                border-radius: 1200px 0px 0px 0px;
+            }
+        }
+
+        @media (min-width: 7600px) {
+            .FindmeeCover{
+                border-radius: 1600px 0px 0px 0px;
+            }
+        }
+
+            .FindmeeCover.closed{
+                left: 100vw;
+                top: 100vh;
+                transition: left cubic-bezier(0.4, 0.14, 1, 1) 1000ms, top cubic-bezier(0.4, 0.14, 1, 1) 1000ms;
+                /* left: 0; top: 0;
+                transform: translate(100%,100%);
+                transition: transform cubic-bezier(0.4, 0.14, 1, 1) 1000ms; */
+
+            }
+            .FindmeeCover.open{
+                left: 0;
+                top: 0;
+                transition: left cubic-bezier(0, 0, 0.3, 1) 600ms, top cubic-bezier(0, 0, 0.3, 1) 600ms;
+                /* left: 0; top: 0;
+                transform: translate(0%,0%);
+                transition: transform cubic-bezier(0, 0, 0.3, 1) 600ms;  */
+            }
+            .findMeContentWrapper{
+                composes: root;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+                .findMeContent {
+                    composes: root;
+                    padding: 0;
+                    /* overflow-x: hidden; */
+                    list-style: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+
                     
-                    .tag {
-                        order: 3;
-                        /* background-color: #ddd; */
-                    }
-                    .dot {
-                        composes: root;
-                        /* flex-grow: 1;
-                        order: 2; */
-                        height: 1em;
-                        /* border-bottom: double 4px var(--main-txt); */
-                        margin: 0 0.5em;
+                }
+                    .findMeContent a{
+                        padding: 0px;
+                        font-size: 1.68em;
+                        /* display: flex; */
+                        /* color: var(--main-txt);
+                        text-shadow: 
+                        #fff 0px 0px 2px,
+                        #fff 0px 0px 100px; */
+                        color: rgb(255, 255, 255);
+                        color: color(display-p3 1 1 1);
+                        /* text-shadow: 
+                        #fff 0px 0px 2px,
+                        #fff 0px 0px 6px,
+                        #fff 0px 0px 15px; */
+                        font-family: tuppence,serif;
+                        font-weight: 700;
+                        font-style: normal;
+                        text-decoration: none;
+                        flex: 0 1 800px; /*  No stretching: */
+                        margin: 0.0em 2em 0.0em 4em;
+                        text-align: right;
                     }
 
+                    .findMeContent a:hover{
+                        text-shadow: 
+                        #fff 0px 0px 2px,
+                        #fff 0px 0px 6px,
+                        #fff 0px 0px 15px,
+                        #fff 0px 0px 2px,
+                        #fff 0px 0px 4px,
+                        #fff 0px 0px 10px;
+
+                    }
+                    .findMeContent a:active{
+                        text-shadow: 
+                        #fff 0px 0px 2px,
+                        #fff 0px 0px 6px;
+
+                    }
+
+                    @media (min-width: 1500px) {
+                        .findMeContent a{
+                            flex: 0 1 1200px; /*  No stretching: */
+                        }
+                    }
+
+                    @media (min-width: 2300px) {
+                        .findMeContent a{
+                            flex: 0 1 2000px; /*  No stretching: */
+                        }
+                    }
+
+                    @media (min-width: 3900px) {
+                        .findMeContent a{
+                            flex: 0 1 3800px; /*  No stretching: */
+                        }
+                    }
+
+                    @media (min-width: 7600px) {
+                        .findMeContent a{
+                            flex: 0 1 7000px; /*  No stretching: */
+                        }
+                    }
+                        .type {
+                            order: 1;
+                            /* background-color: #ddd; */
+                        }      
+                        .tag {
+                            order: 3;
+                            /* background-color: #ddd; */
+                        }
+                        .dot {
+                            composes: root;
+                            /* flex-grow: 1;
+                            order: 2; */
+                            height: 1em;
+                            /* border-bottom: double 4px var(--main-txt); */
+                            margin: 0 0.5em;
+                        }
+
+    /* END OF FINDME */
 
     .z-0{
         z-index: 0;
@@ -317,9 +431,6 @@
     .main{
         font-size: 24px;
     }
-    .FindmeeCover{
-        border-radius: 600px 0px 0px 0px;
-    }
 
 }
 
@@ -327,25 +438,16 @@
     .main{
         font-size: 32px;
     }
-    .FindmeeCover{
-        border-radius: 800px 0px 0px 0px;
-    }
 }
 
 @media (min-width: 3900px) {
     .main{
         font-size: 48px;
     }
-    .FindmeeCover{
-        border-radius: 1200px 0px 0px 0px;
-    }
 }
 
 @media (min-width: 7600px) {
     .main{
         font-size: 64px;
-    }
-    .FindmeeCover{
-        border-radius: 1600px 0px 0px 0px;
     }
 }

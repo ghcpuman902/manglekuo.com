@@ -157,7 +157,7 @@ function TwoAOneBGame() {
 
 function Table({data,max}) {
     let returnJsx = [];
-    console.log("preTable",data);
+    // console.log("preTable",data);
     for (let idx = 0; idx < data.length; idx++) {
         const val = data[idx];
         for (let i = 0; i < val.length; i++) {

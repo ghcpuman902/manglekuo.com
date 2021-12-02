@@ -1,36 +1,47 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import altStyles from '../styles/alt.module.css'
-import {useEffect, useState, useRef, useReducer} from 'react'
+import aS from '../styles/alt.module.css'
+import { useEffect, useState, useRef, useReducer } from 'react'
 import copy from 'copy-to-clipboard';
 
-                    // DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
+// DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
 const description = "I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. Looking for a new job.";
 
-function AnimationVideoPlayer() {
+function AnimationVideoPlayer({replay}) {
+    const e = useRef();
+    // const isVideoPlaying = (v) => (!v.paused && !v.ended && v.readyState > 2);
+    // const isVideoPlaying = (v) => (!v.paused);
 
-    function handleClick(e){
-        console.log(e);
-        e.target.currentTime = 0;
-        e.target.play();
+    function handleClick() {
+        e.current.currentTime = 0;
+        if(e.current.paused){
+            e.current.play();
+        }
     }
+
+    useEffect(()=>{
+        e.current.currentTime = 0;
+        if(e.current.paused){
+            e.current.play();
+        }
+    },[replay]);
 
     return (
         <>
-            <video onClick={handleClick} className={altStyles.video} src="/images/Output6.mp4" width="820" height="880" autoPlay={true} muted={true} playsInline={true}>
+            <video ref={e} onClick={handleClick} className={aS.video} src="/images/Output6.mp4" width="820" height="880" autoPlay={true} muted={true} playsInline={true}>
             </video>
         </>
     );
 }
 
 
-function SocialLink({type, link}) {
+function SocialLink({ type, link }) {
     const [isShowEmailCopied, setIsShowemailCopied] = useState(false);
     let typeChars = type.split("").map(
-        (char) => 
-                <span key={char+Math.random()}>
-                    {char}
-                </span>
+        (char) =>
+            <span key={char + Math.random()}>
+                {char}
+            </span>
     );
 
     let copyEmail = (e) => {
@@ -41,13 +52,13 @@ function SocialLink({type, link}) {
             setIsShowemailCopied(false);
         }, 6000);
     }
-    if(type=="Email"){
-        return (<a target="_blank" id="email" rel="noopener" href="#" onClick={(e)=>{copyEmail(e)}}>
-            <span className={altStyles.type}>{isShowEmailCopied?(<>Email copied ✓</>):(<>Copy Email</>)}</span>
+    if (type == "Email") {
+        return (<a target="_blank" id="email" rel="noopener" href="#" onClick={(e) => { copyEmail(e) }}>
+            <span className={aS.type}>{isShowEmailCopied ? (<>Email copied ✓</>) : (<>Copy Email</>)}</span>
         </a>);
     }
     return (<a target="_blank" rel="noopener" href={link}>
-        <span className={altStyles.type}>{typeChars}</span>
+        <span className={aS.type}>{typeChars}</span>
     </a>);
 }
 
@@ -78,16 +89,16 @@ const findMeeTextListRev = [
 
 const initialState = {
     fMText: "⇱ Find mee",
-    zOrder: [
-            'FindmeeCover',
-            'Findmee',
-            'ThingsIdidCover',
-            'ThingsIdid',
-            'ThingsIwroteCover',
-            'ThingsIwrote',
-            'MangleKuo',
-        ],
-    isOpen:{
+    zIdx: [
+        'FindmeeCover',
+        'Findmee',
+        'ThingsIdidCover',
+        'ThingsIdid',
+        'ThingsIwroteCover',
+        'ThingsIwrote',
+        'MangleKuo',
+    ],
+    isOpen: {
         ThingsIdidCover: false,
         ThingsIwroteCover: false,
         FindmeeCover: false,
@@ -99,62 +110,63 @@ function reducer(state, action) {
     console.log(action);
     switch (action.type) {
         case 'setFMText':
-        return {fMText: action.val,zOrder:state.zOrder,isOpen:state.isOpen};
+            return { fMText: action.val, zIdx: state.zIdx, isOpen: state.isOpen };
         case 'showOverlay':
-            let new_zOrder = [...state.zOrder];
-            let i1,i2;
+            let new_zIdx = [...state.zIdx];
+            let i1, i2;
             switch (action.val) {
                 case 'ThingsIdidCover':
-                    i1 = new_zOrder.indexOf('ThingsIdid');
-                    i2 = new_zOrder.indexOf('ThingsIdidCover');
-                    if (i1 > -1) {new_zOrder.splice(i1, 1);}
-                    if (i2 > -1) {new_zOrder.splice(i2, 1);}
-                    new_zOrder.push('ThingsIdidCover');
-                    new_zOrder.push('ThingsIdid');
+                    i1 = new_zIdx.indexOf('ThingsIdid');
+                    i2 = new_zIdx.indexOf('ThingsIdidCover');
+                    if (i1 > -1) { new_zIdx.splice(i1, 1); }
+                    if (i2 > -1) { new_zIdx.splice(i2, 1); }
+                    new_zIdx.push('ThingsIdidCover');
+                    new_zIdx.push('ThingsIdid');
                     return {
-                        fMText:state.fMText,
-                        zOrder:new_zOrder,
-                        isOpen:{
+                        fMText: state.fMText,
+                        zIdx: new_zIdx,
+                        isOpen: {
                             ThingsIdidCover: true,
                             ThingsIwroteCover: false,
                             FindmeeCover: false,
                         }
                     };
                 case 'ThingsIwroteCover':
-                    i1 = new_zOrder.indexOf('ThingsIwrote');
-                    i2 = new_zOrder.indexOf('ThingsIwroteCover');
-                    if (i1 > -1) {new_zOrder.splice(i1, 1);}
-                    if (i2 > -1) {new_zOrder.splice(i2, 1);}
-                    new_zOrder.push('ThingsIwroteCover');
-                    new_zOrder.push('ThingsIwrote');
+                    i1 = new_zIdx.indexOf('ThingsIwrote');
+                    i2 = new_zIdx.indexOf('ThingsIwroteCover');
+                    if (i1 > -1) { new_zIdx.splice(i1, 1); }
+                    if (i2 > -1) { new_zIdx.splice(i2, 1); }
+                    new_zIdx.push('ThingsIwroteCover');
+                    new_zIdx.push('ThingsIwrote');
                     return {
-                        fMText:state.fMText,
-                        zOrder:new_zOrder,
-                        isOpen:{
+                        fMText: state.fMText,
+                        zIdx: new_zIdx,
+                        isOpen: {
                             ThingsIdidCover: false,
                             ThingsIwroteCover: true,
                             FindmeeCover: false,
                         }
                     };
                 case 'FindmeeCover':
-                    i1 = new_zOrder.indexOf('Findmee');
-                    i2 = new_zOrder.indexOf('FindmeeCover');
-                    if (i1 > -1) {new_zOrder.splice(i1, 1);}
-                    if (i2 > -1) {new_zOrder.splice(i2, 1);}
-                    new_zOrder.push('FindmeeCover');
-                    new_zOrder.push('Findmee');
-                    console.log(new_zOrder);
+                    i1 = new_zIdx.indexOf('Findmee');
+                    i2 = new_zIdx.indexOf('FindmeeCover');
+                    if (i1 > -1) { new_zIdx.splice(i1, 1); }
+                    if (i2 > -1) { new_zIdx.splice(i2, 1); }
+                    new_zIdx.push('FindmeeCover');
+                    new_zIdx.push('Findmee');
+                    console.log(new_zIdx);
                     return {
-                        fMText:state.fMText,
-                        zOrder:new_zOrder,
-                        isOpen:{
+                        fMText: state.fMText,
+                        zIdx: new_zIdx,
+                        isOpen: {
                             ThingsIdidCover: false,
                             ThingsIwroteCover: false,
                             FindmeeCover: true,
                         }
                     };
                 case 'HideAll':
-                    return {fMText:state.fMText,zOrder:state.zOrder,isOpen:{
+                    return {
+                        fMText: state.fMText, zIdx: state.zIdx, isOpen: {
                             ThingsIdidCover: false,
                             ThingsIwroteCover: false,
                             FindmeeCover: false,
@@ -163,10 +175,10 @@ function reducer(state, action) {
                 default:
                     throw new Error();
             }
-            return 
+            return
         default:
             throw new Error();
-  }
+    }
 }
 
 
@@ -174,19 +186,19 @@ function reducer(state, action) {
 export default function Alt() {
     let fMInx = useRef(0);
 
-    function changeFindMeText(inc){
+    function changeFindMeText(inc) {
         let last = 0; // timestamp of the last render() call
         function render(now) {
             // console.log(now,fMInx+inc);
-            if(fMInx.current+inc < 0 || fMInx.current+inc > findMeeTextList.length-1){
-    
-            }else{
+            if (fMInx.current + inc < 0 || fMInx.current + inc > findMeeTextList.length - 1) {
+
+            } else {
                 // console.log("inside",(now - last));
-                if(!last || (now - last) >= (inc>0?120:200)) {
-                    console.log("inside inside",(now - last),fMInx.current+inc);
+                if (!last || (now - last) >= (inc > 0 ? 120 : 200)) {
+                    console.log("inside inside", (now - last), fMInx.current + inc);
                     last = now;
-                    fMInx.current = fMInx.current+inc;
-                    dispatch({type: 'setFMText', val: inc>0?findMeeTextList[fMInx.current]:findMeeTextListRev[fMInx.current]})
+                    fMInx.current = fMInx.current + inc;
+                    dispatch({ type: 'setFMText', val: inc > 0 ? findMeeTextList[fMInx.current] : findMeeTextListRev[fMInx.current] })
                 }
                 requestAnimationFrame(render);
             }
@@ -195,71 +207,104 @@ export default function Alt() {
     }
 
     const [state, dispatch] = useReducer(reducer, initialState);
+    const [replayTrigger, setReplayTrigger] = useState(0);
 
-    function handleFindmeeClick(){
+    function handleMangleKuoClick() {
+        setReplayTrigger(replayTrigger+1);
+    }
 
-        if(fMInx.current == 0){
+    function handleThingsIdidClick() {
+        if (state.isOpen.ThingsIdidCover) {
+            dispatch({ type: 'showOverlay', val: 'HideAll' });
+        }else{
+            dispatch({ type: 'showOverlay', val: 'ThingsIdidCover' });
+        }
+    }
+
+    function handleThingsIwroteClick() {
+        setReplayTrigger(replayTrigger+1);
+    }
+
+    function handleFindmeeClick() {
+
+        if (fMInx.current == 0) {
             changeFindMeText(1);
-            dispatch({type: 'showOverlay', val: 'FindmeeCover'});
+            dispatch({ type: 'showOverlay', val: 'FindmeeCover' });
         }
-        if(fMInx.current == findMeeTextList.length-1){
+        if (fMInx.current == findMeeTextList.length - 1) {
             changeFindMeText(-1);
-            dispatch({type: 'showOverlay', val: 'HideAll'});
+            dispatch({ type: 'showOverlay', val: 'HideAll' });
         }
-        
+
     }
 
-    let zOrder = (page) => {
-       return state.zOrder.indexOf(page);
+    let zIdx = (page) => {
+        // get the z index of a fixed text, or a cover, for the css
+        return state.zIdx.indexOf(page);
     }
 
-  return (
-    <>
-        <Head>
-            <title>Mangle Kuo</title>
-            <meta name="Description" content={description} />
-            <link rel="stylesheet" href="https://use.typekit.net/yor5kzq.css"></link>
-            <meta key="theme-color-light" name="theme-color" 
-              content="#ffffff" 
-              media="(prefers-color-scheme: light)" />
-            <meta key="theme-color-dark" name="theme-color" 
-                content="#000000" 
-                media="(prefers-color-scheme: dark)" />
-        </Head>
-        <main className={altStyles.main}>
-            <section className={altStyles.videoSection}>
-                <AnimationVideoPlayer />
-            </section>
-            <section className={altStyles.fixedTexts}>                
-                <div className={`${altStyles.MangleKuo} ${altStyles['z-'+zOrder('MangleKuo')]}`}>Mangle Kuo
-                    <div className={altStyles.moon} />
-                </div>
+    return (
+        <>
+            <Head>
+                <title>Mangle Kuo</title>
+                <meta name="Description" content={description} />
+                <link rel="stylesheet" href="https://use.typekit.net/yor5kzq.css"></link>
+                <meta key="theme-color-light" name="theme-color"
+                    content="#ffffff"
+                    media="(prefers-color-scheme: light)" />
+                <meta key="theme-color-dark" name="theme-color"
+                    content="#000000"
+                    media="(prefers-color-scheme: dark)" />
+            </Head>
+            <main className={aS.main}>
+                <section className={aS.videoSection}>
+                    <AnimationVideoPlayer replay={replayTrigger} />
+                </section>
+                <section>
+                    <div className={`${aS.MangleKuo} ${aS['z-' + zIdx('MangleKuo')]}`} onClick={handleMangleKuoClick}>
+                        Mangle Kuo
+                        <div className={aS.moon} />
+                    </div>
 
-                <div className={`${altStyles.ThingsIdid} ${altStyles['z-'+zOrder('ThingsIdid')]}`}>Things I did</div>
-                <div className={`${altStyles.ThingsIdidCover} ${altStyles['z-'+zOrder('ThingsIdidCover')]}`}></div>
-
-                <div className={`${altStyles.ThingsIwrote} ${altStyles['z-'+zOrder('ThingsIwrote')]}`}>Things I wrote</div>
-                <div className={`${altStyles.ThingsIwroteCover} ${altStyles['z-'+zOrder('ThingsIwroteCover')]}`}></div>
-
-                <div className={`${altStyles.Findmee} ${altStyles['z-'+zOrder('Findmee')]}`} onClick={handleFindmeeClick}>{state.fMText}</div>
-                <div className={`${altStyles.FindmeeCover} ${altStyles['z-'+zOrder('FindmeeCover')]} ${state.isOpen.FindmeeCover?altStyles.open:altStyles.closed}`}>
-                    <div className={altStyles.findMeContentWrapper}>
-                        <div className={altStyles.findMeContent}>
-                            <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
-                            <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
-                            <SocialLink link="https://www.instagram.com/ghcpuman902/" type="Instagram" tag="@ghcpuman902" />
-                            <SocialLink link="https://www.instagram.com/manglekuo/" type="Instagram" tag="@manglekuo" />
-                            <SocialLink link="https://www.behance.net/gallery/65814819/Collection-of-works" type="Behance" tag="mangle-kuo" />
-                            <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
-                            <SocialLink link="https://www.linkedin.com/in/manglekuo" type="LinkedIn" tag="Mangle Kuo" />
-                            <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
+                    <div className={`${aS.ThingsIdid} ${aS['z-' + zIdx('ThingsIdid')]}`} onClick={handleThingsIdidClick}>Things I did</div>
+                    <div className={`${aS.ThingsIdidCover} ${aS['z-' + zIdx('ThingsIdidCover')]} ${state.isOpen.ThingsIdidCover ? aS.open : aS.closed}`}>
+                        <div className={aS.ThingsIdidWrapper}>
+                        {
+                            [
+                                {slug:'ten-facts',title:'Ten Facts',url:''},
+                                {slug:'who-is-that-person',title:'Who is that person',url:''},
+                                {slug:'two-a-one-b',title:'2A1B',url:''},
+                                {slug:'projectile',title:'Projectile',url:''},
+                                {slug:'slay-the-queen',title:'Slay the Queen',url:''},
+                            ].map((val,idx) => {
+                                return (<div key={val.slug} className={aS.ThingsIdidBox}><h1>{val.title}</h1></div>);
+                            })
+                        }
                         </div>
                     </div>
-                </div>
 
-            </section>
-        </main>
-    </>
-  );
+                    <div className={`${aS.ThingsIwrote} ${aS['z-' + zIdx('ThingsIwrote')]}`} onClick={handleThingsIwroteClick}>Things I wrote</div>
+                    <div className={`${aS.ThingsIwroteCover} ${aS['z-' + zIdx('ThingsIwroteCover')]}`}></div>
+
+                    <div className={`${aS.Findmee} ${aS['z-' + zIdx('Findmee')]}`} onClick={handleFindmeeClick}>{state.fMText}</div>
+                    <div className={`${aS.FindmeeCover} ${aS['z-' + zIdx('FindmeeCover')]} ${state.isOpen.FindmeeCover ? aS.open : aS.closed}`}>
+                        <div className={aS.findMeContentWrapper}>
+                            <div className={aS.findMeContent}>
+                                <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
+                                <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
+                                <SocialLink link="https://www.instagram.com/ghcpuman902/" type="Instagram" tag="@ghcpuman902" />
+                                <SocialLink link="https://www.instagram.com/manglekuo/" type="Instagram" tag="@manglekuo" />
+                                <SocialLink link="https://www.behance.net/gallery/65814819/Collection-of-works" type="Behance" tag="mangle-kuo" />
+                                <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
+                                <SocialLink link="https://www.linkedin.com/in/manglekuo" type="LinkedIn" tag="Mangle Kuo" />
+                                <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </main>
+        </>
+    );
 }
 
