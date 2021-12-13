@@ -20,7 +20,7 @@ And it came out great!
 
 ## Present (now)
 
-I'm currently working on the "Find mee" section, which is the social media links section of the site, and then I'll move on the "Things I did" and "Things I wrote" section.
+I have finished the "Find mee" section and working on the Things I did section.
 
 The idea is to make it well-structured, easily understood, and funky and very me.
 
@@ -31,5 +31,5 @@ For me it's like my artwork that I want to take time to craft.
 That's it, thanks!
 
 
-2021/10/27 19:42:58 GMT+8
+2021/11/13 17:09:18 GMT+8
 
