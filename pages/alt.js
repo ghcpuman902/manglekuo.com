@@ -300,6 +300,14 @@ export default function Alt() {
                                 <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
                             </div>
                         </div>
+                        {/* <img
+                            className={aS.imgBG}
+                            srcSet="elva-fairy-480w.jpg 480w,
+                                    elva-fairy-800w.jpg 800w"
+                            sizes="(max-width: 600px) 480px,
+                                    800px"
+                            src="elva-fairy-800w.jpg"
+                            alt="Elva dressed as a fairy" /> */}
                     </div>
 
                 </section>
