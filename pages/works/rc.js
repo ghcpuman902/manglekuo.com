@@ -5,20 +5,19 @@ import {useEffect, useState, useRef} from 'react';
 import { SVG, extend as SVGextend, Element as SVGElement } from '@svgdotjs/svg.js'
 
 
-const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
-
 function SaveLink({svgStr}){
+    
     const [downloadLink, setDownloadLink] = useState('');
     useEffect(()=>{
         if(typeof svgStr !== 'undefined' && typeof svgStr !== 'null'){
             const data = new Blob([svgStr], { type: 'text/plain' });
             setDownloadLink(window.URL.createObjectURL(data));
         }
-    },[]);
+    });
     return (
-      <>
-        <a download={`Superellipse-${genRanHex(12)}.svg`} href={downloadLink}>Download SVG</a>
-      </>
+      <div style={{textAlign: 'center'}}>
+        <a download='rectangle.svg' href={downloadLink}>Download SVG</a>
+      </div>
     );
 }
 
@@ -200,6 +199,8 @@ function RenderSVG() {
 
 
 
+        let bg = c.rect(winSize.w, winSize.h).fill('#151515');
+
 
         let rc_path =  c.path(CoorArr2svgPath(RoundedCornerCoorArr()))
                         .fill('#e91e63')
@@ -258,7 +259,7 @@ function RenderSVG() {
 
   return (
     <>
-        <div id="svgCanvas" style={{backgroundColor: "#111", width:winSize.w+"px", height:winSize.h+"px"}}>
+        <div id="svgCanvas" style={{width:winSize.w+"px", height:winSize.h+"px"}}>
         </div>
         <div style={{position: 'fixed',width: '500px',height: '100%',backgroundColor: '#e91e63',right: '0',bottom: '0',padding: '20px'}}>
         <h3>Overall</h3>
@@ -282,6 +283,7 @@ function RenderSVG() {
 
             <br />
             <SaveLink svgStr={svgDlStr} />
+            <div style={{position:'absolute',right:10,bottom:5}}>© Mangle Kuo</div>
         </div>
     </>
   );
