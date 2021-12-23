@@ -6,19 +6,25 @@ import { SVG, extend as SVGextend, Element as SVGElement } from '@svgdotjs/svg.j
 
 
 function SaveLink({svgStr}){
-    
     const [downloadLink, setDownloadLink] = useState('');
     useEffect(()=>{
-        if(typeof svgStr !== 'undefined' && typeof svgStr !== 'null'){
-            const data = new Blob([svgStr], { type: 'text/plain' });
+        if(typeof window !== 'undefined' && typeof svgStr !== 'undefined' && typeof svgStr !== 'null'){
+            try {
+                const data = new Blob([svgStr], { type: 'text/plain' });
+                
+            } catch (error) {
+                console.log('svgStr',svgStr);
+                console.error(error);
+            }
             setDownloadLink(window.URL.createObjectURL(data));
         }
-    });
+    },[svgStr]);
     return (
       <div style={{textAlign: 'center'}}>
-        <a download='rectangle.svg' href={downloadLink}>Download SVG</a>
+        <a download='your-funky-shape.svg' href={downloadLink}>Save as SVG</a>
       </div>
     );
+
 }
 
 function RenderSVG() {
@@ -45,29 +51,31 @@ function RenderSVG() {
     const [bc_o, setBc_o] = useState(4);
     const bc_oRef = useRef(null);
 
-
     // For saving
     const [svgDlStr, setSvgDlStr] = useState('');
 
 
     useEffect(()=>{
         if(typeof window !== 'undefined'){
-            setWinSize({w:window.innerWidth-500??1000, h:window.innerHeight??500});
+            setWinSize({w:window.innerWidth-500, h:window.innerHeight});
+            let shorterEdge = (window.innerWidth-500)<window.innerHeight?(window.innerWidth-500):window.innerHeight;
+            setW(shorterEdge*0.618 >> 1);
+            setH(shorterEdge*0.618 >> 1);
+            window.addEventListener('resize', ()=>{setWinSize({w:window.innerWidth-500, h:window.innerHeight})});
         }
     },[]);
 
 
-    useEffect(()=>{
-        let shorterEdge = winSize.w<winSize.h?winSize.w:winSize.h;
-        setW(shorterEdge*0.618 >> 1);
-        setH(shorterEdge*0.618 >> 1);
-    },[winSize]);
+    // useEffect(()=>{
+    //     let shorterEdge = winSize.w<winSize.h?winSize.w:winSize.h;
+    //     setW(shorterEdge*0.618 >> 1);
+    //     setH(shorterEdge*0.618 >> 1);
+    // },[winSize]);
 
     useEffect(()=>{
 
         const c = SVG().addTo('#svgCanvas').size(winSize.w, winSize.h);
             
-
         function CoorArr2svgPath(arr){
             let svgPathStr = "";
             svgPathStr += `M ${arr[0].x},${arr[0].y} L`;
@@ -202,17 +210,17 @@ function RenderSVG() {
         let bg = c.rect(winSize.w, winSize.h).fill('#151515');
 
 
-        let rc_path =  c.path(CoorArr2svgPath(RoundedCornerCoorArr()))
+        let rc_path =  c.path(CoorArr2svgPath(RoundedCornerCoorArr())).attr('id', 'rounded-corner')
                         .fill('#e91e63')
                         // .stroke({width:2, color: '#f00'})
                         .css('mix-blend-mode', 'difference');
 
-        let se_path =  c.path(CoorArr2svgPath(SuperellipseCoorArr()))
+        let se_path =  c.path(CoorArr2svgPath(SuperellipseCoorArr())).attr('id', 'superellipse')
                         .fill('#e91e63')
                         // .stroke({width:2, color: '#0f0'})
                         .css('mix-blend-mode', 'difference');
 
-        let bc_path =  c.path(CoorArr2svgPath(BezierCurveCoorArr()))
+        let bc_path =  c.path(CoorArr2svgPath(BezierCurveCoorArr())).attr('id', 'bezier-curve')
                         .fill('#e91e63')
                         // .stroke({width:2, color: '#00f'})
                         .css('mix-blend-mode', 'difference');
@@ -229,7 +237,7 @@ function RenderSVG() {
             c.remove()
         };
 
-    });
+    },[winSize,w,h,res,rc_r,se_n,bc_r,bc_o]);
 
     function handleChange(e){
 
