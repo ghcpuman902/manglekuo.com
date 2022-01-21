@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {useEffect, useState, useRef} from 'react';
 import { SVG, extend as SVGextend, Element as SVGElement } from '@svgdotjs/svg.js'
+import rS from '../../styles/rc.module.css'
 
 
 function SaveLink({svgStr}){
@@ -29,9 +30,10 @@ function SaveLink({svgStr}){
 
 function RenderSVG() {
     const [winSize, setWinSize] = useState({w:500,h:500});
-    const [w, setW] = useState(100);
-    const [h, setH] = useState(100);
+    const [w, setW] = useState(200);
+    const [h, setH] = useState(360);
     const [res, setRes] = useState(3);
+    const controlW = 500;
     // might change if fancy button is used
     const wRef = useRef(null);
     const hRef = useRef(null);
@@ -51,28 +53,35 @@ function RenderSVG() {
     const [bc_o, setBc_o] = useState(4);
     const bc_oRef = useRef(null);
 
+    // FG-Squircle
+    const [fg_s, setFg_s] = useState(0.2);
+    const fg_sRef = useRef(null);
+
     // For saving
     const [svgDlStr, setSvgDlStr] = useState('');
 
 
     useEffect(()=>{
         if(typeof window !== 'undefined'){
-            setWinSize({w:window.innerWidth-500, h:window.innerHeight});
-            let shorterEdge = (window.innerWidth-500)<window.innerHeight?(window.innerWidth-500):window.innerHeight;
-            setW(shorterEdge*0.618 >> 1);
-            setH(shorterEdge*0.618 >> 1);
-            window.addEventListener('resize', ()=>{setWinSize({w:window.innerWidth-500, h:window.innerHeight})});
+
+            setWinSize({w:window.innerWidth-controlW, h:window.innerHeight});
+            window.addEventListener('resize', ()=>{
+                setWinSize({w:window.innerWidth-controlW, h:window.innerHeight});
+            });
         }
     },[]);
 
 
-    // useEffect(()=>{
-    //     let shorterEdge = winSize.w<winSize.h?winSize.w:winSize.h;
-    //     setW(shorterEdge*0.618 >> 1);
-    //     setH(shorterEdge*0.618 >> 1);
-    // },[winSize]);
+    useEffect(()=>{
+        let shorterEdge = (window.innerWidth-controlW)<window.innerHeight?(window.innerWidth-controlW):window.innerHeight;
+        shorterEdge*=0.618;
+        let ratio = w/h;
+        setW(shorterEdge >> 1);
+        setH(shorterEdge/ratio >> 1);
+    },[winSize]);
 
     useEffect(()=>{
+        let start = performance.now();
 
         const c = SVG().addTo('#svgCanvas').size(winSize.w, winSize.h);
             
@@ -204,40 +213,89 @@ function RenderSVG() {
             coorArr = Q1.concat(Q2).concat(Q34);
             return coorArr;
         }
+            
+        let FGSquircleCoorArr = () => {
+            const [r,s,cos,sin,sqrt,sq,abs,sgn] = [w<=h?w>>1:h>>1,fg_s,Math.cos,Math.sin,Math.sqrt,(n)=>(n*n),Math.abs,(n)=>(n>0?1:(n<0?-1:0))];
+            let coorArr = [];
+            let resolution = 1/Math.pow(10,res);
+            for( let t = Math.PI*-1+resolution; t < Math.PI*1; t += resolution ) {
+
+                // let sgncost = -1;
+                // let sgnsint = -1;
+                // let sqrt2 = 1.4142135624;
+
+                // if(t>0){
+                //     sgnsint = 1;
+                // }else if(t==0){
+                //     sgnsint = 0;
+                // }
+
+                // if(t<Math.PI/2 && t>-1*Math.PI/2){
+                //     sgncost = 1;
+                // }else if(t == Math.PI/2 || t == -1*Math.PI/2){
+                //     sgncost = 0;
+                // }
+                // let x = r*sgncost / (s* sqrt2* abs(sin(t))) * sqrt(1 - sqrt(1 - sq(s)*sq(sin(2*t))));
+                // let y = r*sgnsint / (s* sqrt2* abs(cos(t))) * sqrt(1 - sqrt(1 - sq(s)*sq(sin(2*t))));
+
+                let x = r*sgn(cos(t)) / (s* sqrt(2)* abs(sin(t))) * sqrt(1 - sqrt(1 - sq(s)*sq(sin(2*t))));
+                let y = r*sgn(sin(t)) / (s* sqrt(2)* abs(cos(t))) * sqrt(1 - sqrt(1 - sq(s)*sq(sin(2*t))));
+                coorArr.push({
+                    x: x + ( winSize.w >> 1 ),
+                    y: y + ( winSize.h >> 1 )
+                });
+            }
+            return coorArr;
+        }
 
 
 
-        let bg = c.rect(winSize.w, winSize.h).fill('#151515');
+        let bg = c.rect(winSize.w, winSize.h).fill('#000');
 
 
         let rc_path =  c.path(CoorArr2svgPath(RoundedCornerCoorArr())).attr('id', 'rounded-corner')
-                        .fill('#e91e63')
-                        // .stroke({width:2, color: '#f00'})
-                        .css('mix-blend-mode', 'difference');
+                        .fill('none')
+                        .stroke({width:2, color: '#f00'})
+                        .css('mix-blend-mode', 'screen');
 
         let se_path =  c.path(CoorArr2svgPath(SuperellipseCoorArr())).attr('id', 'superellipse')
-                        .fill('#e91e63')
-                        // .stroke({width:2, color: '#0f0'})
-                        .css('mix-blend-mode', 'difference');
+                        .fill('none')
+                        .stroke({width:2, color: '#ff0'})
+                        .css('mix-blend-mode', 'screen');
 
         let bc_path =  c.path(CoorArr2svgPath(BezierCurveCoorArr())).attr('id', 'bezier-curve')
-                        .fill('#e91e63')
-                        // .stroke({width:2, color: '#00f'})
-                        .css('mix-blend-mode', 'difference');
+                        .fill('none')
+                        .stroke({width:2, color: '#0ff'})
+                        .css('mix-blend-mode', 'screen');
+
+        let fg_path =  c.path(CoorArr2svgPath(FGSquircleCoorArr())).attr('id', 'fg-squircle')
+                        .fill('none')
+                        .stroke({width:2, color: '#00f'})
+                        .css('mix-blend-mode', 'screen');
 
                         // .fill('none')
                         // .stroke({width:2, color: '#f00'})
                         // .css('mix-blend-mode', 'screen');
 
+                        // .fill('#e91e63')
+                        // .stroke({width:2, color: '#00f'})
+                        // .css('mix-blend-mode', 'difference');
+
 
         setSvgDlStr(c.svg());
 
+        console.log(`Effect time :     ${performance.now() - start}ms`);
+
         return ()=>{
+            bg.remove();
+            rc_path.remove();
             se_path.remove();
+            bc_path.remove();
+            fg_path.remove();
             c.remove()
         };
 
-    },[winSize,w,h,res,rc_r,se_n,bc_r,bc_o]);
+    },[winSize,w,h,res,rc_r,se_n,bc_r,bc_o,fg_s]);
 
     function handleChange(e){
 
@@ -260,40 +318,46 @@ function RenderSVG() {
             case 'bc_r-value':
                 setBc_r([bc_rRef.current.value]);
                 break;
+            case 'fg_s-value':
+                setFg_s(fg_sRef.current.value);
+                break;
             default:
                 break;
         }
     }
 
   return (
-    <>
-        <div id="svgCanvas" style={{width:winSize.w+"px", height:winSize.h+"px"}}>
+    <div className={rS.wrapper}>
+        <div id="svgCanvas" className={rS.svg} style={{width:winSize.w+"px", height:winSize.h+"px"}}>
         </div>
-        <div style={{position: 'fixed',width: '500px',height: '100%',backgroundColor: '#e91e63',right: '0',bottom: '0',padding: '20px'}}>
+        <div className={rS.control}>
         <h3>Overall</h3>
-            <input name='a-value' style={{width:'100%'}} type='range' min={1} max={2000} step={1} defaultValue={w} ref={wRef} onChange={handleChange}/>
+            <input name='a-value' className={rS.slider} type='range' min={1} max={2000} step={1} defaultValue={w} ref={wRef} onChange={handleChange}/>
             <label htmlFor='a-value'>a: {w/2}</label>
 
-            <input name='b-value' style={{width:'100%'}} type='range' min={1} max={2000} step={1} defaultValue={h} ref={hRef} onChange={handleChange}/>
+            <input name='b-value' className={rS.slider} type='range' min={1} max={2000} step={1} defaultValue={h} ref={hRef} onChange={handleChange}/>
             <label htmlFor='b-value'>b: {h/2}</label>
 
-            <input name='res-value' style={{width:'100%'}} type='range' min={1} max={4} step={1} defaultValue={res} ref={resRef} onChange={handleChange}/>
+            <input name='res-value' className={rS.slider} type='range' min={1} max={4} step={1} defaultValue={res} ref={resRef} onChange={handleChange}/>
             <label htmlFor='res-value'>res: {1/Math.pow(10,res)}</label>
         <h3>Rounded Corner</h3>
-            <input name='rc_r-value' style={{width:'100%'}} type='range' min={1} max={1000} step={1} defaultValue={rc_r} ref={rc_rRef} onChange={handleChange}/>
+            <input name='rc_r-value' className={rS.slider} type='range' min={1} max={1000} step={1} defaultValue={rc_r} ref={rc_rRef} onChange={handleChange}/>
             <label htmlFor='rc_r-value'>r: {rc_r}</label>
         <h3>Superellipse</h3>
-            <input name='se_n-value' style={{width:'100%'}} type='range' min={0.01} max={10} step={0.01} defaultValue={se_n} ref={se_nRef} onChange={handleChange}/>
+            <input name='se_n-value' className={rS.slider} type='range' min={0.01} max={10} step={0.01} defaultValue={se_n} ref={se_nRef} onChange={handleChange}/>
             <label htmlFor='se_n-value'>n: {se_n}</label>
         <h3>Bezier Curve</h3>
-            <input name='bc_r-value' style={{width:'100%'}} type='range' min={0.001} max={1} step={0.001} defaultValue={bc_r[0]} ref={bc_rRef} onChange={handleChange}/>
+            <input name='bc_r-value' className={rS.slider} type='range' min={0.001} max={1} step={0.001} defaultValue={bc_r[0]} ref={bc_rRef} onChange={handleChange}/>
             <label htmlFor='bc_r-value'>r: {bc_r[0]}</label>
+        <h3>FG Squircle</h3>
+            <input name='fg_s-value' className={rS.slider} type='range' min={0.001} max={1} step={0.001} defaultValue={fg_s} ref={fg_sRef} onChange={handleChange}/>
+            <label htmlFor='fg_s-value'>s: {fg_s}</label>
 
             <br />
             <SaveLink svgStr={svgDlStr} />
             <div style={{position:'absolute',right:10,bottom:5}}>© Mangle Kuo</div>
         </div>
-    </>
+    </div>
   );
 
 }
