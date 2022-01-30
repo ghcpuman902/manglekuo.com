@@ -301,25 +301,25 @@ function RenderSVG() {
 
         switch (e.target.name) {
             case 'a-value':
-                setW(wRef.current.value);
+                setW(wRef.current.value*1.0);
                 break;
             case 'b-value':
-                setH(hRef.current.value);
+                setH(hRef.current.value*1.0);
                 break;
             case 'res-value':
-                setRes(resRef.current.value);
+                setRes(resRef.current.value*1.0);
                 break;
             case 'rc_r-value':
-                setRc_r(rc_rRef.current.value);
+                setRc_r(rc_rRef.current.value*1.0);
                 break;
             case 'se_n-value':
-                setSe_n(se_nRef.current.value);
+                setSe_n(se_nRef.current.value*1.0);
                 break;
             case 'bc_r-value':
-                setBc_r([bc_rRef.current.value]);
+                setBc_r([bc_rRef.current.value*1.0]);
                 break;
             case 'fg_s-value':
-                setFg_s(fg_sRef.current.value);
+                setFg_s(fg_sRef.current.value*1.0);
                 break;
             default:
                 break;
