@@ -6,6 +6,51 @@ import { SVG, extend as SVGextend, Element as SVGElement } from '@svgdotjs/svg.j
 import rS from '../../styles/rc.module.css'
 
 
+function InputBox(){
+    const [down,setDown] = useState(false);
+    const [moved,setMoved] = useState(false);
+    let handlePointer = (e,o) => {
+        e.preventDefault();
+        switch (o) {
+            case 0:
+                console.log("DOWN");
+                setDown(true);
+            break;
+            case 1:
+                if(down){
+                    e.target.value="MOVED";
+                    console.log(e);
+                    setMoved(true);
+                }
+            break;
+            case 2:
+                console.log("UPED");
+                setDown(false);
+                if(moved){
+                    console.log("DRAGGED");
+                }else{
+                    console.log("CLICKED");
+                }
+                setMoved(false);
+            break;
+            case 3:
+                console.log(e.target.value=500);
+            break;
+            case 4:
+                console.log(e.target.value=600);
+            break;
+            
+        
+            default:
+                break;
+        }
+    };
+    return (
+        <input className={rS.InputBox} onPointerDown={(e)=>{handlePointer(e,0)}} onPointerMove={(e)=>{handlePointer(e,1)}} onPointerUp={(e)=>{handlePointer(e,2)}} type="text" value="150" readOnly={true} />
+    );
+}
+
+
 function SaveLink({svgStr}){
     const [downloadLink, setDownloadLink] = useState('');
     useEffect(()=>{
@@ -63,17 +108,19 @@ function RenderSVG() {
 
     useEffect(()=>{
         if(typeof window !== 'undefined'){
-
-            setWinSize({w:window.innerWidth-controlW, h:window.innerHeight});
+            
+            setWinSize({w:window.innerWidth-controlW<controlW?window.innerWidth:window.innerWidth-controlW, h:window.innerHeight});
             window.addEventListener('resize', ()=>{
-                setWinSize({w:window.innerWidth-controlW, h:window.innerHeight});
+                setWinSize({w:window.innerWidth-controlW<controlW?window.innerWidth:window.innerWidth-controlW, h:window.innerHeight});
             });
         }
     },[]);
 
 
     useEffect(()=>{
-        let shorterEdge = (window.innerWidth-controlW)<window.innerHeight?(window.innerWidth-controlW):window.innerHeight;
+        let shorterEdge = window.innerWidth-controlW<controlW?
+                            (window.innerWidth)<window.innerHeight?(window.innerWidth):window.innerHeight:
+                            (window.innerWidth-controlW)<window.innerHeight?(window.innerWidth-controlW):window.innerHeight;
         shorterEdge*=0.618;
         let ratio = w/h;
         setW(shorterEdge >> 1);
@@ -328,9 +375,10 @@ function RenderSVG() {
 
   return (
     <div className={rS.wrapper}>
-        <div id="svgCanvas" className={rS.svg} style={{width:winSize.w+"px", height:winSize.h+"px"}}>
+        <div id="svgCanvas" className={rS.svgCanvas} style={{width:winSize.w+"px", height:winSize.h+"px"}}>
         </div>
         <div className={rS.control}>
+        <InputBox />
         <h3>Overall</h3>
             <input name='a-value' className={rS.slider} type='range' min={1} max={2000} step={1} defaultValue={w} ref={wRef} onChange={handleChange}/>
             <label htmlFor='a-value'>a: {w/2}</label>

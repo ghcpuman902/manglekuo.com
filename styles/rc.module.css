@@ -1,23 +1,32 @@
 .wrapper{
-    background-color: #fff;
+    background-color: #000;
     display: flex;
 }
 
-.svg{
-    margin: 2px;
+.svgCanvas{
+    margin: 0px;
 
 }
 
 .control{
     /* position: fixed; */
-    margin: 2px;
+    margin: 0px;
     width: 500px;
     height: 100%;
-    background-color: #000;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid #fff;
     right: 0px;
     bottom: 0px;
     padding: 20px;
     margin-left: 0;
+}
+
+@media screen and (max-width:1000px){
+    .control{
+        position: fixed;
+        width: 100%;
+    }
+
 }
 
 .slider {
@@ -46,3 +55,13 @@ height: 25px;
 background: #04AA6D;
 cursor: pointer;
 } */
+
+.InputBox{
+    border: 2px #fff solid;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0;
+    outline: 0;
+    margin: 0;
+    padding: 0.5rem;
+}
