@@ -21,6 +21,28 @@
     margin-left: 0;
 }
 
+.colorPicker[type="color"] {
+	-webkit-appearance: none;
+    width: 1em;
+    height: 1em;
+    border: none;
+    outline: none;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: #000;
+    border-image: none;
+    color: #fff;
+    padding: 0px;
+    margin: 0px 0.5rem 0px 0px;
+}
+.colorPicker[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+.colorPicker[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+
 @media screen and (max-width:1000px){
     .control{
         position: fixed;

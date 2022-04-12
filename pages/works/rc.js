@@ -80,9 +80,26 @@ function RenderSVG() {
     const [res, setRes] = useState(3);
     const controlW = 500;
     // might change if fancy button is used
+
     const wRef = useRef(null);
     const hRef = useRef(null);
     const resRef = useRef(null);
+
+    // svg styles
+    const [svgS, setSvgS] = useState({
+        bg: '#000000',
+        rc: '#ff0000',
+        se: '#ffff00',
+        bc: '#0fffff',
+        fg: '#0000ff',
+        mbm: 'screen',
+    });
+    const svgSbgRef = useRef(null);
+    const svgSrcRef = useRef(null);
+    const svgSseRef = useRef(null);
+    const svgSbcRef = useRef(null);
+    const svgSfgRef = useRef(null);
+    const svgSmbmRef = useRef(null);
 
     // Rounded Corner
     const [rc_r, setRc_r] = useState(5);
@@ -296,29 +313,37 @@ function RenderSVG() {
         }
 
 
+        // const [svgS, setSvgS] = useState({
+        //     bg: '#000',
+        //     rc:'#f00',
+        //     se:'#ff0',
+        //     bc:'#0ff',
+        //     fg:'#00f',
+        //     mbm:'screen',
+        // });
 
-        let bg = c.rect(winSize.w, winSize.h).fill('#000');
+        let bg = c.rect(winSize.w, winSize.h).fill(svgS.bg);
 
 
         let rc_path =  c.path(CoorArr2svgPath(RoundedCornerCoorArr())).attr('id', 'rounded-corner')
                         .fill('none')
-                        .stroke({width:2, color: '#f00'})
-                        .css('mix-blend-mode', 'screen');
+                        .stroke({width:2, color: svgS.rc})
+                        .css('mix-blend-mode', svgS.mbm);
 
         let se_path =  c.path(CoorArr2svgPath(SuperellipseCoorArr())).attr('id', 'superellipse')
                         .fill('none')
-                        .stroke({width:2, color: '#ff0'})
-                        .css('mix-blend-mode', 'screen');
+                        .stroke({width:2, color:  svgS.se})
+                        .css('mix-blend-mode', svgS.mbm);
 
         let bc_path =  c.path(CoorArr2svgPath(BezierCurveCoorArr())).attr('id', 'bezier-curve')
                         .fill('none')
-                        .stroke({width:2, color: '#0ff'})
-                        .css('mix-blend-mode', 'screen');
+                        .stroke({width:2, color:  svgS.bc})
+                        .css('mix-blend-mode', svgS.mbm);
 
         let fg_path =  c.path(CoorArr2svgPath(FGSquircleCoorArr())).attr('id', 'fg-squircle')
                         .fill('none')
-                        .stroke({width:2, color: '#00f'})
-                        .css('mix-blend-mode', 'screen');
+                        .stroke({width:2, color:  svgS.fg})
+                        .css('mix-blend-mode', svgS.mbm);
 
                         // .fill('none')
                         // .stroke({width:2, color: '#f00'})
@@ -342,9 +367,29 @@ function RenderSVG() {
             c.remove()
         };
 
-    },[winSize,w,h,res,rc_r,se_n,bc_r,bc_o,fg_s]);
+    },[svgS,winSize,w,h,res,rc_r,se_n,bc_r,bc_o,fg_s]);
 
     function handleChange(e){
+        function updateSvgS(){
+            // setSvgS({
+            //         bg: svgSbgRef.current.value,
+            //         rc: svgSrcRef.current.value,
+            //         se: svgSseRef.current.value,
+            //         bc: svgSbcRef.current.value,
+            //         fg: svgSfgRef.current.value,
+            //         mbm: svgSmbmRef.current.value,
+            //     }
+            // );
+            setSvgS({
+                    bg: svgS.bg,
+                    rc: svgSrcRef.current.value,
+                    se: svgSseRef.current.value,
+                    bc: svgSbcRef.current.value,
+                    fg: svgSfgRef.current.value,
+                    mbm: svgS.mbm,
+                }
+            );
+        }
 
         switch (e.target.name) {
             case 'a-value':
@@ -355,6 +400,18 @@ function RenderSVG() {
                 break;
             case 'res-value':
                 setRes(resRef.current.value*1.0);
+                break;
+            case 'svgSrc-value':
+                updateSvgS();
+                break;
+            case 'svgSse-value':
+                updateSvgS();
+                break;
+            case 'svgSbc-value':
+                updateSvgS();
+                break;
+            case 'svgSfg-value':
+                updateSvgS();
                 break;
             case 'rc_r-value':
                 setRc_r(rc_rRef.current.value*1.0);
@@ -373,6 +430,13 @@ function RenderSVG() {
         }
     }
 
+    // const svgSbgRef = useRef(null);
+    // const svgSrcRef = useRef(null);
+    // const svgSseRef = useRef(null);
+    // const svgSbcRef = useRef(null);
+    // const svgSfgRef = useRef(null);
+    // const svgSmbmRef = useRef(null);
+
   return (
     <div className={rS.wrapper}>
         <div id="svgCanvas" className={rS.svgCanvas} style={{width:winSize.w+"px", height:winSize.h+"px"}}>
@@ -388,16 +452,29 @@ function RenderSVG() {
 
             <input name='res-value' className={rS.slider} type='range' min={1} max={4} step={1} defaultValue={res} ref={resRef} onChange={handleChange}/>
             <label htmlFor='res-value'>res: {1/Math.pow(10,res)}</label>
-        <h3>Rounded Corner</h3>
+            
+        <h3>
+            <input name='svgSrc-value' className={rS.colorPicker} type='color' defaultValue={svgS.rc} ref={svgSrcRef} onChange={handleChange}/>
+            Rounded Corner
+        </h3>
             <input name='rc_r-value' className={rS.slider} type='range' min={1} max={1000} step={1} defaultValue={rc_r} ref={rc_rRef} onChange={handleChange}/>
             <label htmlFor='rc_r-value'>r: {rc_r}</label>
-        <h3>Superellipse</h3>
+        <h3>
+            <input name='svgSse-value' className={rS.colorPicker} type='color' defaultValue={svgS.se} ref={svgSseRef} onChange={handleChange}/>
+            Superellipse
+        </h3>
             <input name='se_n-value' className={rS.slider} type='range' min={0.01} max={10} step={0.01} defaultValue={se_n} ref={se_nRef} onChange={handleChange}/>
             <label htmlFor='se_n-value'>n: {se_n}</label>
-        <h3>Bezier Curve</h3>
+        <h3>
+            <input name='svgSbc-value' className={rS.colorPicker} type='color' defaultValue={svgS.bc} ref={svgSbcRef} onChange={handleChange}/>
+            Bezier Curve
+        </h3>
             <input name='bc_r-value' className={rS.slider} type='range' min={0.001} max={1} step={0.001} defaultValue={bc_r[0]} ref={bc_rRef} onChange={handleChange}/>
             <label htmlFor='bc_r-value'>r: {bc_r[0]}</label>
-        <h3>FG Squircle</h3>
+        <h3>
+            <input name='svgSfg-value' className={rS.colorPicker} type='color' defaultValue={svgS.fg} ref={svgSfgRef} onChange={handleChange}/>
+            FG Squircle
+        </h3>
             <input name='fg_s-value' className={rS.slider} type='range' min={0.001} max={1} step={0.001} defaultValue={fg_s} ref={fg_sRef} onChange={handleChange}/>
             <label htmlFor='fg_s-value'>s: {fg_s}</label>
 
