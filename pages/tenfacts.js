@@ -42,7 +42,7 @@ TODO:
 
 const quotesArr = [
 `My name is Mangle Kuo`,
-<>My Instagram is <a target="_blank" href="https://www.instagram.com/ghcpuman902/">@Ghcpuman902</a><br>or <a target="_blank" href="https://www.instagram.com/manglekuo/">@MangleKuo</a></>,
+<>My Instagram is <a target="_blank" href="https://www.instagram.com/ghcpuman902/">@Ghcpuman902</a><br/>or <a target="_blank" href="https://www.instagram.com/manglekuo/">@MangleKuo</a></>,
 `❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ ❌❌❌❌❌❌ TAP TO POP`,
 `I watch web development videos all the time 🌐`,
 `I love drinking craft beer 🍺`,
