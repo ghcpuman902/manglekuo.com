@@ -1,5 +1,5 @@
 import Cors from 'cors'
-var request = require('request');
+import request from 'request'
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
