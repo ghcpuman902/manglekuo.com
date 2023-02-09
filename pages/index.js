@@ -1,133 +1,317 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Date from '../components/date'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
+import aS from '../styles/alt.module.css'
+import { useEffect, useState, useRef, useReducer } from 'react'
+import copy from 'copy-to-clipboard';
 
-                    // DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
+// DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
 const description = "I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. Looking for a new job.";
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
+function AnimationVideoPlayer({replay}) {
+    const e = useRef();
+    // const isVideoPlaying = (v) => (!v.paused && !v.ended && v.readyState > 2);
+    // const isVideoPlaying = (v) => (!v.paused);
+
+    function handleClick() {
+        e.current.currentTime = 0;
+        if(e.current.paused){
+            e.current.play();
+        }
     }
-  }
+
+    useEffect(()=>{
+        e.current.currentTime = 0;
+        if(e.current.paused){
+            e.current.play();
+        }
+    },[replay]);
+
+    return (
+        <>
+            <video ref={e} onClick={handleClick} className={aS.video} src="/images/Output6.mp4" width="820" height="880" autoPlay={true} muted={true} playsInline={true}>
+            </video>
+        </>
+    );
 }
 
 
-export default function Home({ allPostsData }) {
-  const mediumArticles = [
-    {
-      key: "b08324f5aab2",
-      link: "https://manglekuo.medium.com/running-mongodb-on-docker-with-macos-b08324f5aab2",
-      title: "Running MongoDB inside a Docker container with macOS and access it using Mongo Compass, for newbies",
-      date: "2021-02-21"
-    },
-    {
-      key: "53a482e39fd6",
-      link: "https://manglekuo.medium.com/develop-on-macos-dont-clutter-your-home-folder-as-i-did-53a482e39fd6",
-      title: "Develop on macOS: don't clutter your home folder like I did…",
-      date: "2021-04-21"
-    },
-    {
-      key: "de5b34356a5e",
-      link: "https://manglekuo.medium.com/%E8%B2%B7%E7%84%A1%E6%90%8D%E9%9F%B3%E6%A8%82%E6%AA%94%E6%A1%88%E7%9A%84%E5%9D%91-de5b34356a5e",
-      title: "買無損音樂檔案的坑",
-      date: "2021-04-21"
-    },
-    {
-      key: "b2f79bcdedf0",
-      link: "https://manglekuo.medium.com/%E8%A8%AD%E5%AE%9Amacos%E6%9C%AC%E5%9C%B0%E7%AB%AFhttps-ssl%E8%AD%89%E6%9B%B8-b2f79bcdedf0",
-      title: "設定macOS本地端HTTPs/SSL證書",
-      date: "2021-01-28"
-    },
-    // {
-    //   key: "",
-    //   link: "",
-    //   title: "",
-    //   date: "2021-01-28"
-    // },
-    // {
-    //   key: "",
-    //   link: "",
-    //   title: "",
-    //   date: "2021-01-28"
-    // },
-    // {
-    //   key: "",
-    //   link: "",
-    //   title: "",
-    //   date: "2021-01-28"
-    // },
-    // {
-    //   key: "",
-    //   link: "",
-    //   title: "",
-    //   date: "2021-01-28"
-    // },
-    // {
-    //   key: "",
-    //   link: "",
-    //   title: "",
-    //   date: "2021-01-28"
-    // },
-  ];
+function SocialLink({ type, link }) {
+    const [isShowEmailCopied, setIsShowemailCopied] = useState(false);
+    let typeChars = type.split("").map(
+        (char) =>
+            <span key={char + Math.random()}>
+                {char}
+            </span>
+    );
 
-
-
-  return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-        <meta name="Description" content={description} />
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>Hi, I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. I'm working on this site to get a job, please check again soon, hope it will impress you!</p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-      
-          <a href="/tenfacts">Ten facts about me</a><br />
-          <a href="/alt">New front page (work in progress)</a>
-        
-        <h1 className={utilStyles.headingLg}>I write about:</h1>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-            <Link href={`/posts/${id}`}>
-              <a>{title}</a>
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString={date} />
-            </small>
-          </li>
-          ))}
-        </ul>
-        <h1 className={utilStyles.headingLg}>(on medium.com ⬇️)</h1>
-        <ul className={utilStyles.list}>
-          {
-            mediumArticles.map((val) => (
-              <li className={utilStyles.listItem} key={val.key} >
-                <a href={val.link}>{val.title}</a>        
-                <br />
-                <small className={utilStyles.lightText}>
-                  <Date dateString={val.date} />
-                </small>
-              </li>
-            ))
-          }
-
-        
-        </ul>
-      </section>
-      <footer>
-        <br />
-        <center><strong>Surround yourself with things you like.</strong></center>
-        <br />
-      </footer>
-    </Layout>
-  );
+    let copyEmail = (e) => {
+        e.preventDefault();
+        copy(link);
+        setIsShowemailCopied(true);
+        setTimeout(() => {
+            setIsShowemailCopied(false);
+        }, 6000);
+    }
+    if (type == "Email") {
+        return (<a target="_blank" id="email" rel="noopener" href="#" onClick={(e) => { copyEmail(e) }}>
+            <span className={aS.type}>{isShowEmailCopied ? (<>Email copied ✓</>) : (<>Copy Email</>)}</span>
+        </a>);
+    }
+    return (<a target="_blank" rel="noopener" href={link}>
+        <span className={aS.type}>{typeChars}</span>
+    </a>);
 }
+
+
+
+
+
+// ========================================================================
+
+
+
+const findMeeTextList = [
+    "⇱ Find mee",
+    "⇲ Go babe",
+    "⇲ Go bass",
+    "⇲ Go base",
+    "⇲ Go bake",
+    "⇲ Go back"
+];
+const findMeeTextListRev = [
+    "⇱ Find mee",
+    "⇱ Funk mee",
+    "⇱ Find sea",
+    "⇱ Fcuk mee",
+    "⇱ Find wee",
+    "⇲ Go back"
+];
+
+const initialState = {
+    fMText: "⇱ Find mee",
+    zIdx: [
+        'FindmeeCover',
+        'Findmee',
+        'ThingsIdidCover',
+        'ThingsIdid',
+        'ThingsIwroteCover',
+        'ThingsIwrote',
+        'MangleKuo',
+    ],
+    isOpen: {
+        ThingsIdidCover: false,
+        ThingsIwroteCover: false,
+        FindmeeCover: false,
+    },
+
+};
+
+function reducer(state, action) {
+    console.log(action);
+    switch (action.type) {
+        case 'setFMText':
+            return { fMText: action.val, zIdx: state.zIdx, isOpen: state.isOpen };
+        case 'showOverlay':
+            let new_zIdx = [...state.zIdx];
+            let i1, i2;
+            switch (action.val) {
+                case 'ThingsIdidCover':
+                    i1 = new_zIdx.indexOf('ThingsIdid');
+                    i2 = new_zIdx.indexOf('ThingsIdidCover');
+                    if (i1 > -1) { new_zIdx.splice(i1, 1); }
+                    if (i2 > -1) { new_zIdx.splice(i2, 1); }
+                    new_zIdx.push('ThingsIdidCover');
+                    new_zIdx.push('ThingsIdid');
+                    return {
+                        fMText: state.fMText,
+                        zIdx: new_zIdx,
+                        isOpen: {
+                            ThingsIdidCover: true,
+                            ThingsIwroteCover: false,
+                            FindmeeCover: false,
+                        }
+                    };
+                case 'ThingsIwroteCover':
+                    i1 = new_zIdx.indexOf('ThingsIwrote');
+                    i2 = new_zIdx.indexOf('ThingsIwroteCover');
+                    if (i1 > -1) { new_zIdx.splice(i1, 1); }
+                    if (i2 > -1) { new_zIdx.splice(i2, 1); }
+                    new_zIdx.push('ThingsIwroteCover');
+                    new_zIdx.push('ThingsIwrote');
+                    return {
+                        fMText: state.fMText,
+                        zIdx: new_zIdx,
+                        isOpen: {
+                            ThingsIdidCover: false,
+                            ThingsIwroteCover: true,
+                            FindmeeCover: false,
+                        }
+                    };
+                case 'FindmeeCover':
+                    i1 = new_zIdx.indexOf('Findmee');
+                    i2 = new_zIdx.indexOf('FindmeeCover');
+                    if (i1 > -1) { new_zIdx.splice(i1, 1); }
+                    if (i2 > -1) { new_zIdx.splice(i2, 1); }
+                    new_zIdx.push('FindmeeCover');
+                    new_zIdx.push('Findmee');
+                    console.log(new_zIdx);
+                    return {
+                        fMText: state.fMText,
+                        zIdx: new_zIdx,
+                        isOpen: {
+                            ThingsIdidCover: false,
+                            ThingsIwroteCover: false,
+                            FindmeeCover: true,
+                        }
+                    };
+                case 'HideAll':
+                    return {
+                        fMText: state.fMText, zIdx: state.zIdx, isOpen: {
+                            ThingsIdidCover: false,
+                            ThingsIwroteCover: false,
+                            FindmeeCover: false,
+                        }
+                    };
+                default:
+                    throw new Error();
+            }
+            return
+        default:
+            throw new Error();
+    }
+}
+
+
+
+export default function Alt() {
+    let fMInx = useRef(0);
+
+    function changeFindMeText(inc) {
+        let last = 0; // timestamp of the last render() call
+        function render(now) {
+            // console.log(now,fMInx+inc);
+            if (fMInx.current + inc < 0 || fMInx.current + inc > findMeeTextList.length - 1) {
+
+            } else {
+                // console.log("inside",(now - last));
+                if (!last || (now - last) >= (inc > 0 ? 120 : 200)) {
+                    console.log("inside inside", (now - last), fMInx.current + inc);
+                    last = now;
+                    fMInx.current = fMInx.current + inc;
+                    dispatch({ type: 'setFMText', val: inc > 0 ? findMeeTextList[fMInx.current] : findMeeTextListRev[fMInx.current] })
+                }
+                requestAnimationFrame(render);
+            }
+        }
+        requestAnimationFrame(render);
+    }
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const [replayTrigger, setReplayTrigger] = useState(0);
+
+    function handleMangleKuoClick() {
+        setReplayTrigger(replayTrigger+1);
+    }
+
+    function handleThingsIdidClick() {
+        if (state.isOpen.ThingsIdidCover) {
+            dispatch({ type: 'showOverlay', val: 'HideAll' });
+        }else{
+            dispatch({ type: 'showOverlay', val: 'ThingsIdidCover' });
+        }
+    }
+
+    function handleThingsIwroteClick() {
+        setReplayTrigger(replayTrigger+1);
+    }
+
+    function handleFindmeeClick() {
+
+        if (fMInx.current == 0) {
+            changeFindMeText(1);
+            dispatch({ type: 'showOverlay', val: 'FindmeeCover' });
+        }
+        if (fMInx.current == findMeeTextList.length - 1) {
+            changeFindMeText(-1);
+            dispatch({ type: 'showOverlay', val: 'HideAll' });
+        }
+
+    }
+
+    let zIdx = (page) => {
+        // get the z index of a fixed text, or a cover, for the css
+        return state.zIdx.indexOf(page);
+    }
+
+    return (
+        <>
+            <Head>
+                <title>Mangle Kuo</title>
+                <meta name="Description" content={description} />
+                <link rel="stylesheet" href="https://use.typekit.net/yor5kzq.css"></link>
+                <meta key="theme-color-light" name="theme-color"
+                    content="#ffffff"
+                    media="(prefers-color-scheme: light)" />
+                <meta key="theme-color-dark" name="theme-color"
+                    content="#000000"
+                    media="(prefers-color-scheme: dark)" />
+            </Head>
+            <main className={aS.main}>
+                <section className={aS.videoSection}>
+                    <AnimationVideoPlayer replay={replayTrigger} />
+                </section>
+                <section>
+                    <div className={`${aS.MangleKuo} ${aS['z-' + zIdx('MangleKuo')]}`} onClick={handleMangleKuoClick}>
+                        Mangle Kuo
+                        <div className={aS.moon} />
+                    </div>
+
+                    <div className={`${aS.ThingsIdid} ${aS['z-' + zIdx('ThingsIdid')]}`} onClick={handleThingsIdidClick}>Things I did</div>
+                    <div className={`${aS.ThingsIdidCover} ${aS['z-' + zIdx('ThingsIdidCover')]} ${state.isOpen.ThingsIdidCover ? aS.open : aS.closed}`}>
+                        <div className={aS.ThingsIdidWrapper}>
+                        {
+                            [
+                                {slug:'ten-facts',title:'Ten Facts',url:''},
+                                {slug:'who-is-that-person',title:'Who is that person',url:''},
+                                {slug:'two-a-one-b',title:'2A1B',url:''},
+                                {slug:'projectile',title:'Projectile',url:''},
+                                {slug:'slay-the-queen',title:'Slay the Queen',url:''},
+                            ].map((val,idx) => {
+                                return (<div key={val.slug} className={aS.ThingsIdidBox}><h1>{val.title}</h1><div>IMAGE</div><figcaption>CAPTION</figcaption></div>);
+                            })
+                        }
+                        </div>
+                    </div>
+
+                    <div className={`${aS.ThingsIwrote} ${aS['z-' + zIdx('ThingsIwrote')]}`} onClick={handleThingsIwroteClick}>Things I wrote</div>
+                    <div className={`${aS.ThingsIwroteCover} ${aS['z-' + zIdx('ThingsIwroteCover')]}`}></div>
+
+                    <div className={`${aS.Findmee} ${aS['z-' + zIdx('Findmee')]}`} onClick={handleFindmeeClick}>{state.fMText}</div>
+                    <div className={`${aS.FindmeeCover} ${aS['z-' + zIdx('FindmeeCover')]} ${state.isOpen.FindmeeCover ? aS.open : aS.closed}`}>
+                        <div className={aS.findMeContentWrapper}>
+                            <div className={aS.findMeContent}>
+                                <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
+                                <SocialLink link="https://www.linkedin.com/in/manglekuo" type="LinkedIn" tag="Mangle Kuo" />
+                                <SocialLink link="https://www.behance.net/gallery/65814819/Collection-of-works" type="Behance" tag="mangle-kuo" />
+                                <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
+                                <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
+                                <SocialLink link="https://www.instagram.com/ghcpuman902/" type="Instagram" tag="@ghcpuman902" />
+                                <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
+                            </div>
+                        </div>
+                        {/* <img
+                            className={aS.imgBG}
+                            srcSet="elva-fairy-480w.jpg 480w,
+                                    elva-fairy-800w.jpg 800w"
+                            sizes="(max-width: 600px) 480px,
+                                    800px"
+                            src="elva-fairy-800w.jpg"
+                            alt="Elva dressed as a fairy" /> */}
+                    </div>
+
+                </section>
+            </main>
+        </>
+    );
+}
+
