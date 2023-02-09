@@ -37,6 +37,8 @@ export default async function handler(
     const   TheHighwayN = "490014016N", //Lvp St
             TheHighwayS = "490014016S", //Shadwell
             TobaccoDock = "490013687J", //Canary Wharf
+            WellcloseStE = "4900018662E", //TEST
+            LvpStStn = "490000138D", //Test
             WellcloseSt = "490018662W"; //Night bus C.London
 
 
@@ -76,13 +78,28 @@ export default async function handler(
     };
 
     let result = {list:[],ERR:""};
-    const [list1, list2] = await Promise.all([
-        getArrivalTime(TobaccoDock),
-        getArrivalTime(WellcloseSt)
+    const [list1, list2, list3] = await Promise.all([
+        getArrivalTime(WellcloseStE),
+        getArrivalTime(WellcloseSt),
+        getArrivalTime(LvpStStn)
     ]);
-    result.list.push(list1);
-    result.list.push(list2);
-    res.status(200).send(JSON.stringify(result.list));
+    result.list = result.list.concat(list1);
+    result.list = result.list.concat(list2);
+    result.list = result.list.concat(list3);
+    result.list.sort(function(a,b) {
+        let aT = new Date(a.expectedArrival).getTime();
+        let bT = new Date(b.expectedArrival).getTime();
+        return aT - bT;
+    })
+    result.list = result.list.filter(function(obj){
+        return !(obj.naptanId == TobaccoDock && obj.lineName == "100");
+    });
+    let text = "";
+    result.list.forEach((curr,idx) => { 
+        text = text+(idx==0?"":"\n")+`${curr.timeToStation}s,${curr.lineName}→${curr.destinationName}`.slice(0,17);
+    });
+
+    res.status(200).send(text);
 }
 
 
