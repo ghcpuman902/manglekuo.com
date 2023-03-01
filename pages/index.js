@@ -266,10 +266,10 @@ export default function Alt() {
                         <div className={aS.moon} />
                     </div>
 
-                    <div className={`${aS.ThingsIdid} ${aS['z-' + zIdx('ThingsIdid')]}`} onClick={handleThingsIdidClick}>Things I did</div>
+                    <div className={`${aS.ThingsIdid} ${aS['z-' + zIdx('ThingsIdid')]}`} onClick={handleThingsIdidClick}>About me</div>
                     <div className={`${aS.ThingsIdidCover} ${aS['z-' + zIdx('ThingsIdidCover')]} ${state.isOpen.ThingsIdidCover ? aS.open : aS.closed}`}>
                         <div className={aS.ThingsIdidWrapper}>
-                        {
+                        {/* {
                             [
                                 {slug:'ten-facts',title:'Ten Facts',url:''},
                                 {slug:'who-is-that-person',title:'Who is that person',url:''},
@@ -279,12 +279,21 @@ export default function Alt() {
                             ].map((val,idx) => {
                                 return (<div key={val.slug} className={aS.ThingsIdidBox}><h1>{val.title}</h1><div>IMAGE</div><figcaption>CAPTION</figcaption></div>);
                             })
-                        }
+                        } */}
+                        Greetings, my name is Mangle Kuo, and I am a skilled full-stack developer with experience in project management and a passion for photography. In my free time, I enjoy exploring the city, listening to music, and savoring craft beer.
+<br /><br />
+After completing my studies in the UK, I returned to Taiwan and began working as a project manager for an AR glasses start-up. This company was later acquired by Foxconn, a global electronics manufacturer famous for assembling the iPhone. Through this experience, I gained valuable knowledge about hardware design and manufacturing.
+<br /><br />
+One of my greatest strengths is my broad knowledge of various fields and my ability to communicate effectively with people from different professional backgrounds. This skill was essential in my previous job, where we customized hardware and software solutions for a diverse range of clients, including fire-fighting departments and museums.
+<br /><br />
+As a people-oriented individual, I am seeking a full-stack developer role in a small company or start-up where I can put my coding skills to professional use. I believe that end-user feedback is crucial, and working in an environment that encourages open communication between the engineering team and end-users is essential for success.
+<br /><br />
+For my photos, please see my <a target="_blank" rel="noopener" href="https://www.instagram.com/ghcpuman902/">Instagram</a>, for my Photoshop/Illustrator works, please see my <a target="_blank" rel="noopener" href="https://www.behance.net/mangle-kuo">Behance</a>, for my coding work please see my <a target="_blank" rel="noopener" href="https://github.com/ghcpuman902">GitHub</a>. I also write on <a target="_blank" rel="noopener" href="https://manglekuo.medium.com">Medium</a>.
                         </div>
                     </div>
 
-                    <div className={`${aS.ThingsIwrote} ${aS['z-' + zIdx('ThingsIwrote')]}`} onClick={handleThingsIwroteClick}>Things I wrote</div>
-                    <div className={`${aS.ThingsIwroteCover} ${aS['z-' + zIdx('ThingsIwroteCover')]}`}></div>
+                    <div className={`${aS.ThingsIwrote} ${aS['z-' + zIdx('ThingsIwrote')]}`} onClick={handleThingsIwroteClick}>Re-animate</div>
+                    {/* <div className={`${aS.ThingsIwroteCover} ${aS['z-' + zIdx('ThingsIwroteCover')]}`}></div> */}
 
                     <div className={`${aS.Findmee} ${aS['z-' + zIdx('Findmee')]}`} onClick={handleFindmeeClick}>{state.fMText}</div>
                     <div className={`${aS.FindmeeCover} ${aS['z-' + zIdx('FindmeeCover')]} ${state.isOpen.FindmeeCover ? aS.open : aS.closed}`}>
@@ -292,7 +301,7 @@ export default function Alt() {
                             <div className={aS.findMeContent}>
                                 <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
                                 <SocialLink link="https://www.linkedin.com/in/manglekuo" type="LinkedIn" tag="Mangle Kuo" />
-                                <SocialLink link="https://www.behance.net/gallery/65814819/Collection-of-works" type="Behance" tag="mangle-kuo" />
+                                <SocialLink link="https://www.behance.net/mangle-kuo" type="Behance" tag="mangle-kuo" />
                                 <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
                                 <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
                                 <SocialLink link="https://www.instagram.com/ghcpuman902/" type="Instagram" tag="@ghcpuman902" />
