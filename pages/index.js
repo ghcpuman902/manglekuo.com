@@ -290,7 +290,7 @@ As a people-oriented individual, I am seeking a full-stack developer role in a s
 <br /><br />
 For my photos, please see my <a target="_blank" rel="noopener" href="https://www.instagram.com/ghcpuman902/">Instagram</a>, for my Photoshop/Illustrator works, please see my <a target="_blank" rel="noopener" href="https://www.behance.net/mangle-kuo">Behance</a>, for my coding work please see my <a target="_blank" rel="noopener" href="https://github.com/ghcpuman902">GitHub</a>. I also write on <a target="_blank" rel="noopener" href="https://manglekuo.medium.com">Medium</a>.
 <br /><br />
-I'm looking for a job at the moment, so if you are interested, please get in touch through email. Thanks in advance!
+I'm looking for a job at the moment, so if you are interested, please get in touch, thanks in advance! <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
                         </div>
 
                     </div>
