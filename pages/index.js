@@ -289,7 +289,10 @@ One of my greatest strengths is my broad knowledge of various fields and my abil
 As a people-oriented individual, I am seeking a full-stack developer role in a small company or start-up where I can put my coding skills to professional use. I believe that end-user feedback is crucial, and working in an environment that encourages open communication between the engineering team and end-users is essential for success.
 <br /><br />
 For my photos, please see my <a target="_blank" rel="noopener" href="https://www.instagram.com/ghcpuman902/">Instagram</a>, for my Photoshop/Illustrator works, please see my <a target="_blank" rel="noopener" href="https://www.behance.net/mangle-kuo">Behance</a>, for my coding work please see my <a target="_blank" rel="noopener" href="https://github.com/ghcpuman902">GitHub</a>. I also write on <a target="_blank" rel="noopener" href="https://manglekuo.medium.com">Medium</a>.
+<br /><br />
+I'm looking for a job at the moment, so if you are interested, please get in touch through email. Thanks in advance!
                         </div>
+
                     </div>
 
                     <div className={`${aS.ThingsIwrote} ${aS['z-' + zIdx('ThingsIwrote')]}`} onClick={handleThingsIwroteClick}>Re-animate</div>
