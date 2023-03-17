@@ -133,10 +133,16 @@
             border-radius: 400px 0px 0px 0px;
         }
 
+        .ThingsIdidCover a{
+            color: #111;
+        }
         @media (prefers-color-scheme: dark){
 
             .ThingsIdidCover{
                 background-color: #111;
+                color: #eee;
+            }
+            .ThingsIdidCover a{
                 color: #eee;
             }
         }
