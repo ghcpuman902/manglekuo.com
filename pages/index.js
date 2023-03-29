@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import aS from '../styles/alt.module.css'
 import { useEffect, useState, useRef, useReducer } from 'react'
 import copy from 'copy-to-clipboard';
@@ -184,6 +185,8 @@ function reducer(state, action) {
 
 
 export default function Alt() {
+
+
     let fMInx = useRef(0);
 
     function changeFindMeText(inc) {
@@ -242,6 +245,14 @@ export default function Alt() {
         // get the z index of a fixed text, or a cover, for the css
         return state.zIdx.indexOf(page);
     }
+
+    const router = useRouter()
+
+    useEffect(() => {
+      if ('findme' in router.query) {
+        handleFindmeeClick()
+      }
+    }, [router.query])
 
     return (
         <>
