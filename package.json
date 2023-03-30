@@ -25,6 +25,7 @@
     "remark-rehype": "^8.1.0",
     "request": "^2.88.2",
     "sass": "^1.42.1",
+    "styled-components": "^5.3.9",
     "unified": "^9.2.1"
   },
   "devDependencies": {
