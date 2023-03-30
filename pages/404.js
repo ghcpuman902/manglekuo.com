@@ -46,7 +46,7 @@ export default function ParallaxPage() {
 
 
     const handleTilt = (e) => {
-      const { gamma, beta } = e.accelerationIncludingGravity;
+      const { gamma, beta } = e.rotationRate;
       const x = gamma * parallaxCoeff;
       const y = -beta * parallaxCoeff;
 
