@@ -47,8 +47,8 @@ export default function ParallaxPage() {
 
     const handleTilt = (e) => {
       const { gamma, beta } = e.rotationRate;
-      const x = gamma * parallaxCoeff;
-      const y = -beta * parallaxCoeff;
+      const x = -beta * parallaxCoeff;
+      const y = gamma * parallaxCoeff;
 
       svgRefs.current.forEach((svg, idx) => {
         const layerCoeff = (idx + 1) / svgRefs.current.length;
@@ -58,13 +58,15 @@ export default function ParallaxPage() {
     };
 
     const handlePermissionRequest = () => {
-      DeviceMotionEvent.requestPermission()
-        .then(permissionState => {
-          if (permissionState === 'granted') {
-            window.addEventListener('devicemotion', handleTilt);
-          }
-        })
-        .catch(console.error);
+      if (typeof DeviceMotionEvent.requestPermission === 'function') {
+        DeviceMotionEvent.requestPermission()
+          .then(permissionState => {
+            if (permissionState === 'granted') {
+              window.addEventListener('devicemotion', handleTilt);
+            }
+          })
+          .catch(console.error);
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
