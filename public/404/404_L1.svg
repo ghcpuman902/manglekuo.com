@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="b" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048">
-  <rect x="769.27765" y="1338.70237" width="192" height="192" style="fill: #fff;"/>
-  <rect x="552.47746" y="1824.14241" width="192" height="192" style="fill: #fff;"/>
-  <rect x="1728.85837" width="192" height="96" style="fill: #fff;"/>
-  <circle cx="1464.60299" cy="1769.39994" r="113.47258" style="fill: #fff;"/>
-  <circle cx="191.45744" cy="1233.47258" r="113.47258" style="fill: #fff;"/>
-  <polygon points="1809.65231 1256.1703 1691.84812 1460.21314 1927.4565 1460.21314 1809.65231 1256.1703" style="fill: #fff;"/>
-  <polygon points="1192.43128 711.70116 1074.6271 915.744 1310.23547 915.744 1192.43128 711.70116" style="fill: #fff;"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8"?><svg id="b" xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048"><rect x="769.27765" y="1338.70237" width="192" height="192" style="fill:#fff;"/><rect x="112.93002" y="620.11043" width="192" height="192" style="fill:#fff;"/><rect x="1051.08203" y="1060.99499" width="192" height="192" style="fill:#fff;"/><rect x="552.47746" y="1824.14241" width="192" height="192" style="fill:#fff;"/><rect x="1728.85837" width="192" height="96" style="fill:#fff;"/><circle cx="1464.60299" cy="1769.39994" r="113.47258" style="fill:#fff;"/><circle cx="1074.69531" cy="901.74707" r="113.47258" style="fill:#fff;"/><circle cx="191.45744" cy="1233.47258" r="113.47258" style="fill:#fff;"/><circle cx="1744.8092" cy="925.58301" r="113.47258" style="fill:#fff;"/><polygon points="1809.65231 1256.1703 1691.84812 1460.21314 1927.4565 1460.21314 1809.65231 1256.1703" style="fill:#fff;"/><polygon points="1327.39913 552.82727 1209.59495 756.87011 1445.20332 756.87011 1327.39913 552.82727" style="fill:#fff;"/><polygon points="1769.66256 179.9626 1651.85837 384.00544 1887.46675 384.00544 1769.66256 179.9626" style="fill:#fff;"/><polygon points="729.93448 240.60474 612.13029 444.64758 847.73866 444.64758 729.93448 240.60474" style="fill:#fff;"/><polygon points="763.23249 1027.93171 645.4283 1231.97454 881.03667 1231.97454 763.23249 1027.93171" style="fill:#fff;"/></svg>

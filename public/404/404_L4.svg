@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="b" data-name="Layer 4" xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048">
-  <rect x="1314.60299" y="1120" width="300" height="300" style="fill: #fff;"/>
-  <circle cx="941.27957" cy="579.03463" r="177.30091" style="fill: #fff;"/>
-  <polygon points="979.80174 1535.84221 795.7327 1854.65914 1163.87079 1854.65914 979.80174 1535.84221" style="fill: #fff;"/>
-  <rect x="203.92585" width="300" height="300" style="fill: #fff;"/>
-  <circle cx="1870.69909" cy="1789.30418" r="177.30091" style="fill: #fff;"/>
-  <polygon points="191.45744 596.92707 7.38839 915.744 375.52648 915.744 191.45744 596.92707" style="fill: #fff;"/>
-  <circle cx="368.75834" cy="1434.70237" r="177.30091" style="fill: #fff;"/>
-  <polygon points="1798.67204 260.21769 1614.60299 579.03463 1982.74108 579.03463 1798.67204 260.21769" style="fill: #fff;"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8"?><svg id="b" xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048"><rect x="1314.60299" y="1120" width="300" height="300" style="fill:#fff;"/><circle cx="941.27957" cy="579.03463" r="177.30091" style="fill:#fff;"/><polygon points="979.80174 1535.84221 795.7327 1854.65914 1163.87079 1854.65914 979.80174 1535.84221" style="fill:#fff;"/><rect x="203.92585" width="300" height="300" style="fill:#fff;"/><circle cx="1870.69909" cy="1789.30418" r="177.30091" style="fill:#fff;"/><polygon points="191.45744 596.92707 7.38839 915.744 375.52648 915.744 191.45744 596.92707" style="fill:#fff;"/><circle cx="368.75834" cy="1434.70237" r="177.30091" style="fill:#fff;"/><polygon points="1798.67204 260.21769 1614.60299 579.03463 1982.74108 579.03463 1798.67204 260.21769" style="fill:#fff;"/></svg>
