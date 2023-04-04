@@ -3,8 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {useEffect, useState, useRef} from 'react';
 import { SVG, extend as SVGextend, Element as SVGElement } from '@svgdotjs/svg.js'
-import rS from '../../styles/rc.module.css'
 
+import rS from '../../styles/rc.module.css'
 
 function InputBox(){
     const [down,setDown] = useState(false);
@@ -54,9 +54,10 @@ function InputBox(){
 function SaveLink({svgStr}){
     const [downloadLink, setDownloadLink] = useState('');
     useEffect(()=>{
-        if(typeof window !== 'undefined' && typeof svgStr !== 'undefined' && typeof svgStr !== 'null'){
+        if(typeof window !== 'undefined' && typeof svgStr !== 'undefined'){
+            let data;
             try {
-                const data = new Blob([svgStr], { type: 'text/plain' });
+                data = new Blob([svgStr], { type: 'text/plain' });
                 
             } catch (error) {
                 console.log('svgStr',svgStr);
@@ -437,12 +438,14 @@ function RenderSVG() {
     // const svgSfgRef = useRef(null);
     // const svgSmbmRef = useRef(null);
 
+
+
   return (
     <div className={rS.wrapper}>
         <div id="svgCanvas" className={rS.svgCanvas} style={{width:winSize.w+"px", height:winSize.h+"px"}}>
         </div>
         <div className={rS.control}>
-        <InputBox />
+        {/* <InputBox /> */}
         <h3>Overall</h3>
             <input name='a-value' className={rS.slider} type='range' min={1} max={2000} step={1} defaultValue={w} ref={wRef} onChange={handleChange}/>
             <label htmlFor='a-value'>a: {w/2}</label>
