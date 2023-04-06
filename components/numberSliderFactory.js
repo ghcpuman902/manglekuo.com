@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+
 const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
     const NumberSlider = ({ onValueChange }) => {
         const [val, setVal] = useState(initialValue);
@@ -16,7 +17,9 @@ const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
             setVal((val) => Math.min(Math.max(parseFloat(val) + delta * step, min), max));
         };
         const handleInputChange = (e) => {
-            setVal(Math.min(Math.max(e.target.value, min), max));
+            let num = e.target.value.endsWith(unit) ? e.target.value.slice(0, -unit.length) : e.target.value; // remove the unit if exists
+            num = !isNaN(Number(num))?Number(num):val; // check if the rest is number
+            setVal(Math.min(Math.max(num, min), max)); // clip the value
         };
 
 

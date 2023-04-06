@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import numberSliderFactory from '../../components/numberSliderFactory';
 
-const WidthSlider = numberSliderFactory(0, 1000, 1, 300, 'px');
-const HeightSlider = numberSliderFactory(0, 1000, 1, 400, 'px');
+const WidthSlider = numberSliderFactory(1, 1000, 1, 300, 'px');
+const HeightSlider = numberSliderFactory(1, 1000, 1, 400, 'px');
 const MarginTopSlider = numberSliderFactory(-100, 100, 0.5, 0, 'px');
 const MarginLeftSlider = numberSliderFactory(-100, 100, 0.5, 0, 'px');
 
