@@ -7,6 +7,8 @@ const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
         const [isDragging, setIsDragging] = useState(false);
         const prevTouchX = useRef(null);
         const isTouchScreen = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+        const [tapCount, setTapCount] = useState(0);
+        const tapTimeoutRef = useRef(null);
 
         const handleStart = () => setIsDragging(true);
         const handleEnd = () => {
@@ -18,8 +20,21 @@ const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
         };
         const handleInputChange = (e) => {
             let num = e.target.value.endsWith(unit) ? e.target.value.slice(0, -unit.length) : e.target.value; // remove the unit if exists
-            num = !isNaN(Number(num))?Number(num):val; // check if the rest is number
+            num = !isNaN(Number(num)) ? Number(num) : val; // check if the rest is number
             setVal(Math.min(Math.max(num, min), max)); // clip the value
+        };
+        const handleDoubleTap = () => {
+            setTapCount((prevCount) => prevCount + 1);
+            if (tapTimeoutRef.current) {
+                clearTimeout(tapTimeoutRef.current);
+            }
+            tapTimeoutRef.current = setTimeout(() => {
+                setTapCount(0);
+            }, 300);
+
+            if (tapCount === 1) {
+                setVal(initialValue);
+            }
         };
 
 
@@ -67,9 +82,9 @@ const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
 
         useEffect(() => {
             if (onValueChange) {
-              onValueChange(val);
+                onValueChange(val);
             }
-          }, [val, onValueChange]);
+        }, [val, onValueChange]);
 
         const sliderStyle = {
             position: 'relative',
@@ -77,23 +92,24 @@ const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
             background: `linear-gradient(90deg, rgba(255,255,255,0.2) ${(val - min) / (max - min) * 100}%, rgba(0,0,0,0.2) ${(val - min) / (max - min) * 100}%)`,
             border: '1px solid #ddd',
             borderRadius: '0.5rem',
-            cursor: isDragging ? 'grabbing' : 'grab',
-          };
+            cursor: 'text'
+        };
 
         return (
             <div
                 style={sliderStyle}
                 onMouseDown={!isTouchScreen ? handleStart : undefined}
                 onMouseUp={!isTouchScreen ? handleEnd : undefined}
+                onDoubleClick={!isTouchScreen ? () => setVal(initialValue) : undefined}
                 onTouchStart={isTouchScreen ? handleStart : undefined}
-                onTouchEnd={isTouchScreen ? handleEnd : undefined}
+                onTouchEnd={isTouchScreen ? (e) => { handleEnd(e); handleDoubleTap(); } : undefined}
             >
                 <input
                     type="text"
                     value={`${val}${unit}`}
                     onChange={handleInputChange}
                     style={{
-                        position: 'relative', margin: '0', padding: '0.2rem', color: '#fff', textAlign: 'center', fontSize: '1.5rem', background: 'transparent', border: 'none', cursor: 'pointer', outline: 'none', width: '100%', appearance: 'none', WebkitAppearance: 'none', MozAppearance: 'textfield',
+                        position: 'relative', margin: '0', padding: '0.2rem', color: '#fff', textAlign: 'center', fontSize: '1.5rem', background: 'transparent', border: 'none', outline: 'none', width: '100%',
                     }}
                 />
             </div>
