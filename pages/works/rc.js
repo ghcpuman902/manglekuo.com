@@ -1,54 +1,9 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
 import {useEffect, useState, useRef} from 'react';
 import { SVG, extend as SVGextend, Element as SVGElement } from '@svgdotjs/svg.js'
 
 import rS from '../../styles/rc.module.css'
 
-function InputBox(){
-    const [down,setDown] = useState(false);
-    const [moved,setMoved] = useState(false);
-    let handlePointer = (e,o) => {
-        e.preventDefault();
-        switch (o) {
-            case 0:
-                console.log("DOWN");
-                setDown(true);
-            break;
-            case 1:
-                if(down){
-                    e.target.value="MOVED";
-                    console.log(e);
-                    setMoved(true);
-                }
-            break;
-            case 2:
-                console.log("UPED");
-                setDown(false);
-                if(moved){
-                    console.log("DRAGGED");
-                }else{
-                    console.log("CLICKED");
-                }
-                setMoved(false);
-            break;
-            case 3:
-                console.log(e.target.value=500);
-            break;
-            case 4:
-                console.log(e.target.value=600);
-            break;
-            
-        
-            default:
-                break;
-        }
-    };
-    return (
-        <input className={rS.InputBox} onPointerDown={(e)=>{handlePointer(e,0)}} onPointerMove={(e)=>{handlePointer(e,1)}} onPointerUp={(e)=>{handlePointer(e,2)}} type="text" value="150" readOnly={true} />
-    );
-}
 
 
 function SaveLink({svgStr}){

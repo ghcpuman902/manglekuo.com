@@ -6,14 +6,14 @@ const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
         const [val, setVal] = useState(initialValue);
         const [isDragging, setIsDragging] = useState(false);
         const prevTouchX = useRef(null);
-        const isTouchScreen = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+        const isTouchScreen = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0); // check if the device is touch screen
         const [tapCount, setTapCount] = useState(0);
         const tapTimeoutRef = useRef(null);
 
-        const handleStart = () => setIsDragging(true);
+        const handleStart = () => setIsDragging(true); // set the dragging state to true
         const handleEnd = () => {
             setIsDragging(false);
-            prevTouchX.current = null;
+            prevTouchX.current = null; // reset the previous touch position
         };
         const handleMove = (delta) => {
             setVal((val) => Math.min(Math.max(parseFloat(val) + delta * step, min), max));
@@ -90,6 +90,10 @@ const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
             position: 'relative',
             padding: '0',
             background: `linear-gradient(90deg, rgba(255,255,255,0.2) ${(val - min) / (max - min) * 100}%, rgba(0,0,0,0.2) ${(val - min) / (max - min) * 100}%)`,
+        const inputStyle = {
+            position: 'relative', margin: '0', padding: '0.2rem', color: '#fff', textAlign: 'center', fontSize: '1.5rem', background: 'transparent', border: 'none', outline: 'none', width: '100%',
+        };
+
             border: '1px solid #ddd',
             borderRadius: '0.5rem',
             cursor: 'text'
@@ -108,8 +112,11 @@ const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
                     type="text"
                     value={`${val}${unit}`}
                     onChange={handleInputChange}
-                    style={{
-                        position: 'relative', margin: '0', padding: '0.2rem', color: '#fff', textAlign: 'center', fontSize: '1.5rem', background: 'transparent', border: 'none', outline: 'none', width: '100%',
+                    style={inputStyle}
+                    onFocus={(e) => {
+                        if (e.target.value.endsWith(unit)) {
+                            e.target.setSelectionRange(0, e.target.value.length - unit.length);
+                        }
                     }}
                 />
             </div>
