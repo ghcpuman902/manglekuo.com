@@ -1,28 +1,26 @@
-.wrapper{
+.wrapper {
     background-color: #000;
     display: flex;
-}
-
-.svgCanvas{
-    margin: 0px;
-
-}
-
-.control{
-    /* position: fixed; */
-    margin: 0px;
+  }
+  
+  .svg-canvas {
+    margin: 0;
+  }
+  
+  .control {
+    margin: 0;
+    padding: 20px;
     width: 500px;
     height: 100%;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     border: 2px solid #fff;
-    right: 0px;
-    bottom: 0px;
-    padding: 20px;
+    right: 0;
+    bottom: 0;
     margin-left: 0;
-}
-
-.colorPicker[type="color"] {
-	-webkit-appearance: none;
+  }
+  
+  .color-picker[type="color"] {
+    -webkit-appearance: none;
     width: 1em;
     height: 1em;
     border: none;
@@ -32,58 +30,59 @@
     background-color: #000;
     border-image: none;
     color: #fff;
-    padding: 0px;
-    margin: 0px 0.5rem 0px 0px;
-}
-.colorPicker[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
-}
-.colorPicker[type="color"]::-webkit-color-swatch {
-	border: none;
-}
-
-
-@media screen and (max-width:1000px){
-    .control{
-        position: fixed;
-        width: 100%;
+    padding: 0;
+    margin: 0 0.5rem 0 0;
+  }
+  
+  .color-picker[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  .color-picker[type="color"]::-webkit-color-swatch {
+    border: none;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .control {
+      position: fixed;
+      width: 100%;
     }
-
-}
-
-.slider {
+  }
+  
+  .slider {
     -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     height: 2px;
     background: #d3d3d3;
     outline: none;
-}
-
-
-.slider::-webkit-slider-thumb {
+  }
+  
+  .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
     height: 20px;
     background: #000;
     cursor: pointer;
-    border-radius:20px;
-    border:2px solid #f00;
-}
-/* 
-.slider::-moz-range-thumb {
-width: 25px;
-height: 25px;
-background: #04AA6D;
-cursor: pointer;
-} */
-
-.InputBox{
+    border-radius: 20px;
+    border: 2px solid #f00;
+  }
+  
+  /* 
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+  } */
+  
+  .input-box {
+    margin: 0;
+    padding: 0.5rem;
     border: 2px #fff solid;
     background-color: #000;
     color: #fff;
     border-radius: 0;
     outline: 0;
-    margin: 0;
-    padding: 0.5rem;
-}
+  }

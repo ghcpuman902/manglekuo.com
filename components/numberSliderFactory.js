@@ -90,13 +90,13 @@ const numberSliderFactory = (min, max, step, initialValue, unit = '') => {
             position: 'relative',
             padding: '0',
             background: `linear-gradient(90deg, rgba(255,255,255,0.2) ${(val - min) / (max - min) * 100}%, rgba(0,0,0,0.2) ${(val - min) / (max - min) * 100}%)`,
-        const inputStyle = {
-            position: 'relative', margin: '0', padding: '0.2rem', color: '#fff', textAlign: 'center', fontSize: '1.5rem', background: 'transparent', border: 'none', outline: 'none', width: '100%',
-        };
-
             border: '1px solid #ddd',
             borderRadius: '0.5rem',
             cursor: 'text'
+        };
+
+        const inputStyle = {
+            position: 'relative', margin: '0', padding: '0.2rem', color: '#fff', textAlign: 'center', fontSize: '1.5rem', background: 'transparent', border: 'none', outline: 'none', width: '100%',
         };
 
         return (
