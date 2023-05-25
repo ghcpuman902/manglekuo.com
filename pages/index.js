@@ -266,8 +266,8 @@ export default function Alt() {
                 <meta key="theme-color-dark" name="theme-color"
                     content="#000000"
                     media="(prefers-color-scheme: dark)" />
-                <link rel="preload" href="/images/SocialCloseUp_P3_2000_P80.jpg" as="image" type="image/jpeg" />
-                <link rel="preload" href="/images/SocialCloseUp_P3_4000_P80.jpg" as="image" type="image/jpeg" />
+                {/* <link rel="preload" href="/images/SocialCloseUp_P3_2000_P80.jpg" as="image" type="image/jpeg" />
+                <link rel="preload" href="/images/SocialCloseUp_P3_4000_P80.jpg" as="image" type="image/jpeg" /> */}
             </Head>
             <main className={aS.main}>
                 <section className={aS.videoSection}>

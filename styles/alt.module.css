@@ -266,24 +266,31 @@
             height: 100vh;
             background-color: var(--secondary-bg);
             position: fixed;
-
+            background-color: #0cd2d5;
             overflow: hidden;
-            clip: rect(auto, auto, auto, auto);
-            /* background: url(/images/SocialBGV2@0.5x.jpg) no-repeat; */
-            background: #0cd2d5 url(/images/SocialCloseUp_P3_2000_P80.jpg) no-repeat;
-            background-attachment: scroll;
-            background-position: center center;
-            background-size: cover; 
             border-radius: 400px 0px 0px 0px;
+            position: fixed;
+            left:0; top:0;
+        }
+
+        @media (max-width: 1499px) {
+            .FindmeeCover{
+                background: url(/images/SocialCloseUp_P3_2000_P80.jpg) no-repeat;
+                clip: rect(auto, auto, auto, auto);
+                background-attachment: scroll;
+                background-position: center center;
+                background-size: cover; 
+            }
         }
 
         @media (min-width: 1500px) {
             .FindmeeCover{
-                background: #0cd2d5 url(/images/SocialCloseUp_P3_4000_P80.jpg) no-repeat;
+                background: url(/images/SocialCloseUp_P3_4000_P80.jpg) no-repeat;
                 background-attachment: scroll;
                 background-position: center center;
                 background-size: cover; 
                 border-radius: 600px 0px 0px 0px;
+
             }
         }
 
@@ -305,23 +312,16 @@
             }
         }
 
-            .FindmeeCover.closed{
-                left: 100vw;
-                top: 100vh;
-                transition: left cubic-bezier(0.4, 0.14, 1, 1) 1000ms, top cubic-bezier(0.4, 0.14, 1, 1) 1000ms;
-                /* left: 0; top: 0;
-                transform: translate(100%,100%);
-                transition: transform cubic-bezier(0.4, 0.14, 1, 1) 1000ms; */
-
+            .FindmeeCover.closed {
+                transform: translate(100vw, 100vh);
+                transition: transform cubic-bezier(0.4, 0.14, 1, 1) 1000ms;
             }
-            .FindmeeCover.open{
-                left: 0;
-                top: 0;
-                transition: left cubic-bezier(0, 0, 0.3, 1) 600ms, top cubic-bezier(0, 0, 0.3, 1) 600ms;
-                /* left: 0; top: 0;
-                transform: translate(0%,0%);
-                transition: transform cubic-bezier(0, 0, 0.3, 1) 600ms;  */
+            
+            .FindmeeCover.open {
+                transform: translate(0, 0);
+                transition: transform cubic-bezier(0, 0, 0.3, 1) 600ms;
             }
+        
             .findMeContentWrapper{
                 composes: root;
                 width: 100%;
