@@ -266,8 +266,6 @@ export default function Alt() {
                 <meta key="theme-color-dark" name="theme-color"
                     content="#000000"
                     media="(prefers-color-scheme: dark)" />
-                {/* <link rel="preload" href="/images/SocialCloseUp_P3_2000_P80.jpg" as="image" type="image/jpeg" />
-                <link rel="preload" href="/images/SocialCloseUp_P3_4000_P80.jpg" as="image" type="image/jpeg" /> */}
             </Head>
             <main className={aS.main}>
                 <section className={aS.videoSection}>
@@ -316,7 +314,7 @@ I'm looking for a job at the moment, so if you are interested, please get in tou
                         <div className={aS.findMeContentWrapper}>
                             <div className={aS.findMeContent}>
                                 <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
-                                <SocialLink link="https://www.linkedin.com/in/manglekuo" type="LinkedIn" tag="Mangle Kuo" />
+                                <SocialLink link="https://www.linkedin.com/htkuo/" type="LinkedIn" tag="Mangle Kuo" />
                                 <SocialLink link="https://www.behance.net/mangle-kuo" type="Behance" tag="mangle-kuo" />
                                 <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
                                 <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
