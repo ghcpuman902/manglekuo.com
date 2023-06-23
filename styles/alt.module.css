@@ -189,13 +189,74 @@
             }
 
             .ThingsIdidWrapper{
-                /* display: flex; */
                 height: 100%;
-                /* flex-direction: row; */
-                /* flex-wrap: wrap;
+                /* display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
                 align-items: stretch;
                 overflow-x: auto; */
-                padding: 10em;
+            }
+            .AboutMeTextWrapper {
+                box-sizing: border-box;
+                height: calc( 100% - 6em );
+                margin: 14em 10em 0em 16em;
+                overflow: scroll;
+                overflow-wrap: normal;
+                overflow-x: hidden;
+                padding: 0 1em 2em 0;
+
+            }
+            .AboutMeTextWrapper {
+                scrollbar-width: thin;
+                scrollbar-color: #fff #222;
+              }
+              
+              /* Works on Chrome, Edge, and Safari */
+              
+              .AboutMeTextWrapper::-webkit-scrollbar {
+                width: 3px;               /* width of the entire scrollbar */
+              }
+              
+              .AboutMeTextWrapper::-webkit-scrollbar-track {
+                background: #222;          /* color of the tracking area */
+                border-radius: 1px;
+                mix-blend-mode: difference;
+              }
+              
+              .AboutMeTextWrapper::-webkit-scrollbar-thumb {
+                background-color: #fff;    /* color of the scroll thumb */
+                border-radius: 2px;       /* roundness of the scroll thumb */
+                border: 1px solid #333;    /* creates padding around scroll thumb */
+                mix-blend-mode: difference;
+              }
+            @media (max-width: 1670px) {
+                .AboutMeTextWrapper {
+                    height: calc( 100% - 6em );
+                    margin: 6em 4em 0em 14em;
+                }
+            }
+            @media (max-width: 768px) {
+                .AboutMeTextWrapper {
+                    font-size: 12px;
+                    height: calc( 100% - 10em );
+                    margin: 12em 6em 0em 10em;
+                }
+            }
+              
+            @media (max-width: 372px) {
+                .AboutMeTextWrapper{
+                    font-size: 10px;
+                    height: calc( 100% - 16em );
+                    margin: 16em 6em 0em 6em;
+                }
+            }
+              
+            @media (max-width: 330px) {
+                .AboutMeTextWrapper{
+                    font-size: 10px;
+                    height: calc( 100% - 20em );
+                    margin: 18em 3em 0em 3em;
+                }
             }
 
             .ThingsIdidWrapper::-webkit-scrollbar {
@@ -271,6 +332,8 @@
             border-radius: 400px 0px 0px 0px;
             position: fixed;
             left:0; top:0;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         @media (max-width: 1499px) {
@@ -313,13 +376,13 @@
         }
 
             .FindmeeCover.closed {
+                /* transition: transform cubic-bezier(0.4, 0.14, 1, 1) 1000ms; */
                 transform: translate(100vw, 100vh);
-                transition: transform cubic-bezier(0.4, 0.14, 1, 1) 1000ms;
             }
             
             .FindmeeCover.open {
+                /* transition: transform cubic-bezier(0, 0, 0.3, 1) 600ms; */
                 transform: translate(0, 0);
-                transition: transform cubic-bezier(0, 0, 0.3, 1) 600ms;
             }
         
             .findMeContentWrapper{

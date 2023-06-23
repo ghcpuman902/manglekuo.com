@@ -280,6 +280,7 @@ export default function Alt() {
                     <div className={`${aS.ThingsIdid} ${aS['z-' + zIdx('ThingsIdid')]}`} onClick={handleThingsIdidClick}>About me</div>
                     <div className={`${aS.ThingsIdidCover} ${aS['z-' + zIdx('ThingsIdidCover')]} ${state.isOpen.ThingsIdidCover ? aS.open : aS.closed}`}>
                         <div className={aS.ThingsIdidWrapper}>
+                        <div className={aS.AboutMeTextWrapper}>
                         {/* {
                             [
                                 {slug:'ten-facts',title:'Ten Facts',url:''},
@@ -291,19 +292,20 @@ export default function Alt() {
                                 return (<div key={val.slug} className={aS.ThingsIdidBox}><h1>{val.title}</h1><div>IMAGE</div><figcaption>CAPTION</figcaption></div>);
                             })
                         } */}
-                        Greetings, my name is Mangle Kuo, and I am a skilled full-stack developer with experience in project management and a passion for photography. In my free time, I enjoy exploring the city, listening to music, and savoring craft beer.
+Greetings! My name is Mangle Kuo, and I am a versatile full-stack developer with a strong background in project management and a passion for AR/XR technologies. In my leisure time, I enjoy urban exploration, photography, music, and indulging in craft beer.
 <br /><br />
-After completing my studies in the UK, I returned to Taiwan and began working as a project manager for an AR glasses start-up. This company was later acquired by Foxconn, a global electronics manufacturer famous for assembling the iPhone. Through this experience, I gained valuable knowledge about hardware design and manufacturing.
+After completing my studies in the UK, I returned to Taiwan and took on a project management role at an AR glasses start-up, which was later acquired by Foxconn, a global electronics manufacturer renowned for assembling the iPhone. This experience provided me with invaluable insights into hardware design and manufacturing.
 <br /><br />
-One of my greatest strengths is my broad knowledge of various fields and my ability to communicate effectively with people from different professional backgrounds. This skill was essential in my previous job, where we customized hardware and software solutions for a diverse range of clients, including fire-fighting departments and museums.
+One of my key strengths is my comprehensive knowledge across various domains and my ability to communicate effectively with professionals from diverse backgrounds. This skill proved vital in my previous role, where we tailored hardware and software solutions for a wide array of clients, including fire-fighting departments and museums.
 <br /><br />
-As a people-oriented individual, I am seeking a full-stack developer role in a small company or start-up where I can put my coding skills to professional use. I believe that end-user feedback is crucial, and working in an environment that encourages open communication between the engineering team and end-users is essential for success.
+As a people-oriented individual, I am seeking opportunities in AR/XR project management or full-stack/front-end web development roles within innovative companies that value open communication and end-user feedback. I believe that fostering a strong connection between the engineering team and end-users is crucial for success.
 <br /><br />
-For my photos, please see my <a target="_blank" rel="noopener" href="https://www.instagram.com/ghcpuman902/">Instagram</a>, for my Photoshop/Illustrator works, please see my <a target="_blank" rel="noopener" href="https://www.behance.net/mangle-kuo">Behance</a>, for my coding work please see my <a target="_blank" rel="noopener" href="https://github.com/ghcpuman902">GitHub</a>. I also write on <a target="_blank" rel="noopener" href="https://manglekuo.medium.com">Medium</a>.
+Please explore my <a target="_blank" rel="noopener" href="https://www.instagram.com/manglekuo/">Instagram</a> for photography, my <a target="_blank" rel="noopener" href="https://www.behance.net/manglekuo">Behance</a> for Photoshop/Illustrator works, my <a target="_blank" rel="noopener" href="https://github.com/ghcpuman902">GitHub</a> for coding projects, and my <a target="_blank" rel="noopener" href="https://manglekuo.medium.com">Medium</a> for written articles.
 <br /><br />
-I'm looking for a job at the moment, so if you are interested, please get in touch, thanks in advance! <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
+I am currently seeking job opportunities, so if you are interested, please feel free to get in touch here: <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />. Thank you in advance!
                         </div>
-
+                        </div>
+                        {/* https://manglekuo.com/androidlangxmlsearch/index.html */}
                     </div>
 
                     <div className={`${aS.ThingsIwrote} ${aS['z-' + zIdx('ThingsIwrote')]}`} onClick={handleThingsIwroteClick}>Re-animate</div>
@@ -315,7 +317,7 @@ I'm looking for a job at the moment, so if you are interested, please get in tou
                             <div className={aS.findMeContent}>
                                 <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
                                 <SocialLink link="https://www.linkedin.com/htkuo/" type="LinkedIn" tag="Mangle Kuo" />
-                                <SocialLink link="https://www.behance.net/mangle-kuo" type="Behance" tag="mangle-kuo" />
+                                <SocialLink link="https://www.behance.net/manglekuo" type="Behance" tag="manglekuo" />
                                 <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
                                 <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
                                 <SocialLink link="https://www.instagram.com/ghcpuman902/" type="Instagram" tag="@ghcpuman902" />
