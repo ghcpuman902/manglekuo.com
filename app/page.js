@@ -1,12 +1,9 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import aS from '../styles/alt.module.css'
+'use client';
+import aS from './index.module.css'
 import { useEffect, useState, useRef, useReducer } from 'react'
 import copy from 'copy-to-clipboard';
+import { useSearchParams } from 'next/navigation'
 
-// DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG DESCRIPTION CAN BE THIS LONG ///////////
-const description = "I'm Mangle Kuo, a web developer who has strong interest in design, photography, beer and city. Looking for a new job.";
 
 function AnimationVideoPlayer({replay}) {
     const e = useRef();
@@ -246,27 +243,17 @@ export default function Alt() {
         return state.zIdx.indexOf(page);
     }
 
-    const router = useRouter()
+
+    const searchParams = useSearchParams()
 
     useEffect(() => {
-      if ('findme' in router.query) {
+      if (searchParams.has('findme')) {
         handleFindmeeClick()
       }
-    }, [router.query])
+    }, [])
 
     return (
         <>
-            <Head>
-                <title>Mangle Kuo</title>
-                <meta name="Description" content={description} />
-                <link rel="stylesheet" href="https://use.typekit.net/yor5kzq.css"></link>
-                <meta key="theme-color-light" name="theme-color"
-                    content="#ffffff"
-                    media="(prefers-color-scheme: light)" />
-                <meta key="theme-color-dark" name="theme-color"
-                    content="#000000"
-                    media="(prefers-color-scheme: dark)" />
-            </Head>
             <main className={aS.main}>
                 <section className={aS.videoSection}>
                     <AnimationVideoPlayer replay={replayTrigger} />

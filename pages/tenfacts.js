@@ -60,7 +60,7 @@ const quotesArr = [
 `My high school was in London, UK`,
 `My mum side family are from XiAn, China, where I did my year 1-4`,
 `I'm interested in cities`,
-<Link href="/"><a>← Back to home</a></Link>,
+<Link href="/">← Back to home</Link>,
 
 ];
 
@@ -159,7 +159,7 @@ const Card = (props) => {
   }, []);
 
   const handleClick = () => {
-    if(props.children != (<Link href="/"><a>← Back to home</a></Link>)){
+    if(props.children != (<Link href="/">← Back to home</Link>)){
       setIsShow(false);
       props.rmvBody(matterBody.current.id);
     }
