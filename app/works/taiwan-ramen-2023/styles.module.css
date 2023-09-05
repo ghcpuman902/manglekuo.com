@@ -1,0 +1,243 @@
+.title{
+    font-size: 3em;
+    text-align: center;
+    color: #fff;
+    font-weight: 800;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.body{
+    --primary: oklch(55% 0.231 13);
+    background-color: var(--primary);
+    height: 100%;
+}
+
+.grid{    
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(10,1fr);
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+    justify-items: stretch;
+    margin: 1rem;
+}
+
+.gridTop{
+    grid-template-columns: repeat(9,1fr);
+}
+
+.gridTop > div{
+    grid-column: 5 / 6; 
+}
+
+.shop{
+    border: 2px solid #fff;
+    padding: 1.6em 0.5em;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 18px;
+    position: relative;
+    aspect-ratio: 1 / 1;
+}
+
+.cityList{
+    font-weight: 200;
+}
+
+.chainName{
+    font-size: 1.4em;
+    line-height: 1;
+}
+
+.went{
+    background: linear-gradient(hsl(53, 52%, 70%), hsl(54, 85%, 43%));
+    color: #000;
+}
+.shop.expand{
+    grid-column: span 5; 
+    grid-row: span 5;
+    padding-bottom: 3.8rem;    
+    .chainName{
+        font-size: 2em;
+    }
+    .shopList {
+        list-style-type: none; 
+        padding: 0;
+        padding-left: 1em;
+        margin: 0;
+        margin-top: 1em; 
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 18em);
+        overflow-y: scroll;
+        gap: 1em;
+        scrollbar-width: thin;  /* Can be auto, thin, or none */
+        scrollbar-color: rgba(255, 255, 255, 0.4) #000; /* thumb and track */
+    }
+    
+    .shopList::-webkit-scrollbar {
+        width: 4px;
+        height: 8px;
+    }
+    
+    .shopList::-webkit-scrollbar-track {
+        background: var(--primary);
+    }
+    
+    .shopList::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 20px;
+        border: 2px solid var(--primary);
+    }
+    
+    .shopList>div{
+        display: block;
+        padding: 0; 
+        margin: 0; 
+        box-sizing: border-box;
+        border: 2px solid #fff;
+        border-radius: 40px;
+        padding: 2em 1em;
+        grid-column: span 1;
+        box-shadow: var(--primary) 0px 10px inset, #fff 0px 12px inset, var(--primary) 0px -10px inset, #fff 0px -12px inset;
+        
+        .shopName{
+            font-weight: 800;
+            font-size: 1.8em;
+            margin: 0.1rem 0;
+        }
+        .shopAddr{
+            text-align: left;
+        }
+    }
+
+    .checkInButton{
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        margin: 1em 1em;
+        width: calc( 100% - 2em );
+        padding: 0.4em;
+        border: 2px solid #fff;
+        border-radius: 1em;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+}
+
+.allshopClosed{
+    border: 2px dashed #aaa;
+}
+
+.allshopClosed::after{
+    content: "已歇業";
+    font-size: 0.8em;
+    font-weight: 800;
+    border-radius: 3px;
+    color: #aaa;
+    background-color: var(--primary);;
+    padding: 0 0.2em;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    text-align: center;
+}
+
+@media only screen and (max-width: 1410px) {
+    .shop {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .shop {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 1148px) {
+    .shop {
+        font-size: 12px;
+        padding: 0.8em 0.4em;
+        border-radius: 16px;
+    }
+    .grid{    
+        grid-gap: 0.8rem;
+        margin: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .shop {
+        font-size: 10px;
+        padding: 0.5em 0.2em;
+        border-radius: 10px;
+    }
+    .grid{    
+        grid-gap: 0.5rem;
+        margin: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 772px) {
+    .shop {
+        font-size: 8px;
+        padding: 0.4em;
+        border-radius: 6px;
+    }
+    .grid{    
+        grid-gap: 0.4rem;
+        margin: 0.4rem;
+    }
+    .allshopClosed::after{
+        content: none;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .shop {
+        font-size: 14px;
+        padding: 0.4em;
+        border-radius: 10px;
+    }
+    .grid{    
+        grid-gap: 0.6rem;
+        margin: 0.6rem;
+        grid-template-columns: repeat(5,1fr);
+    }
+    .gridTop{
+        grid-template-columns: repeat(5,1fr);
+    }
+    .gridTop > div{
+        grid-column: 3 / 4; 
+    }
+}
+
+
+@media only screen and (max-width: 528px) {
+    .shop {
+        font-size: 10px;
+        padding: 1em 0.4em;
+        border-radius: 10px;
+    }
+    .grid{    
+        grid-gap: 0.4rem;
+        margin: 0.4rem;
+    }
+}
+
+.footer{
+    text-align: center;
+    padding: 2em 0.4em;
+}
