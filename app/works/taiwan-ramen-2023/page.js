@@ -63,6 +63,7 @@ export default async function Page() {
                         return (
                             <RamenShop 
                                 key={id}
+                                ramenChainId={id}
                                 ramenChain={ramenChain}
                             />);
                     })}

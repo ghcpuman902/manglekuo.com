@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './styles.module.css'
 import Link from 'next/link';
 
@@ -14,7 +14,7 @@ const Shop = ({shop})=>{
     </div>);
 }
 
-export default function RamenShop({ramenChain}) {
+export default function RamenShop({ramenChainId,ramenChain}) {
     const [isWent, setIsWent] = useState(false);
     const [isExpand, setIsExpand] = useState(false);
     let cityList = '';
@@ -25,6 +25,18 @@ export default function RamenShop({ramenChain}) {
     }else{
         setIsSelected(true);
     }
+
+    // useEffect(() => {
+    //   const savedIsWent = localStorage.getItem(ramenChainId);
+    //   if (savedIsWent===true) {
+    //     setIsWent(savedIsWent);
+    //   }
+    // }, []);
+  
+    // useEffect(() => {
+    //   localStorage.setItem(ramenChainId, isWent);
+    // }, [isWent]);
+  
     
     return (
         <div className={styles.shop+` ${isWent?styles.went:""} ${isExpand?styles.expand:""} ${allshopClosed?styles.allshopClosed:""}`} onClick={() => setIsExpand(!isExpand)} >

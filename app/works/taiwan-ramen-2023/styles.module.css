@@ -11,6 +11,7 @@
 
 .body{
     --primary: oklch(55% 0.231 13);
+    --backgroundcolor: var(--primary);;
     background-color: var(--primary);
     height: 100%;
 }
@@ -53,9 +54,10 @@
     line-height: 1;
 }
 
-.went{
-    background: linear-gradient(hsl(53, 52%, 70%), hsl(54, 85%, 43%));
-    color: #000;
+
+.shop.went{
+    --backgroundcolor: hsl(54, 85%, 43%);
+    background: linear-gradient(hsl(53, 78%, 68%), var(--backgroundcolor));
 }
 .shop.expand{
     grid-column: span 5; 
@@ -102,7 +104,7 @@
         border-radius: 40px;
         padding: 2em 1em;
         grid-column: span 1;
-        box-shadow: var(--primary) 0px 10px inset, #fff 0px 12px inset, var(--primary) 0px -10px inset, #fff 0px -12px inset;
+        box-shadow: var(--backgroundcolor) 0px 10px inset, #fff 0px 12px inset, var(--backgroundcolor) 0px -10px inset, #fff 0px -12px inset;
         
         .shopName{
             font-weight: 800;
@@ -138,6 +140,7 @@
 .allshopClosed{
     border: 2px dashed #aaa;
 }
+
 
 .allshopClosed::after{
     content: "已歇業";
