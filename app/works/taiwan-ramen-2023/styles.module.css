@@ -10,7 +10,8 @@
 }
 
 .body{
-    --primary: oklch(55% 0.231 13);
+    /* --primary: oklch(55% 0.231 13); */
+    --primary: oklch(15% 0.231 13);
     --backgroundcolor: var(--primary);;
     background-color: var(--primary);
     height: 100%;
