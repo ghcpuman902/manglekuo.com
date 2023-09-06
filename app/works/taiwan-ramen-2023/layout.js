@@ -15,7 +15,7 @@ export default async function RamenLayout({
             <section>
                 <div className={styles.title}><div>2023</div><div>台灣ラーマン101</div></div>
                 <main>{children}</main>
-                <footer className={styles.footer}>來源：台灣拉麵愛好會(台湾ラーメン愛好会 / Taiwan Ramen Club)裡面 Stars Yang的<Link href="https://www.facebook.com/groups/RamenTW/permalink/3487913364793047/">這篇貼文</Link><br />網站製作：<Link href="/">Mangle Kuo</Link></footer>
+                <footer className={styles.footer}>資料來源：台灣拉麵愛好會(台湾ラーメン愛好会 / Taiwan Ramen Club)Stars Yang的<Link href="https://www.facebook.com/groups/RamenTW/permalink/3487913364793047/">這篇貼文</Link><br />網站製作：<Link href="/">Mangle Kuo</Link> | <Link href="./terms-of-service">服務條款</Link> | <Link href="./privacy-policy">隱私政策</Link></footer>
             </section>
             <Analytics />
           </body>
