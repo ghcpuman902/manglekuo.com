@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
           });
           result = { ...result, shops: docSnap.data().shops }
         } else {
-          console.log("New user, creating...");
+          console.log("New user, creating @ POST request...");
           await setDoc(docRef, {
             email: cookieStore.get('email')?.value,
             name: cookieStore.get('name')?.value,
@@ -127,13 +127,14 @@ export async function PATCH(request: NextRequest) {
           });
           result = { shops: mergeShops };
         } else {
-          console.log("New user, creating...");
+          console.log("New user, creating @ PATCH request...");
           await setDoc(docRef, {
             email: cookieStore.get('email')?.value,
             name: cookieStore.get('name')?.value,
             picture: cookieStore.get('picture')?.value,
             shops: updatedShops
           });
+          result = { shops: updatedShops };
         }
       }else{
         throw new Error("hashedEmail is empty");

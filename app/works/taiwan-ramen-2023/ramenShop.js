@@ -35,9 +35,7 @@ export default function RamenShop({ ramenChainId, ramenChain }) {
     } else {
         allshopClosed = true;
     }
-    const handleCheckInClick = useCallback(async (newIsWent) => {
-        let updatedShops = {};
-        updatedShops[ramenChainId] = {isWent: newIsWent, photo: '', review: ''};
+    const updateServer = useCallback(async (updatedShops) => {
         const res = await fetch('/works/taiwan-ramen-2023/api/getUser', {
             method: "PATCH",
             headers: {
@@ -50,23 +48,37 @@ export default function RamenShop({ ramenChainId, ramenChain }) {
             let mergeShops = Object.assign({}, userShops, resJson.result?.shops);
             console.log(mergeShops);
             setUserShops(mergeShops);
-            pushToast(newIsWent?'打卡成功！':'取消打卡成功！');
+            pushToast(mergeShops[ramenChainId]?.isWent?'打卡成功！':'取消打卡成功！');
         }else if(resJson.message == 'NOT LOGGED IN'){
             pushToast('未登入無法保存進度喔！');
         }else{
             throw new Error("Unknown error, likely invalid response from server");
         }
     }, []);
+    const handleCheckInClick = useCallback(async (newIsWent) => {
+        let updatedShops = {};
+        let photo= '';
+        let review= '';
+        if(userShops && userShops[ramenChainId]){
+            if(userShops[ramenChainId].photo){photo = userShops[ramenChainId].photo;}
+            if(userShops[ramenChainId].review){review = userShops[ramenChainId].review;}
+        }
+        updatedShops[ramenChainId] = {isWent: newIsWent, photo: photo, review: review};
+
+        let mergeShops = Object.assign({}, userShops, updatedShops);
+        setUserShops(mergeShops);
+        updateServer(mergeShops);
+    }, []);
     return (
-        <div className={styles.shop + ` ${userShops[ramenChainId]?.isWent ? styles.went : ""} ${isExpand ? styles.expand : ""} ${allshopClosed ? styles.allshopClosed : ""}`} onClick={() => setIsExpand(!isExpand)} >
+        <div className={styles.shop + ` ${((userShops&&userShops[ramenChainId])?userShops[ramenChainId]?.isWent:false) ? styles.went : ""} ${isExpand ? styles.expand : ""} ${allshopClosed ? styles.allshopClosed : ""}`} onClick={() => setIsExpand(!isExpand)} >
             {!isExpand ? (<div className={styles.cityList}>{cityList}</div>) : null}
             <div className={styles.chainName}>{ramenChain.name}</div>
             {isExpand ? (<div>
                 {
                     isLoggedIn?
                     (
-                    <button className={styles.checkInButton} onClick={()=>{handleCheckInClick(!userShops[ramenChainId]?.isWent)}}>
-                        {userShops[ramenChainId]?.isWent ? "啊，我還沒去" : "🍜 去過了～打卡！😋"}
+                    <button className={styles.checkInButton} onClick={()=>{handleCheckInClick(!((userShops&&userShops[ramenChainId])?userShops[ramenChainId]?.isWent:false))}}>
+                        {((userShops&&userShops[ramenChainId])?userShops[ramenChainId]?.isWent:false) ? "啊，我還沒去" : "🍜 去過了～打卡！😋"}
                     </button>
                     ):(
                     <button className={styles.checkInButton} disabled={true}>{"沒有登入無法打卡喔～😭"}</button>

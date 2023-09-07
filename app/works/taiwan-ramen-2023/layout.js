@@ -10,6 +10,29 @@ import { ToastProvider } from './toast.js';
 
 import AuthContext from './AuthContext.js';
 
+// export const metadata = {
+//   title: '2023台灣拉麵101',
+//   description: '在2023台灣拉麵101中發掘並評價台灣最好的拉麵餐廳。分享您的體驗，上傳照片，並填寫您的拉麵賓果卡。通過Google安全登入。',
+//   creator: '郭皓存（Mangle Kuo）',
+//   authors: [
+//     {
+//       name: '郭皓存（Mangle Kuo）',
+//       url: 'https://github.com/ghcpuman902/',
+//     }
+//   ],
+//   applicationName: 'TaiwanRamen2023',
+//   keywords: ['拉麵', '台灣拉麵', '最佳拉麵店', '拉麵評價', '拉麵照片', 'Google OAuth', '拉麵賓果卡'],
+//   publisher: '郭皓存（Mangle Kuo）',
+//   generator: 'Next.js',
+//   referrer: 'origin-when-cross-origin',
+//   colorScheme: 'light',
+//   formatDetection: {
+//     email: false,
+//     address: false,
+//     telephone: false,
+//   },
+// }
+
 export default function RamenLayout({
   children,
 }) {
@@ -64,6 +87,7 @@ export default function RamenLayout({
         name: userDetail.name,
         picture: userDetail.picture ? userDetail.picture : "",
       });
+      setUserShops({});
       callApi();
       console.log(`this should only happen once (handleLogin)`);
     }
