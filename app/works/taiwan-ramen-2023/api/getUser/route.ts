@@ -36,22 +36,6 @@ async function hashForDB(message: string | undefined){
   return hashHex; // Output the hash
 }
 
-// Get a list of cities from your database
-// async function getRamenChains(db) {
-//   const userList = collection(db, 'user-list');
-
-//   const ramenChains = {}; 
-//   shopSnapshot.docs.map(doc => ramenChains[doc.id]=doc.data());
-//   return ramenChains;
-// }
-
-// const res = await db.collection('cities').doc('LA').set(data);
-// export async function POST(request: NextRequest) {
-//   let ramenChains = await getRamenChains(db);
-//   return NextResponse.json(ramenChains)
-// }
-
-
 export async function POST(request: NextRequest) {
   const cookieStore = cookies()
   let result = {};
@@ -92,10 +76,11 @@ export async function POST(request: NextRequest) {
       console.log(error);
     }
   } else {
+    cookies().delete('g_state');
     cookies().delete('email');
     cookies().delete('name');
     cookies().delete('picture');
-    if (cookies().get('email')?.value !== '' || cookies().get('name')?.value !== '' || cookies().get('picture')?.value !== '') {
+    if (cookies().get('email')?.value !== '' || cookies().get('name')?.value !== '' || cookies().get('picture')?.value !== '' || cookies().get('g_state')?.value !== '') {
       throw new Error('cookie can not be deleted');
     }
   }
