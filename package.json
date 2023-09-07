@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@types/react": "18.2.21",
+    "@types/styled-components": "^5.1.26",
     "eslint-config-next": "^13.4.19",
     "eslint-plugin-react-hooks": "^4.6.0"
   }

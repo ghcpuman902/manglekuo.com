@@ -1,24 +1,34 @@
 'use client';
 import styles from './styles.module.css'
-// import { useGoogleOneTapLogin } from 'react-google-one-tap-login';
-// import { useState, useEffect } from "react";
+import { useContext } from "react";
+import AuthContext from './AuthContext.js';
+import GoogleLogin from './login/googleLogin.js';
+import Image from 'next/image'
 
 export default function Nav(){
-    // const [userInfo,setUserInfo] = useState({});
-    // if (typeof window !== "undefined") {
-    //     console.log('running ');
-    //     useGoogleOneTapLogin({
-    //         onError: (error) => {console.log(error);setUserInfo(error);},
-    //         onSuccess: (response) => {console.log(response);setUserInfo(response);},
-    //         googleAccountConfigs: {
-    //             client_id: "415886415394-8u8dp7041i30hm6a2gr0fb0f49plbul3.apps.googleusercontent.com"
-    //         },
-    //     });
-    // }
+   
+  const {
+    isLoggedIn,
+    userProfile,
+    handleLogin,
+    handleLogoutClick
+  } = useContext(AuthContext);
     return (
-        <div className={styles.title}>
-            <div>2023</div><div>台灣ラーマン101</div>
+        <div className={styles.nav}>
+            <div className={styles.bigText}>2023</div><div className={styles.bigText}>台灣ラーマン101</div>
             {/* <pre>{JSON.stringify(userInfo, null, 2)}</pre>     */}
+            {
+              isLoggedIn ? (
+                <div>
+                  {userProfile.email ? (<button className={styles.logoutButton} onClick={handleLogoutClick}>
+                    <Image
+                    src={userProfile.picture}
+                    width={100}
+                    height={100}
+                    alt={userProfile.name}
+                    />登出</button>) : (`待って`)}
+                </div>) : (<GoogleLogin handleLogin={handleLogin} />)
+            }
         </div>
     );
 }

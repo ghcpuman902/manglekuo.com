@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import RamenShop from './RamenShop';
+import RamenShop from './ramenShop.js';
 
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection,  query, orderBy, getDocs } from 'firebase/firestore/lite';

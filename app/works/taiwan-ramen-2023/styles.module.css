@@ -1,5 +1,5 @@
-.title{
-    font-size: 3em;
+.nav{
+    font-size: 1em;
     text-align: center;
     color: #fff;
     font-weight: 800;
@@ -7,11 +7,51 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+
+    .bigText{
+        font-size: 3em;
+    }
+
+    .logoutButton{
+        --border-thickness: 0px;
+        --button-height: 2rem;
+        --image-gap: 4px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: pointer;
+        height: var(--button-height);
+        border: var(--border-thickness) solid #fff;
+        border-radius: 1000px;
+        box-sizing: border-box;
+        display: flex;
+        font-size: 1rem;
+        line-height: calc( var(--button-height) - 2 * var(--border-thickness) );
+        background-color: #fff;
+        color: #222;
+        padding-right: calc( ( var(--button-height) - 2 * var(--border-thickness) ) / 2 );
+    }
+
+    .logoutButton > img{
+        height: calc( var(--button-height) - 2 * var(--border-thickness) - 2 * var(--image-gap) );
+        width: calc( var(--button-height) - 2 * var(--border-thickness) - 2 * var(--image-gap) );
+        margin: var(--image-gap);
+        border: 0px solid #fff;
+        box-sizing: border-box;
+        border-radius: 1000px;
+    }
 }
 
 .body{
-    /* --primary: oklch(55% 0.231 13); */
-    --primary: oklch(15% 0.231 13);
+    --primary: oklch(55% 0.231 13);
+    /* --primary: oklch(15% 0.231 13); */
     --backgroundcolor: var(--primary);;
     background-color: var(--primary);
     height: 100%;
@@ -57,8 +97,8 @@
 
 
 .shop.went{
-    --backgroundcolor: hsl(54, 85%, 43%);
-    background: linear-gradient(hsl(53, 78%, 68%), var(--backgroundcolor));
+    --backgroundcolor: hsl(40, 100%, 32%);
+    background: linear-gradient(hsl(50, 100%, 37%), var(--backgroundcolor));
 }
 .shop.expand{
     grid-column: span 5; 
@@ -68,15 +108,16 @@
         font-size: 2em;
     }
     .shopList {
-        list-style-type: none; 
+        list-style-type: none;
         padding: 0;
-        padding-left: 1em;
-        margin: 0;
-        margin-top: 1em; 
+        margin-left: 1em;
+        margin: 1em 1em;
+        box-sizing: border-box;
+        margin-top: 1rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, 18em);
+        grid-template-columns: repeat(2, 1fr);
         overflow-y: scroll;
-        gap: 1em;
+        grid-gap: 1em;
         scrollbar-width: thin;  /* Can be auto, thin, or none */
         scrollbar-color: rgba(255, 255, 255, 0.4) #000; /* thumb and track */
     }
@@ -105,7 +146,7 @@
         border-radius: 40px;
         padding: 2em 1em;
         grid-column: span 1;
-        box-shadow: var(--backgroundcolor) 0px 10px inset, #fff 0px 12px inset, var(--backgroundcolor) 0px -10px inset, #fff 0px -12px inset;
+        box-shadow: #fff 0px -3px inset;
         
         .shopName{
             font-weight: 800;
@@ -131,10 +172,41 @@
         border: 2px solid #fff;
         border-radius: 1em;
         box-sizing: border-box;
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        box-shadow: #fff 0px 0px inset;
     }
+    .checkInButton:hover{
+        box-shadow: #fff 0px -3px inset;
+    }
+    .checkInButton:active{
+        box-shadow: #fff 0px 0px inset;
+    }
+    .checkInButton:disabled {
+        background: none;
+        color: grey;
+        border: 2px solid grey;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+
+    .contractButton{
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        margin: 1em 1em;
+        padding: 0.4em 1em;
+        border: 2px solid #fff;
+        border-radius: 1em;
+        box-sizing: border-box;
+        box-shadow: #fff 0px 0px inset;
+        position: absolute;
+        right:0;
+        bottom: 0;
+    }
+
 
 }
 
@@ -245,3 +317,4 @@
     text-align: center;
     padding: 2em 0.4em;
 }
+
