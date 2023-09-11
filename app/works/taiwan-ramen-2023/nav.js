@@ -29,7 +29,26 @@ export default function Nav(){
 
   return (
       <div className={styles.nav}>
-          <div className={styles.bigText}>2023</div><div className={styles.bigText}>台灣ラーマン101</div>
+          <div className={styles.logoWrapper}>
+            <Image
+              src="/taiwan-ramen-2023/assets/TaiwanRamenLogoP1.svg"
+              width={500}
+              height={90}
+              alt={`2023`}
+            />
+            <Image
+              src="/taiwan-ramen-2023/assets/TaiwanRamenLogoP2.svg"
+              width={500}
+              height={90}
+              alt={`台灣ラーマン`}
+            />
+            <Image
+              src="/taiwan-ramen-2023/assets/TaiwanRamenLogoP3.svg"
+              width={500}
+              height={90}
+              alt={`101`}
+            />
+          </div>
           {/* <pre>{JSON.stringify(userInfo, null, 2)}</pre>     */}
           {userProfile ? (
               isLoggedIn === true ? (
@@ -40,7 +59,7 @@ export default function Nav(){
                     width={100}
                     height={100}
                     alt={userProfile.name}
-                    />登出</button>) : (`待って`)}
+                    />登出</button>) : (`登入異常 請刷新`)}
                 </div>) : (
                   isLoggedIn === false ? (<GoogleLogin handleLogin={handleLogin} isLoggedIn={isLoggedIn} />):(null)
                 )
