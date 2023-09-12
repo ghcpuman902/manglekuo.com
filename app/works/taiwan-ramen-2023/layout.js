@@ -1,11 +1,14 @@
+import Link from 'next/link'
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
-import { Analytics } from '@vercel/analytics/react'
-import Link from 'next/link'
-import styles from './styles.module.css'
-import Nav from './nav.js'
 
+import { Analytics } from '@vercel/analytics/react'
+
+import Nav from './nav.js'
 import { UserProvider } from './user-context';
+
+import styles from './styles.module.css'
+
 
 export const metadata = {
   title: '2023 台灣ラーマン 101',
@@ -22,7 +25,10 @@ export const metadata = {
   publisher: '郭皓存 (Mangle Kuo)',
   generator: 'Next.js',
   referrer: 'origin-when-cross-origin',
-  colorScheme: 'light',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'oklch(55% 0.231 13)' },
+    { media: '(prefers-color-scheme: dark)', color: 'oklch(0.43 0.19 14.04)' },
+  ],
   formatDetection: {
     email: false,
     address: false,
@@ -44,7 +50,7 @@ export default async function RamenLayout({
             <section>
               <Nav />
               <main>{children}</main>
-              <footer className={styles.footer}>資料來源：台灣拉麵愛好會(台湾ラーメン愛好会 / Taiwan Ramen Club)Stars Yang的<Link href="https://www.facebook.com/groups/RamenTW/permalink/3487913364793047/">這篇貼文</Link><br />網站製作：<Link href="/">Mangle Kuo</Link> | <Link href="./terms-of-service">服務條款</Link> | <Link href="./privacy-policy">隱私政策</Link></footer>
+              <footer className={styles.footer}>資料來源：<Link href="https://www.facebook.com/groups/RamenTW/permalink/3487913364793047/">Stars Yang的這篇貼文</Link><br /><Link href="https://www.facebook.com/TWRamen/">台灣拉麵愛好會FB</Link>/<Link href="https://www.instagram.com/twramenclub/">IG</Link><br />網站製作：<Link href="/">Mangle Kuo</Link> | <Link href="./terms-of-service">服務條款</Link> | <Link href="./privacy-policy">隱私政策</Link></footer>
             </section>
         </UserProvider>
         <Analytics />

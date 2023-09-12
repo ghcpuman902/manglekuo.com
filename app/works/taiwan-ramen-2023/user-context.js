@@ -1,5 +1,6 @@
 'use client';
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { updateLocalUserSingleShop, updateLocalUserShops } from './utils/local-user-shops';
 
 const UserContext = createContext(undefined);
 
@@ -14,6 +15,9 @@ export function UserProvider({ children }) {
       const userProfileRes = await res.json();
       if (userProfileRes) {
         console.log(`Getting user from user-context`, userProfileRes);
+        if(userProfileRes.shops){
+          updateLocalUserShops(userProfileRes.shops);
+        }
         setUserProfile(userProfileRes);
       } else {
         throw new Error(`User doesn't exist`)
@@ -101,6 +105,9 @@ export function useUser() {
       const resJson = await res.json();
       if (!res.ok) {
         throw new Error('Failed to patch', resJson)
+      }
+      if(resJson.shops){
+        updateLocalUserSingleShop({shopId, shopChange: resJson.shops});
       }
       console.log(`patch result:`,resJson);
     };

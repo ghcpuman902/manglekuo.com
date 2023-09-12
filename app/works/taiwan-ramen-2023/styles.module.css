@@ -1,4 +1,4 @@
-.nav{
+.nav {
     font-size: 1em;
     text-align: center;
     color: #fff;
@@ -9,11 +9,11 @@
     justify-content: center;
     align-items: center;
 
-    .bigText{
+    .bigText {
         font-size: 3em;
     }
 
-    .logoWrapper{
+    .logoWrapper {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -24,13 +24,13 @@
     }
 
     @media only screen and (max-width: 528px) {
-        .logoWrapper{
+        .logoWrapper {
             padding: 0.2rem;
         }
 
     }
 
-    .button{
+    .button {
         --border-thickness: 0px;
         --button-height: 2rem;
         --image-gap: 4px;
@@ -50,21 +50,23 @@
         box-sizing: border-box;
         display: flex;
         font-size: 1rem;
-        line-height: calc( var(--button-height) - 2 * var(--border-thickness) );
+        line-height: calc(var(--button-height) - 2 * var(--border-thickness));
         background-color: #fff;
         color: #222;
     }
-    .button.loading{
-        padding: 0 calc( ( var(--button-height) - 2 * var(--border-thickness) ) / 2 );
+
+    .button.loading {
+        padding: 0 calc((var(--button-height) - 2 * var(--border-thickness)) / 2);
         opacity: 0.5;
     }
-    .button.logout{
-        padding-right: calc( ( var(--button-height) - 2 * var(--border-thickness) ) / 2 );
+
+    .button.logout {
+        padding-right: calc((var(--button-height) - 2 * var(--border-thickness)) / 2);
     }
 
-    .button.logout > img{
-        height: calc( var(--button-height) - 2 * var(--border-thickness) - 2 * var(--image-gap) );
-        width: calc( var(--button-height) - 2 * var(--border-thickness) - 2 * var(--image-gap) );
+    .button.logout>img {
+        height: calc(var(--button-height) - 2 * var(--border-thickness) - 2 * var(--image-gap));
+        width: calc(var(--button-height) - 2 * var(--border-thickness) - 2 * var(--image-gap));
         margin: var(--image-gap);
         border: 0px solid #fff;
         box-sizing: border-box;
@@ -72,25 +74,28 @@
     }
 }
 
-.body{
+.body {
     --primary: oklch(55% 0.231 13);
     /* --primary: oklch(15% 0.231 13); */
 }
+
 @media (prefers-color-scheme: dark) {
-  .body {
-    --primary: oklch(0.43 0.19 14.04);
-  }
+    .body {
+        --primary: oklch(0.43 0.19 14.04);
+    }
 }
-.body{
-    --backgroundcolor: var(--primary);;
+
+.body {
+    --backgroundcolor: var(--primary);
+    ;
     background-color: var(--primary);
     height: 100%;
 }
 
-.grid{    
+.grid {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(10,1fr);
+    grid-template-columns: repeat(10, 1fr);
     justify-content: center;
     align-items: stretch;
     align-content: center;
@@ -98,15 +103,15 @@
     margin: 1rem;
 }
 
-.gridTop{
-    grid-template-columns: repeat(9,1fr);
+.gridTop {
+    grid-template-columns: repeat(9, 1fr);
 }
 
-.gridTop > div{
-    grid-column: 5 / 6; 
+.gridTop>div {
+    grid-column: 5 / 6;
 }
 
-.shop{
+.shop {
     border: 2px solid #fff;
     padding: 1.6em 0.5em;
     text-align: center;
@@ -116,47 +121,67 @@
     aspect-ratio: 1 / 1;
 }
 
-.cityList{
+.cityList {
     font-weight: 200;
 }
 
-.chainName{
+.chainName {
     font-size: 1.4em;
     line-height: 1;
 }
 
 
-.shop.went{
+.shop.went {
     --backgroundcolor: hsl(40, 100%, 41%);
     background: var(--backgroundcolor);
     overflow: hidden;
-    
+
 }
+
 .shop.went:after {
-	content:'';
+    content: '';
     top: 0;
-	transform: translate(100%, -10%) rotate(45deg);
-	width: 100%;
-	height: calc( 200% );
-	position: absolute;
-	z-index:1;
-	animation: 5s slide infinite;
-	background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255, 238, 0, 0.4) 20%,rgba(255, 255, 255, 0) 40%,rgba(255, 255, 255, 0) 100%); /* W3C */
+    transform: translate(100%, -10%) rotate(45deg);
+    width: 100%;
+    height: calc(200%);
+    position: absolute;
+    z-index: 1;
+    animation: 5s slide infinite;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 238, 0, 0.4) 20%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 100%);
+    /* W3C */
 }
 
 /* animation */
 
 @keyframes slide {
-	0% {transform:translate(-100%, -10%) rotate(45deg);}
-	20% {transform:translate(100%, -10%) rotate(45deg);}
+    0% {
+        transform: translate(-100%, -10%) rotate(45deg);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translate(100%, -10%) rotate(45deg);
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
-.shop.expand{
-    grid-column: span 5; 
+
+.shop.expand {
+    grid-column: span 5;
     grid-row: span 5;
-    padding-bottom: 3.8rem;    
-    .chainName{
+    padding-bottom: 3.8rem;
+
+    .chainName {
         font-size: 2em;
     }
+
     .shopList {
         list-style-type: none;
         padding: 0;
@@ -168,47 +193,50 @@
         grid-template-columns: repeat(2, 1fr);
         overflow-y: scroll;
         grid-gap: 1em;
-        scrollbar-width: thin;  /* Can be auto, thin, or none */
-        scrollbar-color: rgba(255, 255, 255, 0.4) #000; /* thumb and track */
+        scrollbar-width: thin;
+        /* Can be auto, thin, or none */
+        scrollbar-color: rgba(255, 255, 255, 0.4) #000;
+        /* thumb and track */
     }
-    
+
     .shopList::-webkit-scrollbar {
         width: 4px;
         height: 8px;
     }
-    
+
     .shopList::-webkit-scrollbar-track {
         background: var(--primary);
     }
-    
+
     .shopList::-webkit-scrollbar-thumb {
         background-color: rgba(255, 255, 255, 0.4);
         border-radius: 20px;
         border: 2px solid var(--primary);
     }
-    
-    .shopList>div{
+
+    .shopList>div {
         display: block;
-        padding: 0; 
-        margin: 0; 
+        padding: 0;
+        margin: 0;
         box-sizing: border-box;
         border: 2px solid #fff;
         border-radius: 40px;
         padding: 2em 1em;
         grid-column: span 1;
         box-shadow: #fff 0px -3px inset;
-        
-        .shopName{
+
+        .shopName {
             font-weight: 800;
             font-size: 1.8em;
             margin: 0.1rem 0;
         }
-        .shopAddr{
+
+        .shopAddr {
             text-align: left;
         }
     }
 
-    .checkInButton{
+    .checkInButton {
         background: none;
         color: inherit;
         border: none;
@@ -217,7 +245,7 @@
         cursor: pointer;
         outline: inherit;
         margin: 1em 1em;
-        width: calc( 100% - 2em );
+        width: calc(100% - 2em);
         padding: 0.4em;
         border: 2px solid #fff;
         border-radius: 1em;
@@ -225,12 +253,15 @@
         box-shadow: #fff 0px 0px inset;
         transition: box-shadow 0.1s ease-out;
     }
-    .checkInButton:hover{
+
+    .checkInButton:hover {
         box-shadow: #fff 0px -3px inset;
     }
-    .checkInButton:active{
+
+    .checkInButton:active {
         box-shadow: #fff 0px 0px inset;
     }
+
     .checkInButton:disabled {
         background: none;
         color: grey;
@@ -239,7 +270,7 @@
         box-shadow: none;
     }
 
-    .contractButton{
+    .contractButton {
         background: none;
         color: inherit;
         border: none;
@@ -254,25 +285,26 @@
         box-sizing: border-box;
         box-shadow: #fff 0px 0px inset;
         position: absolute;
-        right:0;
+        right: 0;
         bottom: 0;
     }
 
 
 }
 
-.allshopClosed{
+.allshopClosed {
     border: 2px dashed #aaa;
 }
 
 
-.allshopClosed::after{
+.allshopClosed::after {
     content: "已歇業";
     font-size: 0.8em;
     font-weight: 800;
     border-radius: 3px;
     color: #aaa;
-    background-color: var(--primary);;
+    background-color: var(--primary);
+    ;
     padding: 0 0.2em;
     position: absolute;
     left: 50%;
@@ -299,7 +331,8 @@
         padding: 0.8em 0.4em;
         border-radius: 16px;
     }
-    .grid{    
+
+    .grid {
         grid-gap: 0.8rem;
         margin: 0.8rem;
     }
@@ -311,7 +344,8 @@
         padding: 0.5em 0.2em;
         border-radius: 10px;
     }
-    .grid{    
+
+    .grid {
         grid-gap: 0.5rem;
         margin: 0.5rem;
     }
@@ -323,11 +357,13 @@
         padding: 0.4em;
         border-radius: 6px;
     }
-    .grid{    
+
+    .grid {
         grid-gap: 0.4rem;
         margin: 0.4rem;
     }
-    .allshopClosed::after{
+
+    .allshopClosed::after {
         content: none;
     }
 }
@@ -338,16 +374,19 @@
         padding: 0.4em;
         border-radius: 10px;
     }
-    .grid{    
+
+    .grid {
         grid-gap: 0.6rem;
         margin: 0.6rem;
-        grid-template-columns: repeat(5,1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
-    .gridTop{
-        grid-template-columns: repeat(5,1fr);
+
+    .gridTop {
+        grid-template-columns: repeat(5, 1fr);
     }
-    .gridTop > div{
-        grid-column: 3 / 4; 
+
+    .gridTop>div {
+        grid-column: 3 / 4;
     }
 }
 
@@ -358,14 +397,14 @@
         padding: 1em 0.4em;
         border-radius: 10px;
     }
-    .grid{    
+
+    .grid {
         grid-gap: 0.4rem;
         margin: 0.4rem;
     }
 }
 
-.footer{
+.footer {
     text-align: center;
     padding: 2em 0.4em;
 }
-

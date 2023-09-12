@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 export default function Error({ error, reset }) {
   useEffect(() => {
-    console.log('logging error:', error);
+    console.log('Error boundary triggered, error:', error);
   }, [error]);
 
   return (

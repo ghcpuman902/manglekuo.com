@@ -95,7 +95,7 @@ export const updateUser = async ({shopId, shopChange}) => {
                 // no existing record for this shop
                 mergedShops[shopId] = {...shopChange};
               }else{
-                const mergeOldAndNewShopInfo = (oldShopInfo: { hasOwnProperty: (arg0: string) => any; isWent: any; review: any; photo: any; },shopChange: { hasOwnProperty: (arg0: string) => any; isWent: any; review: any; photo: any; })=>{
+                const mergeOldAndNewShopInfo = (oldShopInfo: { isWent: boolean; review: any; photo: any; },shopChange: { isWent: boolean; review: any; photo: any; })=>{
                     const newIsWent = shopChange.hasOwnProperty('isWent')?shopChange.isWent : (oldShopInfo.hasOwnProperty('isWent')?oldShopInfo.isWent:false);
                     const newReview = shopChange.hasOwnProperty('review')?shopChange.review : (oldShopInfo.hasOwnProperty('review')?oldShopInfo.review:'');
                     const newPhoto = shopChange.hasOwnProperty('photo')?shopChange.photo : (oldShopInfo.hasOwnProperty('photo')?oldShopInfo.photo:'');

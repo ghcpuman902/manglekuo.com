@@ -1,10 +1,11 @@
 'use client';
-import { useState, useEffect, useContext, useCallback } from 'react';
-import styles from './styles.module.css'
-import Link from 'next/link';
+import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link'
 
 import { useUser } from './user-context';
+import { getLocalUserShops, updateLocalUserSingleShop } from './utils/local-user-shops';
 
+import styles from './styles.module.css';
 
 
 const BracketText = ({text}) => {
@@ -57,15 +58,31 @@ export default function RamenShop({ ramenChainId, ramenChain }) {
     let cityList = '';
     let allshopClosed = false;
 
+
     useEffect(()=>{
         if(userProfile !== undefined){
-            if(userProfile.shops && userProfile.shops[ramenChainId] && userProfile?.shops[ramenChainId].isWent){
-                setIsWent( userProfile.shops[ramenChainId].isWent);
-                console.log(`Rendering ${ramenChain.name},${userProfile.shops[ramenChainId].isWent?'went':''}`);
+            // loaded
+            if(userProfile.email !== undefined){
+                // logged in 
+                if(userProfile.shops && userProfile.shops[ramenChainId] && userProfile?.shops[ramenChainId].isWent){
+                    // user online data went here
+                    setIsWent( userProfile.shops[ramenChainId].isWent);
+                    console.log(`Rendering ${ramenChain.name},${userProfile.shops[ramenChainId].isWent?'went':''}`);
+                }else{
+                    // user online data didnt went here
+                    setIsWent( false );
+                }
             }else{
-                setIsWent( false );
+                // not logged in
+                const localUserShops = getLocalUserShops();
+                if( localUserShops[ramenChainId] && localUserShops[ramenChainId].isWent ){
+                    setIsWent( localUserShops[ramenChainId].isWent );
+                }else{
+                    setIsWent( false );
+                }
             }
         }else{
+            // loading...
             setIsWent( false );
         }
     },[userProfile]);
@@ -88,6 +105,7 @@ export default function RamenShop({ ramenChainId, ramenChain }) {
             console.log(`handleUpdateShop failed, isLoggedIn:`,isLoggedIn);
         }
         // handle local change
+        updateLocalUserSingleShop({shopId:ramenChainId,shopChange:{isWent: newIsWent}});
         setIsWent( newIsWent );
     }, [isLoggedIn]);
 
