@@ -30,7 +30,7 @@
 
     }
 
-    .logoutButton{
+    .button{
         --border-thickness: 0px;
         --button-height: 2rem;
         --image-gap: 4px;
@@ -53,10 +53,16 @@
         line-height: calc( var(--button-height) - 2 * var(--border-thickness) );
         background-color: #fff;
         color: #222;
+    }
+    .button.loading{
+        padding: 0 calc( ( var(--button-height) - 2 * var(--border-thickness) ) / 2 );
+        opacity: 0.5;
+    }
+    .button.logout{
         padding-right: calc( ( var(--button-height) - 2 * var(--border-thickness) ) / 2 );
     }
 
-    .logoutButton > img{
+    .button.logout > img{
         height: calc( var(--button-height) - 2 * var(--border-thickness) - 2 * var(--image-gap) );
         width: calc( var(--button-height) - 2 * var(--border-thickness) - 2 * var(--image-gap) );
         margin: var(--image-gap);
@@ -69,6 +75,13 @@
 .body{
     --primary: oklch(55% 0.231 13);
     /* --primary: oklch(15% 0.231 13); */
+}
+@media (prefers-color-scheme: dark) {
+  .body {
+    --primary: oklch(0.43 0.19 14.04);
+  }
+}
+.body{
     --backgroundcolor: var(--primary);;
     background-color: var(--primary);
     height: 100%;
@@ -114,8 +127,28 @@
 
 
 .shop.went{
-    --backgroundcolor: hsl(40, 100%, 32%);
-    background: linear-gradient(hsl(50, 100%, 37%), var(--backgroundcolor));
+    --backgroundcolor: hsl(40, 100%, 41%);
+    background: var(--backgroundcolor);
+    overflow: hidden;
+    
+}
+.shop.went:after {
+	content:'';
+    top: 0;
+	transform: translate(100%, -10%) rotate(45deg);
+	width: 100%;
+	height: calc( 200% );
+	position: absolute;
+	z-index:1;
+	animation: 5s slide infinite;
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255, 238, 0, 0.4) 20%,rgba(255, 255, 255, 0) 40%,rgba(255, 255, 255, 0) 100%); /* W3C */
+}
+
+/* animation */
+
+@keyframes slide {
+	0% {transform:translate(-100%, -10%) rotate(45deg);}
+	20% {transform:translate(100%, -10%) rotate(45deg);}
 }
 .shop.expand{
     grid-column: span 5; 
@@ -190,6 +223,7 @@
         border-radius: 1em;
         box-sizing: border-box;
         box-shadow: #fff 0px 0px inset;
+        transition: box-shadow 0.1s ease-out;
     }
     .checkInButton:hover{
         box-shadow: #fff 0px -3px inset;

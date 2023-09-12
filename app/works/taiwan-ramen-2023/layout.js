@@ -8,7 +8,7 @@ import Nav from './nav.js'
 import { UserProvider } from './user-context';
 
 export const metadata = {
-  title: '2023台灣拉麵101',
+  title: '2023 台灣ラーマン 101',
   description: '在2023台灣拉麵101中發掘並評價台灣最好的拉麵餐廳。分享您的體驗，上傳照片，並填寫您的拉麵賓果卡。通過Google安全登入。',
   creator: '郭皓存 (Mangle Kuo)',
   authors: [

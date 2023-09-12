@@ -53,7 +53,7 @@ export default function Nav(){
           {userProfile ? (
               isLoggedIn === true ? (
                 <div>
-                  {userProfile.email ? (<button className={styles.logoutButton} onClick={() => {handleLogout()}}>
+                  {userProfile.email ? (<button className={`${styles.button} ${styles.logout}`} onClick={() => {handleLogout()}}>
                     <Image
                     src={userProfile.picture}
                     width={100}
@@ -63,7 +63,7 @@ export default function Nav(){
                 </div>) : (
                   isLoggedIn === false ? (<GoogleLogin handleLogin={handleLogin} isLoggedIn={isLoggedIn} />):(null)
                 )
-            ):(<div>...</div>)
+            ):(<div><button className={`${styles.button} ${styles.loading}`}>載入中</button></div>)
           }
       </div>
   );

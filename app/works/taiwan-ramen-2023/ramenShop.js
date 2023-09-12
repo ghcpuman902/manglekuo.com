@@ -7,6 +7,35 @@ import { useUser } from './user-context';
 
 
 
+const BracketText = ({text}) => {
+    // Extract text within square brackets or fallback to the entire string
+    const regex = /\[([^\]]+)\]/g;
+    let matches = [...text.matchAll(regex)].map(match => match[1]);
+    if (matches.length === 0) matches = [text];
+  
+    const flexParentStyle = {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'baseline'
+      };
+  
+    const childDivStyle = {
+      padding: '0px',
+    };
+  
+    return (
+      <div style={flexParentStyle}>
+        {matches.map((content, index) => (
+          <div key={index} style={childDivStyle}>
+            {content}
+          </div>
+        ))}
+      </div>
+    );
+  }
 
 const Shop = ({ shop }) => {
     return (<div>
@@ -66,7 +95,7 @@ export default function RamenShop({ ramenChainId, ramenChain }) {
     return (
         <div className={styles.shop + ` ${isWent ? styles.went : ""} ${isExpand ? styles.expand : ""} ${allshopClosed ? styles.allshopClosed : ""}`} onClick={() => setIsExpand(!isExpand)} >
             {!isExpand ? (<div className={styles.cityList}>{cityList}</div>) : null}
-            <div className={styles.chainName}>{ramenChain.name}</div>
+            <div className={styles.chainName}><BracketText text={ramenChain.name}/></div>
             {isExpand ? (<div>
                 {
                     <button className={styles.checkInButton} onClick={() => { handleCheckInClick(!isWent) }}>
