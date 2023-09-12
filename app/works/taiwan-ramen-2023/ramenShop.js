@@ -8,12 +8,12 @@ import { getLocalUserShops, updateLocalUserSingleShop } from './utils/local-user
 import styles from './styles.module.css';
 
 
-const BracketText = ({text}) => {
+const BracketText = ({ text }) => {
     // Extract text within square brackets or fallback to the entire string
     const regex = /\[([^\]]+)\]/g;
     let matches = [...text.matchAll(regex)].map(match => match[1]);
     if (matches.length === 0) matches = [text];
-  
+
     const flexParentStyle = {
         display: 'flex',
         flexDirection: 'row',
@@ -21,22 +21,22 @@ const BracketText = ({text}) => {
         justifyContent: 'center',
         alignContent: 'center',
         alignItems: 'baseline'
-      };
-  
-    const childDivStyle = {
-      padding: '0px',
     };
-  
+
+    const childDivStyle = {
+        padding: '0px',
+    };
+
     return (
-      <div style={flexParentStyle}>
-        {matches.map((content, index) => (
-          <div key={index} style={childDivStyle}>
-            {content}
-          </div>
-        ))}
-      </div>
+        <div style={flexParentStyle}>
+            {matches.map((content, index) => (
+                <div key={index} style={childDivStyle}>
+                    {content}
+                </div>
+            ))}
+        </div>
     );
-  }
+}
 
 const Shop = ({ shop }) => {
     return (<div>
@@ -50,7 +50,7 @@ const Shop = ({ shop }) => {
 }
 
 export default function RamenShop({ ramenChainId, ramenChain }) {
-    const {isLoggedIn,userProfile,handleUpdateShop} = useUser();
+    const { isLoggedIn, userProfile, handleUpdateShop } = useUser();
 
     const [isWent, setIsWent] = useState(false);
     const [isExpand, setIsExpand] = useState(false);
@@ -59,33 +59,38 @@ export default function RamenShop({ ramenChainId, ramenChain }) {
     let allshopClosed = false;
 
 
-    useEffect(()=>{
-        if(userProfile !== undefined){
+    useEffect(() => {
+        if (userProfile !== undefined) {
             // loaded
-            if(userProfile.email !== undefined){
+            if (userProfile.email !== undefined) {
                 // logged in 
-                if(userProfile.shops && userProfile.shops[ramenChainId] && userProfile?.shops[ramenChainId].isWent){
+                if (userProfile.shops && userProfile.shops[ramenChainId] && userProfile?.shops[ramenChainId].isWent) {
                     // user online data went here
-                    setIsWent( userProfile.shops[ramenChainId].isWent);
-                    console.log(`Rendering ${ramenChain.name},${userProfile.shops[ramenChainId].isWent?'went':''}`);
-                }else{
+                    setIsWent(userProfile.shops[ramenChainId].isWent);
+                    console.log(`Rendering ${ramenChain.name},${userProfile.shops[ramenChainId].isWent ? 'went' : ''}`);
+                } else {
                     // user online data didnt went here
-                    setIsWent( false );
+                    setIsWent(false);
                 }
-            }else{
+            } else {
                 // not logged in
                 const localUserShops = getLocalUserShops();
-                if( localUserShops[ramenChainId] && localUserShops[ramenChainId].isWent ){
-                    setIsWent( localUserShops[ramenChainId].isWent );
-                }else{
-                    setIsWent( false );
+                if (localUserShops[ramenChainId] && localUserShops[ramenChainId].isWent) {
+                    setIsWent(localUserShops[ramenChainId].isWent);
+                } else {
+                    setIsWent(false);
                 }
             }
-        }else{
+        } else {
             // loading...
-            setIsWent( false );
+            const localUserShops = getLocalUserShops();
+            if (localUserShops[ramenChainId] && localUserShops[ramenChainId].isWent) {
+                setIsWent(localUserShops[ramenChainId].isWent);
+            } else {
+                setIsWent(false);
+            }
         }
-    },[userProfile]);
+    }, [userProfile]);
 
     if (ramenChain.shops && Array.isArray(ramenChain.shops) && ramenChain.shops.length > 0) {
         // has branches
@@ -94,29 +99,29 @@ export default function RamenShop({ ramenChainId, ramenChain }) {
     } else {
         allshopClosed = true;
     }
-    
+
 
     const handleCheckInClick = useCallback(async (newIsWent) => {
-        if(isLoggedIn){
-            console.log(`handleUpdateShop`,{shopId:ramenChainId,shopChange:{isWent: newIsWent}});
+        if (isLoggedIn) {
+            console.log(`handleUpdateShop`, { shopId: ramenChainId, shopChange: { isWent: newIsWent } });
             // handle cloud change
-            handleUpdateShop({shopId:ramenChainId,shopChange:{isWent: newIsWent}});
-        }else{
-            console.log(`handleUpdateShop failed, isLoggedIn:`,isLoggedIn);
+            handleUpdateShop({ shopId: ramenChainId, shopChange: { isWent: newIsWent } });
+        } else {
+            console.log(`handleUpdateShop failed, isLoggedIn:`, isLoggedIn);
         }
         // handle local change
-        updateLocalUserSingleShop({shopId:ramenChainId,shopChange:{isWent: newIsWent}});
-        setIsWent( newIsWent );
+        updateLocalUserSingleShop({ shopId: ramenChainId, shopChange: { isWent: newIsWent } });
+        setIsWent(newIsWent);
     }, [isLoggedIn]);
 
 
     return (
         <div className={styles.shop + ` ${isWent ? styles.went : ""} ${isExpand ? styles.expand : ""} ${allshopClosed ? styles.allshopClosed : ""}`} onClick={() => setIsExpand(!isExpand)} >
             {!isExpand ? (<div className={styles.cityList}>{cityList}</div>) : null}
-            <div className={styles.chainName}><BracketText text={ramenChain.name}/></div>
+            <div className={styles.chainName}><BracketText text={ramenChain.name} /></div>
             {isExpand ? (<div>
                 {
-                    <button className={styles.checkInButton} onClick={() => { handleCheckInClick(!isWent) }} disabled={userProfile?false:true}>
+                    <button className={styles.checkInButton} onClick={() => { handleCheckInClick(!isWent) }} disabled={userProfile ? false : true}>
                         {isWent ? "啊，我還沒去" : "🍜 去過了～打卡！😋"}
                     </button>
                 }
