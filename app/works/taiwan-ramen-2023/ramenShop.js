@@ -116,7 +116,7 @@ export default function RamenShop({ ramenChainId, ramenChain }) {
             <div className={styles.chainName}><BracketText text={ramenChain.name}/></div>
             {isExpand ? (<div>
                 {
-                    <button className={styles.checkInButton} onClick={() => { handleCheckInClick(!isWent) }}>
+                    <button className={styles.checkInButton} onClick={() => { handleCheckInClick(!isWent) }} disabled={userProfile?false:true}>
                         {isWent ? "啊，我還沒去" : "🍜 去過了～打卡！😋"}
                     </button>
                 }
