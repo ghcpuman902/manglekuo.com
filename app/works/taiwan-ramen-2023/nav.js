@@ -35,6 +35,7 @@ export default function Nav(){
               width={500}
               height={90}
               alt={`2023`}
+              priority={true}
             />
             <Image
               src="/taiwan-ramen-2023/assets/TaiwanRamenLogoP2.svg"

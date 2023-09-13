@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link'
 
 import { useUser } from './user-context';
@@ -39,27 +39,39 @@ const BracketText = ({ text }) => {
 }
 
 const Shop = ({ shop }) => {
+    const base = 'https://www.google.com/maps/dir/?api=1';
+    const destinationID = encodeURIComponent(shop.googlePlaceName.split('/')[1]);
+    const destinationName = encodeURIComponent(shop.name);
     return (<div>
         {(shop.city && shop.area) ? (<div>{`${shop.city}${shop.area}`}</div>) : null}
         {shop.name ? (<h2 className={styles.shopName}>{shop.name}</h2>) : null}
         {!shop.isOperational ? (<div>這家店已歇業</div>) : null}
-        <Link href={shop.googleMapsUri} className={styles.shopAddr}>{shop.fullAddress ? (<div>{shop.fullAddress}</div>) : "用Google地圖打開"}</Link>
+        <Link target="_blank" href={`${base}&destination_place_id=${destinationID}&destination=${destinationName}`} className={styles.shopAddr}>{shop.fullAddress ? (<div>{shop.fullAddress}</div>) : "用Google地圖打開"}</Link>
         {(shop.userRatingCount && shop.rating) ? (<div>{`${shop.rating}🌟（${shop.userRatingCount}評價）`}</div>) : null}
-        {shop.websiteUri ? (<Link href={shop.websiteUri}>店家網址</Link>) : null}
+        {shop.websiteUri ? (<Link target="_blank" href={shop.websiteUri}>店家網址</Link>) : null}
     </div>);
 }
 
 export default function RamenShop({ ramenChainId, ramenChain }) {
     const { isLoggedIn, userProfile, handleUpdateShop } = useUser();
-
+    const prevIsLoggedInRef = useRef();
     const [isWent, setIsWent] = useState(false);
     const [isExpand, setIsExpand] = useState(false);
+
 
     let cityList = '';
     let allshopClosed = false;
 
 
     useEffect(() => {
+        let isJustLoggedIn;
+        if(prevIsLoggedInRef.current == false && isLoggedIn == true){
+            // first time logged in, sync local state to 
+            isJustLoggedIn = false;
+        }else{
+            isJustLoggedIn = true;
+        }
+        prevIsLoggedInRef.current = isLoggedIn;
         if (userProfile !== undefined) {
             // loaded
             if (userProfile.email !== undefined) {
@@ -70,7 +82,15 @@ export default function RamenShop({ ramenChainId, ramenChain }) {
                     console.log(`Rendering ${ramenChain.name},${userProfile.shops[ramenChainId].isWent ? 'went' : ''}`);
                 } else {
                     // user online data didnt went here
-                    setIsWent(false);
+                    if(isJustLoggedIn){
+                        console.log(`isJustLoggedIn`);
+                    }
+                    if(isJustLoggedIn && isWent == true){
+                        console.log(`handleCheckInClick,isWent is `,isWent);
+                        handleCheckInClick(true);
+                    }else{
+                        setIsWent(false);
+                    }
                 }
             } else {
                 // not logged in
