@@ -16,5 +16,18 @@ const getEmbeddingFromOpenAI = cache(async (text) => {
 export async function POST(request: NextRequest) {
     const { texts } = await request.json();  
     const embeddings = await Promise.all(texts.map(getEmbeddingFromOpenAI));
-    return NextResponse.json({result:embeddings});
+
+    if(process.env.NODE_ENV == "development"){
+        return NextResponse.json({result: embeddings});
+    }
+    else if (process.env.NODE_ENV == "production"){
+        return NextResponse.json({result: embeddings}, {
+            headers: {
+                'Access-Control-Allow-Origin': 'https://manglekuo.com',
+                'Access-Control-Allow-Methods': 'POST',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Content-Type': 'application/json',
+            },
+        });
+    }
 }

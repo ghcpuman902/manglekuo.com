@@ -20,6 +20,17 @@ export async function POST(request: NextRequest) {
     // Get embedding for new text 
     let embedding = await getEmbeddingFromOpenAI(text);
 
-
-    return NextResponse.json({result:embedding});
+    if(process.env.NODE_ENV == "development"){
+        return NextResponse.json({result: embedding});
+    }
+    else if (process.env.NODE_ENV == "production"){
+        return NextResponse.json({result: embedding}, {
+            headers: {
+                'Access-Control-Allow-Origin': 'https://manglekuo.com',
+                'Access-Control-Allow-Methods': 'POST',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Content-Type': 'application/json',
+            },
+        });
+    }
 }
