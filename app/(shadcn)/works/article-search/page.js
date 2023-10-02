@@ -208,15 +208,16 @@ export default function Page() {
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Article Search</h1>
 
             <div className="my-6">
-                <Label className="mr-1">Article sources (last updated {timeAgo(updateTime)}): </Label>
+                <Label className="mr-1">Article sources: </Label>
                 {successfulSources ? successfulSources.map((source, index) => {
                     const {url,count} = source;
                     return (
-                        <Badge key={index} variant="outline" className="mr-1">
+                        <Badge key={index} variant="outline" className="mx-1">
                             <a href={url} target="_blank" rel="noopener noreferrer" className="hover:underline">{getDomainNameFromUrl(url)} ({count})</a>
                         </Badge>
                     );
-                }) : 'none'}
+                }) : 'loading... '} 
+                <Label className="text-gray-400 dark:text-gray-500">articles are fetched from these sources every hour, last fetch happened {timeAgo(updateTime)}.</Label>
             </div>
 
             <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Fetched Articles ({articles ? `${articles.length} within the past 4 days` : '0'}):</h2>

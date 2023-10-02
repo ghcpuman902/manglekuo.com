@@ -1,4 +1,5 @@
 export default function timeAgo(dateString) {
+    if(!dateString){return `not yet`;}
     const eventTime = new Date(dateString); 
     const currentTime = new Date();
 
@@ -13,7 +14,7 @@ export default function timeAgo(dateString) {
         numeric: 'auto',
         style: "narrow", 
      });
-     
+
     if (diffInDays > 0) {
         return `${rtf.format(-diffInDays, 'day')} (${rtf.format(-diffInHours, 'hour')})`;
     }

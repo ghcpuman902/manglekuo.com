@@ -1,6 +1,6 @@
 import { cache } from 'react'
  
-export const revalidate = 3600 * 24; // revalidate the data at most every day
+export const revalidate = 3600;
  
 import xml2js from 'xml2js';
 
