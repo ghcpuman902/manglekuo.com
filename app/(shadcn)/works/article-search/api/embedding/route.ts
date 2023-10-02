@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from 'next/server'
 import OpenAI from "openai";
 import { cache } from 'react'
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY });
 
 const getEmbeddingFromOpenAI = cache(async (text) => {
     const response = await openai.embeddings.create({

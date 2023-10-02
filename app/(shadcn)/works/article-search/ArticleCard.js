@@ -7,7 +7,8 @@ import {
     CardHeader,
     CardTitle,
 } from "@components/ui/card";
-import { Badge } from "@components/ui/badge"
+import { Badge } from "@components/ui/badge";
+import Link from 'next/link'
 
 function timeAgo(dateString) {
     const eventTime = new Date(dateString); 
@@ -75,7 +76,7 @@ export default function ArticleCard({ article }) {
                     <div dangerouslySetInnerHTML={{ __html: article.description }}></div>
                 </CardContent>
                 <CardFooter>
-                    <p className="leading-7 [&:not(:first-child)]:mt-6">Source: <a href={article.source} target="_blank" rel="noopener noreferrer" className="hover:underline">{article.source}</a></p>
+                    <p className="leading-7 [&:not(:first-child)]:mt-6">Source: <Link href={article.source} target="_blank" rel="noopener noreferrer" className="hover:underline">{article.source}</Link></p>
                 </CardFooter>
             </Card>) : null}
         </>

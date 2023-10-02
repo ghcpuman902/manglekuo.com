@@ -1,8 +1,8 @@
 'use client';
-import ArticleCard from "./ArticleCard";
-import { useEffect, useState, useRef } from 'react';
 import { Button } from "@components/ui/button";
-import { Input } from "@components/ui/input"
+import { Input } from "@components/ui/input";
+import { useEffect, useRef, useState } from 'react';
+import ArticleCard from "./ArticleCard";
 
 
 function dotProduct(a, b) {
@@ -180,7 +180,7 @@ export default function Page() {
                         event.preventDefault(); // Prevents the default action of enter key
                     }
                 }} />
-                <Button onClick={() => { handleReorder() }} disabled={loading!=200}>{loading!=200?(<><span className="animate-spin">c</span>&nbsp;&nbsp;wait...</>):'Sort'}</Button>
+                <Button onClick={() => { handleReorder() }} disabled={loading!=200}>{loading!=200?(<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;wait...</>):'Sort'}</Button>
             </div>
             <div className="pt-8 items-stretch justify-center gap-6 rounded-lg grid lg:grid-cols-2 xl:grid-cols-3">
                 {articles ?
