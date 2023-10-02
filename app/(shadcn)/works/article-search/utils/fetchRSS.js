@@ -28,6 +28,15 @@ const rss_feeds = [
     "https://theconversation.com/us/technology/articles.atom"
 ];
 
+const rss_feed_jp = [
+    "https://sorae.info/feed",
+    "https://www.nao.ac.jp/atom.xml",
+    "http://www.astroarts.co.jp/article/feed.atom",
+    "https://subarutelescope.org/jp/atom.xml",
+    "https://alma-telescope.jp/news/feed",
+    "https://www.jaxa.jp/rss/press_j.rdf"
+];
+
 export const fetchArticlesFromFeed = async (url) => {
     let articles = [];
     try {
@@ -65,6 +74,17 @@ export const fetchArticlesFromFeed = async (url) => {
                     articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
                 }
             }
+        }  else if (parsedResult['rdf:RDF'] && parsedResult['rdf:RDF'].item) {
+            // RDF format
+            const items = parsedResult['rdf:RDF'].item;
+            for(let item of items) {
+                const title = item.title[0];
+                const link = item.about; // 'about' attribute corresponds to 'link' in RDF
+                const pubDate = item['dc:date'][0];
+                let description = item.description ? item.description[0] : '';
+
+                articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
+            }
         } else {
             console.error(`Unexpected XML structure for URL: ${url}`);
             return [];
@@ -82,6 +102,32 @@ export const fetchAllArticles = cache(async () => {
     let successfulSources = [];
 
     for(let url of rss_feeds) {
+        const articles = await fetchArticlesFromFeed(url);
+        if (articles.length > 0) {
+            successfulSources.push({url,count:articles.length});
+            allArticles = allArticles.concat(articles);
+        }
+    }
+
+    let date = new Date();
+    let day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][date.getUTCDay()];
+    let dayOfMonth = date.getUTCDate().toString().padStart(2, '0');
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let year = date.getUTCFullYear();
+    let hours = date.getUTCHours().toString().padStart(2, '0');
+    let minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    let seconds = date.getUTCSeconds().toString().padStart(2, '0');
+    
+    let formattedString = `${day}, ${dayOfMonth} ${months[date.getUTCMonth()]} ${year} ${hours}:${minutes}:${seconds} +0000`;
+    console.log(`fetchAllArticles ${formattedString}`);
+    return { articles: allArticles, successfulSources, updateTime: formattedString};
+});
+
+export const fetchAllJapanArticles = cache(async () => {
+    let allArticles = [];
+    let successfulSources = [];
+
+    for(let url of rss_feed_jp) {
         const articles = await fetchArticlesFromFeed(url);
         if (articles.length > 0) {
             successfulSources.push({url,count:articles.length});

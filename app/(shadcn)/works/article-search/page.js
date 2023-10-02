@@ -49,6 +49,11 @@ export default function Page() {
     );
    
     let defaultQueryText = `astronomy scientific research, space exploration, deep sky news`;
+    let articlesFetchUrl = '/works/article-search/api/articles';
+    if(searchParams.has('jp')){
+        defaultQueryText = `天文学的研究、宇宙探査、深宇宙のニュース`;
+        articlesFetchUrl = '/works/article-search/api/articles-jp';
+    }
     if(searchParams.has('q')){
         defaultQueryText = searchParams.get('q');
     }
@@ -147,7 +152,7 @@ export default function Page() {
     
         async function fetchData() {
             console.log(`fetching articles`);
-            const res = await fetch('/works/article-search/api/articles', { next: { revalidate: 3600 } });
+            const res = await fetch(articlesFetchUrl, { next: { revalidate: 3600 } });
             const resJson = await res.json();
             if (!res.ok) {
                 throw new Error('Failed to fetch', resJson);
