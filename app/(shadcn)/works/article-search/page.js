@@ -2,31 +2,66 @@
 import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
 import { Label } from "@components/ui/label";
-import { useEffect, useRef, useState } from 'react';
+import { Badge } from "@components/ui/badge";
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import ArticleCard from "./ArticleCard";
 
+import dotProduct from "./utils/dotProduct";
+import timeAgo from "./utils/timeAgo";
 
-function dotProduct(a, b) {
-    if (a.length != b.length) { return 1; }
-    let dotProduct = 0;
-    for (let i = 0; i < a.length; i++) {
-        dotProduct += a[i] * b[i];
+
+function getDomainNameFromUrl(url) {
+    let hostname = new URL(url).hostname;
+    let domainName = '';
+
+    // Remove the 'www.' or 'rss.' from the domain name
+    if (hostname.startsWith('www.') || hostname.startsWith('rss.')) {
+        hostname = hostname.split('.').slice(1).join('.');
     }
-    return dotProduct;
+
+    // If domain is ".com" then remove the .com
+    if (hostname.includes('.com')) {
+        domainName = hostname.replace('.com', '');
+    } else {
+        domainName = hostname;
+    }
+    
+    return domainName;
 }
 
 
-
 export default function Page() {
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+   
+    // Get a new searchParams string by merging the current
+    // searchParams with a provided key/value pair
+    const createQueryString = useCallback(
+      (name, value) => {
+        const params = new URLSearchParams(searchParams)
+        params.set(name, value)
+   
+        return params.toString()
+      },
+      [searchParams]
+    );
+   
+    let defaultQueryText = `astronomy scientific research, space exploration, deep sky news`;
+    if(searchParams.has('q')){
+        defaultQueryText = searchParams.get('q');
+    }
     const [loading, setLoading] = useState(0);
     const [articles, setArticles] = useState(null);
     const [successfulSources, setSuccessfulSources] = useState(null);
-    const [queryText, setQueryText] = useState(`astronomy scientific research, space exploration, deep sky news`);
+    const [updateTime, setUpdateTime] = useState(null);
+    const [queryText, setQueryText] = useState(defaultQueryText);
     const queryEmbedding = useRef(null);
 
     const sortArticles = (arts) => {
         setLoading(4);
-        const twoDaysAgo = Date.now() - 4 * 24 * 60 * 60 * 1000; // 48 hours ago
+        const fourDaysAgo = Date.now() - 4 * 24 * 60 * 60 * 1000;
     
         // Filter for articles published within the last 48 hours
         const filteredArticles = arts.filter(art => {
@@ -36,7 +71,7 @@ export default function Page() {
             const articleDateInMs = pubDate.getTime();
     
             // return true;
-            return articleDateInMs >= twoDaysAgo;
+            return articleDateInMs >= fourDaysAgo;
         });
     
         // First sort by date in descending order (newest first)
@@ -64,32 +99,38 @@ export default function Page() {
     useEffect(() => {
         async function updateEmbeddings(articles, targetEmbedding) {
             setLoading(3);
-            const updatedArticles = await Promise.all(articles.map(async (article) => {
-                console.log(`article embedding fetched.`);
-                const text = `${article.title}||||${article.description.replace(/\n|\t|[ ]{4}/g, '').replace(/<[^>]*>/g, '')}`;
-                const res = await fetch('/works/article-search/api/embedding', {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ text }),
-                });
-                const resJson = await res.json();
-                if (!res.ok) {
-                    throw new Error('Failed to patch', resJson);
-                }
-                article.embedding = resJson.result; //updating embedding field of article
-                article.distance = dotProduct(resJson.result, targetEmbedding);
-                return article;
-            }));
-            return updatedArticles;
+            const res = await fetch('/works/article-search/api/batch-embedding', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                   texts: articles.map(article => `${article.title}||||${article.description.replace(/\n|\t|[ ]{4}/g, '').replace(/<[^>]*>/g, '')}`)  
+                }),
+            });
+            const embeddingsResult = await res.json();
+           
+            const updatedArticles = articles.map((article, index) => {
+               if(!article.embedding || article.embedding.length == 0){
+                   console.log(`article embedding fetched.`);
+                   article.embedding = embeddingsResult.result[index];
+                   article.distance = dotProduct(embeddingsResult.result[index], targetEmbedding);
+               }else{
+                   article.distance = dotProduct(article.embedding, targetEmbedding);
+               }
+               return article;
+           });
+           
+           return updatedArticles;
         }
 
         async function getQueryEmbedding(text) {
             setLoading(2);
             if(text==''){
                 console.error(`getQueryEmbedding: text empty!`);
+                return;
             }
+            router.push(pathname + '?' + createQueryString('q', queryText));
             const res = await fetch('/works/article-search/api/embedding', {
                 method: "POST",
                 headers: {
@@ -119,6 +160,7 @@ export default function Page() {
             const sortedAndUpdatedArticles = sortArticles(updatedArticles);
             setArticles(sortedAndUpdatedArticles);
             setSuccessfulSources(resJson.successfulSources);
+            setUpdateTime(resJson.successfulSources.updateTime);
             setLoading(200);
         }
         setLoading(1);
@@ -126,12 +168,14 @@ export default function Page() {
     }, []);
 
     const handleReorder = () => {
+        if(queryText==''){
+            console.log(`query text empty!`);
+            return;
+        }
         setLoading(0);
         async function fetchData() {
             async function getQueryEmbedding(text) {
-                if(text==''){
-                    console.error(`getQueryEmbedding: text empty!`);
-                }
+                router.push(pathname + '?' + createQueryString('q', queryText));
                 const res = await fetch('/works/article-search/api/embedding', {
                     method: "POST",
                     headers: {
@@ -160,21 +204,24 @@ export default function Page() {
     }
 
     return (
-        <div className="md-8 p-8">
+        <div className="p-4 md:p-8">
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Article Search</h1>
 
-            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Successful Sources:</h2>
-            <ul className="my-6 list-disc [&>li]:mt-2">
-                {successfulSources ? successfulSources.map((url, index) => (
-                    <li key={index} className="text-ellipsis overflow-hidden">
-                        <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{url}</a>
-                    </li>
-                )) : 'none'}
-            </ul>
+            <div className="my-6">
+                <Label className="mr-1">Article sources (last update {timeAgo(updateTime)}): </Label>
+                {successfulSources ? successfulSources.map((source, index) => {
+                    const {url,count} = source;
+                    return (
+                        <Badge key={index} variant="outline" className="mr-1">
+                            <a href={url} target="_blank" rel="noopener noreferrer" className="hover:underline">{getDomainNameFromUrl(url)} ({count})</a>
+                        </Badge>
+                    );
+                }) : 'none'}
+            </div>
 
-            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Fetched Articles ({articles ? articles.length : '0'}):</h2>
+            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Fetched Articles ({articles ? `${articles.length} within the past 4 days` : '0'}):</h2>
 
-            <div className="pt-8 flex flex-wrap w-full items-center">
+            <div className="my-5 flex flex-wrap w-full items-center">
                 <Label htmlFor="query" className="w-full my-2">Sort by how closely the article matches: </Label>
                 <Input id="query" type="text" className="max-w-lg my-2 mr-2" value={queryText} onChange={e => setQueryText(e.target.value)} onKeyPress={event => {
                     if(event.key === 'Enter'){ 
@@ -184,7 +231,7 @@ export default function Page() {
                 }} />
                 <Button className="max-w-sm my-2" onClick={() => { handleReorder() }} disabled={loading!=200}>{loading!=200?(<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;wait...</>):'Sort'}</Button>
             </div>
-            <div className="pt-8 items-stretch justify-center gap-6 rounded-lg grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+            <div className="items-stretch justify-center gap-6 rounded-lg grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                 {articles ?
                     articles.map((article, index) => (
                         <ArticleCard key={article.key} article={article}/>

@@ -9,17 +9,12 @@ const getEmbeddingFromOpenAI = cache(async (text) => {
         model: "text-embedding-ada-002",
         input: text
     });
-
     const embedding = response['data'][0]['embedding'];
-    // console.log(embedding);
     return embedding;
-})
+});
 
 export async function POST(request: NextRequest) {
-    const { text } = await request.json();
-    // Get embedding for new text 
-    let embedding = await getEmbeddingFromOpenAI(text);
-
-
-    return NextResponse.json({result:embedding});
+    const { texts } = await request.json();  
+    const embeddings = await Promise.all(texts.map(getEmbeddingFromOpenAI));
+    return NextResponse.json({result:embeddings});
 }

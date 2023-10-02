@@ -10,40 +10,11 @@ import {
 import { Badge } from "@components/ui/badge";
 import Link from 'next/link'
 
-function timeAgo(dateString) {
-    const eventTime = new Date(dateString); 
-    const currentTime = new Date();
-
-    const diffInSeconds = Math.floor((currentTime - eventTime) / 1000);
-    const diffInMinutes = Math.floor(diffInSeconds / 60);
-    const diffInHours = Math.floor(diffInMinutes / 60);
-    const diffInDays = Math.floor(diffInHours / 24);
-
-    // Create the formatter
-    const rtf = new Intl.RelativeTimeFormat('en', { 
-        localeMatcher: "best fit",
-        numeric: 'auto',
-        style: "narrow", 
-     });
-
-    if (diffInDays > 0) {
-        return `${rtf.format(-diffInDays, 'day')} (${rtf.format(-diffInHours, 'hour')})`;
-    }
-
-    if (diffInHours > 0) {
-        return `${rtf.format(-diffInHours, 'hour')}`;
-    }
-
-    if (diffInMinutes > 0) {
-        return `${rtf.format(-diffInMinutes, 'minute')}`;
-    }
-
-    return `${rtf.format(0, 'second')}`;
-}
+import timeAgo from "./utils/timeAgo";
 
 export default function ArticleCard({ article }) {
-    const zoneColors = [ 'bg-amber-100', 'bg-sky-100', 'bg-sky-200','bg-blue-200','bg-emerald-200','bg-violet-200'];
-    const zoneBorderColors = [ 'border-amber-200', 'border-sky-200', 'border-sky-400','border-blue-400','border-emerald-400','border-violet-400'];
+    const zoneColors = [ 'bg-amber-100 dark:bg-amber-600', 'bg-sky-100 dark:bg-sky-400', 'bg-sky-200 dark:bg-sky-600','bg-blue-200 dark:bg-blue-600','bg-emerald-200 dark:bg-emerald-600','bg-violet-200 dark:bg-violet-600'];
+    const zoneBorderColors = [ 'border-amber-400', 'border-sky-200', 'border-sky-400','border-blue-400','border-emerald-400','border-violet-400'];
     const zoneBadgeNames = [ 'Bad Match', 'Maybe', 'Good Match','Excellent Match','Similar Topic','Same Article'];
 
     function mapValue(d) {
@@ -76,7 +47,7 @@ export default function ArticleCard({ article }) {
             {article ? (<Card className={`overflow-clip ${zoneBorderColors[mapValue(article.distance).zone]}`}>
                 <CardHeader>
                     <CardTitle><a href={article.link} target="_blank" rel="noopener noreferrer" className="underline">{article.title}</a></CardTitle>
-                    <CardDescription className="pt-1"><Badge variant="secondary" suppressHydrationWarning>{timeAgo(article.pubDate)}</Badge> <Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]} ({dToPercentage(mapValue(article.distance).newDistance)})</Badge></CardDescription>
+                    <CardDescription className="pt-1"><Badge variant="secondary" className="mr-1" suppressHydrationWarning>{timeAgo(article.pubDate)}</Badge><Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]} ({dToPercentage(mapValue(article.distance).newDistance)})</Badge></CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div dangerouslySetInnerHTML={{ __html: article.description }}></div>

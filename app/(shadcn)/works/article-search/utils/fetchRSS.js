@@ -1,6 +1,6 @@
 import { cache } from 'react'
  
-export const revalidate = 3600 * 24 // revalidate the data at most every day
+export const revalidate = 3600 * 24; // revalidate the data at most every day
  
 import xml2js from 'xml2js';
 
@@ -16,9 +16,15 @@ export const linkToKey =  function (message) {
 const rss_feeds = [
     "https://scitechdaily.com/feed/", 
     "https://phys.org/rss-feed/space-news/", 
-    "https://www.newscientist.com/subject/space/feed/", 
+    "https://www.universetoday.com/feed",
+    "https://www.space.com/feeds/news",
+    "https://www.sciencealert.com/feed",
+    "https://skyandtelescope.org/astronomy-news/feed",
     "https://spacenews.com/feed/", 
-    "https://www.space.com/feeds/news", 
+    "http://rss.sciam.com/ScientificAmerican-Global",
+    "https://ras.ac.uk/rss.xml",
+    "https://www.sci.news/astronomy/feed",
+    "https://www.newscientist.com/subject/space/feed/",
     "https://theconversation.com/us/technology/articles.atom"
 ];
 
@@ -28,7 +34,7 @@ export const fetchArticlesFromFeed = async (url) => {
         const response = await fetch(url);
         const data = await response.text();
         const parsedResult = await xml2js.parseStringPromise(data);
-
+        
         if (parsedResult.rss && parsedResult.rss.channel && parsedResult.rss.channel[0].item) {
             // RSS format
             const items = parsedResult.rss.channel[0].item;
@@ -36,7 +42,11 @@ export const fetchArticlesFromFeed = async (url) => {
                 const title = item.title[0];
                 const link = item.link[0];
                 const pubDate = item.pubDate[0];
-                const description = item.description ? item.description[0] : '';
+                let description = item.description ? item.description[0] : '';
+                const thumbnail = item['media:thumbnail'] ? item['media:thumbnail'][0].$.url : null
+                if (thumbnail) {
+                    description = "<img src = '"+ thumbnail +"' style='max-width:100%;height:auto;'>" + description
+                }
                 articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
             }
         } else if (parsedResult.feed && parsedResult.feed.entry) {
@@ -47,7 +57,11 @@ export const fetchArticlesFromFeed = async (url) => {
                     const title = entry.title[0];
                     const link = entry.link && entry.link[0] && entry.link[0].$.href;
                     const pubDate = entry.updated[0];
-                    const description = entry.summary ? entry.summary[0] : '';
+                    let description = entry.summary ? entry.summary[0] : '';
+                    const thumbnail = entry['media:thumbnail'] ? entry['media:thumbnail'][0].$.url : null
+                    if (thumbnail) {
+                        description = "<img src = '"+ thumbnail +"' style='max-width:100%;height:auto;'>" + description
+                    }
                     articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
                 }
             }
@@ -70,10 +84,21 @@ export const fetchAllArticles = cache(async () => {
     for(let url of rss_feeds) {
         const articles = await fetchArticlesFromFeed(url);
         if (articles.length > 0) {
-            successfulSources.push(url);
+            successfulSources.push({url,count:articles.length});
             allArticles = allArticles.concat(articles);
         }
     }
 
-    return { articles: allArticles, successfulSources };
+    let date = new Date();
+    let day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][date.getUTCDay()];
+    let dayOfMonth = date.getUTCDate().toString().padStart(2, '0');
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let year = date.getUTCFullYear();
+    let hours = date.getUTCHours().toString().padStart(2, '0');
+    let minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    let seconds = date.getUTCSeconds().toString().padStart(2, '0');
+    
+    let formattedString = `${day}, ${dayOfMonth} ${months[date.getUTCMonth()]} ${year} ${hours}:${minutes}:${seconds} +0000`;
+    console.log(`fetchAllArticles ${formattedString}`);
+    return { articles: allArticles, successfulSources, updateTime: formattedString};
 });
