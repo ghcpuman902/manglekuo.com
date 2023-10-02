@@ -65,18 +65,24 @@ export default function ArticleCard({ article }) {
         return {newDistance, zone};
     }
 
+    function dToPercentage(d){
+        if(d>=5){return `100%`;}
+        const percentage = Math.floor(d/5*10000)/100;
+        return `${percentage}%`;
+    }
+
     return (
         <>
-            {article ? (<Card className={zoneBorderColors[mapValue(article.distance).zone]}>
+            {article ? (<Card className={`overflow-clip ${zoneBorderColors[mapValue(article.distance).zone]}`}>
                 <CardHeader>
                     <CardTitle><a href={article.link} target="_blank" rel="noopener noreferrer" className="underline">{article.title}</a></CardTitle>
-                    <CardDescription className="pt-1"><Badge variant="secondary" suppressHydrationWarning>{timeAgo(article.pubDate)}</Badge> <Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]}</Badge></CardDescription>
+                    <CardDescription className="pt-1"><Badge variant="secondary" suppressHydrationWarning>{timeAgo(article.pubDate)}</Badge> <Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]} ({dToPercentage(mapValue(article.distance).newDistance)})</Badge></CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div dangerouslySetInnerHTML={{ __html: article.description }}></div>
                 </CardContent>
                 <CardFooter>
-                    <p className="leading-7 [&:not(:first-child)]:mt-6">Source: <Link href={article.source} target="_blank" rel="noopener noreferrer" className="hover:underline">{article.source}</Link></p>
+                    <p className="leading-7 [&:not(:first-child)]:mt-6 text-ellipsis overflow-hidden">Source: <Link href={article.source} target="_blank" rel="noopener noreferrer" className="hover:underline">{article.source}</Link></p>
                 </CardFooter>
             </Card>) : null}
         </>

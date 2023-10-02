@@ -1,6 +1,7 @@
 'use client';
 import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
+import { Label } from "@components/ui/label";
 import { useEffect, useRef, useState } from 'react';
 import ArticleCard from "./ArticleCard";
 
@@ -160,12 +161,12 @@ export default function Page() {
 
     return (
         <div className="md-8 p-8">
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Articles Search</h1>
+            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Article Search</h1>
 
             <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Successful Sources:</h2>
-            <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+            <ul className="my-6 list-disc [&>li]:mt-2">
                 {successfulSources ? successfulSources.map((url, index) => (
-                    <li key={index}>
+                    <li key={index} className="text-ellipsis overflow-hidden">
                         <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{url}</a>
                     </li>
                 )) : 'none'}
@@ -173,16 +174,17 @@ export default function Page() {
 
             <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Fetched Articles ({articles ? articles.length : '0'}):</h2>
 
-            <div className="pt-8 flex w-full max-w-sm items-center space-x-2">
-                <Input type="text" value={queryText} onChange={e => setQueryText(e.target.value)} onKeyPress={event => {
+            <div className="pt-8 flex flex-wrap w-full items-center">
+                <Label htmlFor="query" className="w-full my-2">Sort by how closely the article matches: </Label>
+                <Input id="query" type="text" className="max-w-lg my-2 mr-2" value={queryText} onChange={e => setQueryText(e.target.value)} onKeyPress={event => {
                     if(event.key === 'Enter'){ 
                         handleReorder();
                         event.preventDefault(); // Prevents the default action of enter key
                     }
                 }} />
-                <Button onClick={() => { handleReorder() }} disabled={loading!=200}>{loading!=200?(<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;wait...</>):'Sort'}</Button>
+                <Button className="max-w-sm my-2" onClick={() => { handleReorder() }} disabled={loading!=200}>{loading!=200?(<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;wait...</>):'Sort'}</Button>
             </div>
-            <div className="pt-8 items-stretch justify-center gap-6 rounded-lg grid lg:grid-cols-2 xl:grid-cols-3">
+            <div className="pt-8 items-stretch justify-center gap-6 rounded-lg grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                 {articles ?
                     articles.map((article, index) => (
                         <ArticleCard key={article.key} article={article}/>
