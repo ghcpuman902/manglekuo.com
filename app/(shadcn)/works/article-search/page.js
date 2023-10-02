@@ -160,7 +160,7 @@ export default function Page() {
 
     return (
         <div className="md-8 p-8">
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Articles Page</h1>
+            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Articles Search</h1>
 
             <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Successful Sources:</h2>
             <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
