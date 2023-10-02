@@ -21,6 +21,10 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({result: embeddings});
     }
     else if (process.env.NODE_ENV == "production"){
+        const referer = request.headers.get('referer');
+        if (!referer || !referer.startsWith('https://manglekuo.com')) {
+            return NextResponse.json('Unauthorized', { status: 401 });
+        }
         return NextResponse.json({result: embeddings}, {
             headers: {
                 'Access-Control-Allow-Origin': 'https://manglekuo.com',
