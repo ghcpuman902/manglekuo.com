@@ -13,7 +13,7 @@ export default function timeAgo(dateString) {
         numeric: 'auto',
         style: "narrow", 
      });
-
+     
     if (diffInDays > 0) {
         return `${rtf.format(-diffInDays, 'day')} (${rtf.format(-diffInHours, 'hour')})`;
     }

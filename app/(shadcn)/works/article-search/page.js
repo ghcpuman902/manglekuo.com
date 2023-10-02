@@ -55,7 +55,7 @@ export default function Page() {
     const [loading, setLoading] = useState(0);
     const [articles, setArticles] = useState(null);
     const [successfulSources, setSuccessfulSources] = useState(null);
-    const [updateTime, setUpdateTime] = useState(null);
+    const [updateTime, setUpdateTime] = useState(0);
     const [queryText, setQueryText] = useState(defaultQueryText);
     const queryEmbedding = useRef(null);
 
@@ -160,7 +160,7 @@ export default function Page() {
             const sortedAndUpdatedArticles = sortArticles(updatedArticles);
             setArticles(sortedAndUpdatedArticles);
             setSuccessfulSources(resJson.successfulSources);
-            setUpdateTime(resJson.successfulSources.updateTime);
+            setUpdateTime(resJson.updateTime);
             setLoading(200);
         }
         setLoading(1);
@@ -208,7 +208,7 @@ export default function Page() {
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Article Search</h1>
 
             <div className="my-6">
-                <Label className="mr-1">Article sources (last update {timeAgo(updateTime)}): </Label>
+                <Label className="mr-1">Article sources (last updated {timeAgo(updateTime)}): </Label>
                 {successfulSources ? successfulSources.map((source, index) => {
                     const {url,count} = source;
                     return (
