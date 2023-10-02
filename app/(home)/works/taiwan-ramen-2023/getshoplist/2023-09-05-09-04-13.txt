@@ -1,0 +1,3104 @@
+{
+  "N2VQxUaM9v27L78f75LC": {
+    "ranking": 0,
+    "shops": [
+      {
+        "websiteUri": "https://www.facebook.com/efanxing/",
+        "area": "內湖區",
+        "googleMapsUri": "https://maps.google.com/?cid=7148146279945223901",
+        "city": "台北市",
+        "openingTime": "永久歇業",
+        "isOperational": false,
+        "fullAddress": "114台灣台北市內湖區內湖路一段285號2樓101攤位",
+        "rating": 4.5,
+        "userRatingCount": 569,
+        "googlePlaceName": "places/ChIJ4eCulm6sQjQR3T6qSitRM2M",
+        "gps": {
+          "latitude": 25.0824173,
+          "longitude": 121.5664945
+        }
+      }
+    ],
+    "name": "一番星"
+  },
+  "XFZ5JWVJZSNtk2ifukxp": {
+    "shops": [
+      {
+        "area": "中山區",
+        "websiteUri": "http://www.facebook.com/kikanbotw",
+        "googleMapsUri": "https://maps.google.com/?cid=7694363038157797941",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:30\n星期二: 11:30 – 14:00, 17:00 – 20:30\n星期三: 11:30 – 14:00, 17:00 – 20:30\n星期四: 11:30 – 14:00, 17:00 – 20:30\n星期五: 11:30 – 14:00, 17:00 – 20:30\n星期六: 11:30 – 14:00, 17:00 – 20:30\n星期日: 11:30 – 14:00, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區松江路123巷8-2號",
+        "rating": 3.3,
+        "userRatingCount": 1305,
+        "googlePlaceName": "places/ChIJhd0H92CpQjQRNXpKrmrex2o",
+        "gps": {
+          "latitude": 25.052843700000004,
+          "longitude": 121.5339887
+        }
+      },
+      {
+        "area": "中山區",
+        "websiteUri": "https://www.facebook.com/kikanbotw/",
+        "googleMapsUri": "https://maps.google.com/?cid=321026760390248241",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:30\n星期二: 11:30 – 14:00, 17:00 – 20:30\n星期三: 11:30 – 14:00, 17:00 – 20:30\n星期四: 11:30 – 14:00, 17:00 – 20:30\n星期五: 11:30 – 14:00, 17:00 – 20:30\n星期六: 11:30 – 15:30, 17:00 – 20:30\n星期日: 11:30 – 15:30, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區中山北路一段94號",
+        "rating": 4.1,
+        "userRatingCount": 2733,
+        "googlePlaceName": "places/ChIJG-ZWcuqpQjQRMYd0QCOEdAQ",
+        "gps": {
+          "latitude": 25.0493906,
+          "longitude": 121.521135
+        }
+      },
+      {
+        "area": "中山區",
+        "websiteUri": "",
+        "googleMapsUri": "https://maps.google.com/?cid=11728855729317035650",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:30\n星期二: 11:30 – 14:00, 17:00 – 20:30\n星期三: 11:30 – 14:00, 17:00 – 20:30\n星期四: 11:30 – 14:00, 17:00 – 20:30\n星期五: 11:30 – 14:00, 17:00 – 20:30\n星期六: 11:30 – 15:30, 17:00 – 20:30\n星期日: 11:30 – 15:30, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區中山北路一段78號",
+        "rating": 4.2,
+        "userRatingCount": 165,
+        "googlePlaceName": "places/ChIJJ7DayYSpQjQRgj6_xyRExaI",
+        "gps": {
+          "latitude": 25.0488716,
+          "longitude": 121.52086969999998
+        }
+      }
+    ],
+    "ranking": 1,
+    "name": "鬼金棒"
+  },
+  "T1JCog3B9SiuNquT3rJl": {
+    "name": "勝王",
+    "shops": [
+      {
+        "area": "中山區",
+        "websiteUri": "https://www.facebook.com/ramenkatsuo/",
+        "googleMapsUri": "https://maps.google.com/?cid=8189374278656634746",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:30\n星期二: 11:30 – 14:00, 17:00 – 20:30\n星期三: 11:30 – 14:00, 17:00 – 20:30\n星期四: 11:30 – 14:00, 17:00 – 20:30\n星期五: 11:30 – 14:00, 17:00 – 20:30\n星期六: 11:30 – 15:00, 17:00 – 20:30\n星期日: 11:30 – 15:00, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "104台灣台北市中山區林森北路306號",
+        "rating": 4.2,
+        "userRatingCount": 3305,
+        "googlePlaceName": "places/ChIJ59HDom6pQjQReq8MbISApnE",
+        "gps": {
+          "latitude": 25.0559685,
+          "longitude": 121.5253146
+        }
+      }
+    ],
+    "ranking": 2
+  },
+  "ccz8VAkrbvAINUZwPSHz": {
+    "shops": [
+      {
+        "area": "內湖區",
+        "websiteUri": "https://m.facebook.com/%E9%B6%8F%E5%90%89%E5%90%9B-%E3%81%A8%E3%82%8A%E3%82%88%E3%81%97%E3%81%8F%E3%82%93-%E3%82%89%E3%83%BC%E3%82%81%E3%82%93%E9%9B%9E%E7%99%BD%E6%B9%AF%E5%B0%88%E9%96%80-1812208619091336/",
+        "googleMapsUri": "https://maps.google.com/?cid=2488152898116312603",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 11:30 – 14:00, 17:30 – 21:00\n星期四: 11:30 – 14:00, 17:30 – 21:00\n星期五: 11:30 – 14:00, 17:30 – 21:00\n星期六: 11:30 – 14:00, 17:30 – 21:00\n星期日: 11:30 – 14:00, 17:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "114台灣台北市內湖區環山路一段33號",
+        "rating": 4.2,
+        "userRatingCount": 3149,
+        "googlePlaceName": "places/ChIJtdqxDGmsQjQRG94Ux-CxhyI",
+        "gps": {
+          "latitude": 25.0862284,
+          "longitude": 121.56703470000001
+        }
+      }
+    ],
+    "ranking": 3,
+    "name": "雞吉君"
+  },
+  "2xjYxOxIdCcxfH9E2vAO": {
+    "shops": [
+      {
+        "area": "信義區",
+        "websiteUri": "http://www.facebook.com/gonokamitw",
+        "googleMapsUri": "https://maps.google.com/?cid=11001966969690178252",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 15:00, 17:00 – 21:00\n星期二: 11:30 – 15:00, 17:00 – 21:00\n星期三: 11:30 – 15:00, 17:00 – 21:00\n星期四: 11:30 – 15:00, 17:00 – 21:00\n星期五: 11:30 – 15:00, 17:00 – 21:00\n星期六: 11:30 – 21:00\n星期日: 11:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "110台灣台北市信義區忠孝東路四段553巷6弄6號",
+        "rating": 4.3,
+        "userRatingCount": 4441,
+        "googlePlaceName": "places/ChIJVTq0LrmrQjQRzML2AqvWrpg",
+        "gps": {
+          "latitude": 25.0422053,
+          "longitude": 121.563096
+        }
+      }
+    ],
+    "ranking": 4,
+    "name": "五之神"
+  },
+  "AiJ2fEWItxhRJCcxMN69": {
+    "shops": [
+      {
+        "area": "士林區",
+        "websiteUri": "https://www.facebook.com/kakuregaramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=15237932125597046566",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 16:30 – 22:00\n星期二: 11:30 – 14:00, 16:30 – 22:00\n星期三: 11:30 – 14:00, 16:30 – 22:00\n星期四: 11:30 – 14:00, 16:30 – 22:00\n星期五: 11:30 – 14:00, 16:30 – 22:00\n星期六: 11:30 – 14:00, 16:30 – 22:00\n星期日: 11:30 – 14:00, 16:30 – 22:00",
+        "isOperational": true,
+        "fullAddress": "111台灣台北市士林區中山北路五段505巷22號",
+        "rating": 4.4,
+        "userRatingCount": 2708,
+        "googlePlaceName": "places/ChIJge0A1GmvQjQRJpe5wYgCeNM",
+        "gps": {
+          "latitude": 25.0932112,
+          "longitude": 121.5271313
+        }
+      },
+      {
+        "area": "大同區",
+        "websiteUri": "https://www.facebook.com/kakuregaramen",
+        "googleMapsUri": "https://maps.google.com/?cid=12469248632577267842",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 16:30 – 22:00\n星期二: 11:30 – 14:00, 16:30 – 22:00\n星期三: 11:30 – 14:00, 16:30 – 22:00\n星期四: 11:30 – 14:00, 16:30 – 22:00\n星期五: 11:30 – 14:00, 16:30 – 22:00\n星期六: 11:30 – 14:30, 16:30 – 22:00\n星期日: 11:30 – 14:30, 16:30 – 22:00",
+        "isOperational": true,
+        "fullAddress": "103台灣台北市大同區南京西路25巷28號",
+        "rating": 4.4,
+        "userRatingCount": 2825,
+        "googlePlaceName": "places/ChIJQyoqyHipQjQRghjLAJGrC60",
+        "gps": {
+          "latitude": 25.056475,
+          "longitude": 121.520423
+        }
+      },
+      {
+        "area": "中正區",
+        "websiteUri": "https://www.facebook.com/%E9%9A%B1%E5%AE%B6%E6%8B%89%E9%BA%B5-%E5%85%AC%E9%A4%A8%E5%BA%97-104979005445159/",
+        "googleMapsUri": "https://maps.google.com/?cid=2399007645521899378",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 16:30 – 22:00\n星期二: 11:30 – 14:00, 16:30 – 22:00\n星期三: 11:30 – 14:00, 16:30 – 22:00\n星期四: 11:30 – 14:00, 16:30 – 22:00\n星期五: 11:30 – 14:00, 16:30 – 22:00\n星期六: 11:30 – 14:00, 16:30 – 22:00\n星期日: 11:30 – 14:00, 16:30 – 22:00",
+        "isOperational": true,
+        "fullAddress": "10090台灣台北市中正區羅斯福路四段52巷1之1號",
+        "rating": 4.2,
+        "userRatingCount": 1209,
+        "googlePlaceName": "places/ChIJFSLuzdqpQjQRcm_HPL78SiE",
+        "gps": {
+          "latitude": 25.0146655,
+          "longitude": 121.5334
+        }
+      },
+      {
+        "area": "士林區",
+        "websiteUri": "https://www.facebook.com/%E9%9A%B1%E5%AE%B6%E6%8B%89%E9%BA%B5%E8%8A%9D%E5%B1%B1%E5%BA%97-114471790477161",
+        "googleMapsUri": "https://maps.google.com/?cid=17683690969983119149",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 13:45, 16:30 – 21:45\n星期二: 11:30 – 13:45, 16:30 – 21:45\n星期三: 11:30 – 13:45, 16:30 – 21:45\n星期四: 11:30 – 13:45, 16:30 – 21:45\n星期五: 11:30 – 13:45, 16:30 – 21:45\n星期六: 11:30 – 14:00, 16:30 – 22:00\n星期日: 11:30 – 14:00, 16:30 – 22:00",
+        "isOperational": true,
+        "fullAddress": "11158台灣台北市士林區福華路140號1F",
+        "rating": 4.5,
+        "userRatingCount": 1273,
+        "googlePlaceName": "places/ChIJf_nZNgKvQjQRLW-gtz4XafU",
+        "gps": {
+          "latitude": 25.1032387,
+          "longitude": 121.5227881
+        }
+      }
+    ],
+    "ranking": 5,
+    "name": "隱家"
+  },
+  "aEoIzvGiQ0xDXtoWNO5C": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "http://www.facebook.com/okaeriramen",
+        "googleMapsUri": "https://maps.google.com/?cid=15137069560220235907",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 11:30 – 14:30, 17:30 – 21:00\n星期四: 11:30 – 14:30, 17:30 – 21:00\n星期五: 11:30 – 14:30, 17:30 – 21:00\n星期六: 11:30 – 14:30, 17:30 – 21:00\n星期日: 11:30 – 14:30, 17:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區延吉街60號",
+        "rating": 4.3,
+        "userRatingCount": 3014,
+        "googlePlaceName": "places/ChIJ8V0-GcSrQjQRgzhOvZCsEdI",
+        "gps": {
+          "latitude": 25.043714899999998,
+          "longitude": 121.55375719999999
+        }
+      }
+    ],
+    "ranking": 6,
+    "name": "你回來啦"
+  },
+  "zdBVzZQ9t02oDsKva1ES": {
+    "shops": [
+      {
+        "area": "中山區",
+        "websiteUri": "https://www.facebook.com/theramenboy",
+        "googleMapsUri": "https://maps.google.com/?cid=2064364848685986017",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 13:30, 17:30 – 20:30\n星期二: 11:30 – 13:30, 17:30 – 20:30\n星期三: 11:30 – 13:30, 17:30 – 20:30\n星期四: 11:30 – 13:30, 17:30 – 20:30\n星期五: 11:30 – 13:30, 17:30 – 20:30\n星期六: 11:30 – 13:30, 17:30 – 20:30\n星期日: 11:30 – 13:30, 17:30 – 20:30",
+        "isOperational": true,
+        "fullAddress": "104台灣台北市中山區八德路二段279號",
+        "rating": 4,
+        "userRatingCount": 1807,
+        "googlePlaceName": "places/ChIJ3ZC-RymrQjQR4TC7dOQYphw",
+        "gps": {
+          "latitude": 25.0471126,
+          "longitude": 121.54168899999998
+        }
+      }
+    ],
+    "ranking": 7,
+    "name": "拉麵公子"
+  },
+  "Trg2KmKFilQKRX9COWNO": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/sobashinncitrus/",
+        "googleMapsUri": "https://maps.google.com/?cid=13531080319060914542",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:30\n星期二: 11:30 – 14:00, 17:00 – 20:30\n星期三: 11:30 – 14:00, 17:00 – 20:30\n星期四: 11:30 – 14:00, 17:00 – 20:30\n星期五: 11:30 – 14:00, 17:00 – 20:30\n星期六: 11:30 – 14:00, 17:00 – 20:30\n星期日: 11:30 – 14:00, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區仁愛路四段228-6號",
+        "rating": 4.6,
+        "userRatingCount": 4115,
+        "googlePlaceName": "places/ChIJcXUAHc-rQjQRbrHnBNwNyLs",
+        "gps": {
+          "latitude": 25.037214799999997,
+          "longitude": 121.55225390000001
+        }
+      },
+      {
+        "area": "信義區",
+        "websiteUri": "https://www.facebook.com/sobashinncitrus",
+        "googleMapsUri": "https://maps.google.com/?cid=4470828175583719969",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:30\n星期二: 11:30 – 14:00, 17:00 – 20:30\n星期三: 11:30 – 14:00, 17:00 – 20:30\n星期四: 11:30 – 14:00, 17:00 – 20:30\n星期五: 11:30 – 14:00, 17:00 – 20:30\n星期六: 11:30 – 14:00, 17:00 – 20:30\n星期日: 11:30 – 14:00, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "110台灣台北市信義區嘉興街315號",
+        "rating": 4.4,
+        "userRatingCount": 1628,
+        "googlePlaceName": "places/ChIJfUnfqzaqQjQRIbJ5yYmSCz4",
+        "gps": {
+          "latitude": 25.023125200000003,
+          "longitude": 121.55448649999998
+        }
+      },
+      {
+        "area": "信義區",
+        "websiteUri": "https://www.facebook.com/sobashinncitrus/",
+        "googleMapsUri": "https://maps.google.com/?cid=17333244888703239418",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:30\n星期二: 11:30 – 14:00, 17:00 – 20:30\n星期三: 11:30 – 14:00, 17:00 – 20:30\n星期四: 11:30 – 14:00, 17:00 – 20:30\n星期五: 11:30 – 14:00, 17:00 – 20:30\n星期六: 11:30 – 14:00, 17:00 – 20:30\n星期日: 11:30 – 14:00, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "110台灣台北市信義區基隆路一段428號",
+        "rating": 4.2,
+        "userRatingCount": 668,
+        "googlePlaceName": "places/ChIJDQ4BEsqrQjQR-gQDDGQOjPA",
+        "gps": {
+          "latitude": 25.033857599999997,
+          "longitude": 121.5598201
+        }
+      }
+    ],
+    "ranking": 8,
+    "name": "柑橘Shinn"
+  },
+  "lTsykCmRfkdOf5eZi77k": {
+    "shops": [
+      {
+        "area": "中正區",
+        "websiteUri": "https://www.facebook.com/%E5%A1%A9%E7%90%89-101649612102653",
+        "googleMapsUri": "https://maps.google.com/?cid=14854926449067013560",
+        "city": "台北市",
+        "openingTime": "星期一: 11:00 – 14:00, 17:00 – 20:30\n星期二: 11:00 – 14:00, 17:00 – 20:30\n星期三: 11:00 – 14:00, 17:00 – 20:30\n星期四: 11:00 – 14:00, 17:00 – 20:30\n星期五: 11:00 – 14:00, 17:00 – 20:30\n星期六: 11:00 – 14:00, 17:00 – 20:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區重慶南路一段116號",
+        "rating": 4.7,
+        "userRatingCount": 750,
+        "googlePlaceName": "places/ChIJe5kqTsWpQjQRuLUxkeZMJ84",
+        "gps": {
+          "latitude": 25.0419372,
+          "longitude": 121.5130037
+        }
+      }
+    ],
+    "ranking": 9,
+    "name": "塩琉"
+  },
+  "b3m7huHMW4XtZ1MMRLBP": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/%E7%9C%9F%E5%8A%8D%E6%8B%89%E9%BA%B5-1439647916166198/?ref=page_internal",
+        "googleMapsUri": "https://maps.google.com/?cid=15873499252613428986",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:30 – 21:30\n星期二: 11:30 – 14:00, 17:30 – 21:30\n星期三: 11:30 – 14:00, 17:30 – 21:30\n星期四: 11:30 – 14:00, 17:30 – 21:30\n星期五: 11:30 – 14:00, 17:30 – 21:30\n星期六: 11:30 – 14:00, 17:30 – 21:30\n星期日: 11:30 – 14:00, 17:30 – 21:30",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區師大路126巷1號",
+        "rating": 4.3,
+        "userRatingCount": 2280,
+        "googlePlaceName": "places/ChIJyybqb1ypQjQR-rZzBnj_Sdw",
+        "gps": {
+          "latitude": 25.021575199999997,
+          "longitude": 121.52787839999999
+        }
+      }
+    ],
+    "ranking": 10,
+    "name": "真劍"
+  },
+  "I9yQDDgNmY4550alltWc": {
+    "shops": [
+      {
+        "area": "萬華區",
+        "websiteUri": "https://www.facebook.com/negi2508/",
+        "googleMapsUri": "https://maps.google.com/?cid=4259519515056201266",
+        "city": "台北市",
+        "openingTime": "星期一: 17:30 – 21:00\n星期二: 12:00 – 14:30, 17:30 – 21:00\n星期三: 12:00 – 14:30, 17:30 – 21:00\n星期四: 12:00 – 14:30, 17:30 – 21:00\n星期五: 12:00 – 14:30, 17:30 – 21:00\n星期六: 12:00 – 20:30\n星期日: 12:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "108台灣台北市萬華區西寧南路70號B1之7",
+        "rating": 4.4,
+        "userRatingCount": 1476,
+        "googlePlaceName": "places/ChIJeX5l3GapQjQRMt7EWG7aHDs",
+        "gps": {
+          "latitude": 25.043541299999998,
+          "longitude": 121.50583429999999
+        }
+      }
+    ],
+    "ranking": 11,
+    "name": "吉天元"
+  },
+  "ofVumVfY84GxPYP9RXlD": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "https://m.facebook.com/%E6%95%B8%E5%AF%84%E5%B1%8B-%E8%BE%BB%E8%91%89-%E3%82%86%E3%81%9A%E5%A1%A9%E9%B7%84%E7%99%BD%E6%B9%AF%E3%82%89%E3%83%BC%E3%82%81%E3%82%93%E5%B0%88%E9%96%80%E5%BA%97-103699351541666/",
+        "googleMapsUri": "https://maps.google.com/?cid=11792079701964351426",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 16:30 – 20:30\n星期三: 16:30 – 20:30\n星期四: 16:30 – 20:30\n星期五: 16:30 – 20:30\n星期六: 16:30 – 20:30\n星期日: 16:30 – 20:30",
+        "isOperational": true,
+        "fullAddress": "10648台灣台北市大安區泰順街33-5號",
+        "rating": 4.6,
+        "userRatingCount": 708,
+        "googlePlaceName": "places/ChIJB6MrhBepQjQRwuetBgPipaM",
+        "gps": {
+          "latitude": 25.0239557,
+          "longitude": 121.5314275
+        }
+      }
+    ],
+    "ranking": 12,
+    "name": "數寄屋辻葉"
+  },
+  "F6SxaGjx1fQ5n8SB2YJu": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/Topichiramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=2043258262762987024",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 15:00, 17:30 – 21:00\n星期三: 11:30 – 15:00, 17:30 – 21:00\n星期四: 11:30 – 15:00, 17:30 – 21:00\n星期五: 11:30 – 15:00, 17:30 – 21:00\n星期六: 11:30 – 15:00, 17:30 – 21:00\n星期日: 11:30 – 15:00, 17:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區延吉街137巷22號",
+        "rating": 4.2,
+        "userRatingCount": 2406,
+        "googlePlaceName": "places/ChIJJZEnisarQjQREJ5eeJAcWxw",
+        "gps": {
+          "latitude": 25.0418912,
+          "longitude": 121.5552509
+        }
+      },
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/%E9%BA%B5%E5%B1%8B%E5%A3%B9%E3%81%AE%E7%A9%B4ichi-%E6%B2%BE%E9%BA%B5%E5%B0%88%E9%96%80%E5%BA%97-101175851338385/",
+        "googleMapsUri": "https://maps.google.com/?cid=16824136596974255395",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 12:00 – 14:00, 17:00 – 20:00\n星期三: 12:00 – 14:00, 17:00 – 20:00\n星期四: 12:00 – 14:00, 17:00 – 20:00\n星期五: 12:00 – 14:00, 17:00 – 20:00\n星期六: 12:00 – 14:00, 17:00 – 20:00\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區復興南路二段350號",
+        "rating": 4.3,
+        "userRatingCount": 721,
+        "googlePlaceName": "places/ChIJkQLSxLKrQjQRI71MyxhXe-k",
+        "gps": {
+          "latitude": 25.0221516,
+          "longitude": 121.54315709999999
+        }
+      }
+    ],
+    "ranking": 13,
+    "name": "麵屋壹の穴"
+  },
+  "oR2Ecj8eKZExORQ2BI6e": {
+    "shops": [
+      {
+        "area": "中正區",
+        "websiteUri": "https://bit.ly/m634tw",
+        "googleMapsUri": "https://maps.google.com/?cid=5238105165193505962",
+        "city": "台北市",
+        "openingTime": "星期一: 11:00 – 20:30\n星期二: 11:00 – 20:30\n星期三: 11:00 – 20:30\n星期四: 11:00 – 20:30\n星期五: 11:00 – 21:00\n星期六: 11:00 – 21:00\n星期日: 11:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區忠孝西路一段36號B1",
+        "rating": 4.3,
+        "userRatingCount": 1953,
+        "googlePlaceName": "places/ChIJpabH4qapQjQRqmx_I-V8sUg",
+        "gps": {
+          "latitude": 25.0459993,
+          "longitude": 121.5170414
+        }
+      },
+      {
+        "area": "中山區",
+        "websiteUri": "https://bit.ly/m634tw",
+        "googleMapsUri": "https://maps.google.com/?cid=13682231502518768148",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 21:30\n星期二: 11:30 – 21:30\n星期三: 11:30 – 21:30\n星期四: 11:30 – 21:30\n星期五: 11:30 – 21:30\n星期六: 11:30 – 21:30\n星期日: 11:30 – 21:30",
+        "isOperational": true,
+        "fullAddress": "104台灣台北市中山區中山北路一段121巷18號",
+        "rating": 4.2,
+        "userRatingCount": 3706,
+        "googlePlaceName": "places/ChIJg-MBO2-pQjQRFFJKWg8N4b0",
+        "gps": {
+          "latitude": 25.051031899999998,
+          "longitude": 121.5235744
+        }
+      }
+    ],
+    "ranking": 14,
+    "name": "麵屋武藏"
+  },
+  "Xm8OMkxEXpb3bTNG0qXS": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "https://butanchu.business.site/",
+        "googleMapsUri": "https://maps.google.com/?cid=12636747565643100852",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 15:00, 17:00 – 21:00\n星期二: 11:30 – 15:00, 17:00 – 21:00\n星期三: 11:30 – 15:00, 17:00 – 21:00\n星期四: 11:30 – 15:00, 17:00 – 21:00\n星期五: 11:30 – 03:00\n星期六: 11:30 – 03:00\n星期日: 11:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區忠孝東路四段170巷5弄10號",
+        "rating": 4.3,
+        "userRatingCount": 2334,
+        "googlePlaceName": "places/ChIJ8ZmNn7erQjQRtHJwZvW-Xq8",
+        "gps": {
+          "latitude": 25.0407284,
+          "longitude": 121.55139640000002
+        }
+      },
+      {
+        "area": "大安區",
+        "websiteUri": "https://instagram.com/butanchu_tw_2?igshid=1n43763mspk11",
+        "googleMapsUri": "https://maps.google.com/?cid=9278569531044109816",
+        "city": "台北市",
+        "openingTime": "星期一: 12:00 – 15:00, 17:00 – 22:00\n星期二: 休息\n星期三: 12:00 – 15:00, 17:00 – 22:00\n星期四: 12:00 – 15:00, 17:00 – 22:00\n星期五: 12:00 – 15:00, 17:00 – 22:00\n星期六: 12:00 – 15:00, 17:00 – 22:00\n星期日: 12:00 – 15:00, 17:00 – 22:00",
+        "isOperational": true,
+        "fullAddress": "10697台灣台北市大安區大安路一段16巷6號",
+        "rating": 4.6,
+        "userRatingCount": 1217,
+        "googlePlaceName": "places/ChIJ9XD7AOerQjQR-J2lGdQZxIA",
+        "gps": {
+          "latitude": 25.044299,
+          "longitude": 121.5459341
+        }
+      }
+    ],
+    "ranking": 15,
+    "name": "豚人"
+  },
+  "r8A2PMBTDwrffZOvJ1ji": {
+    "name": "麵屋壹慶",
+    "shops": [
+      {
+        "area": "中山區",
+        "websiteUri": "http://www.facebook.com/ichi09102018",
+        "googleMapsUri": "https://maps.google.com/?cid=15244076592020949910",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 12:00 – 14:00, 17:00 – 21:00\n星期三: 12:00 – 14:00, 17:00 – 21:00\n星期四: 12:00 – 14:00, 17:00 – 21:00\n星期五: 12:00 – 14:00, 17:00 – 21:00\n星期六: 12:00 – 14:00, 17:00 – 21:00\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區雙城街32巷2號",
+        "rating": 4.3,
+        "userRatingCount": 1706,
+        "googlePlaceName": "places/ChIJJWD3-tSpQjQRlotB1OTWjdM",
+        "gps": {
+          "latitude": 25.066181099999998,
+          "longitude": 121.52423449999999
+        }
+      }
+    ],
+    "ranking": 16
+  },
+  "N7OKfyRRqrxJ5gxP5BpE": {
+    "name": "麵屋昕家",
+    "shops": [
+      {
+        "area": "内湖区",
+        "websiteUri": "https://www.facebook.com/shingaramen",
+        "googleMapsUri": "https://maps.google.com/?cid=11969090815862867723",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 17:30 – 20:30\n星期三: 11:30 – 13:30, 17:30 – 20:30\n星期四: 11:30 – 13:30, 17:30 – 20:30\n星期五: 11:30 – 13:30, 17:30 – 20:30\n星期六: 11:30 – 13:30, 17:30 – 20:30\n星期日: 11:30 – 13:30, 17:30 – 20:30",
+        "isOperational": true,
+        "fullAddress": "114台灣台北市内湖区康宁路三段189巷11弄12號1樓",
+        "rating": 4.4,
+        "userRatingCount": 1016,
+        "googlePlaceName": "places/ChIJFzDZj4itQjQRC4flm67AGqY",
+        "gps": {
+          "latitude": 25.070638199999998,
+          "longitude": 121.6124219
+        }
+      }
+    ],
+    "ranking": 17
+  },
+  "qjxHajG1ppwhBlakVNJR": {
+    "shops": [
+      {
+        "area": "士林區",
+        "websiteUri": "https://www.facebook.com/dourakuramen2/",
+        "googleMapsUri": "https://maps.google.com/?cid=10572444284283617592",
+        "city": "台北市",
+        "openingTime": "星期一: 12:00 – 14:00, 17:00 – 22:00\n星期二: 12:00 – 14:00, 17:00 – 22:00\n星期三: 12:00 – 14:00, 17:00 – 22:00\n星期四: 12:00 – 14:00, 17:00 – 22:00\n星期五: 12:00 – 14:00, 17:00 – 22:30\n星期六: 12:00 – 14:00, 17:00 – 22:30\n星期日: 12:00 – 14:00, 17:00 – 22:00",
+        "isOperational": true,
+        "fullAddress": "111台灣台北市士林區大北路9號",
+        "rating": 4.6,
+        "userRatingCount": 1320,
+        "googlePlaceName": "places/ChIJh4d5b7CuQjQROIFVtA_euJI",
+        "gps": {
+          "latitude": 25.0896591,
+          "longitude": 121.5266514
+        }
+      },
+      {
+        "area": "士林區",
+        "websiteUri": "https://www.facebook.com/dourakuyatai/",
+        "googleMapsUri": "https://maps.google.com/?cid=9570962531080552892",
+        "city": "台北市",
+        "openingTime": "星期一: 17:00 – 23:00\n星期二: 17:00 – 23:00\n星期三: 17:00 – 23:00\n星期四: 17:00 – 23:00\n星期五: 17:00 – 23:00\n星期六: 12:00 – 14:00, 17:00 – 23:00\n星期日: 12:00 – 14:00, 17:00 – 23:00",
+        "isOperational": true,
+        "fullAddress": "111台灣台北市士林區基河路112號",
+        "rating": 4.5,
+        "userRatingCount": 2240,
+        "googlePlaceName": "places/ChIJh4d5b7CuQjQRvEGhf7bj0oQ",
+        "gps": {
+          "latitude": 25.088095499999998,
+          "longitude": 121.52354190000001
+        }
+      },
+      {
+        "area": "萬華區",
+        "websiteUri": "https://www.facebook.com/dourakubaiten/",
+        "googleMapsUri": "https://maps.google.com/?cid=4547417056453685342",
+        "city": "台北市",
+        "openingTime": "星期一: 12:00 – 14:00, 17:00 – 21:00\n星期二: 12:00 – 14:00, 17:00 – 21:00\n星期三: 12:00 – 14:00, 17:00 – 21:00\n星期四: 12:00 – 14:00, 17:00 – 21:00\n星期五: 12:00 – 14:00, 17:00 – 21:00\n星期六: 12:00 – 14:00, 17:00 – 21:00\n星期日: 12:00 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "108台灣台北市萬華區成都路27巷12號",
+        "rating": 4.5,
+        "userRatingCount": 926,
+        "googlePlaceName": "places/ChIJIWMF67CpQjQRXnB5N7irGz8",
+        "gps": {
+          "latitude": 25.0432457,
+          "longitude": 121.50675160000002
+        }
+      },
+      {
+        "area": "三重區",
+        "websiteUri": "https://www.instagram.com/dourakumenya/",
+        "googleMapsUri": "https://maps.google.com/?cid=6145004653603153307",
+        "city": "新北市",
+        "openingTime": "星期一: 12:00 – 14:00, 17:00 – 20:40\n星期二: 12:00 – 14:00, 17:00 – 20:40\n星期三: 12:00 – 14:00, 17:00 – 20:40\n星期四: 12:00 – 14:00, 17:00 – 20:40\n星期五: 12:00 – 14:00, 17:00 – 20:40\n星期六: 11:30 – 14:00, 17:00 – 21:00\n星期日: 11:30 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "24152台灣新北市三重區仁愛街688號",
+        "rating": 4.4,
+        "userRatingCount": 771,
+        "googlePlaceName": "places/ChIJHxY9HQmpQjQRm2UjwSxxR1U",
+        "gps": {
+          "latitude": 25.0802958,
+          "longitude": 121.4817466
+        }
+      },
+      {
+        "area": "淡水區",
+        "websiteUri": "https://www.facebook.com/%E9%B7%84%E9%81%93%E6%A8%82-105773151987737",
+        "googleMapsUri": "https://maps.google.com/?cid=4233751521367612116",
+        "city": "新北市",
+        "openingTime": "星期一: 12:00 – 14:00, 17:00 – 21:00\n星期二: 12:00 – 14:00, 17:00 – 21:00\n星期三: 12:00 – 14:00, 17:00 – 21:00\n星期四: 12:00 – 14:00, 17:00 – 21:00\n星期五: 12:00 – 14:00, 17:00 – 21:00\n星期六: 12:00 – 14:00, 17:00 – 21:00\n星期日: 12:00 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "251台灣新北市淡水區公明街55-2號",
+        "rating": 4.4,
+        "userRatingCount": 613,
+        "googlePlaceName": "places/ChIJucLSih-lQjQR1NpiypNOwTo",
+        "gps": {
+          "latitude": 25.1689993,
+          "longitude": 121.44358689999999
+        }
+      }
+    ],
+    "ranking": 18,
+    "name": "道樂"
+  },
+  "q0tNwwYknRqyFkV9Z73q": {
+    "shops": [
+      {
+        "area": "中山區",
+        "websiteUri": "https://www.facebook.com/creative.ramen.yuuzen/",
+        "googleMapsUri": "https://maps.google.com/?cid=11756909021984201434",
+        "city": "台北市",
+        "openingTime": "",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區林森北路487號1 樓 209 室",
+        "rating": 4.5,
+        "userRatingCount": 788,
+        "googlePlaceName": "places/ChIJlejKo1ypQjQR2hr093buKKM",
+        "gps": {
+          "latitude": 25.061288899999997,
+          "longitude": 121.52690109999998
+        }
+      }
+    ],
+    "ranking": 19,
+    "name": "悠然"
+  },
+  "NAyK0YgqVpB2MI1QByxv": {
+    "shops": [
+      {
+        "area": "中正區",
+        "websiteUri": "https://www.facebook.com/610378299165578/",
+        "googleMapsUri": "https://maps.google.com/?cid=10592976685279970709",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:15, 17:15 – 20:30\n星期二: 11:30 – 14:15, 17:15 – 20:30\n星期三: 11:30 – 14:15, 17:15 – 20:30\n星期四: 11:30 – 14:15, 17:15 – 20:30\n星期五: 11:30 – 14:15, 17:15 – 20:30\n星期六: 11:30 – 14:15, 17:15 – 20:30\n星期日: 11:30 – 14:15, 17:15 – 20:30",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區羅斯福路四段136巷1弄13號",
+        "rating": 4.3,
+        "userRatingCount": 2036,
+        "googlePlaceName": "places/ChIJPSbdwIqpQjQRlYUb2CvQAZM",
+        "gps": {
+          "latitude": 25.0130637,
+          "longitude": 121.53538650000002
+        }
+      },
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/610378299165578/",
+        "googleMapsUri": "https://maps.google.com/?cid=4156470519991500979",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:15 – 20:30\n星期二: 11:30 – 14:00, 17:15 – 20:30\n星期三: 11:30 – 14:00, 17:15 – 20:30\n星期四: 11:30 – 14:00, 17:15 – 20:30\n星期五: 11:30 – 14:00, 17:15 – 20:30\n星期六: 11:30 – 14:00, 17:15 – 20:30\n星期日: 11:30 – 14:00, 17:15 – 20:30",
+        "isOperational": true,
+        "fullAddress": "之5, No. 84號復興南路二段大安區台北市台灣 106",
+        "rating": 4.3,
+        "userRatingCount": 688,
+        "googlePlaceName": "places/ChIJJ1cpddWrQjQRswB6f-q_rjk",
+        "gps": {
+          "latitude": 25.030680699999998,
+          "longitude": 121.5433128
+        }
+      },
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/%E5%B1%B1%E5%B5%90%E6%8B%89%E9%BA%B5-%E5%8F%B0%E7%81%A3%E5%88%86%E5%BA%97-Yamaarashi-610378299165578/",
+        "googleMapsUri": "https://maps.google.com/?cid=4428666248581450035",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:15, 17:15 – 20:30\n星期二: 11:30 – 14:15, 17:15 – 20:30\n星期三: 11:30 – 14:15, 17:15 – 20:30\n星期四: 11:30 – 14:15, 17:15 – 20:30\n星期五: 11:30 – 14:15, 17:15 – 20:30\n星期六: 11:30 – 14:15, 17:15 – 20:30\n星期日: 11:30 – 14:15, 17:15 – 20:30",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區杭州南路二段75號",
+        "rating": 4.4,
+        "userRatingCount": 2139,
+        "googlePlaceName": "places/ChIJBRzS29qrQjQRM4l1L33IdT0",
+        "gps": {
+          "latitude": 25.0291021,
+          "longitude": 121.52205980000001
+        }
+      },
+      {
+        "area": "板橋區",
+        "websiteUri": "https://www.facebook.com/%E5%B1%B1%E5%B5%90%E6%8B%89%E9%BA%B5-%E6%9D%BF%E6%A9%8B%E6%96%B0%E5%9F%94%E5%BA%97-104930601451474",
+        "googleMapsUri": "https://maps.google.com/?cid=8903248739831687012",
+        "city": "新北市",
+        "openingTime": "星期一: 12:00 – 13:30, 17:15 – 20:00\n星期二: 休息\n星期三: 12:00 – 13:30, 17:15 – 20:00\n星期四: 休息\n星期五: 12:00 – 13:30, 17:15 – 20:00\n星期六: 12:00 – 14:00, 17:15 – 20:00\n星期日: 12:00 – 14:00, 17:15 – 20:00",
+        "isOperational": true,
+        "fullAddress": "220台灣新北市板橋區民生路三段122號",
+        "rating": 4.3,
+        "userRatingCount": 462,
+        "googlePlaceName": "places/ChIJJ7V88qWpQjQRZKectI6xjns",
+        "gps": {
+          "latitude": 25.026712,
+          "longitude": 121.46662729999998
+        }
+      },
+      {
+        "area": "中山區",
+        "websiteUri": "https://www.facebook.com/610378299165578/",
+        "googleMapsUri": "https://maps.google.com/?cid=13261769671842474302",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 12:00 – 13:30, 17:15 – 20:30\n星期三: 12:00 – 13:30, 17:15 – 20:30\n星期四: 12:00 – 13:30, 17:15 – 20:30\n星期五: 17:30 – 22:00\n星期六: 17:30 – 22:00\n星期日: 12:00 – 13:30, 17:15 – 20:00",
+        "isOperational": true,
+        "fullAddress": "104台灣台北市中山區林森北路133巷7號",
+        "rating": 4.7,
+        "userRatingCount": 454,
+        "googlePlaceName": "places/ChIJ3TVzMZOpQjQRPik4r0BFC7g",
+        "gps": {
+          "latitude": 25.0510105,
+          "longitude": 121.5256489
+        }
+      }
+    ],
+    "ranking": 20,
+    "name": "山嵐"
+  },
+  "j9pfFbEVVDdnCAI6ItOX": {
+    "shops": [
+      {
+        "area": "內湖區",
+        "websiteUri": "https://reurl.cc/Rd13Wr",
+        "googleMapsUri": "https://maps.google.com/?cid=10301121938479708658",
+        "city": "台北市",
+        "openingTime": "星期一: 12:00 – 14:00, 17:30 – 20:50\n星期二: 12:00 – 14:00, 17:30 – 20:50\n星期三: 12:00 – 14:00, 17:30 – 20:50\n星期四: 12:00 – 14:00, 17:30 – 20:50\n星期五: 12:00 – 14:00, 17:30 – 20:50\n星期六: 12:00 – 14:00, 17:30 – 20:50\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "114台灣台北市內湖區內湖路一段411巷6號",
+        "rating": 4.4,
+        "userRatingCount": 826,
+        "googlePlaceName": "places/ChIJBcvxQRKtQjQR8vkQS9Pv9I4",
+        "gps": {
+          "latitude": 25.082057499999998,
+          "longitude": 121.5709755
+        }
+      }
+    ],
+    "ranking": 21,
+    "name": "鳳華"
+  },
+  "P7JpahpPhPsUc9Bx6Oly": {
+    "shops": [
+      {
+        "area": "中山區",
+        "websiteUri": "https://www.facebook.com/menya.chikumo/",
+        "googleMapsUri": "https://maps.google.com/?cid=5993608452627432944",
+        "city": "台北市",
+        "openingTime": "星期一: 12:00 – 15:30, 17:00 – 04:00\n星期二: 12:00 – 15:30, 17:00 – 04:00\n星期三: 12:00 – 15:30, 17:00 – 04:00\n星期四: 12:00 – 15:30, 17:00 – 04:00\n星期五: 12:00 – 15:30, 17:00 – 04:00\n星期六: 12:00 – 15:30, 17:00 – 04:00\n星期日: 12:00 – 15:30, 17:00 – 04:00",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區林森北路105-1號",
+        "rating": 4.4,
+        "userRatingCount": 6801,
+        "googlePlaceName": "places/ChIJqYmvbtipQjQR8AWj1SGTLVM",
+        "gps": {
+          "latitude": 25.050188,
+          "longitude": 121.52519369999999
+        }
+      }
+    ],
+    "ranking": 22,
+    "name": "麵屋千雲"
+  },
+  "vV39dsl4VZa9pZS5KBdz": {
+    "shops": [
+      {
+        "area": "中正區",
+        "websiteUri": "https://www.facebook.com/a9822233/",
+        "googleMapsUri": "https://maps.google.com/?cid=15803895973860704585",
+        "city": "台北市",
+        "openingTime": "星期一: 11:00 – 21:00\n星期二: 11:00 – 21:00\n星期三: 11:00 – 21:00\n星期四: 11:00 – 21:00\n星期五: 11:00 – 22:00\n星期六: 11:00 – 22:00\n星期日: 11:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區羅斯福路四段136巷10號",
+        "rating": 4.1,
+        "userRatingCount": 1884,
+        "googlePlaceName": "places/ChIJ12ZbGeypQjQRSYEx1ae3Uts",
+        "gps": {
+          "latitude": 25.0125833,
+          "longitude": 121.5354677
+        }
+      }
+    ],
+    "ranking": 23,
+    "name": "墨洋"
+  },
+  "2gBGXmjJc8bMsSff3nWN": {
+    "shops": [
+      {
+        "area": "中正區",
+        "websiteUri": "https://www.facebook.com/Ramen.TSUBAME",
+        "googleMapsUri": "https://maps.google.com/?cid=2555508192712092212",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 13:30, 17:00 – 20:30\n星期二: 11:30 – 13:30, 17:00 – 20:40\n星期三: 11:30 – 13:30, 17:00 – 20:40\n星期四: 11:30 – 13:30, 17:00 – 20:40\n星期五: 11:30 – 13:30, 17:00 – 20:40\n星期六: 11:30 – 13:30, 17:00 – 20:40\n星期日: 11:30 – 13:30, 17:00 – 20:40",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區開封街一段90號",
+        "rating": 4.3,
+        "userRatingCount": 1060,
+        "googlePlaceName": "places/ChIJEw8VXvWpQjQRNGo0Xyn9diM",
+        "gps": {
+          "latitude": 25.045901999999998,
+          "longitude": 121.51038399999999
+        }
+      }
+    ],
+    "ranking": 24,
+    "name": "旨燕"
+  },
+  "W908sAxxpwYPjmiNE7Qc": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/%E9%BA%B5%E5%B1%8B%E5%A3%B9%E3%81%AE%E7%A9%B4ichi-%E6%B2%BE%E9%BA%B5%E5%B0%88%E9%96%80%E5%BA%97-101175851338385/",
+        "googleMapsUri": "https://maps.google.com/?cid=16824136596974255395",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 12:00 – 14:00, 17:00 – 20:00\n星期三: 12:00 – 14:00, 17:00 – 20:00\n星期四: 12:00 – 14:00, 17:00 – 20:00\n星期五: 12:00 – 14:00, 17:00 – 20:00\n星期六: 12:00 – 14:00, 17:00 – 20:00\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區復興南路二段350號",
+        "rating": 4.3,
+        "userRatingCount": 721,
+        "googlePlaceName": "places/ChIJkQLSxLKrQjQRI71MyxhXe-k",
+        "gps": {
+          "latitude": 25.0221516,
+          "longitude": 121.54315709999999
+        }
+      },
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/Topichiramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=2043258262762987024",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 15:00, 17:30 – 21:00\n星期三: 11:30 – 15:00, 17:30 – 21:00\n星期四: 11:30 – 15:00, 17:30 – 21:00\n星期五: 11:30 – 15:00, 17:30 – 21:00\n星期六: 11:30 – 15:00, 17:30 – 21:00\n星期日: 11:30 – 15:00, 17:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區延吉街137巷22號",
+        "rating": 4.2,
+        "userRatingCount": 2406,
+        "googlePlaceName": "places/ChIJJZEnisarQjQREJ5eeJAcWxw",
+        "gps": {
+          "latitude": 25.0418912,
+          "longitude": 121.5552509
+        }
+      }
+    ],
+    "ranking": 25,
+    "name": "壹の穴沾麵"
+  },
+  "SUBO0i5cUVoEmdaTiVKq": {
+    "shops": [
+      {
+        "area": "中山區",
+        "websiteUri": "https://reurl.cc/LMm259%E2%80%8B",
+        "googleMapsUri": "https://maps.google.com/?cid=14148708832952478422",
+        "city": "台北市",
+        "openingTime": "星期一: 11:00 – 01:00\n星期二: 11:00 – 01:00\n星期三: 11:00 – 01:00\n星期四: 11:00 – 01:00\n星期五: 11:00 – 01:00\n星期六: 11:00 – 01:00\n星期日: 11:00 – 01:00",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區南京東路一段29號",
+        "rating": 3.9,
+        "userRatingCount": 6594,
+        "googlePlaceName": "places/ChIJNX7ZuWipQjQR1mqQcrhPWsQ",
+        "gps": {
+          "latitude": 25.052404799999998,
+          "longitude": 121.5243965
+        }
+      }
+    ],
+    "ranking": 26,
+    "name": "麵屋一燈"
+  },
+  "idK3bxGGImMHY9MyAKfQ": {
+    "name": "美濃屋",
+    "shops": [
+      {
+        "area": "中山區",
+        "websiteUri": "https://www.facebook.com/%E7%BE%8E%E6%BF%83%E5%B1%8B-298723194201428/",
+        "googleMapsUri": "https://maps.google.com/?cid=6400852634484527209",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 17:00 – 22:00\n星期三: 17:00 – 22:00\n星期四: 17:00 – 22:00\n星期五: 17:00 – 22:00\n星期六: 12:00 – 14:30, 17:00 – 22:00\n星期日: 12:00 – 14:30, 17:00 – 21:30",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區新生北路一段108之1號",
+        "rating": 4.1,
+        "userRatingCount": 1011,
+        "googlePlaceName": "places/ChIJienad2-pQjQRadAS0o5l1Fg",
+        "gps": {
+          "latitude": 25.049572500000004,
+          "longitude": 121.5282383
+        }
+      }
+    ],
+    "ranking": 27
+  },
+  "mlvWxgv1wSUozu27y76H": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/g2ramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=8285399535207457918",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:30, 17:00 – 21:00\n星期二: 11:30 – 14:30, 17:00 – 21:00\n星期三: 11:30 – 14:30, 17:00 – 21:00\n星期四: 11:30 – 14:30, 17:00 – 21:00\n星期五: 11:30 – 14:30, 17:00 – 21:00\n星期六: 休息\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區文昌街30號",
+        "rating": 4.3,
+        "userRatingCount": 3946,
+        "googlePlaceName": "places/ChIJ6VOxmM2rQjQRfiQ6tvqm-3I",
+        "gps": {
+          "latitude": 25.0328019,
+          "longitude": 121.5497023
+        }
+      }
+    ],
+    "ranking": 28,
+    "name": "雞二"
+  },
+  "fNZJ0BnLguSacIgcmmDC": {
+    "shops": [
+      {
+        "area": "大同區",
+        "websiteUri": "",
+        "googleMapsUri": "https://maps.google.com/?cid=6421015145659262302",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 21:00\n星期二: 11:30 – 14:00, 17:00 – 21:00\n星期三: 11:30 – 14:00, 17:00 – 21:00\n星期四: 11:30 – 14:00, 17:00 – 21:00\n星期五: 11:30 – 14:00, 17:00 – 21:00\n星期六: 11:30 – 15:00, 17:00 – 21:00\n星期日: 11:30 – 15:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "103台灣台北市大同區南京西路18巷6-3號",
+        "rating": 4,
+        "userRatingCount": 345,
+        "googlePlaceName": "places/ChIJU64EWV-pQjQRXmVsRkEHHFk",
+        "gps": {
+          "latitude": 25.0518346,
+          "longitude": 121.5201673
+        }
+      },
+      {
+        "area": "竹北市",
+        "websiteUri": "",
+        "googleMapsUri": "https://maps.google.com/?cid=16705385477246505243",
+        "city": "新竹縣",
+        "openingTime": "星期一: 11:00 – 14:00, 18:00 – 21:00\n星期二: 11:00 – 14:00, 18:00 – 21:00\n星期三: 11:00 – 14:00, 18:00 – 21:00\n星期四: 11:00 – 14:00, 18:00 – 21:00\n星期五: 11:00 – 14:00, 18:00 – 21:00\n星期六: 11:00 – 14:00, 18:00 – 21:00\n星期日: 11:00 – 14:00, 18:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "302台灣新竹縣勝利一路152號1F",
+        "rating": 4.2,
+        "userRatingCount": 378,
+        "googlePlaceName": "places/ChIJRU1syJc3aDQRG1E_J5Vz1ec",
+        "gps": {
+          "latitude": 24.821196999999998,
+          "longitude": 121.02715110000001
+        }
+      },
+      {
+        "area": "東區",
+        "websiteUri": "https://www.facebook.com/%E9%B7%B9%E6%B5%81%E6%9D%B1%E4%BA%AC%E9%86%AC%E6%B2%B9%E6%8B%89%E9%BA%B5%E8%98%AD%E4%B8%B8ranmaru%E6%96%B0%E7%AB%B9%E5%8B%9D%E5%88%A9%E5%BA%97-107968447544012/",
+        "googleMapsUri": "https://maps.google.com/?cid=249544334333400661",
+        "city": "新竹市",
+        "openingTime": "星期一: 18:00 – 23:00\n星期二: 18:00 – 23:00\n星期三: 18:00 – 23:00\n星期四: 18:00 – 23:00\n星期五: 18:00 – 23:00\n星期六: 18:00 – 23:00\n星期日: 18:00 – 23:00",
+        "isOperational": true,
+        "fullAddress": "300台灣新竹市勝利路102號1F",
+        "rating": 4.1,
+        "userRatingCount": 639,
+        "googlePlaceName": "places/ChIJbfkP2C81aDQRVVan-z-PdgM",
+        "gps": {
+          "latitude": 24.800917899999998,
+          "longitude": 120.96880770000001
+        }
+      }
+    ],
+    "ranking": 29,
+    "name": "蘭丸"
+  },
+  "4WRKw6hZanTegomhjOWu": {
+    "shops": [
+      {
+        "area": "中山區",
+        "websiteUri": "http://www.facebook.com/tokunouya",
+        "googleMapsUri": "https://maps.google.com/?cid=12541084170680776907",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 15:00, 17:00 – 21:00\n星期三: 11:30 – 15:00, 17:00 – 21:00\n星期四: 11:30 – 15:00, 17:00 – 21:00\n星期五: 11:30 – 15:00, 17:00 – 21:00\n星期六: 11:30 – 15:00, 17:00 – 21:00\n星期日: 11:30 – 15:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "104台灣台北市中山區中山北路二段77巷22號",
+        "rating": 4.4,
+        "userRatingCount": 4385,
+        "googlePlaceName": "places/ChIJd7h_r0KpQjQRy7izk5vhCq4",
+        "gps": {
+          "latitude": 25.0573244,
+          "longitude": 121.52503089999999
+        }
+      }
+    ],
+    "ranking": 30,
+    "name": "特濃屋"
+  },
+  "1i0CTVfH8YGXTY5rJifb": {
+    "shops": [
+      {
+        "area": "中正區",
+        "websiteUri": "https://www.facebook.com/%E9%B7%B9%E6%B5%81%E6%9D%B1%E4%BA%AC%E8%B1%9A%E9%AA%A8%E6%8B%89%E9%BA%BA%E6%A5%B5%E5%8C%A0gokujoh%E5%85%AC%E9%A4%A8%E5%BA%97-1595875050693951/",
+        "googleMapsUri": "https://maps.google.com/?cid=12064576397311274890",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:30, 17:00 – 21:00\n星期二: 11:30 – 14:30, 17:00 – 21:00\n星期三: 11:30 – 14:30, 17:00 – 21:00\n星期四: 11:30 – 14:30, 17:00 – 21:00\n星期五: 11:30 – 15:00, 17:00 – 22:00\n星期六: 11:30 – 15:00, 17:00 – 22:00\n星期日: 11:30 – 15:00, 17:00 – 22:00",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區汀州路三段104巷4號",
+        "rating": 4,
+        "userRatingCount": 3126,
+        "googlePlaceName": "places/ChIJW-iwFoupQjQRiu9M_0_8bac",
+        "gps": {
+          "latitude": 25.0141524,
+          "longitude": 121.53308239999998
+        }
+      }
+    ],
+    "ranking": 31,
+    "name": "極匠"
+  },
+  "9ccmPPIhCITi8WQvPMie": {
+    "shops": [
+      {
+        "area": "大同區",
+        "websiteUri": "https://www.facebook.com/Oyster2022/",
+        "googleMapsUri": "https://maps.google.com/?cid=13753283605382998921",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 21:00\n星期二: 11:30 – 21:00\n星期三: 11:30 – 21:00\n星期四: 11:30 – 21:00\n星期五: 11:30 – 21:30\n星期六: 11:30 – 21:30\n星期日: 11:30 – 21:30",
+        "isOperational": true,
+        "fullAddress": "103台灣台北市大同區赤峰街35巷11號",
+        "rating": 4.2,
+        "userRatingCount": 1532,
+        "googlePlaceName": "places/ChIJX9Svk1ipQjQRiasOMpJ63b4",
+        "gps": {
+          "latitude": 25.0545869,
+          "longitude": 121.52021739999998
+        }
+      }
+    ],
+    "ranking": 32,
+    "name": "二屋"
+  },
+  "7sFH6idMtAqa5whQaZIu": {
+    "name": "CHILL RAMEN",
+    "shops": [
+      {
+        "area": "士林區",
+        "websiteUri": "https://www.facebook.com/ChillRamen11/",
+        "googleMapsUri": "https://maps.google.com/?cid=2061927962947057983",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 21:00\n星期二: 11:30 – 14:00, 17:00 – 21:00\n星期三: 休息\n星期四: 11:30 – 14:00, 17:00 – 21:00\n星期五: 11:30 – 14:00, 17:00 – 21:00, 22:30 – 23:30\n星期六: 11:30 – 14:00, 17:00 – 21:00\n星期日: 11:30 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "111台灣台北市士林區福華路166巷7號",
+        "rating": 4.7,
+        "userRatingCount": 861,
+        "googlePlaceName": "places/ChIJw-k1L7WvQjQRP3nnx45wnRw",
+        "gps": {
+          "latitude": 25.1046671,
+          "longitude": 121.5227892
+        }
+      }
+    ],
+    "ranking": 33
+  },
+  "ZY5pxvNQrEOXw07nHYgu": {
+    "shops": [
+      {
+        "area": "松山區",
+        "websiteUri": "https://www.facebook.com/%E5%8D%9A%E5%A4%9A%E5%B9%B8%E9%BE%8DHakata-KORYU-1994391200597943/",
+        "googleMapsUri": "https://maps.google.com/?cid=15054687577152038607",
+        "city": "台北市",
+        "openingTime": "星期一: 11:00 – 14:30, 17:00 – 22:00\n星期二: 11:00 – 14:30, 17:00 – 22:00\n星期三: 11:00 – 14:30, 17:00 – 22:00\n星期四: 11:00 – 14:30, 17:00 – 22:00\n星期五: 11:00 – 14:30, 17:00 – 22:00\n星期六: 11:00 – 14:30, 17:00 – 22:00\n星期日: 11:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "105台灣台北市松山區八德路二段366巷16號",
+        "rating": 4.7,
+        "userRatingCount": 3324,
+        "googlePlaceName": "places/ChIJz2Nej0arQjQRzyaimJb-7NA",
+        "gps": {
+          "latitude": 25.0474304,
+          "longitude": 121.5458948
+        }
+      }
+    ],
+    "ranking": 34,
+    "name": "博多幸龍"
+  },
+  "UUgdgC1TfmvVshWhQxdd": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.instagram.com/ji_jhih_ramen2020/?hl=zh-tw",
+        "googleMapsUri": "https://maps.google.com/?cid=12757421403993079476",
+        "city": "台北市",
+        "openingTime": "星期一: 11:00 – 14:15, 16:00 – 20:15\n星期二: 11:00 – 14:15, 16:00 – 20:15\n星期三: 11:00 – 14:15, 16:00 – 20:15\n星期四: 11:00 – 14:15, 16:00 – 20:15\n星期五: 11:00 – 14:15, 16:00 – 20:15\n星期六: 11:00 – 14:15, 16:00 – 20:15\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區信義路三段166巷2-1號",
+        "rating": 4,
+        "userRatingCount": 636,
+        "googlePlaceName": "places/ChIJc4htbVqrQjQRtP742ix3C7E",
+        "gps": {
+          "latitude": 25.0330631,
+          "longitude": 121.54179549999998
+        }
+      }
+    ],
+    "ranking": 35,
+    "name": "吉鴙"
+  },
+  "PObVyakVrLOLNqqsZHZj": {
+    "shops": [
+      {
+        "area": "中正區",
+        "websiteUri": "http://www.facebook.com/torikintw",
+        "googleMapsUri": "https://maps.google.com/?cid=11856442414451961711",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 03:00\n星期二: 11:30 – 03:00\n星期三: 11:30 – 03:00\n星期四: 11:30 – 03:00\n星期五: 11:30 – 03:00\n星期六: 11:30 – 03:00\n星期日: 11:30 – 03:00",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區新生南路一段6號1樓",
+        "rating": 4.3,
+        "userRatingCount": 1629,
+        "googlePlaceName": "places/ChIJwTPCxfKpQjQRb69IzY6LiqQ",
+        "gps": {
+          "latitude": 25.044035899999997,
+          "longitude": 121.53271029999999
+        }
+      }
+    ],
+    "ranking": 36,
+    "name": "麵屋雞金"
+  },
+  "o0hUvLePhdUueW8BOJmU": {
+    "shops": [
+      {
+        "area": "信義區",
+        "websiteUri": "https://www.facebook.com/101888745667387",
+        "googleMapsUri": "https://maps.google.com/?cid=13630522499522066507",
+        "city": "台北市",
+        "openingTime": "星期一: 12:00 – 13:30, 17:30 – 20:30\n星期二: 12:00 – 13:30, 17:30 – 20:30\n星期三: 17:30 – 20:30\n星期四: 12:00 – 13:30, 17:30 – 20:30\n星期五: 12:00 – 13:30, 17:30 – 20:30\n星期六: 12:00 – 13:30, 17:30 – 20:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "110台灣台北市信義區虎林街132巷36號",
+        "rating": 4.5,
+        "userRatingCount": 463,
+        "googlePlaceName": "places/ChIJc2ZNnqKrQjQRS3j75v5XKb0",
+        "gps": {
+          "latitude": 25.0404156,
+          "longitude": 121.57574379999998
+        }
+      }
+    ],
+    "ranking": 37,
+    "name": "富察家"
+  },
+  "J9QIlDk1cTnf8Y8A2ODy": {
+    "shops": [
+      {
+        "area": "大同區",
+        "websiteUri": "https://ramen-restaurant-7114.business.site/?utm_source=gmb&utm_medium=referral",
+        "googleMapsUri": "https://maps.google.com/?cid=10390999762146480707",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 休息\n星期四: 17:00 – 21:00\n星期五: 17:00 – 21:00\n星期六: 17:00 – 21:00\n星期日: 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "103台灣台北市大同區環河北路一段113號",
+        "rating": 4.5,
+        "userRatingCount": 454,
+        "googlePlaceName": "places/ChIJl5HDH3epQjQRQ9Lo0zo_NJA",
+        "gps": {
+          "latitude": 25.0539667,
+          "longitude": 121.50771650000002
+        }
+      }
+    ],
+    "ranking": 38,
+    "name": "古流"
+  },
+  "VedlJ0RFXP0eEPpHEDGt": {
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "http://www.facebook.com/yamashita.ramen",
+        "googleMapsUri": "https://maps.google.com/?cid=14496968134262198638",
+        "city": "台中市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 14:00, 16:30 – 20:30\n星期三: 11:30 – 14:00, 16:30 – 20:30\n星期四: 11:30 – 14:00, 16:30 – 20:30\n星期五: 11:30 – 14:00, 16:30 – 20:30\n星期六: 11:30 – 14:30, 16:30 – 20:30\n星期日: 11:30 – 14:30, 16:30 – 20:30",
+        "isOperational": true,
+        "fullAddress": "403台灣台中市西區健行路1049號金典綠園道商場三樓",
+        "rating": 4.3,
+        "userRatingCount": 1883,
+        "googlePlaceName": "places/ChIJlwJaxJc9aTQRbhHburWTL8k",
+        "gps": {
+          "latitude": 24.155738,
+          "longitude": 120.66326099999999
+        }
+      }
+    ],
+    "ranking": 39,
+    "name": "山下公園"
+  },
+  "3n0EEgNx90nWTqVVtENz": {
+    "shops": [
+      {
+        "area": "中區",
+        "websiteUri": "https://www.facebook.com/yoshiramentaichung/",
+        "googleMapsUri": "https://maps.google.com/?cid=10667726309657157073",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 14:00, 16:30 – 21:00\n星期二: 休息\n星期三: 11:30 – 14:00, 16:30 – 21:00\n星期四: 11:30 – 14:00, 16:30 – 21:00\n星期五: 11:30 – 14:00, 16:30 – 21:00\n星期六: 11:30 – 14:30, 16:30 – 21:00\n星期日: 11:30 – 14:30, 16:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "400台灣台中市中區中山路82號",
+        "rating": 4.4,
+        "userRatingCount": 2026,
+        "googlePlaceName": "places/ChIJDYqqdBM9aTQR0R00AI9gC5Q",
+        "gps": {
+          "latitude": 24.1391208,
+          "longitude": 120.6818519
+        }
+      }
+    ],
+    "ranking": 40,
+    "name": "有囍"
+  },
+  "DIRZXwlEqQpVscVgctGc": {
+    "shops": [
+      {
+        "area": "西屯區",
+        "websiteUri": "https://linktr.ee/curry.mo.ann",
+        "googleMapsUri": "https://maps.google.com/?cid=2943353805371130638",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 20:00\n星期二: 11:30 – 20:00\n星期三: 11:30 – 20:00\n星期四: 11:30 – 20:00\n星期五: 11:30 – 20:00\n星期六: 11:30 – 20:00\n星期日: 11:30 – 20:00",
+        "isOperational": true,
+        "fullAddress": "407台灣台中市西屯區文心路三段107-16號",
+        "rating": 4.4,
+        "userRatingCount": 1198,
+        "googlePlaceName": "places/ChIJUWwbiog9aTQRDsNwAbHk2Cg",
+        "gps": {
+          "latitude": 24.1677432,
+          "longitude": 120.65343689999997
+        }
+      }
+    ],
+    "ranking": 41,
+    "name": "牛庵"
+  },
+  "7hbkrGQiFtY4ZyKFBvV9": {
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://menyazero.weebly.com/",
+        "googleMapsUri": "https://maps.google.com/?cid=14618459658368469108",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:30 – 20:00\n星期二: 11:30 – 14:00, 17:30 – 20:00\n星期三: 休息\n星期四: 11:30 – 14:00, 17:30 – 20:00\n星期五: 11:30 – 14:00, 17:30 – 20:00\n星期六: 11:30 – 14:00, 17:30 – 20:00\n星期日: 11:30 – 14:00, 17:30 – 20:00",
+        "isOperational": true,
+        "fullAddress": "403台灣台中市西區向上路一段245巷9號",
+        "rating": 4.4,
+        "userRatingCount": 1257,
+        "googlePlaceName": "places/ChIJT2HPWp89aTQRdEhufJsz38o",
+        "gps": {
+          "latitude": 24.1460801,
+          "longitude": 120.65964810000001
+        }
+      }
+    ],
+    "ranking": 42,
+    "name": "麵屋零"
+  },
+  "tcNbn3F24JXbg7IUADQ0": {
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://www.facebook.com/%E9%BA%B5%E5%B1%8B%E8%99%8E%E5%8C%A0-427652554063509",
+        "googleMapsUri": "https://maps.google.com/?cid=10097312221492542243",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 14:30, 17:30 – 20:30\n星期二: 11:30 – 14:30, 17:30 – 20:30\n星期三: 11:30 – 14:30, 17:30 – 20:30\n星期四: 11:30 – 14:30, 17:30 – 20:30\n星期五: 11:30 – 14:30, 17:30 – 20:30\n星期六: 11:30 – 14:30, 17:30 – 20:30\n星期日: 11:30 – 14:30, 17:30 – 20:30",
+        "isOperational": true,
+        "fullAddress": "403台灣台中市西區中美街331巷15號",
+        "rating": 4,
+        "userRatingCount": 1515,
+        "googlePlaceName": "places/ChIJC2FaOpk9aTQRI_tFtPfbIIw",
+        "gps": {
+          "latitude": 24.150097900000002,
+          "longitude": 120.6594044
+        }
+      }
+    ],
+    "ranking": 43,
+    "name": "七面鳥"
+  },
+  "ACtbYjSmIYWjwE6Ir3jW": {
+    "shops": [
+      {
+        "area": "西屯區",
+        "websiteUri": "https://zh-tw.facebook.com/MenRamen",
+        "googleMapsUri": "https://maps.google.com/?cid=1679296864492708057",
+        "city": "台中市",
+        "openingTime": "星期一: 休息\n星期二: 21:00 – 03:00\n星期三: 21:00 – 03:00\n星期四: 21:00 – 03:00\n星期五: 21:00 – 03:00\n星期六: 21:00 – 03:00\n星期日: 21:00 – 03:00",
+        "isOperational": true,
+        "fullAddress": "407台灣台中市西屯區西墩南二巷3號",
+        "rating": 4.1,
+        "userRatingCount": 921,
+        "googlePlaceName": "places/ChIJwUEALxoWaTQR2eCD2JkPThc",
+        "gps": {
+          "latitude": 24.1813877,
+          "longitude": 120.63676849999999
+        }
+      },
+      {
+        "area": "西屯區",
+        "websiteUri": "https://m.facebook.com/menmonstertaichung/",
+        "googleMapsUri": "https://maps.google.com/?cid=4364879855845678152",
+        "city": "台中市",
+        "openingTime": "",
+        "isOperational": false,
+        "fullAddress": "407037台灣台中市西屯區慶和街32號",
+        "rating": 4.4,
+        "userRatingCount": 470,
+        "googlePlaceName": "places/ChIJz30n03kXaTQRSJzwThorkzw",
+        "gps": {
+          "latitude": 24.1755539,
+          "longitude": 120.6472531
+        }
+      }
+    ],
+    "ranking": 44,
+    "name": "MEN Monster"
+  },
+  "6hn6SmzqlboYBzXT7mEq": {
+    "shops": [
+      {
+        "area": "北屯區",
+        "websiteUri": "http://fb.me/fishramen",
+        "googleMapsUri": "https://maps.google.com/?cid=8517712850991779908",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 16:00, 17:00 – 21:00\n星期二: 11:30 – 16:00, 17:00 – 21:00\n星期三: 11:30 – 16:00, 17:00 – 21:00\n星期四: 11:30 – 16:00, 17:00 – 21:00\n星期五: 11:30 – 16:00, 17:00 – 21:00\n星期六: 11:30 – 16:00, 17:00 – 21:00\n星期日: 11:30 – 16:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "406台灣台中市北屯區熱河路二段210號",
+        "rating": 4.5,
+        "userRatingCount": 988,
+        "googlePlaceName": "places/ChIJMeob6osXaTQRRBAljrX-NHY",
+        "gps": {
+          "latitude": 24.1741268,
+          "longitude": 120.6880901
+        }
+      }
+    ],
+    "ranking": 45,
+    "name": "麵本初"
+  },
+  "nXkdwRDiHnsOQyc6eTV0": {
+    "name": "麵屋田宗",
+    "shops": [
+      {
+        "area": "北區",
+        "websiteUri": "https://facebook.com/Tianzongramem/",
+        "googleMapsUri": "https://maps.google.com/?cid=9469594979390376538",
+        "city": "台中市",
+        "openingTime": "星期一: 休息\n星期二: 17:30 – 20:00\n星期三: 12:00 – 13:30, 17:30 – 20:00\n星期四: 12:00 – 13:30, 17:30 – 20:00\n星期五: 12:00 – 13:30, 17:30 – 20:00\n星期六: 11:30 – 14:00, 17:30 – 20:00\n星期日: 11:30 – 14:00, 17:30 – 20:00",
+        "isOperational": true,
+        "fullAddress": "404台灣台中市北區大義街137號",
+        "rating": 4.6,
+        "userRatingCount": 1043,
+        "googlePlaceName": "places/ChIJB-an_mE9aTQRWspiMXbCaoM",
+        "gps": {
+          "latitude": 24.1622964,
+          "longitude": 120.68357569999999
+        }
+      }
+    ],
+    "ranking": 46
+  },
+  "WJw7PAQSHYZ0IFOsUanl": {
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://www.facebook.com/%E5%89%B5%E4%BD%9C%E9%BA%B5%E5%9D%8A%E9%AE%AD%E3%81%AE%E5%A4%A7%E5%8A%A9-100366258228470",
+        "googleMapsUri": "https://maps.google.com/?cid=5694189700954226004",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 14:30, 17:30 – 20:30\n星期二: 11:30 – 14:30, 17:30 – 20:30\n星期三: 11:30 – 14:30, 17:30 – 20:30\n星期四: 11:30 – 14:30, 17:30 – 20:30\n星期五: 11:30 – 14:30, 17:30 – 20:30\n星期六: 11:30 – 14:30, 17:30 – 20:30\n星期日: 11:30 – 14:30, 17:30 – 20:30",
+        "isOperational": true,
+        "fullAddress": "403台灣台中市西區向上路一段170號",
+        "rating": 4.2,
+        "userRatingCount": 918,
+        "googlePlaceName": "places/ChIJQSp-MKg9aTQRVH0QKV3TBU8",
+        "gps": {
+          "latitude": 24.1468275,
+          "longitude": 120.6611028
+        }
+      }
+    ],
+    "ranking": 47,
+    "name": "鮭の大助"
+  },
+  "6vnoHO9FxFqs7c65XRkL": {
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://www.facebook.com/%E8%9D%A6%E8%9D%A6%E6%8B%89%E9%BA%B5-%E5%85%83%E6%B0%A3%E5%B1%8B-621461864575133/",
+        "googleMapsUri": "https://maps.google.com/?cid=5773017558126719390",
+        "city": "台中市",
+        "openingTime": "",
+        "isOperational": false,
+        "fullAddress": "403台灣台中市西區中美街419之4號",
+        "rating": 4.7,
+        "userRatingCount": 884,
+        "googlePlaceName": "places/ChIJF3XT6pw9aTQRnnE84uHgHVA",
+        "gps": {
+          "latitude": 24.153253,
+          "longitude": 120.65991399999999
+        }
+      }
+    ],
+    "ranking": 48,
+    "name": "元氣屋"
+  },
+  "VDHqiGSronKtJpf3EQMw": {
+    "name": "千勝軒",
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://www.facebook.com/chikatuken/",
+        "googleMapsUri": "https://maps.google.com/?cid=1320688322196580317",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 13:30, 17:30 – 20:30\n星期二: 11:30 – 13:30, 17:30 – 20:30\n星期三: 休息\n星期四: 11:30 – 13:30, 17:30 – 20:30\n星期五: 11:30 – 13:30, 17:30 – 20:30\n星期六: 11:30 – 13:30, 17:30 – 20:30\n星期日: 11:30 – 13:30, 17:30 – 20:30",
+        "isOperational": true,
+        "fullAddress": "40343台灣台中市西區三民路一段29號1樓",
+        "rating": 4.5,
+        "userRatingCount": 1002,
+        "googlePlaceName": "places/ChIJ7ae8Bek9aTQR3aeIHwgHVBI",
+        "gps": {
+          "latitude": 24.1300246,
+          "longitude": 120.66687089999999
+        }
+      }
+    ],
+    "ranking": 49
+  },
+  "SbOHHIbtQlGQYyLomSG4": {
+    "name": "麵屋黑心",
+    "shops": [
+      {
+        "area": "霧峰區",
+        "websiteUri": "https://www.facebook.com/heisinramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=2995815146864152428",
+        "city": "台中市",
+        "openingTime": "星期一: 休息\n星期二: 12:00 – 14:30, 17:30 – 20:30\n星期三: 12:00 – 14:30, 17:30 – 20:30\n星期四: 12:00 – 14:30, 17:30 – 20:30\n星期五: 12:00 – 14:30, 17:30 – 20:30\n星期六: 12:00 – 14:30, 17:30 – 20:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "413台灣台中市霧峰區育群路264號",
+        "rating": 4.6,
+        "userRatingCount": 521,
+        "googlePlaceName": "places/ChIJWcOsLng7aTQRbI-S6QBGkyk",
+        "gps": {
+          "latitude": 24.058097900000003,
+          "longitude": 120.6966545
+        }
+      }
+    ],
+    "ranking": 50
+  },
+  "yRWJfZ8uxzJQVWsYbOes": {
+    "shops": [
+      {
+        "area": "中區",
+        "websiteUri": "https://www.facebook.com/Huamei185",
+        "googleMapsUri": "https://maps.google.com/?cid=7001018161882737655",
+        "city": "台中市",
+        "openingTime": "星期一: 休息\n星期二: 18:00 – 23:00\n星期三: 18:00 – 23:00\n星期四: 18:00 – 23:00\n星期五: 18:00 – 23:00\n星期六: 18:00 – 23:00\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "400台灣台中市中區成功路404號",
+        "rating": 4.4,
+        "userRatingCount": 688,
+        "googlePlaceName": "places/ChIJqckodaI9aTQR9ysU3eycKGE",
+        "gps": {
+          "latitude": 24.146096099999998,
+          "longitude": 120.67686409999999
+        }
+      }
+    ],
+    "ranking": 51,
+    "name": "麵屋聚"
+  },
+  "R7bl4OcUfhvPKgj3N2MN": {
+    "name": "中華そば東池袋",
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://www.facebook.com/higasiikebukuro?mibextid=LQQJ4d",
+        "googleMapsUri": "https://maps.google.com/?cid=10528256139533928426",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:30 – 20:00\n星期二: 休息\n星期三: 休息\n星期四: 11:30 – 14:00, 17:30 – 20:00\n星期五: 11:30 – 14:00, 17:30 – 20:00\n星期六: 11:30 – 14:00, 17:30 – 20:00\n星期日: 11:30 – 14:00, 17:30 – 20:00",
+        "isOperational": true,
+        "fullAddress": "403台灣台中市西區向上路一段289巷6號",
+        "rating": 4.8,
+        "userRatingCount": 272,
+        "googlePlaceName": "places/ChIJvwHLW409aTQR6sc-hS3hG5I",
+        "gps": {
+          "latitude": 24.1463029,
+          "longitude": 120.6583045
+        }
+      }
+    ],
+    "ranking": 52
+  },
+  "yLXopAGPycWLlnJflVW8": {
+    "name": "麵屋秋鳴",
+    "shops": [
+      {
+        "area": "南區",
+        "websiteUri": "https://www.facebook.com/chiumingramen/?modal=admin_todo_tour",
+        "googleMapsUri": "https://maps.google.com/?cid=11978403470664318108",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 21:30\n星期二: 11:30 – 21:30\n星期三: 11:30 – 21:30\n星期四: 11:30 – 21:30\n星期五: 11:30 – 21:30\n星期六: 11:30 – 21:30\n星期日: 11:30 – 21:30",
+        "isOperational": true,
+        "fullAddress": "402台灣台中市南區文心南路715號",
+        "rating": 4.4,
+        "userRatingCount": 1379,
+        "googlePlaceName": "places/ChIJ52V_5n09aTQRnLxABX7WO6Y",
+        "gps": {
+          "latitude": 24.1142088,
+          "longitude": 120.65594910000002
+        }
+      }
+    ],
+    "ranking": 53
+  },
+  "fkiS08TB4caBV6RyCcJ0": {
+    "shops": [
+      {
+        "area": "北區",
+        "websiteUri": "https://www.facebook.com/100211672255598/",
+        "googleMapsUri": "https://maps.google.com/?cid=15329031184069358708",
+        "city": "台中市",
+        "openingTime": "星期一: 17:00 – 23:30\n星期二: 17:00 – 23:30\n星期三: 17:00 – 23:30\n星期四: 17:00 – 23:30\n星期五: 17:00 – 23:30\n星期六: 17:00 – 23:30\n星期日: 17:00 – 23:00",
+        "isOperational": true,
+        "fullAddress": "404台灣台中市北區三民路三段75號",
+        "rating": 4.4,
+        "userRatingCount": 541,
+        "googlePlaceName": "places/ChIJMxGVBj49aTQRdPRWLaWou9Q",
+        "gps": {
+          "latitude": 24.1467028,
+          "longitude": 120.6826164
+        }
+      }
+    ],
+    "ranking": 54,
+    "name": "吞山郎"
+  },
+  "Oa37QlWsVGJ4JOR1z5lX": {
+    "shops": [
+      {
+        "area": "北區",
+        "websiteUri": "https://m.facebook.com/cpramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=13897830401140954737",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 15:00, 16:00 – 20:30\n星期二: 11:30 – 15:00, 16:00 – 20:30\n星期三: 11:30 – 15:00, 16:00 – 20:30\n星期四: 11:30 – 15:00, 16:00 – 20:30\n星期五: 11:30 – 15:00, 16:00 – 20:30\n星期六: 11:30 – 15:00, 16:00 – 20:30\n星期日: 11:30 – 15:00, 16:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "404台灣台中市北區三民路三段75號",
+        "rating": 4.5,
+        "userRatingCount": 1015,
+        "googlePlaceName": "places/ChIJYYTQJ089aTQRcZahsB0D38A",
+        "gps": {
+          "latitude": 24.1467028,
+          "longitude": 120.6826164
+        }
+      }
+    ],
+    "ranking": 55,
+    "name": "雞勵軒"
+  },
+  "56dOtUFfn3PFQJjMkXlF": {
+    "shops": [
+      {
+        "area": "南區",
+        "websiteUri": "https://www.facebook.com/Zhongxiao.Ramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=13436478892549988850",
+        "city": "台中市",
+        "openingTime": "星期一: 17:00 – 01:00\n星期二: 17:00 – 01:00\n星期三: 17:00 – 01:00\n星期四: 17:00 – 01:00\n星期五: 17:00 – 01:00\n星期六: 17:00 – 01:00\n星期日: 17:00 – 01:00",
+        "isOperational": true,
+        "fullAddress": "402台灣台中市南區建成路1053號",
+        "rating": 4.3,
+        "userRatingCount": 2253,
+        "googlePlaceName": "places/ChIJ-X9JLRY9aTQR8uF5_lz2d7o",
+        "gps": {
+          "latitude": 24.128587000000003,
+          "longitude": 120.68347
+        }
+      }
+    ],
+    "ranking": 56,
+    "name": "狸匠"
+  },
+  "VEKO9QF8xLacHm1BVid4": {
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://www.facebook.com/%E6%9D%B1%E4%BA%AC%E9%86%AC%E6%B2%B9%E6%8B%89%E9%BA%B5%E8%B6%85%E6%A5%B5%E4%B8%B8-214533225825870/",
+        "googleMapsUri": "https://maps.google.com/?cid=9060377762796929415",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 14:30, 17:00 – 21:30\n星期二: 11:30 – 14:30, 17:00 – 21:30\n星期三: 11:30 – 14:30, 17:00 – 21:30\n星期四: 11:30 – 14:30, 17:00 – 21:30\n星期五: 11:30 – 14:30, 17:00 – 21:30\n星期六: 11:30 – 14:30, 17:00 – 21:30\n星期日: 11:30 – 14:30, 17:00 – 21:30",
+        "isOperational": true,
+        "fullAddress": "403台灣台中市西區明義街50號",
+        "rating": 4.3,
+        "userRatingCount": 1310,
+        "googlePlaceName": "places/ChIJ3cTJezs9aTQRhwFcQpLtvH0",
+        "gps": {
+          "latitude": 24.155166800000003,
+          "longitude": 120.66056529999999
+        }
+      }
+    ],
+    "ranking": 57,
+    "name": "超極丸"
+  },
+  "elNnyJpG5Jjya6kZhdnK": {
+    "shops": [
+      {
+        "area": "太平區",
+        "websiteUri": "https://instagram.com/tonkotsu_isshou?igshid=YmMyMTA2M2Y=",
+        "googleMapsUri": "https://maps.google.com/?cid=1116310911091382202",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 21:00\n星期二: 11:30 – 14:00, 17:00 – 21:00\n星期三: 休息\n星期四: 11:30 – 14:00, 17:00 – 21:00\n星期五: 11:30 – 14:00, 17:00 – 21:00\n星期六: 11:30 – 14:00, 17:00 – 21:00\n星期日: 11:30 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "411台灣台中市太平區樹德路12-2號",
+        "rating": 4.7,
+        "userRatingCount": 358,
+        "googlePlaceName": "places/ChIJi4rfCxg9aTQRupd-8tvufQ8",
+        "gps": {
+          "latitude": 24.1502166,
+          "longitude": 120.7107825
+        }
+      }
+    ],
+    "ranking": 58,
+    "name": "豚骨一笑"
+  },
+  "I4jrEZEjoY9o9rie5ldt": {
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://www.facebook.com/kitaho2018/",
+        "googleMapsUri": "https://maps.google.com/?cid=16779592998567477340",
+        "city": "台中市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 13:30, 17:30 – 20:30\n星期三: 11:30 – 13:30, 17:30 – 20:30\n星期四: 11:30 – 13:30, 17:30 – 20:30\n星期五: 11:30 – 13:30, 17:30 – 20:30\n星期六: 11:30 – 13:30, 17:00 – 20:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "403台灣台中市西區公益路124巷2號",
+        "rating": 4.6,
+        "userRatingCount": 946,
+        "googlePlaceName": "places/ChIJM305nkY9aTQRXAA_G-4W3eg",
+        "gps": {
+          "latitude": 24.1510686,
+          "longitude": 120.6610208
+        }
+      }
+    ],
+    "ranking": 59,
+    "name": "北穗製麵所"
+  },
+  "XS9VjpN8q0Xq6JS77dDo": {
+    "name": "渡山樓",
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://www.facebook.com/%E6%B8%A1%E5%B1%B1%E6%A8%93-309241303295806/",
+        "googleMapsUri": "https://maps.google.com/?cid=860996317638565289",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:30\n星期二: 11:30 – 14:00, 17:00 – 20:30\n星期三: 11:30 – 14:00, 17:00 – 20:30\n星期四: 休息\n星期五: 11:30 – 14:00, 17:00 – 21:30\n星期六: 11:30 – 13:30, 16:30 – 21:30\n星期日: 11:30 – 13:30, 16:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "40360台灣台中市西區公正路170號",
+        "rating": 4.8,
+        "userRatingCount": 1502,
+        "googlePlaceName": "places/ChIJ3T-2Zi49aTQRqR3E0Zbf8gs",
+        "gps": {
+          "latitude": 24.149109199999998,
+          "longitude": 120.6605789
+        }
+      }
+    ],
+    "ranking": 60
+  },
+  "mE9uIFuVc4uiOeuEqYwf": {
+    "shops": [
+      {
+        "area": "北屯區",
+        "websiteUri": "https://www.facebook.com/%E6%9A%B4%E8%B5%B0%E4%B8%AD%E6%9D%91-105123757783416/",
+        "googleMapsUri": "https://maps.google.com/?cid=4408648708260221750",
+        "city": "台中市",
+        "openingTime": "星期一: 休息\n星期二: 17:00 – 22:00\n星期三: 17:00 – 22:00\n星期四: 17:00 – 22:00\n星期五: 17:00 – 22:00\n星期六: 17:00 – 00:00\n星期日: 17:00 – 00:00",
+        "isOperational": true,
+        "fullAddress": "406台灣台中市北屯區漢口路五段51號對面停車場",
+        "rating": 4.6,
+        "userRatingCount": 374,
+        "googlePlaceName": "places/ChIJyzko2VQXaTQRNtNVY6SqLj0",
+        "gps": {
+          "latitude": 24.1666605,
+          "longitude": 120.68709299999998
+        }
+      }
+    ],
+    "ranking": 61,
+    "name": "暴走中村"
+  },
+  "JsbvU4j1yGpsYeUk0pTg": {
+    "name": "麵屋清流",
+    "shops": [
+      {
+        "area": "西區",
+        "websiteUri": "https://www.facebook.com/profile.php?id=100076080556995",
+        "googleMapsUri": "https://maps.google.com/?cid=7162507854935858390",
+        "city": "台中市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 13:30, 17:30 – 20:30\n星期三: 11:30 – 13:30, 17:30 – 20:30\n星期四: 11:30 – 13:30, 17:30 – 20:30\n星期五: 11:30 – 13:30, 17:30 – 20:30\n星期六: 11:30 – 13:30, 17:30 – 20:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "403台灣台中市西區臺灣大道二段48號",
+        "rating": 4.5,
+        "userRatingCount": 334,
+        "googlePlaceName": "places/ChIJo1YcCLw9aTQR1pxlCvJWZmM",
+        "gps": {
+          "latitude": 24.1488105,
+          "longitude": 120.67263399999999
+        }
+      }
+    ],
+    "ranking": 62
+  },
+  "o6KWhDFcQ2voIxOX3MPd": {
+    "shops": [
+      {
+        "area": "東區",
+        "websiteUri": "https://www.facebook.com/fukuyaramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=658287157590660150",
+        "city": "台中市",
+        "openingTime": "星期一: 11:30 – 13:30, 17:30 – 19:30\n星期二: 11:30 – 13:30, 17:30 – 19:30\n星期三: 11:30 – 13:30, 17:30 – 19:30\n星期四: 11:30 – 13:30, 17:30 – 19:30\n星期五: 11:30 – 13:30, 17:30 – 19:30\n星期六: 11:30 – 13:30, 17:30 – 19:30\n星期日: 11:30 – 13:30, 17:30 – 19:30",
+        "isOperational": true,
+        "fullAddress": "401台灣台中市東區振興路2-5號",
+        "rating": 4.4,
+        "userRatingCount": 693,
+        "googlePlaceName": "places/ChIJL99lTaA9aTQRNpRknK60Igk",
+        "gps": {
+          "latitude": 24.1363141,
+          "longitude": 120.68969509999998
+        }
+      }
+    ],
+    "ranking": 63,
+    "name": "福屋"
+  },
+  "LJ94ojhWlC79AgbgmKDg": {
+    "name": "三冬麵舖",
+    "shops": [
+      {
+        "area": "桃園區",
+        "websiteUri": "https://www.facebook.com/%E4%B8%89%E5%86%AC%E9%BA%B5%E8%88%96-183414512398428/",
+        "googleMapsUri": "https://maps.google.com/?cid=17328389542179649493",
+        "city": "桃園市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 16:50 – 19:50\n星期四: 16:50 – 19:50\n星期五: 16:50 – 19:50\n星期六: 11:30 – 13:30, 16:50 – 19:50\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "330台灣桃園市桃園區同德十街17號",
+        "rating": 4.6,
+        "userRatingCount": 1399,
+        "googlePlaceName": "places/ChIJn_46UrofaDQR1Tc2l3rOevA",
+        "gps": {
+          "latitude": 25.0184978,
+          "longitude": 121.29439869999999
+        }
+      }
+    ],
+    "ranking": 64
+  },
+  "BhOtasm6MlBfqAbR68zI": {
+    "shops": [
+      {
+        "area": "桃園區",
+        "websiteUri": "https://www.facebook.com/webb0317x",
+        "googleMapsUri": "https://maps.google.com/?cid=212262964351945629",
+        "city": "桃園市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 休息\n星期四: 07:30 – 13:00\n星期五: 07:30 – 13:00\n星期六: 07:30 – 13:00\n星期日: 07:30 – 13:00",
+        "isOperational": true,
+        "fullAddress": "330台灣桃園市桃園區寶山街210巷31號",
+        "rating": 4.6,
+        "userRatingCount": 488,
+        "googlePlaceName": "places/ChIJgequjE4eaDQRnUsrnQoc8gI",
+        "gps": {
+          "latitude": 25.0134091,
+          "longitude": 121.3155569
+        }
+      }
+    ],
+    "ranking": 65,
+    "name": "実家 另一個家"
+  },
+  "6VaByjFghGfygxjuDyNE": {
+    "shops": [
+      {
+        "area": "永和區",
+        "websiteUri": "https://www.facebook.com/%E8%BE%B0%E6%8B%89%E9%BA%B5-861080067606438/",
+        "googleMapsUri": "https://maps.google.com/?cid=4325680341140672149",
+        "city": "新北市",
+        "openingTime": "星期一: 17:00 – 20:30\n星期二: 17:00 – 20:30\n星期三: 17:00 – 20:30\n星期四: 17:00 – 20:30\n星期五: 休息\n星期六: 休息\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "234台灣新北市永和區文化路110號1樓",
+        "rating": 4.8,
+        "userRatingCount": 1399,
+        "googlePlaceName": "places/ChIJx-Q2ioCpQjQRlY6UEVrnBzw",
+        "gps": {
+          "latitude": 25.015347900000002,
+          "longitude": 121.51345889999999
+        }
+      }
+    ],
+    "ranking": 66,
+    "name": "辰拉麵"
+  },
+  "tCvOX6GOTXLu7BRgkVWE": {
+    "shops": [
+      {
+        "area": "板橋區",
+        "websiteUri": "https://www.facebook.com/shuangtun/",
+        "googleMapsUri": "https://maps.google.com/?cid=1662767501246430134",
+        "city": "新北市",
+        "openingTime": "星期一: 17:00 – 21:00\n星期二: 17:00 – 21:00\n星期三: 17:00 – 21:00\n星期四: 17:00 – 21:00\n星期五: 17:00 – 21:00\n星期六: 11:30 – 14:00, 17:00 – 21:00\n星期日: 11:30 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "220台灣新北市板橋區民生路三段193號",
+        "rating": 4.3,
+        "userRatingCount": 2018,
+        "googlePlaceName": "places/ChIJoZKGgUmpQjQRtnvbjztWExc",
+        "gps": {
+          "latitude": 25.027480699999998,
+          "longitude": 121.4651899
+        }
+      }
+    ],
+    "ranking": 67,
+    "name": "双豚"
+  },
+  "mxb3dfXxMFzocj5cMzY2": {
+    "shops": [
+      {
+        "area": "新莊區",
+        "websiteUri": "https://www.facebook.com/bearyueyue/",
+        "googleMapsUri": "https://maps.google.com/?cid=1209654405154663523",
+        "city": "新北市",
+        "openingTime": "星期一: 11:00 – 14:00, 17:00 – 21:00\n星期二: 11:00 – 14:00, 17:00 – 21:00\n星期三: 11:00 – 14:00, 17:00 – 21:00\n星期四: 11:00 – 14:00, 17:00 – 21:00\n星期五: 11:00 – 14:00, 17:00 – 21:00\n星期六: 11:00 – 14:00, 17:00 – 21:00\n星期日: 11:00 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "242台灣新北市新莊區幸福路736號號地下一層",
+        "rating": 4.6,
+        "userRatingCount": 1616,
+        "googlePlaceName": "places/ChIJEd8cejOpQjQRY-w6wEWOyRA",
+        "gps": {
+          "latitude": 25.0492352,
+          "longitude": 121.4478086
+        }
+      }
+    ],
+    "ranking": 68,
+    "name": "熊越岳"
+  },
+  "gUpDdlfnwumKyQsJEKZe": {
+    "shops": [
+      {
+        "area": "新莊區",
+        "websiteUri": "https://www.facebook.com/RamenJJL/",
+        "googleMapsUri": "https://maps.google.com/?cid=7504761092682970833",
+        "city": "新北市",
+        "openingTime": "星期一: 休息\n星期二: 17:00 – 22:00\n星期三: 17:00 – 22:00\n星期四: 休息\n星期五: 17:00 – 22:00\n星期六: 17:00 – 22:00\n星期日: 17:00 – 22:00",
+        "isOperational": true,
+        "fullAddress": "242台灣新北市新莊區中華路一段45巷1號停車場隔壁",
+        "rating": 4.5,
+        "userRatingCount": 790,
+        "googlePlaceName": "places/ChIJO21s6-upQjQR0XaKrXNEJmg",
+        "gps": {
+          "latitude": 25.0381038,
+          "longitude": 121.4519111
+        }
+      }
+    ],
+    "ranking": 69,
+    "name": "讓麵煮一會"
+  },
+  "7af2YndaFnjWkDh4jUE3": {
+    "shops": [
+      {
+        "area": "板橋區",
+        "websiteUri": "https://www.facebook.com/%E9%BA%B5%E5%B1%8B%E5%B1%B1%E8%8C%B6-SanCha-1509778462453963/",
+        "googleMapsUri": "https://maps.google.com/?cid=13945662541733252653",
+        "city": "新北市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 18:00 – 21:00\n星期四: 18:00 – 21:00\n星期五: 18:00 – 21:00\n星期六: 18:00 – 21:00\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "220台灣新北市板橋區大同街8巷16號",
+        "rating": 4.5,
+        "userRatingCount": 623,
+        "googlePlaceName": "places/ChIJzcy5eRSpQjQRLU57xTHyiME",
+        "gps": {
+          "latitude": 25.0262851,
+          "longitude": 121.4771879
+        }
+      }
+    ],
+    "ranking": 70,
+    "name": "麵屋山茶"
+  },
+  "ZVcL7SIaUzwUQaqy7sTO": {
+    "shops": [
+      {
+        "area": "新店區",
+        "websiteUri": "https://japanese-restaurant-5765.business.site/?utm_source=gmb&utm_medium=referral",
+        "googleMapsUri": "https://maps.google.com/?cid=9563680317088737995",
+        "city": "新北市",
+        "openingTime": "星期一: 17:30 – 20:30\n星期二: 17:30 – 20:30\n星期三: 17:30 – 20:30\n星期四: 休息\n星期五: 11:30 – 13:30, 17:30 – 20:30\n星期六: 11:30 – 13:30, 17:30 – 20:30\n星期日: 11:30 – 13:30, 17:30 – 20:30",
+        "isOperational": true,
+        "fullAddress": "231台灣新北市新店區新店路27號",
+        "rating": 4.5,
+        "userRatingCount": 1177,
+        "googlePlaceName": "places/ChIJnct1PjQBaDQRyyp47ZMEuYQ",
+        "gps": {
+          "latitude": 24.9526637,
+          "longitude": 121.54000149999999
+        }
+      }
+    ],
+    "ranking": 71,
+    "name": "海貓亭"
+  },
+  "ke68DexHFxjeDgCizaid": {
+    "shops": [
+      {
+        "area": "板橋區",
+        "websiteUri": "https://instagram.com/syuanrih?igshid=YmMyMTA2M2Y=",
+        "googleMapsUri": "https://maps.google.com/?cid=7185042801444237331",
+        "city": "新北市",
+        "openingTime": "星期一: 17:00 – 22:00\n星期二: 17:00 – 22:00\n星期三: 17:00 – 22:00\n星期四: 17:00 – 22:00\n星期五: 17:00 – 22:00\n星期六: 11:30 – 14:00, 17:00 – 22:00\n星期日: 11:30 – 14:00, 17:00 – 22:00",
+        "isOperational": true,
+        "fullAddress": "220台灣新北市板橋區文化路一段31號",
+        "rating": 4.3,
+        "userRatingCount": 787,
+        "googlePlaceName": "places/ChIJhSGI1D6pQjQRE7APJFxmtmM",
+        "gps": {
+          "latitude": 25.0129934,
+          "longitude": 121.46024270000001
+        }
+      }
+    ],
+    "ranking": 72,
+    "name": "懸日"
+  },
+  "NGhLHUphwSsjItwbxbOC": {
+    "shops": [
+      {
+        "area": "三重區",
+        "websiteUri": "https://www.instagram.com/wan__zong",
+        "googleMapsUri": "https://maps.google.com/?cid=13555484829760984768",
+        "city": "新北市",
+        "openingTime": "星期一: 休息\n星期二: 17:00 – 20:30\n星期三: 11:30 – 13:30, 17:00 – 20:30\n星期四: 11:30 – 13:30, 17:00 – 20:30\n星期五: 11:30 – 13:30, 17:00 – 20:30\n星期六: 17:00 – 20:30\n星期日: 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "241台灣新北市三重區龍門路258號",
+        "rating": 4.6,
+        "userRatingCount": 521,
+        "googlePlaceName": "places/ChIJexfsxLOpQjQRwJYZ9KHBHrw",
+        "gps": {
+          "latitude": 25.0739369,
+          "longitude": 121.50116309999999
+        }
+      }
+    ],
+    "ranking": 73,
+    "name": "丸宗"
+  },
+  "ikpGgQMmRUJ49ffRRnDp": {
+    "shops": [
+      {
+        "area": "永和區",
+        "websiteUri": "https://m.facebook.com/suisinramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=885534950079722836",
+        "city": "新北市",
+        "openingTime": "星期一: 休息\n星期二: 17:00 – 21:00\n星期三: 17:00 – 21:00\n星期四: 17:00 – 21:00\n星期五: 17:00 – 21:00\n星期六: 17:00 – 21:00\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "234台灣新北市永和區仁愛路42號",
+        "rating": 4.7,
+        "userRatingCount": 313,
+        "googlePlaceName": "places/ChIJpTrUw4WpQjQRVPWxZ1gNSgw",
+        "gps": {
+          "latitude": 25.0135769,
+          "longitude": 121.5141602
+        }
+      }
+    ],
+    "ranking": 74,
+    "name": "醉心"
+  },
+  "5V5xDKOaeCMDPraExWYH": {
+    "shops": [
+      {
+        "area": "中和區",
+        "websiteUri": "",
+        "googleMapsUri": "https://maps.google.com/?cid=17635234977117670035",
+        "city": "新北市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 14:00, 17:00 – 21:00\n星期三: 11:30 – 14:00, 17:00 – 21:00\n星期四: 11:30 – 14:00, 17:00 – 21:00\n星期五: 11:30 – 14:00, 17:00 – 21:00\n星期六: 11:30 – 14:00, 17:00 – 21:00\n星期日: 11:30 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "235台灣新北市中和區景安路132巷1號",
+        "rating": 4.5,
+        "userRatingCount": 1382,
+        "googlePlaceName": "places/ChIJFWeDTxgDaDQRk4qktcbwvPQ",
+        "gps": {
+          "latitude": 24.994296199999997,
+          "longitude": 121.50478129999999
+        }
+      }
+    ],
+    "ranking": 75,
+    "name": "藏味"
+  },
+  "YQj12e9DnPdr8qrr9kvG": {
+    "shops": [
+      {
+        "area": "北區",
+        "websiteUri": "https://www.facebook.com/soba2017/",
+        "googleMapsUri": "https://maps.google.com/?cid=824158195438981835",
+        "city": "台南市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:30 – 20:00\n星期二: 11:30 – 14:00, 17:30 – 20:00\n星期三: 11:30 – 14:00, 17:30 – 20:00\n星期四: 11:30 – 14:00, 17:30 – 20:00\n星期五: 11:30 – 14:00, 17:30 – 20:00\n星期六: 11:30 – 14:00, 17:30 – 20:00\n星期日: 11:30 – 14:00, 17:30 – 20:00",
+        "isOperational": true,
+        "fullAddress": "704台灣台南市北區公園南路206號",
+        "rating": 4.5,
+        "userRatingCount": 2721,
+        "googlePlaceName": "places/ChIJiXZ-6l92bjQRyxLeHYP_bws",
+        "gps": {
+          "latitude": 23.0019977,
+          "longitude": 120.2058067
+        }
+      }
+    ],
+    "ranking": 76,
+    "name": "寶來軒"
+  },
+  "Tyjxn69BwTl9YkMbvsLv": {
+    "shops": [
+      {
+        "area": "東區",
+        "websiteUri": "https://www.facebook.com/sara.ramen.taiwan/",
+        "googleMapsUri": "https://maps.google.com/?cid=14702734929219599281",
+        "city": "台南市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 14:00, 17:30 – 21:00\n星期三: 11:30 – 14:00, 17:30 – 21:00\n星期四: 11:30 – 14:00, 17:30 – 21:00\n星期五: 11:30 – 14:00, 17:30 – 21:00\n星期六: 11:30 – 14:00, 17:30 – 21:00\n星期日: 11:30 – 14:00, 17:30 – 20:00",
+        "isOperational": true,
+        "fullAddress": "701台灣台南市東區崇明路42號",
+        "rating": 4.3,
+        "userRatingCount": 1521,
+        "googlePlaceName": "places/ChIJJ3M2NIN2bjQRsbvcCoWbCsw",
+        "gps": {
+          "latitude": 22.9811008,
+          "longitude": 120.21639409999999
+        }
+      }
+    ],
+    "ranking": 77,
+    "name": "菜良"
+  },
+  "vJ6n8On5pnpqxKLnsvjt": {
+    "shops": [
+      {
+        "area": "永康區",
+        "websiteUri": "https://www.facebook.com/%E9%BA%B5%E5%B1%8B%E9%9D%92%E9%88%B4-113369003349540/",
+        "googleMapsUri": "https://maps.google.com/?cid=5018932031569540591",
+        "city": "台南市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:00\n星期二: 11:30 – 14:00, 17:00 – 20:00\n星期三: 11:30 – 14:00, 17:00 – 20:00\n星期四: 休息\n星期五: 11:30 – 14:00, 17:00 – 20:00\n星期六: 11:30 – 14:00, 17:00 – 20:00\n星期日: 11:30 – 14:00, 17:00 – 20:00",
+        "isOperational": true,
+        "fullAddress": "71081台灣台南市永康區新行街33巷1號",
+        "rating": 4.2,
+        "userRatingCount": 571,
+        "googlePlaceName": "places/ChIJUzi8Tq13bjQR7zWIXRfUpkU",
+        "gps": {
+          "latitude": 23.039051699999998,
+          "longitude": 120.2412751
+        }
+      }
+    ],
+    "ranking": 78,
+    "name": "麵屋青鈴"
+  },
+  "cqKI3c5XyQ4JZ4vP5MBK": {
+    "name": "麵屋青鳥",
+    "shops": [
+      {
+        "area": "東區",
+        "websiteUri": "https://www.facebook.com/100676125408948/",
+        "googleMapsUri": "https://maps.google.com/?cid=17495596899729450256",
+        "city": "台南市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:00\n星期二: 11:30 – 14:00, 17:00 – 20:00\n星期三: 11:30 – 14:00, 17:00 – 20:00\n星期四: 休息\n星期五: 11:30 – 14:00, 17:00 – 20:00\n星期六: 11:30 – 14:00, 17:00 – 20:00\n星期日: 11:30 – 14:00, 17:00 – 20:00",
+        "isOperational": true,
+        "fullAddress": "701033台灣台南市東區崇德路671號",
+        "rating": 4.6,
+        "userRatingCount": 359,
+        "googlePlaceName": "places/ChIJ5Xm9p2B1bjQREKXMRa_YzPI",
+        "gps": {
+          "latitude": 22.969101400000003,
+          "longitude": 120.22756049999998
+        }
+      }
+    ],
+    "ranking": 79
+  },
+  "8kXYHdvw63QGYxUHjbTQ": {
+    "shops": [
+      {
+        "area": "北區",
+        "websiteUri": "https://www.facebook.com/tonkotsuyaramen",
+        "googleMapsUri": "https://maps.google.com/?cid=11352168324783899017",
+        "city": "台南市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 休息\n星期四: 休息\n星期五: 休息\n星期六: 17:30 – 20:00\n星期日: 12:00 – 14:00, 17:30 – 20:00",
+        "isOperational": true,
+        "fullAddress": "70450台灣台南市北區育德路160號",
+        "rating": 4.5,
+        "userRatingCount": 832,
+        "googlePlaceName": "places/ChIJvRvH5Ih3bjQRiYEv7fEAi50",
+        "gps": {
+          "latitude": 23.0090283,
+          "longitude": 120.20561190000001
+        }
+      }
+    ],
+    "ranking": 80,
+    "name": "豚骨家"
+  },
+  "vgxqy2udVzu94RuIqBJv": {
+    "name": "俺の豚",
+    "shops": [
+      {
+        "area": "永康區",
+        "websiteUri": "https://www.facebook.com/%E4%BF%BA%E3%81%AE%E8%B1%9A-1478942258795902/",
+        "googleMapsUri": "https://maps.google.com/?cid=2695445947883829022",
+        "city": "台南市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 14:00, 17:30 – 20:30\n星期三: 11:30 – 14:00, 17:30 – 20:30\n星期四: 11:30 – 14:00, 17:30 – 20:30\n星期五: 11:30 – 14:00, 17:30 – 20:30\n星期六: 11:30 – 14:00, 17:30 – 20:30\n星期日: 11:30 – 14:00, 17:30 – 20:30",
+        "isOperational": true,
+        "fullAddress": "710台灣台南市永康區東橋一路250號",
+        "rating": 4.4,
+        "userRatingCount": 1519,
+        "googlePlaceName": "places/ChIJ39vY1iB3bjQRHrfh-s4laCU",
+        "gps": {
+          "latitude": 23.019249600000002,
+          "longitude": 120.23343879999999
+        }
+      }
+    ],
+    "ranking": 81
+  },
+  "0imn9gmv3UnoiAz0ib5F": {
+    "shops": [
+      {
+        "area": "善化區",
+        "websiteUri": "https://www.facebook.com/ichilinmaru/",
+        "googleMapsUri": "https://maps.google.com/?cid=3282776120634006347",
+        "city": "台南市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 17:30 – 21:00\n星期四: 17:30 – 21:00\n星期五: 17:30 – 21:00\n星期六: 11:30 – 14:00, 17:30 – 21:00\n星期日: 11:30 – 14:00",
+        "isOperational": true,
+        "fullAddress": "741台灣台南市善化區文昌路12號",
+        "rating": 4.5,
+        "userRatingCount": 422,
+        "googlePlaceName": "places/ChIJU0iWNGt7bjQRS1uGI33Dji0",
+        "gps": {
+          "latitude": 23.1298666,
+          "longitude": 120.29274389999999
+        }
+      }
+    ],
+    "ranking": 82,
+    "name": "麵家壹霖丸"
+  },
+  "Cc9z205cvkeaWioV0sMN": {
+    "shops": [
+      {
+        "area": "中西區",
+        "websiteUri": "https://www.facebook.com/pages/%E6%B7%B3%E9%B3%A9%E4%B8%80%E5%A4%AB%E6%8B%89%E9%BA%B5/440870146071442",
+        "googleMapsUri": "https://maps.google.com/?cid=13487725812544426393",
+        "city": "台南市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 13:30, 17:30 – 19:30\n星期三: 11:30 – 13:30, 17:30 – 19:30\n星期四: 11:30 – 13:30, 17:30 – 19:30\n星期五: 11:30 – 13:30, 17:30 – 19:30\n星期六: 11:30 – 13:30, 17:30 – 19:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "700台灣台南市中西區民權路二段218號",
+        "rating": 4.5,
+        "userRatingCount": 1199,
+        "googlePlaceName": "places/ChIJq38122N2bjQRmdGTXCoHLrs",
+        "gps": {
+          "latitude": 22.9956791,
+          "longitude": 120.2012499
+        }
+      }
+    ],
+    "ranking": 83,
+    "name": "淳鳩一夫"
+  },
+  "2VZAlL6n1HzUQsdm1CoB": {
+    "shops": [
+      {
+        "area": "礁溪鄉",
+        "websiteUri": "https://page.line.me/shanyou",
+        "googleMapsUri": "https://maps.google.com/?cid=17667300075003506968",
+        "city": "宜蘭縣",
+        "openingTime": "星期一: 11:30 – 21:00\n星期二: 11:30 – 21:00\n星期三: 11:30 – 21:00\n星期四: 11:30 – 21:00\n星期五: 11:30 – 21:00\n星期六: 11:30 – 21:00\n星期日: 11:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "262台灣宜蘭縣中山路二段187號1樓",
+        "rating": 4.2,
+        "userRatingCount": 2952,
+        "googlePlaceName": "places/ChIJfVncRs37ZzQRGPHQFtDbLvU",
+        "gps": {
+          "latitude": 24.828218999999997,
+          "longitude": 121.775054
+        }
+      },
+      {
+        "area": "中山區",
+        "websiteUri": "https://www.facebook.com/menya.chikumo/",
+        "googleMapsUri": "https://maps.google.com/?cid=5993608452627432944",
+        "city": "台北市",
+        "openingTime": "星期一: 12:00 – 15:30, 17:00 – 04:00\n星期二: 12:00 – 15:30, 17:00 – 04:00\n星期三: 12:00 – 15:30, 17:00 – 04:00\n星期四: 12:00 – 15:30, 17:00 – 04:00\n星期五: 12:00 – 15:30, 17:00 – 04:00\n星期六: 12:00 – 15:30, 17:00 – 04:00\n星期日: 12:00 – 15:30, 17:00 – 04:00",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區林森北路105-1號",
+        "rating": 4.4,
+        "userRatingCount": 6801,
+        "googlePlaceName": "places/ChIJqYmvbtipQjQR8AWj1SGTLVM",
+        "gps": {
+          "latitude": 25.050188,
+          "longitude": 121.52519369999999
+        }
+      },
+      {
+        "area": "東區",
+        "websiteUri": "https://www.facebook.com/ramenya2020",
+        "googleMapsUri": "https://maps.google.com/?cid=3813627569042546737",
+        "city": "新竹市",
+        "openingTime": "星期一: 11:00 – 21:30\n星期二: 11:00 – 21:30\n星期三: 11:00 – 21:30\n星期四: 11:00 – 21:30\n星期五: 11:00 – 21:30\n星期六: 11:00 – 21:30\n星期日: 11:00 – 21:30",
+        "isOperational": true,
+        "fullAddress": "30043台灣新竹市民生路119號",
+        "rating": 4.3,
+        "userRatingCount": 1101,
+        "googlePlaceName": "places/ChIJ_T6DbIY1aDQRMeBqjhG67DQ",
+        "gps": {
+          "latitude": 24.8100615,
+          "longitude": 120.97695879999999
+        }
+      },
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.powerramentaipei.com/",
+        "googleMapsUri": "https://maps.google.com/?cid=346147835152988351",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:45, 17:00 – 21:00\n星期二: 11:30 – 14:45, 17:00 – 21:00\n星期三: 11:30 – 14:45, 17:00 – 21:00\n星期四: 11:30 – 14:45, 17:00 – 21:00\n星期五: 11:30 – 14:45, 17:00 – 21:00\n星期六: 11:30 – 14:45, 17:00 – 21:00\n星期日: 11:30 – 14:45, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區信義路二段12號",
+        "rating": 4.3,
+        "userRatingCount": 492,
+        "googlePlaceName": "places/ChIJS0ZXMWKpQjQRv3gQQp_DzQQ",
+        "gps": {
+          "latitude": 25.0348899,
+          "longitude": 121.52502460000001
+        }
+      },
+      {
+        "area": "中和區",
+        "websiteUri": "",
+        "googleMapsUri": "https://maps.google.com/?cid=3274663251303965329",
+        "city": "新北市",
+        "openingTime": "星期一: 11:30 – 14:30, 17:30 – 21:30\n星期二: 11:30 – 14:30, 17:30 – 21:30\n星期三: 11:30 – 14:30, 17:30 – 21:30\n星期四: 11:30 – 14:30, 17:30 – 21:30\n星期五: 休息\n星期六: 休息\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "23547台灣新北市中和區員山路437之3號",
+        "rating": 4.6,
+        "userRatingCount": 298,
+        "googlePlaceName": "places/ChIJHbzgyYmpQjQRkaL_jODwcS0",
+        "gps": {
+          "latitude": 25.003943699999997,
+          "longitude": 121.48062689999999
+        }
+      },
+      {
+        "area": "信義區",
+        "websiteUri": "https://www.facebook.com/ebisobaichigen/",
+        "googleMapsUri": "https://maps.google.com/?cid=16219595320872249751",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 15:00, 17:00 – 21:00\n星期二: 11:30 – 15:00, 17:00 – 21:00\n星期三: 11:30 – 15:00, 17:00 – 21:00\n星期四: 11:30 – 15:00, 17:00 – 21:00\n星期五: 11:30 – 15:00, 17:00 – 21:00\n星期六: 11:30 – 15:30, 17:00 – 21:00\n星期日: 11:30 – 15:30, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "110台灣台北市信義區松壽路30號1樓",
+        "rating": 4.2,
+        "userRatingCount": 4491,
+        "googlePlaceName": "places/ChIJaSOhhrCrQjQRl6ktXQKUF-E",
+        "gps": {
+          "latitude": 25.035479199999997,
+          "longitude": 121.5681028
+        }
+      },
+      {
+        "area": "竹北市",
+        "websiteUri": "https://www.facebook.com/ryotaramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=2812109775134468159",
+        "city": "新竹縣",
+        "openingTime": "星期一: 休息\n星期二: 17:30 – 22:30\n星期三: 17:30 – 22:30\n星期四: 17:30 – 22:30\n星期五: 17:30 – 22:30\n星期六: 11:30 – 13:30, 17:30 – 21:00\n星期日: 11:30 – 13:30, 17:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "302台灣新竹縣成功十二街26號",
+        "rating": 4,
+        "userRatingCount": 967,
+        "googlePlaceName": "places/ChIJrWiw8fc2aDQRPyhL-PCeBic",
+        "gps": {
+          "latitude": 24.813078899999997,
+          "longitude": 121.02141929999999
+        }
+      },
+      {
+        "area": "三重區",
+        "websiteUri": "http://kagetsu.com.tw/",
+        "googleMapsUri": "https://maps.google.com/?cid=7013764887878621157",
+        "city": "新北市",
+        "openingTime": "星期一: 11:00 – 21:00\n星期二: 11:00 – 21:00\n星期三: 11:00 – 21:00\n星期四: 11:00 – 21:00\n星期五: 11:00 – 21:15\n星期六: 11:00 – 21:15\n星期日: 11:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "241台灣新北市三重區重新路五段654號",
+        "rating": 3.6,
+        "userRatingCount": 740,
+        "googlePlaceName": "places/ChIJuXjOiq2pQjQR5dccSAHmVWE",
+        "gps": {
+          "latitude": 25.043084,
+          "longitude": 121.4678314
+        }
+      },
+      {
+        "area": "万华区",
+        "websiteUri": "https://www.kagetsu.com.tw/",
+        "googleMapsUri": "https://maps.google.com/?cid=5651223143070956561",
+        "city": "台北市",
+        "openingTime": "星期一: 11:00 – 21:00\n星期二: 11:00 – 21:00\n星期三: 11:00 – 21:00\n星期四: 11:00 – 21:00\n星期五: 11:00 – 21:00\n星期六: 11:00 – 21:00\n星期日: 11:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "108台灣台北市万华区桂林路1號4樓",
+        "rating": 2.8,
+        "userRatingCount": 113,
+        "googlePlaceName": "places/ChIJLdAPviGpQjQREfw11YEtbU4",
+        "gps": {
+          "latitude": 25.0378006,
+          "longitude": 121.50616350000001
+        }
+      },
+      {
+        "area": "三重區",
+        "websiteUri": "https://www.facebook.com/blackcurryramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=15552666505353791292",
+        "city": "新北市",
+        "openingTime": "星期一: 17:00 – 23:00\n星期二: 17:00 – 23:00\n星期三: 休息\n星期四: 休息\n星期五: 17:00 – 23:00\n星期六: 17:00 – 23:00\n星期日: 17:00 – 23:00",
+        "isOperational": true,
+        "fullAddress": "241台灣新北市三重區中央北路45號對面（三和夜市丹丹香蔥油餅隔壁攤",
+        "rating": 4.6,
+        "userRatingCount": 252,
+        "googlePlaceName": "places/ChIJafnpL0ipQjQRPIe6-cgr1tc",
+        "gps": {
+          "latitude": 25.0651421,
+          "longitude": 121.50089419999999
+        }
+      },
+      {
+        "area": "中正區",
+        "websiteUri": "https://www.facebook.com/%E5%A1%A9%E7%90%89-101649612102653",
+        "googleMapsUri": "https://maps.google.com/?cid=14854926449067013560",
+        "city": "台北市",
+        "openingTime": "星期一: 11:00 – 14:00, 17:00 – 20:30\n星期二: 11:00 – 14:00, 17:00 – 20:30\n星期三: 11:00 – 14:00, 17:00 – 20:30\n星期四: 11:00 – 14:00, 17:00 – 20:30\n星期五: 11:00 – 14:00, 17:00 – 20:30\n星期六: 11:00 – 14:00, 17:00 – 20:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區重慶南路一段116號",
+        "rating": 4.7,
+        "userRatingCount": 750,
+        "googlePlaceName": "places/ChIJe5kqTsWpQjQRuLUxkeZMJ84",
+        "gps": {
+          "latitude": 25.0419372,
+          "longitude": 121.5130037
+        }
+      },
+      {
+        "area": "信義區",
+        "websiteUri": "http://www.facebook.com/gonokamitw",
+        "googleMapsUri": "https://maps.google.com/?cid=11001966969690178252",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 15:00, 17:00 – 21:00\n星期二: 11:30 – 15:00, 17:00 – 21:00\n星期三: 11:30 – 15:00, 17:00 – 21:00\n星期四: 11:30 – 15:00, 17:00 – 21:00\n星期五: 11:30 – 15:00, 17:00 – 21:00\n星期六: 11:30 – 21:00\n星期日: 11:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "110台灣台北市信義區忠孝東路四段553巷6弄6號",
+        "rating": 4.3,
+        "userRatingCount": 4441,
+        "googlePlaceName": "places/ChIJVTq0LrmrQjQRzML2AqvWrpg",
+        "gps": {
+          "latitude": 25.0422053,
+          "longitude": 121.563096
+        }
+      },
+      {
+        "area": "中正區",
+        "websiteUri": "https://www.facebook.com/%E9%B7%B9%E6%B5%81%E6%9D%B1%E4%BA%AC%E8%B1%9A%E9%AA%A8%E6%8B%89%E9%BA%BA%E6%A5%B5%E5%8C%A0gokujoh%E5%85%AC%E9%A4%A8%E5%BA%97-1595875050693951/",
+        "googleMapsUri": "https://maps.google.com/?cid=12064576397311274890",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:30, 17:00 – 21:00\n星期二: 11:30 – 14:30, 17:00 – 21:00\n星期三: 11:30 – 14:30, 17:00 – 21:00\n星期四: 11:30 – 14:30, 17:00 – 21:00\n星期五: 11:30 – 15:00, 17:00 – 22:00\n星期六: 11:30 – 15:00, 17:00 – 22:00\n星期日: 11:30 – 15:00, 17:00 – 22:00",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區汀州路三段104巷4號",
+        "rating": 4,
+        "userRatingCount": 3126,
+        "googlePlaceName": "places/ChIJW-iwFoupQjQRiu9M_0_8bac",
+        "gps": {
+          "latitude": 25.0141524,
+          "longitude": 121.53308239999998
+        }
+      },
+      {
+        "area": "桃園區",
+        "websiteUri": "https://www.facebook.com/%E4%B8%89%E5%86%AC%E9%BA%B5%E8%88%96-183414512398428/",
+        "googleMapsUri": "https://maps.google.com/?cid=17328389542179649493",
+        "city": "桃園市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 16:50 – 19:50\n星期四: 16:50 – 19:50\n星期五: 16:50 – 19:50\n星期六: 11:30 – 13:30, 16:50 – 19:50\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "330台灣桃園市桃園區同德十街17號",
+        "rating": 4.6,
+        "userRatingCount": 1399,
+        "googlePlaceName": "places/ChIJn_46UrofaDQR1Tc2l3rOevA",
+        "gps": {
+          "latitude": 25.0184978,
+          "longitude": 121.29439869999999
+        }
+      },
+      {
+        "area": "中壢區",
+        "websiteUri": "",
+        "googleMapsUri": "https://maps.google.com/?cid=1263536086707730025",
+        "city": "桃園市",
+        "openingTime": "星期一: 11:00 – 14:00, 17:00 – 21:00\n星期二: 休息\n星期三: 11:00 – 14:00, 17:00 – 21:00\n星期四: 11:00 – 14:00, 17:00 – 21:00\n星期五: 11:00 – 14:00, 17:00 – 21:00\n星期六: 11:00 – 14:00, 17:00 – 21:00\n星期日: 11:00 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "320台灣桃園市中壢區民權路四段446號",
+        "rating": 4.8,
+        "userRatingCount": 146,
+        "googlePlaceName": "places/ChIJMS8grEAhaDQRafYZWWD7iBE",
+        "gps": {
+          "latitude": 25.005862,
+          "longitude": 121.20281329999999
+        }
+      },
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/NagiTaiwan/",
+        "googleMapsUri": "https://maps.google.com/?cid=4062972864771442104",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 20:00\n星期二: 11:30 – 20:00\n星期三: 11:30 – 20:00\n星期四: 11:30 – 20:00\n星期五: 11:30 – 20:00\n星期六: 11:30 – 20:00\n星期日: 11:30 – 20:00",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區大安路一段75巷5號1",
+        "rating": 4.3,
+        "userRatingCount": 3757,
+        "googlePlaceName": "places/ChIJ6Rj6k9qrQjQRuMXAQEuUYjg",
+        "gps": {
+          "latitude": 25.0423197,
+          "longitude": 121.54657540000001
+        }
+      },
+      {
+        "area": "大安區",
+        "websiteUri": "https://butanchu.business.site/",
+        "googleMapsUri": "https://maps.google.com/?cid=12636747565643100852",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 15:00, 17:00 – 21:00\n星期二: 11:30 – 15:00, 17:00 – 21:00\n星期三: 11:30 – 15:00, 17:00 – 21:00\n星期四: 11:30 – 15:00, 17:00 – 21:00\n星期五: 11:30 – 03:00\n星期六: 11:30 – 03:00\n星期日: 11:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區忠孝東路四段170巷5弄10號",
+        "rating": 4.3,
+        "userRatingCount": 2334,
+        "googlePlaceName": "places/ChIJ8ZmNn7erQjQRtHJwZvW-Xq8",
+        "gps": {
+          "latitude": 25.0407284,
+          "longitude": 121.55139640000002
+        }
+      },
+      {
+        "area": "新莊區",
+        "websiteUri": "https://www.facebook.com/chuyuanramen002/",
+        "googleMapsUri": "https://maps.google.com/?cid=18005484994046176842",
+        "city": "新北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 00:00\n星期二: 11:30 – 14:00, 17:00 – 00:00\n星期三: 11:30 – 14:00, 17:00 – 00:00\n星期四: 11:30 – 14:00, 17:00 – 00:00\n星期五: 11:30 – 14:00, 17:00 – 00:00\n星期六: 11:30 – 14:00, 17:00 – 00:00\n星期日: 11:30 – 14:00, 17:00 – 00:00",
+        "isOperational": true,
+        "fullAddress": "242台灣新北市新莊區福營路385號",
+        "rating": 4.6,
+        "userRatingCount": 1626,
+        "googlePlaceName": "places/ChIJOQC7ABynQjQRSq6_djRV4Pk",
+        "gps": {
+          "latitude": 25.027328100000002,
+          "longitude": 121.42268750000001
+        }
+      },
+      {
+        "area": "三重區",
+        "websiteUri": "https://www.facebook.com/chuyuanramen005/",
+        "googleMapsUri": "https://maps.google.com/?cid=4864682667578104784",
+        "city": "新北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:00 – 20:30, 21:00 – 00:00\n星期二: 11:30 – 14:00, 17:00 – 20:30, 21:00 – 00:00\n星期三: 11:30 – 14:00, 17:00 – 20:30, 21:00 – 00:00\n星期四: 11:30 – 14:00, 17:00 – 20:30, 21:00 – 00:00\n星期五: 11:30 – 14:00, 17:00 – 20:30, 21:00 – 00:00\n星期六: 11:30 – 14:00, 17:00 – 20:30, 21:00 – 00:00\n星期日: 11:30 – 14:00, 17:00 – 20:30, 21:00 – 00:00",
+        "isOperational": true,
+        "fullAddress": "241台灣新北市三重區自強路五段106號",
+        "rating": 4.7,
+        "userRatingCount": 1541,
+        "googlePlaceName": "places/ChIJWWs2axapQjQR0Bv-qRzTgkM",
+        "gps": {
+          "latitude": 25.083409699999997,
+          "longitude": 121.49674599999999
+        }
+      },
+      {
+        "area": "中壢區",
+        "websiteUri": "http://www.ramensanji.com.tw/",
+        "googleMapsUri": "https://maps.google.com/?cid=6720731264819623105",
+        "city": "桃園市",
+        "openingTime": "星期一: 11:00 – 20:30\n星期二: 11:00 – 20:30\n星期三: 11:00 – 20:30\n星期四: 11:00 – 20:30\n星期五: 11:00 – 20:30\n星期六: 11:00 – 21:30\n星期日: 11:00 – 21:30",
+        "isOperational": true,
+        "fullAddress": "320台灣桃園市中壢區春德路189號",
+        "rating": 3.1,
+        "userRatingCount": 412,
+        "googlePlaceName": "places/ChIJCeY2QQYhaDQRwXRvNnrVRF0",
+        "gps": {
+          "latitude": 25.014523900000004,
+          "longitude": 121.21287969999999
+        }
+      }
+    ],
+    "ranking": 84,
+    "name": "拉麵山田"
+  },
+  "iXCq7IXzDVS7xvggIb8A": {
+    "name": "麵魂家",
+    "shops": [
+      {
+        "area": "羅東鎮",
+        "websiteUri": "https://www.facebook.com/men.kon.ya/",
+        "googleMapsUri": "https://maps.google.com/?cid=8516765505238428010",
+        "city": "宜蘭縣",
+        "openingTime": "星期一: 休息\n星期二: 12:00 – 14:30, 17:00 – 20:00\n星期三: 12:00 – 14:30, 17:00 – 20:00\n星期四: 12:00 – 14:30, 17:00 – 20:00\n星期五: 12:00 – 14:30, 17:00 – 20:00\n星期六: 12:00 – 20:00\n星期日: 12:00 – 20:00",
+        "isOperational": true,
+        "fullAddress": "265台灣宜蘭縣南門路140號",
+        "rating": 4.3,
+        "userRatingCount": 2224,
+        "googlePlaceName": "places/ChIJS3_u9IfmZzQRamkJbxqhMXY",
+        "gps": {
+          "latitude": 24.6730192,
+          "longitude": 121.76560599999999
+        }
+      }
+    ],
+    "ranking": 85
+  },
+  "3tDoFT7rYdohudBAmR3v": {
+    "shops": [
+      {
+        "area": "花蓮市",
+        "websiteUri": "https://www.facebook.com/%E9%BB%91%E6%BD%AE%E6%8B%89%E9%BA%B5-1986447311623436",
+        "googleMapsUri": "https://maps.google.com/?cid=5152885144956715134",
+        "city": "花蓮縣",
+        "openingTime": "星期一: 11:00 – 14:00, 16:30 – 19:30\n星期二: 11:00 – 14:00, 16:30 – 19:30\n星期三: 11:00 – 14:00, 16:30 – 19:30\n星期四: 11:00 – 14:00, 16:30 – 19:30\n星期五: 11:00 – 14:00, 16:30 – 19:30\n星期六: 11:00 – 14:00, 16:30 – 19:30\n星期日: 11:00 – 14:00, 16:30 – 19:30",
+        "isOperational": true,
+        "fullAddress": "970台灣花蓮縣復興街71號970",
+        "rating": 4.3,
+        "userRatingCount": 1541,
+        "googlePlaceName": "places/ChIJVY9dEZWfaDQRfkCI-by5gkc",
+        "gps": {
+          "latitude": 23.9817352,
+          "longitude": 121.60657739999999
+        }
+      }
+    ],
+    "ranking": 86,
+    "name": "黑潮"
+  },
+  "ndUGK5g3Cln2af1E1WpX": {
+    "shops": [
+      {
+        "area": "花蓮市",
+        "websiteUri": "https://www.facebook.com/syousin",
+        "googleMapsUri": "https://maps.google.com/?cid=11683964595258772264",
+        "city": "花蓮縣",
+        "openingTime": "星期一: 17:45 – 19:45\n星期二: 11:45 – 13:45, 17:45 – 19:45\n星期三: 05:45 – 19:45\n星期四: 17:45 – 19:45\n星期五: 11:45 – 13:45, 17:45 – 19:45\n星期六: 休息\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "970台灣花蓮縣明禮路12號",
+        "rating": 4,
+        "userRatingCount": 1245,
+        "googlePlaceName": "places/ChIJNYVqjJafaDQRKMujJOXHJaI",
+        "gps": {
+          "latitude": 23.981673900000004,
+          "longitude": 121.6090641
+        }
+      }
+    ],
+    "ranking": 87,
+    "name": "匠心食堂"
+  },
+  "gUlCoiDTbziEW0WNJooA": {
+    "shops": [
+      {
+        "area": "花蓮市",
+        "websiteUri": "https://www.instagram.com/thefishery.tw",
+        "googleMapsUri": "https://maps.google.com/?cid=4828173498988702967",
+        "city": "花蓮縣",
+        "openingTime": "星期一: 11:45 – 14:00, 17:45 – 20:00\n星期二: 11:45 – 14:00, 17:45 – 20:00\n星期三: 11:45 – 14:00, 17:45 – 20:00\n星期四: 11:45 – 14:00, 17:45 – 20:00\n星期五: 11:45 – 14:00, 17:45 – 20:00\n星期六: 11:45 – 14:00, 17:45 – 20:00\n星期日: 11:45 – 14:00, 17:45 – 20:00",
+        "isOperational": true,
+        "fullAddress": "970台灣花蓮縣建國路23號1樓",
+        "rating": 4.3,
+        "userRatingCount": 2329,
+        "googlePlaceName": "places/ChIJSbijIkqfaDQR9ywtcTceAUM",
+        "gps": {
+          "latitude": 23.9828467,
+          "longitude": 121.6061982
+        }
+      },
+      {
+        "area": "羅東鎮",
+        "websiteUri": "https://www.instagram.com/thefishery.tw/",
+        "googleMapsUri": "https://maps.google.com/?cid=7785673619781187823",
+        "city": "宜蘭縣",
+        "openingTime": "星期一: 11:45 – 14:00, 17:45 – 20:00\n星期二: 11:45 – 14:00, 17:45 – 20:00\n星期三: 11:45 – 14:00, 17:45 – 20:00\n星期四: 11:45 – 14:00, 17:45 – 20:00\n星期五: 11:45 – 14:00, 17:45 – 20:00\n星期六: 11:45 – 14:00, 17:45 – 20:00\n星期日: 11:45 – 14:00, 17:45 – 20:00",
+        "isOperational": true,
+        "fullAddress": "265台灣宜蘭縣天津路41號",
+        "rating": 4.3,
+        "userRatingCount": 326,
+        "googlePlaceName": "places/ChIJl_b5B_TnZzQR7_gvLOhEDGw",
+        "gps": {
+          "latitude": 24.6799939,
+          "longitude": 121.76992650000001
+        }
+      },
+      {
+        "area": "中正區",
+        "websiteUri": "",
+        "googleMapsUri": "https://maps.google.com/?cid=8370532353449689642",
+        "city": "基隆市",
+        "openingTime": "星期一: 11:45 – 20:00\n星期二: 11:45 – 20:00\n星期三: 11:45 – 20:00\n星期四: 11:45 – 20:00\n星期五: 11:45 – 20:00\n星期六: 11:45 – 20:00\n星期日: 11:45 – 20:00",
+        "isOperational": true,
+        "fullAddress": "202台灣基隆市中正路541號",
+        "rating": 4.2,
+        "userRatingCount": 216,
+        "googlePlaceName": "places/ChIJuTX43DZPXTQRKoJIlNMaKnQ",
+        "gps": {
+          "latitude": 25.1524952,
+          "longitude": 121.768785
+        }
+      }
+    ],
+    "ranking": 88,
+    "name": "定置漁場三代目"
+  },
+  "zH7HBN2Em1tYfmUmX6fT": {
+    "shops": [
+      {
+        "area": "鼓山區",
+        "websiteUri": "https://www.facebook.com/%E9%BA%B5%E5%B1%8B%E7%A5%A5%E6%9D%B1%E4%BA%AC%E9%86%AC%E6%B2%B9%E6%8B%89%E9%BA%B5-1659030511032019/?fref=ts",
+        "googleMapsUri": "https://maps.google.com/?cid=16004604392938643901",
+        "city": "高雄市",
+        "openingTime": "星期一: 17:30 – 21:30\n星期二: 17:30 – 21:30\n星期三: 17:30 – 21:30\n星期四: 17:30 – 21:30\n星期五: 17:30 – 21:30\n星期六: 17:30 – 21:30\n星期日: 17:30 – 21:30",
+        "isOperational": true,
+        "fullAddress": "804台灣高雄市鼓山區大順一路459號1樓",
+        "rating": 4.3,
+        "userRatingCount": 1790,
+        "googlePlaceName": "places/ChIJ3zbeiP4EbjQRvaHDO-bGG94",
+        "gps": {
+          "latitude": 22.6557528,
+          "longitude": 120.3021742
+        }
+      }
+    ],
+    "ranking": 89,
+    "name": "麵屋祥"
+  },
+  "1Ti6rQ87MYXUH8jrzuKe": {
+    "shops": [
+      {
+        "area": "大安區",
+        "websiteUri": "https://www.facebook.com/Topichiramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=2043258262762987024",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 15:00, 17:30 – 21:00\n星期三: 11:30 – 15:00, 17:30 – 21:00\n星期四: 11:30 – 15:00, 17:30 – 21:00\n星期五: 11:30 – 15:00, 17:30 – 21:00\n星期六: 11:30 – 15:00, 17:30 – 21:00\n星期日: 11:30 – 15:00, 17:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "106台灣台北市大安區延吉街137巷22號",
+        "rating": 4.2,
+        "userRatingCount": 2406,
+        "googlePlaceName": "places/ChIJJZEnisarQjQREJ5eeJAcWxw",
+        "gps": {
+          "latitude": 25.0418912,
+          "longitude": 121.5552509
+        }
+      },
+      {
+        "area": "中山區",
+        "websiteUri": "http://www.facebook.com/ichi09102018",
+        "googleMapsUri": "https://maps.google.com/?cid=15244076592020949910",
+        "city": "台北市",
+        "openingTime": "星期一: 休息\n星期二: 12:00 – 14:00, 17:00 – 21:00\n星期三: 12:00 – 14:00, 17:00 – 21:00\n星期四: 12:00 – 14:00, 17:00 – 21:00\n星期五: 12:00 – 14:00, 17:00 – 21:00\n星期六: 12:00 – 14:00, 17:00 – 21:00\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "10491台灣台北市中山區雙城街32巷2號",
+        "rating": 4.3,
+        "userRatingCount": 1706,
+        "googlePlaceName": "places/ChIJJWD3-tSpQjQRlotB1OTWjdM",
+        "gps": {
+          "latitude": 25.066181099999998,
+          "longitude": 121.52423449999999
+        }
+      },
+      {
+        "area": "信義區",
+        "websiteUri": "https://www.facebook.com/ebisobaichigen/",
+        "googleMapsUri": "https://maps.google.com/?cid=16219595320872249751",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 15:00, 17:00 – 21:00\n星期二: 11:30 – 15:00, 17:00 – 21:00\n星期三: 11:30 – 15:00, 17:00 – 21:00\n星期四: 11:30 – 15:00, 17:00 – 21:00\n星期五: 11:30 – 15:00, 17:00 – 21:00\n星期六: 11:30 – 15:30, 17:00 – 21:00\n星期日: 11:30 – 15:30, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "110台灣台北市信義區松壽路30號1樓",
+        "rating": 4.2,
+        "userRatingCount": 4491,
+        "googlePlaceName": "places/ChIJaSOhhrCrQjQRl6ktXQKUF-E",
+        "gps": {
+          "latitude": 25.035479199999997,
+          "longitude": 121.5681028
+        }
+      },
+      {
+        "area": "新店區",
+        "websiteUri": "",
+        "googleMapsUri": "https://maps.google.com/?cid=15340362527546303705",
+        "city": "新北市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 14:00, 17:00 – 20:30\n星期三: 11:30 – 14:00, 17:00 – 20:30\n星期四: 11:30 – 14:00, 17:00 – 20:30\n星期五: 11:30 – 14:00, 17:00 – 20:30\n星期六: 11:30 – 14:00, 17:00 – 20:30\n星期日: 11:30 – 14:00, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "231台灣新北市新店區中正路189巷12號",
+        "rating": 4.9,
+        "userRatingCount": 65,
+        "googlePlaceName": "places/ChIJTbMXtioBaDQR2WQcLHHq49Q",
+        "gps": {
+          "latitude": 24.971947,
+          "longitude": 121.54020049999998
+        }
+      },
+      {
+        "area": "中山區",
+        "websiteUri": "https://www.iekei-yamatoya.tw/",
+        "googleMapsUri": "https://maps.google.com/?cid=14807687572182421728",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 22:30\n星期二: 11:30 – 22:30\n星期三: 11:30 – 22:30\n星期四: 11:30 – 22:30\n星期五: 11:30 – 22:30\n星期六: 11:30 – 22:30\n星期日: 11:30 – 22:30",
+        "isOperational": true,
+        "fullAddress": "104005台灣台北市中山區中山北路一段105巷13-2號",
+        "rating": 4.1,
+        "userRatingCount": 417,
+        "googlePlaceName": "places/ChIJm1XNOdGpQjQR4FDmdGR5f80",
+        "gps": {
+          "latitude": 25.050795599999997,
+          "longitude": 121.52338590000001
+        }
+      },
+      {
+        "area": "士林區",
+        "websiteUri": "https://www.facebook.com/kakuregaramen/",
+        "googleMapsUri": "https://maps.google.com/?cid=15237932125597046566",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 14:00, 16:30 – 22:00\n星期二: 11:30 – 14:00, 16:30 – 22:00\n星期三: 11:30 – 14:00, 16:30 – 22:00\n星期四: 11:30 – 14:00, 16:30 – 22:00\n星期五: 11:30 – 14:00, 16:30 – 22:00\n星期六: 11:30 – 14:00, 16:30 – 22:00\n星期日: 11:30 – 14:00, 16:30 – 22:00",
+        "isOperational": true,
+        "fullAddress": "111台灣台北市士林區中山北路五段505巷22號",
+        "rating": 4.4,
+        "userRatingCount": 2708,
+        "googlePlaceName": "places/ChIJge0A1GmvQjQRJpe5wYgCeNM",
+        "gps": {
+          "latitude": 25.0932112,
+          "longitude": 121.5271313
+        }
+      },
+      {
+        "area": "中正區",
+        "websiteUri": "http://www.facebook.com/torikintw",
+        "googleMapsUri": "https://maps.google.com/?cid=11856442414451961711",
+        "city": "台北市",
+        "openingTime": "星期一: 11:30 – 03:00\n星期二: 11:30 – 03:00\n星期三: 11:30 – 03:00\n星期四: 11:30 – 03:00\n星期五: 11:30 – 03:00\n星期六: 11:30 – 03:00\n星期日: 11:30 – 03:00",
+        "isOperational": true,
+        "fullAddress": "100台灣台北市中正區新生南路一段6號1樓",
+        "rating": 4.3,
+        "userRatingCount": 1629,
+        "googlePlaceName": "places/ChIJwTPCxfKpQjQRb69IzY6LiqQ",
+        "gps": {
+          "latitude": 25.044035899999997,
+          "longitude": 121.53271029999999
+        }
+      },
+      {
+        "area": "永和區",
+        "websiteUri": "https://www.facebook.com/%E8%BE%B0%E6%8B%89%E9%BA%B5-861080067606438/",
+        "googleMapsUri": "https://maps.google.com/?cid=4325680341140672149",
+        "city": "新北市",
+        "openingTime": "星期一: 17:00 – 20:30\n星期二: 17:00 – 20:30\n星期三: 17:00 – 20:30\n星期四: 17:00 – 20:30\n星期五: 休息\n星期六: 休息\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "234台灣新北市永和區文化路110號1樓",
+        "rating": 4.8,
+        "userRatingCount": 1399,
+        "googlePlaceName": "places/ChIJx-Q2ioCpQjQRlY6UEVrnBzw",
+        "gps": {
+          "latitude": 25.015347900000002,
+          "longitude": 121.51345889999999
+        }
+      },
+      {
+        "area": "松山区",
+        "websiteUri": "http://www.ichibanya.com.tw/",
+        "googleMapsUri": "https://maps.google.com/?cid=6027450894757557796",
+        "city": "台北市",
+        "openingTime": "星期一: 11:00 – 21:30\n星期二: 11:00 – 21:30\n星期三: 11:00 – 21:30\n星期四: 11:00 – 21:30\n星期五: 11:00 – 21:30\n星期六: 11:00 – 21:30\n星期日: 11:00 – 21:30",
+        "isOperational": true,
+        "fullAddress": "10550台灣台北市松山区南京東路三段259號2樓",
+        "rating": 3.8,
+        "userRatingCount": 1125,
+        "googlePlaceName": "places/ChIJp5fui92rQjQRJHYia6fOpVM",
+        "gps": {
+          "latitude": 25.0520134,
+          "longitude": 121.54492589999998
+        }
+      },
+      {
+        "area": "前金區",
+        "websiteUri": "https://ramenichi072218883.weebly.com/",
+        "googleMapsUri": "https://maps.google.com/?cid=1348141430955920586",
+        "city": "高雄市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 14:00, 17:30 – 21:00\n星期三: 11:30 – 14:00, 17:30 – 21:00\n星期四: 11:30 – 14:00, 17:30 – 21:00\n星期五: 11:30 – 14:00, 17:30 – 21:00\n星期六: 11:30 – 14:00, 17:30 – 21:00\n星期日: 11:30 – 14:00, 17:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "80147台灣高雄市前金區成功一路298號",
+        "rating": 4.4,
+        "userRatingCount": 967,
+        "googlePlaceName": "places/ChIJk6Tzmw8FbjQRykwdG32PtRI",
+        "gps": {
+          "latitude": 22.6206029,
+          "longitude": 120.2953898
+        }
+      }
+    ],
+    "ranking": 90,
+    "name": "らーめん壱"
+  },
+  "NeNyMIJFGokVrVl9Xzun": {
+    "shops": [
+      {
+        "area": "三民區",
+        "websiteUri": "https://www.facebook.com/%E5%90%89%E8%83%A4%E5%AE%B6%E6%A9%AB%E6%B5%9C%E5%AE%B6%E7%B3%BB%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3-2415756965315405/",
+        "googleMapsUri": "https://maps.google.com/?cid=7416338875276197403",
+        "city": "高雄市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 17:30 – 20:00\n星期四: 17:30 – 20:00\n星期五: 17:30 – 21:00\n星期六: 17:30 – 21:00\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "807台灣高雄市三民區慶雲街105號",
+        "rating": 4.7,
+        "userRatingCount": 803,
+        "googlePlaceName": "places/ChIJpQp_KekEbjQRG_7B4ukg7GY",
+        "gps": {
+          "latitude": 22.6424417,
+          "longitude": 120.31509259999999
+        }
+      }
+    ],
+    "ranking": 91,
+    "name": "吉胤家"
+  },
+  "5exmHOfII0XGtKXXaAdr": {
+    "shops": [
+      {
+        "area": "苓雅區",
+        "websiteUri": "http://facebook.com/lzxst",
+        "googleMapsUri": "https://maps.google.com/?cid=8401659166044356691",
+        "city": "高雄市",
+        "openingTime": "星期一: 休息\n星期二: 休息\n星期三: 11:30 – 14:00, 17:00 – 20:00\n星期四: 11:30 – 14:00, 17:00 – 20:00\n星期五: 11:30 – 14:00, 17:00 – 20:00\n星期六: 11:30 – 14:00, 17:00 – 20:00\n星期日: 11:30 – 14:00, 17:00 – 20:00",
+        "isOperational": true,
+        "fullAddress": "802台灣高雄市苓雅區林泉街44號",
+        "rating": 4.5,
+        "userRatingCount": 1335,
+        "googlePlaceName": "places/ChIJr8Lwh5cEbjQRU4D6Y3-wmHQ",
+        "gps": {
+          "latitude": 22.623178,
+          "longitude": 120.318315
+        }
+      }
+    ],
+    "ranking": 92,
+    "name": "瀧澤軒"
+  },
+  "8A61TBAB24oO2K7ZcB7S": {
+    "shops": [
+      {
+        "area": "三民區",
+        "websiteUri": "https://www.facebook.com/%E6%B2%90%E7%80%A7%E5%AE%B6-%E6%8B%89%E9%BA%B5-379634679566678/?eid=ARB-VvB5yKBXkBeNDIhx8DqW4eZabtYCN3RszGc13N7WOqw6g0V8vg0cpWOf_uKfsmGdqV9mvuWWbgq1https://www.facebook.com/%E6%B2%90%E7%80%A7%E5%AE%B6-%E6%8B%89%E9%BA%B5-379634679566678/?eid=ARB-VvB5yKBXkBeNDIhx8DqW4eZabtYCN3RszGc13N7WOqw6g0V8vg0cpWOf_uKfsmGdqV9mvuWWbgq1",
+        "googleMapsUri": "https://maps.google.com/?cid=5529852234255743494",
+        "city": "高雄市",
+        "openingTime": "星期一: 休息\n星期二: 11:30 – 14:30, 17:30 – 19:30\n星期三: 11:30 – 14:30, 17:30 – 19:30\n星期四: 11:30 – 14:30, 17:30 – 19:30\n星期五: 11:30 – 14:30, 17:30 – 19:30\n星期六: 11:30 – 14:30, 17:30 – 19:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "807台灣高雄市三民區義華路294號",
+        "rating": 4.8,
+        "userRatingCount": 639,
+        "googlePlaceName": "places/ChIJe8Jfgo8FbjQRBro2A0_7vUw",
+        "gps": {
+          "latitude": 22.6436747,
+          "longitude": 120.33568239999998
+        }
+      }
+    ],
+    "ranking": 93,
+    "name": "沐瀧家"
+  },
+  "HoRH3mxzEA3r42QgEfna": {
+    "shops": [
+      {
+        "area": "苓雅區",
+        "websiteUri": "http://www.facebook.com/%E4%B8%AD%E6%9D%91%E8%A3%BD%E9%BA%B5-194744814374425/",
+        "googleMapsUri": "https://maps.google.com/?cid=9279001287049834273",
+        "city": "高雄市",
+        "openingTime": "星期一: 11:30 – 12:40, 17:30 – 19:30\n星期二: 11:30 – 12:40, 17:30 – 19:30\n星期三: 11:30 – 12:40, 17:30 – 19:30\n星期四: 11:30 – 12:40, 17:30 – 19:30\n星期五: 11:30 – 12:40, 17:30 – 19:30\n星期六: 11:30 – 12:40, 17:30 – 19:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "802台灣高雄市苓雅區成功一路231號",
+        "rating": 4.4,
+        "userRatingCount": 1018,
+        "googlePlaceName": "places/ChIJc44flX8EbjQRIW__IIKixYA",
+        "gps": {
+          "latitude": 22.6182853,
+          "longitude": 120.29594680000001
+        }
+      }
+    ],
+    "ranking": 94,
+    "name": "中村製麵"
+  },
+  "H1WjTB57ntdw66UuMdw1": {
+    "shops": [
+      {
+        "area": "東區",
+        "websiteUri": "https://www.facebook.com/%E9%BA%B5%E5%B1%8B%E6%B5%A9Hiroshi-303678116691993",
+        "googleMapsUri": "https://maps.google.com/?cid=9182296859599735538",
+        "city": "新竹市",
+        "openingTime": "",
+        "isOperational": true,
+        "fullAddress": "300台灣新竹市北門街87號",
+        "rating": 4.4,
+        "userRatingCount": 1367,
+        "googlePlaceName": "places/ChIJS9CLjsA1aDQR8oqgClgSbn8",
+        "gps": {
+          "latitude": 24.8068676,
+          "longitude": 120.9656927
+        }
+      }
+    ],
+    "ranking": 95,
+    "name": "麵屋浩"
+  },
+  "SHY9fC9xE5wt0jfzPdZt": {
+    "shops": [
+      {
+        "area": "東區",
+        "websiteUri": "https://www.facebook.com/ramenkikkou",
+        "googleMapsUri": "https://maps.google.com/?cid=8036120633206129985",
+        "city": "新竹市",
+        "openingTime": "星期一: 17:00 – 21:00\n星期二: 17:00 – 21:00\n星期三: 17:00 – 21:00\n星期四: 17:00 – 21:00\n星期五: 17:00 – 21:00\n星期六: 休息\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "300台灣新竹市關新東路138號1樓",
+        "rating": 4.2,
+        "userRatingCount": 561,
+        "googlePlaceName": "places/ChIJ9UlJNeA3aDQRQUVwgiMJhm8",
+        "gps": {
+          "latitude": 24.7837618,
+          "longitude": 121.01968119999998
+        }
+      }
+    ],
+    "ranking": 96,
+    "name": "麵屋吉光"
+  },
+  "JTRL2w926Rh6uW3Pvv6m": {
+    "shops": [
+      {
+        "area": "新店區",
+        "websiteUri": "https://www.facebook.com/Hiros-%E3%82%89%E3%81%81%E9%BA%B5Kitchen-%E6%96%B0%E5%8C%97%E6%96%B0%E5%BA%97%E5%BA%97-109863180921540",
+        "googleMapsUri": "https://maps.google.com/?cid=9026143241520063689",
+        "city": "新北市",
+        "openingTime": "星期一: 11:30 – 14:00, 17:30 – 21:00\n星期二: 休息\n星期三: 11:30 – 14:00, 17:30 – 21:00\n星期四: 11:30 – 14:00, 17:30 – 21:00\n星期五: 11:30 – 14:00, 17:30 – 21:00\n星期六: 11:30 – 14:00, 17:30 – 21:00\n星期日: 11:30 – 14:00, 17:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "231台灣新北市新店區文化路5號1樓",
+        "rating": 4.7,
+        "userRatingCount": 823,
+        "googlePlaceName": "places/ChIJ_QMYaD4BaDQRyaSYonRNQ30",
+        "gps": {
+          "latitude": 24.979334599999998,
+          "longitude": 121.54278359999999
+        }
+      },
+      {
+        "area": "竹北市",
+        "websiteUri": "https://hiroskitchen-ramen-restaurant.business.site/?utm_source=gmb&utm_medium=referral",
+        "googleMapsUri": "https://maps.google.com/?cid=7360166443338523287",
+        "city": "新竹縣",
+        "openingTime": "星期一: 17:30 – 21:00\n星期二: 休息\n星期三: 17:30 – 21:00\n星期四: 17:30 – 21:00\n星期五: 17:30 – 21:00\n星期六: 17:30 – 21:00\n星期日: 17:30 – 21:00",
+        "isOperational": true,
+        "fullAddress": "30264台灣新竹縣文義街237號",
+        "rating": 4.2,
+        "userRatingCount": 347,
+        "googlePlaceName": "places/ChIJWaLkEY03aDQRl2LxZmKQJGY",
+        "gps": {
+          "latitude": 24.8311419,
+          "longitude": 121.01347829999999
+        }
+      },
+      {
+        "area": "東區",
+        "websiteUri": "https://www.facebook.com/Hiros-%E3%82%89%E3%81%81%E9%BA%B5-Kitchen-%E6%96%B0%E7%AB%B9%E6%9C%AC%E5%BA%97-245344396116681",
+        "googleMapsUri": "https://maps.google.com/?cid=17896793894952294151",
+        "city": "新竹市",
+        "openingTime": "星期一: 17:30 – 21:30\n星期二: 17:30 – 21:30\n星期三: 17:30 – 21:30\n星期四: 休息\n星期五: 17:30 – 21:30\n星期六: 17:30 – 21:30\n星期日: 休息",
+        "isOperational": true,
+        "fullAddress": "300台灣新竹市長安街76號",
+        "rating": 4.3,
+        "userRatingCount": 190,
+        "googlePlaceName": "places/ChIJPZ0DFCM1aDQRB9cC5zkvXvg",
+        "gps": {
+          "latitude": 24.8068796,
+          "longitude": 120.9654044
+        }
+      }
+    ],
+    "ranking": 97,
+    "name": "Hiro's"
+  },
+  "8gXUoQWQRcThx2oMOQjb": {
+    "shops": [
+      {
+        "area": "東區",
+        "websiteUri": "https://www.facebook.com/486014864888310",
+        "googleMapsUri": "https://maps.google.com/?cid=8205356680359105524",
+        "city": "嘉義市",
+        "openingTime": "星期一: 12:00 – 14:00, 17:00 – 21:00\n星期二: 休息\n星期三: 17:00 – 21:00\n星期四: 12:00 – 14:00, 17:00 – 21:00\n星期五: 12:00 – 14:00, 17:00 – 21:00\n星期六: 12:00 – 14:00, 17:00 – 21:00\n星期日: 11:30 – 14:00, 17:00 – 21:00",
+        "isOperational": true,
+        "fullAddress": "600台灣嘉義市中正路349號",
+        "rating": 4.5,
+        "userRatingCount": 1833,
+        "googlePlaceName": "places/ChIJuQI4MjKUbjQR9NMuTG1I33E",
+        "gps": {
+          "latitude": 23.478866699999998,
+          "longitude": 120.45055690000001
+        }
+      }
+    ],
+    "ranking": 98,
+    "name": "山越"
+  },
+  "yVyp231kY2qiCu1YEv16": {
+    "shops": [
+      {
+        "area": "彰化市",
+        "websiteUri": "https://www.facebook.com/da7113881/",
+        "googleMapsUri": "https://maps.google.com/?cid=17375134963466509389",
+        "city": "彰化縣",
+        "openingTime": "星期一: 11:30 – 13:20, 17:30 – 20:20\n星期二: 休息\n星期三: 11:30 – 13:20, 17:30 – 20:20\n星期四: 11:30 – 13:20, 17:30 – 20:20\n星期五: 11:30 – 13:20, 17:30 – 20:20\n星期六: 11:30 – 13:20, 17:30 – 20:20\n星期日: 11:30 – 13:20, 17:30 – 20:20",
+        "isOperational": true,
+        "fullAddress": "500台灣彰化縣大埔路691號",
+        "rating": 4.4,
+        "userRatingCount": 1113,
+        "googlePlaceName": "places/ChIJba6QAYk4aTQRTRzkHTHhIPE",
+        "gps": {
+          "latitude": 24.0683333,
+          "longitude": 120.54249999999999
+        }
+      }
+    ],
+    "ranking": 99,
+    "name": "嵐田"
+  },
+  "IMyHYoss4uXfjBwat83k": {
+    "shops": [
+      {
+        "area": "豐原區",
+        "websiteUri": "",
+        "googleMapsUri": "https://maps.google.com/?cid=17597554808504214310",
+        "city": "台中市",
+        "openingTime": "星期一: 11:00 – 14:00, 17:00 – 20:30\n星期二: 11:00 – 14:00, 17:00 – 20:30\n星期三: 11:00 – 14:00, 17:00 – 20:30\n星期四: 11:00 – 14:00, 17:00 – 20:30\n星期五: 11:00 – 14:00, 17:00 – 20:30\n星期六: 11:00 – 14:00, 17:00 – 20:30\n星期日: 11:00 – 14:00, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "420台灣台中市豐原區圓環南路15號",
+        "rating": 4.2,
+        "userRatingCount": 668,
+        "googlePlaceName": "places/ChIJsc8A6QAaaTQRJmNczNwSN_Q",
+        "gps": {
+          "latitude": 24.2452594,
+          "longitude": 120.7131363
+        }
+      },
+      {
+        "area": "台東市",
+        "websiteUri": "https://www.facebook.com/HotRamen.Taitung/",
+        "googleMapsUri": "https://maps.google.com/?cid=2106171419803055736",
+        "city": "台東縣",
+        "openingTime": "星期一: 11:00 – 14:00, 17:00 – 20:30\n星期二: 11:00 – 14:00, 17:00 – 20:30\n星期三: 11:00 – 14:00, 17:00 – 20:30\n星期四: 11:00 – 14:00, 17:00 – 20:30\n星期五: 11:00 – 14:00, 17:00 – 20:30\n星期六: 11:00 – 14:00, 17:00 – 20:30\n星期日: 11:00 – 14:00, 17:00 – 20:30",
+        "isOperational": true,
+        "fullAddress": "950台灣台東縣福建路285號",
+        "rating": 4.7,
+        "userRatingCount": 1052,
+        "googlePlaceName": "places/ChIJv4LmtT25bzQRePZwUb-fOh0",
+        "gps": {
+          "latitude": 22.750577999999997,
+          "longitude": 121.15067660000001
+        }
+      }
+    ],
+    "ranking": 100,
+    "name": "哈拉麵"
+  }
+}

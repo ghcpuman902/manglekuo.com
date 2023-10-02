@@ -25,7 +25,7 @@ export const getShops = cache(async () => {
     const q = query(ramenShopList2023Ref, orderBy("ranking"));
     const shopSnapshot = await getDocs(q);
 
-    const Shops = {}; 
+    const Shops: Record<string, any> = {};
     shopSnapshot.docs.map(doc => Shops[doc.id]=doc.data());
 
     console.log(`Ramen shops fetched, time: ${new Date().toISOString()}`);

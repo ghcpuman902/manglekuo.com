@@ -9,16 +9,27 @@
   },
   "dependencies": {
     "@google-cloud/firestore": "^6.7.0",
+    "@radix-ui/react-progress": "^1.0.3",
+    "@radix-ui/react-slot": "^1.0.2",
     "@svgdotjs/svg.js": "^3.2.0",
+    "@tensorflow/tfjs": "^4.11.0",
+    "@tensorflow/tfjs-converter": "^4.11.0",
+    "@tensorflow/tfjs-node": "^4.11.0",
     "@vercel/analytics": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "copy-to-clipboard": "^3.3.3",
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",
     "encoding": "^0.1.13",
     "firebase": "^10.3.1",
     "gray-matter": "^4.0.3",
+    "lucide-react": "^0.279.0",
     "matter-js": "^0.17.1",
-    "next": "^13.4.19",
+    "next": "^13.5.3",
+    "next-themes": "^0.2.1",
+    "openai": "^4.10.0",
+    "raw-loader": "^4.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-google-one-tap-login": "^0.1.1",
@@ -29,12 +40,18 @@
     "remark-rehype": "^8.1.0",
     "sass": "^1.66.1",
     "styled-components": "^5.3.11",
-    "unified": "^9.2.2"
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss-animate": "^1.0.7",
+    "unified": "^9.2.2",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@types/react": "18.2.21",
     "@types/styled-components": "^5.1.26",
+    "autoprefixer": "^10.4.16",
     "eslint-config-next": "^13.4.19",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.30",
+    "tailwindcss": "^3.3.3"
   }
 }
