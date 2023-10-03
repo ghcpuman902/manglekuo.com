@@ -191,7 +191,8 @@ export default function Page() {
 
 
     useEffect(() => {
-        if(searchParams.has('q') && searchParams.get('q')!=''){
+        if(searchParams.has('q') && searchParams.get('q')!='' && articles){
+            setQueryText(searchParams.get('q'));
             setLoading(0);
             async function fetchData() {
                 async function getQueryEmbedding(text) {
@@ -218,7 +219,6 @@ export default function Page() {
                 const sortedAndUpdatedArticles = sortArticles(updatedArticles);
                 setArticles(sortedAndUpdatedArticles);
                 setLoading(200);
-                setQueryText(searchParams.get('q'));
             }
             fetchData();
         }
