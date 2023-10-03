@@ -82,7 +82,6 @@ export default function Page() {
         return final;
     }
     
-
     useEffect(() => {
         async function updateEmbeddings(articles, targetEmbedding) {
             setLoading(3);
@@ -189,6 +188,43 @@ export default function Page() {
         }
         fetchData();
     }
+
+
+    useEffect(() => {
+        if(searchParams.has('q') && searchParams.get('q')!=''){
+            setLoading(0);
+            async function fetchData() {
+                async function getQueryEmbedding(text) {
+                    const res = await fetch('/works/article-search/api/embedding', {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ text }),
+                    });
+                    const resJson = await res.json();
+                    if (!res.ok) {
+                        throw new Error('Failed to fetch', resJson);
+                    }
+                    return resJson.result;
+                }
+                console.log(`fetching targetEmbeddings`);
+                queryEmbedding.current = await getQueryEmbedding(searchParams.get('q'));
+                const updatedArticles = articles.map((article) => {
+                    article.distance = dotProduct(article.embedding, queryEmbedding.current);
+                    return article;
+                });
+                console.log(`sorting articles`);
+                const sortedAndUpdatedArticles = sortArticles(updatedArticles);
+                setArticles(sortedAndUpdatedArticles);
+                setLoading(200);
+                setQueryText(searchParams.get('q'));
+            }
+            fetchData();
+        }
+    },[searchParams]);
+
+
 
     return (
         <div className="p-4 md:p-8">
