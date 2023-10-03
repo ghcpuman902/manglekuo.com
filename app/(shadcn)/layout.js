@@ -6,7 +6,7 @@ import { ThemeProvider } from "@components/theme-provider";
 
 export const metadata = {
   title: 'Articles Search',
-  description: 'The web application fetches the latest articles based on user queries related to astronomy scientific research, space exploration, and deep sky news, and sorts them based on relevance using OpenAI Embedding. It showcases articles from multiple sources along with their respective source links.',
+  description: 'The web application fetches the latest articles from varies rss sources, and sort the result based on relevance compare to user query using OpenAI Embedding.',
   creator: 'Mangle Kuo',
   authors: [
     {
@@ -33,6 +33,11 @@ export const metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
   },
 }
 

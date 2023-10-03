@@ -8,14 +8,22 @@ import {
     CardTitle,
 } from "@components/ui/card";
 import { Badge } from "@components/ui/badge";
-import Link from 'next/link'
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
-import timeAgo from "./utils/timeAgo";
+import{ timeAgo, getDictionary } from "./utils/utils";
 
 export default function ArticleCard({ article }) {
+    const searchParams = useSearchParams();
+    let locale = 'en';
+    if(searchParams.has('jp')){
+        locale = 'jp';
+    }
+    const dict = getDictionary(locale);
+
     const zoneColors = [ 'bg-amber-100 dark:bg-amber-600', 'bg-sky-100 dark:bg-sky-400', 'bg-sky-200 dark:bg-sky-600','bg-blue-200 dark:bg-blue-600','bg-emerald-200 dark:bg-emerald-600','bg-violet-200 dark:bg-violet-600'];
     const zoneBorderColors = [ 'border-amber-400', 'border-sky-200', 'border-sky-400','border-blue-400','border-emerald-400','border-violet-400'];
-    const zoneBadgeNames = [ 'Bad Match', 'Maybe', 'Good Match','Excellent Match','Similar Topic','Same Article'];
+    const zoneBadgeNames = dict["zoneBadgeNames"];
 
     function mapValue(d) {
         const mu = 0.785;
@@ -47,7 +55,7 @@ export default function ArticleCard({ article }) {
             {article ? (<Card className={`overflow-clip ${zoneBorderColors[mapValue(article.distance).zone]}`}>
                 <CardHeader>
                     <CardTitle><a href={article.link} target="_blank" rel="noopener noreferrer" className="underline">{article.title}</a></CardTitle>
-                    <CardDescription className="pt-1"><Badge variant="secondary" className="mr-1" suppressHydrationWarning>{timeAgo(article.pubDate)}</Badge><Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]} ({dToPercentage(mapValue(article.distance).newDistance)})</Badge></CardDescription>
+                    <CardDescription className="pt-1"><Badge variant="secondary" className="mr-1" suppressHydrationWarning>{timeAgo(article.pubDate,locale)}</Badge><Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]} ({dToPercentage(mapValue(article.distance).newDistance)})</Badge></CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div dangerouslySetInnerHTML={{ __html: article.description }}></div>
