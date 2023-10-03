@@ -4,7 +4,7 @@ export function getDictionary(locale) {
             "title": {
                 "article_search": "記事検索",
                 "fetched_articles": "取得した記事",
-                "_within_the_past_": "（過去4日間の記事：[NUMBER]件）:"
+                "_within_the_past_": "（過去4日間の記事：[NUMBER]件）"
             },
             "label": {
                 "article_sources": "記事ソース：",

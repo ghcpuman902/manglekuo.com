@@ -11,7 +11,7 @@ import { Badge } from "@components/ui/badge";
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
-import{ timeAgo, getDictionary } from "./utils/utils";
+import{ timeAgo, getDictionary, getDomainNameFromUrl } from "./utils/utils";
 
 export default function ArticleCard({ article }) {
     const searchParams = useSearchParams();
@@ -54,14 +54,14 @@ export default function ArticleCard({ article }) {
         <>
             {article ? (<Card className={`overflow-clip ${zoneBorderColors[mapValue(article.distance).zone]}`}>
                 <CardHeader>
-                    <CardTitle><a href={article.link} target="_blank" rel="noopener noreferrer" className="underline">{article.title}</a></CardTitle>
+                    <CardTitle><a href={article.link} target="_blank" rel="noopener noreferrer" className={`underline ${locale=='jp'?'leading-relaxed':''}`}>{article.title}</a></CardTitle>
                     <CardDescription className="pt-1"><Badge variant="secondary" className="mr-1" suppressHydrationWarning>{timeAgo(article.pubDate,locale)}</Badge><Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]} ({dToPercentage(mapValue(article.distance).newDistance)})</Badge></CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div dangerouslySetInnerHTML={{ __html: article.description }}></div>
                 </CardContent>
                 <CardFooter>
-                    <p className="leading-7 [&:not(:first-child)]:mt-6 text-ellipsis overflow-hidden">Source: <Link href={article.source} target="_blank" rel="noopener noreferrer" className="hover:underline">{article.source}</Link></p>
+                    <p className="leading-7 [&:not(:first-child)]:mt-6 text-ellipsis overflow-hidden">Source: <Link href={article.source} target="_blank" rel="noopener noreferrer" className="hover:underline">{getDomainNameFromUrl(article.source)}</Link></p>
                 </CardFooter>
             </Card>) : null}
         </>

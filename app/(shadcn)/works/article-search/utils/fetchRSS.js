@@ -74,12 +74,12 @@ export const fetchArticlesFromFeed = async (url) => {
                     articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
                 }
             }
-        }  else if (parsedResult['rdf:RDF'] && parsedResult['rdf:RDF'].item) {
+        } else if (parsedResult['rdf:RDF'] && parsedResult['rdf:RDF'].item) {
             // RDF format
             const items = parsedResult['rdf:RDF'].item;
             for(let item of items) {
                 const title = item.title[0];
-                const link = item.about; // 'about' attribute corresponds to 'link' in RDF
+                const link = item.about || item.link[0]; // 'about' attribute or <link> tag corresponds to 'link' in RDF
                 const pubDate = item['dc:date'][0];
                 let description = item.description ? item.description[0] : '';
 
@@ -145,6 +145,6 @@ export const fetchAllJapanArticles = cache(async () => {
     let seconds = date.getUTCSeconds().toString().padStart(2, '0');
     
     let formattedString = `${day}, ${dayOfMonth} ${months[date.getUTCMonth()]} ${year} ${hours}:${minutes}:${seconds} +0000`;
-    console.log(`fetchAllArticles ${formattedString}`);
+    console.log(`fetchAllJapanArticles ${formattedString}`);
     return { articles: allArticles, successfulSources, updateTime: formattedString};
 });
