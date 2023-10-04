@@ -5,7 +5,7 @@ import './global.css'
 import { ThemeProvider } from "@components/theme-provider";
 
 export const metadata = {
-  title: 'Articles Search',
+  title: 'Article Search',
   description: 'The web application fetches the latest articles from varies rss sources, and sort the result based on relevance compare to user query using OpenAI Embedding.',
   creator: 'Mangle Kuo',
   authors: [
@@ -14,7 +14,7 @@ export const metadata = {
       url: 'https://github.com/ghcpuman902/',
     }
   ],
-  applicationName: 'ArticleSearchApp',
+  applicationName: 'ArticleSearch',
   keywords: ['astronomy', 'scientific research', 'space exploration', 'deep sky news', 'science articles', 'sort articles', 'fetch articles', 'OpenAI Embedding'],
   publisher: 'Mangle Kuo',
   generator: 'Next.js',
@@ -38,8 +38,32 @@ export const metadata = {
     width: 'device-width',
     initialScale: 1,
     maximumScale: 1,
+  },  
+  metadataBase: new URL('https://manglekuo.com'),
+  twitter: {
+    card: 'summary_large_image', 
+    title: 'Article Search',
+    description: 'The web application fetches the latest articles from varies rss sources, and sort the result based on relevance compare to user query using OpenAI Embedding.',
+    siteId: '@manglekuo',
+    creator: '@manglekuo',
+    images: ['article-search/hubble-ngc3156.jpg'], // Relative path to Image
   },
-}
+  openGraph: {
+    title: 'Article Search',
+    description: 'The web application fetches the latest articles from varies rss sources, and sort the result based on relevance compare to user query using OpenAI Embedding.',
+    url: '/',
+    siteName: 'Article Search',
+    type: 'website',
+    images: [
+      {
+        url: 'article-search/hubble-ngc3156.jpg', // Relative path to Image
+        width: 800, 
+        height: 800, 
+      }
+    ],
+    locale: 'en_US',
+  }
+};
 
 export default async function RootLayout({
   children,

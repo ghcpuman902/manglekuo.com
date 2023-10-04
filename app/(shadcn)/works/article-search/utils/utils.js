@@ -14,6 +14,7 @@ export function getDictionary(locale) {
             },
             "button": {
                 "sort": "並べ替え",
+                "sort_newest_first": "最新のものから",
                 "wait": "待機..."
             },
             "zoneBadgeNames": ['不適当', '可能', '良好', '絶妙', '似た話題', '同じ記事'],
@@ -40,6 +41,7 @@ export function getDictionary(locale) {
             },
             "button": {
                 "sort": "Sort",
+                "sort_newest_first": "Newest first",
                 "wait": "wait..."
             },
             "zoneBadgeNames": ['Bad Match', 'Maybe', 'Good Match', 'Excellent Match', 'Similar Topic', 'Same Article'],

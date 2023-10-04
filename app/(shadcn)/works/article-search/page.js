@@ -31,7 +31,7 @@ export default function Page() {
     let articlesFetchUrl = '/works/article-search/api/articles';
     let locale = 'en';
     if(searchParams.has('jp')){
-        defaultQueryText = `天文学的研究、宇宙探査、深宇宙のニュース`;
+        defaultQueryText = `天文学の研究、宇宙探査、深宇宙のニュース`;
         articlesFetchUrl = '/works/article-search/api/articles-jp';
         locale = 'jp';
         updateCacheArticles({ articles:null, successfulSources:null, updateTime:null });
@@ -49,9 +49,9 @@ export default function Page() {
     const [queryText, setQueryText] = useState(defaultQueryText);
     const queryEmbedding = useRef(null);
 
-    const sortArticles = (arts) => {
+    const sortArticles = (arts,options={}) => {
         setLoading(4);
-        const fourDaysAgo = Date.now() - 4 * 24 * 60 * 60 * 1000;
+        const fourDaysAgo = Date.now() - (options.day?options.day:4) * 24 * 60 * 60 * 1000;
     
         // Filter for articles published within the last 48 hours
         const filteredArticles = arts.filter(art => {
@@ -72,6 +72,10 @@ export default function Page() {
             return bDate - aDate; // swap these to change order
         });
     
+        if(options.newest_first === true){
+            return filteredArticles;
+        }
+
         // Next sort by distance
         const final = filteredArticles.sort((a, b) => {
             if (!a.hasOwnProperty('distance') || a.distance == null) return 1;
@@ -177,49 +181,60 @@ export default function Page() {
         fetchData();
     }, []);
 
-    const handleReorder = () => {
+    const handleReorder = (option={}) => {
         if(queryText==''){
             console.log(`query text empty!`);
             return;
         }
         setLoading(0);
-        async function fetchData() {
-            async function getQueryEmbedding(text) {
-                router.push(pathname + '?' + createQueryString('q', queryText));
-                const res = await fetch('/works/article-search/api/embedding', {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ text }),
-                });
-                const resJson = await res.json();
-                if (!res.ok) {
-                    throw new Error('Failed to fetch', resJson);
+        if(option.type && option.type == "newest_first"){
+            async function fetchData() {
+                console.log(`sorting articles`);
+                const sortedAndUpdatedArticles = sortArticles(articles,{newest_first:true});
+                setArticles(sortedAndUpdatedArticles);
+                await updateCacheArticles({articles: sortedAndUpdatedArticles, successfulSources, updateTime});
+                setLoading(200);
+            }
+            fetchData();
+        }else{
+            async function fetchData() {
+                async function getQueryEmbedding(text) {
+                    router.push(pathname + '?' + createQueryString('q', queryText));
+                    const res = await fetch('/works/article-search/api/embedding', {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ text }),
+                    });
+                    const resJson = await res.json();
+                    if (!res.ok) {
+                        throw new Error('Failed to fetch', resJson);
+                    }
+                    return resJson.result;
                 }
-                return resJson.result;
+                const cachedQueryEmbedding = await searchCacheQueryEmbedding(queryText);
+                if(cachedQueryEmbedding){
+                    console.log(`using local cached targetEmbedding`);
+                    queryEmbedding.current = await cachedQueryEmbedding;
+                }else{
+                    console.log(`fetching targetEmbeddings`);
+                    const targetEmbedding = await getQueryEmbedding(queryText);
+                    queryEmbedding.current = targetEmbedding;
+                    await appendCacheQueryEmbedding({query:queryText,embedding:targetEmbedding});
+                }
+                const updatedArticles = articles.map((article) => {
+                    article.distance = dotProduct(article.embedding, queryEmbedding.current);
+                    return article;
+                });
+                console.log(`sorting articles`);
+                const sortedAndUpdatedArticles = sortArticles(updatedArticles);
+                setArticles(sortedAndUpdatedArticles);
+                await updateCacheArticles({articles: sortedAndUpdatedArticles, successfulSources, updateTime});
+                setLoading(200);
             }
-            const cachedQueryEmbedding = await searchCacheQueryEmbedding(queryText);
-            if(cachedQueryEmbedding){
-                console.log(`using local cached targetEmbedding`);
-                queryEmbedding.current = await cachedQueryEmbedding;
-            }else{
-                console.log(`fetching targetEmbeddings`);
-                const targetEmbedding = await getQueryEmbedding(queryText);
-                queryEmbedding.current = targetEmbedding;
-                await appendCacheQueryEmbedding({query:queryText,embedding:targetEmbedding});
-            }
-            const updatedArticles = articles.map((article) => {
-                article.distance = dotProduct(article.embedding, queryEmbedding.current);
-                return article;
-            });
-            console.log(`sorting articles`);
-            const sortedAndUpdatedArticles = sortArticles(updatedArticles);
-            setArticles(sortedAndUpdatedArticles);
-            await updateCacheArticles({articles: sortedAndUpdatedArticles, successfulSources, updateTime});
-            setLoading(200);
+            fetchData();
         }
-        fetchData();
     }
 
 
@@ -287,7 +302,7 @@ export default function Page() {
 
             <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">{dict.title.fetched_articles}{articles ? dict.title._within_the_past_.replace("[NUMBER]",articles.length) : ''}</h2>
 
-            <div className="my-5 flex flex-wrap w-full items-center">
+            <div className="my-5 py-2 flex flex-wrap w-full items-center">
                 <Label htmlFor="query" className="w-full my-2">{dict.label.input_hint}</Label>
                 <Input id="query" type="text" className="max-w-lg my-2 mr-2" value={queryText} onChange={e => setQueryText(e.target.value)} onKeyPress={event => {
                     if(event.key === 'Enter'){ 
@@ -295,7 +310,8 @@ export default function Page() {
                         event.preventDefault(); // Prevents the default action of enter key
                     }
                 }} />
-                <Button className="max-w-sm my-2" onClick={() => { handleReorder() }} disabled={loading!=200}>{loading!=200?(<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;{dict.button.wait}</>):dict.button.sort}</Button>
+                <Button className="max-w-sm my-2 mr-2" onClick={() => { handleReorder() }} disabled={loading!=200}>{loading!=200?(<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;{dict.button.wait}</>):dict.button.sort}</Button>
+                <Button className="max-w-sm my-2" onClick={() => { handleReorder({type:"newest_first"}) }} variant="secondary" disabled={loading!=200}>{loading!=200?(<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;{dict.button.wait}</>):dict.button.sort_newest_first}</Button>
             </div>
             <div className="items-stretch justify-center gap-6 rounded-lg grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                 {articles ?
