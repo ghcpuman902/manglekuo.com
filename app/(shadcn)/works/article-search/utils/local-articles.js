@@ -1,70 +1,82 @@
 'use client';
-const ARTICLES = 'articles-search::articles';
-const SUCCESSFULSOURCES = 'articles-search::successful-sources';
-const TIME = 'articles-search::update-time';
-const QUERYEMBEDDINGS = 'articles-search::query-embeddings';
+const ARTICLES = 'articles';
+const SUCCESSFULSOURCES = 'successful-sources';
+const TIME = 'update-time';
+const QUERYEMBEDDINGS = 'query-embeddings';
 
-// Retrieve articles data from local storage
-export const getLocalArticles = () => {
-  try {
-    if (typeof window !== "undefined") {
-      const articles = JSON.parse(localStorage.getItem(ARTICLES));
-      const successfulSources = JSON.parse(localStorage.getItem(SUCCESSFULSOURCES));
-      const updateTime = JSON.parse(localStorage.getItem(TIME));
-      if (!articles || !successfulSources || !updateTime) {
-        return [null, null, null];
-      }
-      return [articles, successfulSources, updateTime];
-    } else {
+// Check if caches is available
+const cacheAvailable = (typeof window !== "undefined")?('caches' in self):false;
+
+// Retrieve articles data from cache
+export const getCacheArticles = async () => {
+  if (cacheAvailable) {
+    try {
+      const cache = await caches.open('article-search');
+      const articles = await cache.match(ARTICLES);
+      const successfulSources = await cache.match(SUCCESSFULSOURCES);
+      const updateTime = await cache.match(TIME);
+
+      const parsedArticles = articles ? await articles.json() : null;
+      const parsedSuccessfulSources = successfulSources ? await successfulSources.json() : null;
+      const parsedUpdateTime = updateTime ? await updateTime.json() : null;
+
+      return [parsedArticles, parsedSuccessfulSources, parsedUpdateTime];
+    } catch (error) {
+      console.error("Error reading from cache:", error);
       return [null, null, null];
     }
-  } catch (e) {
-    console.error("Error reading from local storage:", e);
-    return [];
   }
+  // In case caches is not available
+  return [null, null, null];
 }
 
-// Update the articles data in local storage
-export const updateLocalArticles = ({ articles, successfulSources, updateTime }) => {
-  try {
-    if (typeof window !== "undefined") {
-      localStorage.setItem(ARTICLES, JSON.stringify(articles));
-      localStorage.setItem(SUCCESSFULSOURCES, JSON.stringify(successfulSources));
-      localStorage.setItem(TIME, JSON.stringify(updateTime));
+// Update the articles data in cache
+export const updateCacheArticles = async ({ articles, successfulSources, updateTime }) => {
+  if (cacheAvailable) {
+    try {
+      const cache = await caches.open('article-search');
+      await cache.put(ARTICLES, new Response(JSON.stringify(articles)));
+      await cache.put(SUCCESSFULSOURCES, new Response(JSON.stringify(successfulSources)));
+      await cache.put(TIME, new Response(JSON.stringify(updateTime)));
       return { articles, successfulSources, updateTime };
-    } else {
+    } catch (error) {
+      console.error("Error setting cache:", error);
       return {};
     }
-  } catch (e) {
-    console.error("Error reading from local storage:", e);
-    return {};
   }
+  // In case caches is not available
+  return {};
 }
 
-// Retrieve embedding of a query from local storage
-export const searchLocalQueryEmbedding = (query) => {
-  try {
-    if (typeof window !== "undefined") {
-      const queryEmbeddings = JSON.parse(localStorage.getItem(QUERYEMBEDDINGS));
-      if (!queryEmbeddings) {
+// Retrieve embedding of a query from cache
+export const searchCacheQueryEmbedding = async (query) => {
+  if (cacheAvailable) {
+    try {
+      const cache = await caches.open('article-search');
+      const queryEmbeddingsResponse = await cache.match(QUERYEMBEDDINGS);
+      if (!queryEmbeddingsResponse) {
         return null;
       }
+      const queryEmbeddings = await queryEmbeddingsResponse.json();
       return queryEmbeddings[query] || null;
-    } else {
+    } catch (error) {
+      console.error("Error reading from cache:", error);
       return null;
     }
-  } catch (e) {
-    console.error("Error reading from local storage:", e);
-    return null;
   }
+  // In case caches is not available
+  return null;
 }
 
-// Append new embedding to local storage, keep only 20 latest
-export const appendLocalQueryEmbedding = ({ query, embedding }) => {
-  try {
-    if (typeof window !== "undefined") {
-      let queryEmbeddings = JSON.parse(localStorage.getItem(QUERYEMBEDDINGS)) || {};
-      
+// Append new embedding to cache, keep only 20 latest
+export const appendCacheQueryEmbedding = async ({ query, embedding }) => {
+  if (cacheAvailable) {
+    try {
+      const cache = await caches.open('article-search');
+      let queryEmbeddingsResponse = await cache.match(QUERYEMBEDDINGS);
+
+      let queryEmbeddings = queryEmbeddingsResponse ? await queryEmbeddingsResponse.json() : {};
+
       // Add new embedding to the front
       queryEmbeddings = { [query]: embedding, ...queryEmbeddings };
 
@@ -76,13 +88,24 @@ export const appendLocalQueryEmbedding = ({ query, embedding }) => {
           return result;
         }, {});
 
-      localStorage.setItem(QUERYEMBEDDINGS, JSON.stringify(queryEmbeddings));
+      await cache.put(QUERYEMBEDDINGS, new Response(JSON.stringify(queryEmbeddings)));
       return queryEmbeddings;
-    } else {
+    } catch (error) {
+      console.error("Error setting cache:", error);
       return {};
     }
-  } catch (e) {
-    console.error("Error reading from local storage:", e);
-    return {};
+  }
+  // In case caches is not available
+  return {};
+}
+
+export const clearAllData = async () => {
+  if (typeof window !== "undefined") {
+    localStorage.clear();
+  }
+
+  if (cacheAvailable) {
+    const cacheNames = await caches.keys();
+    await Promise.all(cacheNames.map(cache => caches.delete(cache)));
   }
 }

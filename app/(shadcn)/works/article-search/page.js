@@ -8,7 +8,7 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import ArticleCard from "./ArticleCard";
 
 import{dotProduct, timeAgo,  getDictionary, getDomainNameFromUrl} from "./utils/utils";
-import { getLocalArticles, updateLocalArticles, searchLocalQueryEmbedding, appendLocalQueryEmbedding } from './utils/local-articles';
+import { getCacheArticles, updateCacheArticles, searchCacheQueryEmbedding, appendCacheQueryEmbedding, clearAllData } from './utils/local-articles';
 
 export default function Page() {
     const router = useRouter();
@@ -34,6 +34,7 @@ export default function Page() {
         defaultQueryText = `天文学的研究、宇宙探査、深宇宙のニュース`;
         articlesFetchUrl = '/works/article-search/api/articles-jp';
         locale = 'jp';
+        updateCacheArticles({ articles:null, successfulSources:null, updateTime:null });
     }
     if(searchParams.has('q')){
         defaultQueryText = searchParams.get('q');
@@ -134,11 +135,11 @@ export default function Page() {
         }
     
         async function fetchData() {
-            const [ LArticles, LSuccessfulSources, LUpdateTime ] = getLocalArticles();
+            const [ LArticles, LSuccessfulSources, LUpdateTime ] = await getCacheArticles();
             if(LUpdateTime){
                 const diffInSeconds = Math.floor((new Date() - new Date(LUpdateTime) ) / 1000);
                 if(diffInSeconds < 3600){
-                    console.log(`less than an hour, using local cached articles`);
+                    console.log(`less than an hour, using cached articles`);
                     setArticles(LArticles);
                     setSuccessfulSources(LSuccessfulSources);
                     setUpdateTime(LUpdateTime);
@@ -152,14 +153,15 @@ export default function Page() {
             if (!res.ok) {
                 throw new Error('Failed to fetch', resJson);
             }
-            if(searchLocalQueryEmbedding(queryText)){
-                console.log(`using local cached targetEmbedding`);
-                queryEmbedding.current = searchLocalQueryEmbedding(queryText);
+            const cachedQueryEmbedding = await searchCacheQueryEmbedding(queryText);
+            if(cachedQueryEmbedding){
+                console.log(`using cached targetEmbedding`);
+                queryEmbedding.current = cachedQueryEmbedding;
             }else{
                 console.log(`fetching targetEmbeddings`);
                 const targetEmbedding = await getQueryEmbedding(queryText);
                 queryEmbedding.current = targetEmbedding;
-                appendLocalQueryEmbedding({query:queryText,embedding:targetEmbedding});
+                await appendCacheQueryEmbedding({query:queryText,embedding:targetEmbedding});
             }
             console.log(`updating articles (fetching individual embeddings + calculate distance)`);
             const updatedArticles = await updateEmbeddings(resJson.articles,queryEmbedding.current);
@@ -168,7 +170,7 @@ export default function Page() {
             setArticles(sortedAndUpdatedArticles);
             setSuccessfulSources(resJson.successfulSources);
             setUpdateTime(resJson.updateTime);
-            updateLocalArticles({articles: sortedAndUpdatedArticles, successfulSources: resJson.successfulSources, updateTime: resJson.updateTime});
+            await updateCacheArticles({articles: sortedAndUpdatedArticles, successfulSources: resJson.successfulSources, updateTime: resJson.updateTime});
             setLoading(200);
         }
         setLoading(1);
@@ -197,14 +199,15 @@ export default function Page() {
                 }
                 return resJson.result;
             }
-            if(searchLocalQueryEmbedding(queryText)){
+            const cachedQueryEmbedding = await searchCacheQueryEmbedding(queryText);
+            if(cachedQueryEmbedding){
                 console.log(`using local cached targetEmbedding`);
-                queryEmbedding.current = searchLocalQueryEmbedding(queryText);
+                queryEmbedding.current = await cachedQueryEmbedding;
             }else{
                 console.log(`fetching targetEmbeddings`);
                 const targetEmbedding = await getQueryEmbedding(queryText);
                 queryEmbedding.current = targetEmbedding;
-                appendLocalQueryEmbedding({query:queryText,embedding:targetEmbedding});
+                await appendCacheQueryEmbedding({query:queryText,embedding:targetEmbedding});
             }
             const updatedArticles = articles.map((article) => {
                 article.distance = dotProduct(article.embedding, queryEmbedding.current);
@@ -213,7 +216,7 @@ export default function Page() {
             console.log(`sorting articles`);
             const sortedAndUpdatedArticles = sortArticles(updatedArticles);
             setArticles(sortedAndUpdatedArticles);
-            updateLocalArticles({articles: sortedAndUpdatedArticles, successfulSources, updateTime});
+            await updateCacheArticles({articles: sortedAndUpdatedArticles, successfulSources, updateTime});
             setLoading(200);
         }
         fetchData();
@@ -239,14 +242,15 @@ export default function Page() {
                     }
                     return resJson.result;
                 }
-                if(searchLocalQueryEmbedding(searchParams.get('q'))){
+                const cachedQueryEmbedding = await searchCacheQueryEmbedding(searchParams.get('q'));
+                if(cachedQueryEmbedding){
                     console.log(`using local cached targetEmbedding`);
-                    queryEmbedding.current = searchLocalQueryEmbedding(searchParams.get('q'));
+                    queryEmbedding.current = cachedQueryEmbedding;
                 }else{
                     console.log(`fetching targetEmbeddings`);
                     const targetEmbedding = await getQueryEmbedding(searchParams.get('q'));
                     queryEmbedding.current = targetEmbedding;
-                    appendLocalQueryEmbedding({query:searchParams.get('q'),embedding:targetEmbedding});
+                    await appendCacheQueryEmbedding({query:searchParams.get('q'),embedding:targetEmbedding});
                 }
                 const updatedArticles = articles.map((article) => {
                     article.distance = dotProduct(article.embedding, queryEmbedding.current);
@@ -255,7 +259,7 @@ export default function Page() {
                 console.log(`sorting articles`);
                 const sortedAndUpdatedArticles = sortArticles(updatedArticles);
                 setArticles(sortedAndUpdatedArticles);
-                updateLocalArticles({articles: sortedAndUpdatedArticles, successfulSources, updateTime});
+                await updateCacheArticles({articles: sortedAndUpdatedArticles, successfulSources, updateTime});
                 setLoading(200);
             }
             fetchData();
@@ -306,6 +310,10 @@ export default function Page() {
                         </>
                     ):dict.loading_text.final_steps)
                 }
+            </div>
+            <div className="mt-4 md:mt-8 flex flex-col w-full items-center">
+                {articles?<Button variant="link" onClick={() => { clearAllData(); }}>clear all data</Button>:null}
+                Made by Mangle Kuo. All rights reserved.<br/>
             </div>
         </div>
     );
