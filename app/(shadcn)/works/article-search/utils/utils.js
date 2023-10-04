@@ -113,3 +113,17 @@ export function getDomainNameFromUrl(url) {
 
     return domainName;
 }
+
+export function formatDate(date) {
+    let day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][date.getUTCDay()];
+    let dayOfMonth = date.getUTCDate().toString().padStart(2, '0');
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let year = date.getUTCFullYear();
+    let hours = date.getUTCHours().toString().padStart(2, '0');
+    let minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    let seconds = date.getUTCSeconds().toString().padStart(2, '0');
+  
+    let formattedString = `${day}, ${dayOfMonth} ${months[date.getUTCMonth()]} ${year} ${hours}:${minutes}:${seconds} +0000`;
+    return formattedString;
+  }
+  

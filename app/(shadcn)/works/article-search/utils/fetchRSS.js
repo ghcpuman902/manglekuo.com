@@ -1,5 +1,7 @@
 import { cache } from 'react'
- 
+import 'server-only'
+import {formatDate} from './utils'; 
+
 export const revalidate = 3600;
  
 import xml2js from 'xml2js';
@@ -37,7 +39,7 @@ const rss_feed_jp = [
     "https://www.jaxa.jp/rss/press_j.rdf"
 ];
 
-export const fetchArticlesFromFeed = async (url) => {
+export const fetchArticlesFromFeed = cache(async (url) => {
     let articles = [];
     try {
         const response = await fetch(url);
@@ -95,7 +97,8 @@ export const fetchArticlesFromFeed = async (url) => {
         return [];
     }
     return articles;
-}
+});
+
 
 export const fetchAllArticles = cache(async () => {
     let allArticles = [];
@@ -109,19 +112,12 @@ export const fetchAllArticles = cache(async () => {
         }
     }
 
-    let date = new Date();
-    let day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][date.getUTCDay()];
-    let dayOfMonth = date.getUTCDate().toString().padStart(2, '0');
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let year = date.getUTCFullYear();
-    let hours = date.getUTCHours().toString().padStart(2, '0');
-    let minutes = date.getUTCMinutes().toString().padStart(2, '0');
-    let seconds = date.getUTCSeconds().toString().padStart(2, '0');
-    
-    let formattedString = `${day}, ${dayOfMonth} ${months[date.getUTCMonth()]} ${year} ${hours}:${minutes}:${seconds} +0000`;
+    const date = new Date();
+    const formattedString = formatDate(date);
     console.log(`fetchAllArticles ${formattedString}`);
     return { articles: allArticles, successfulSources, updateTime: formattedString};
 });
+
 
 export const fetchAllJapanArticles = cache(async () => {
     let allArticles = [];
@@ -135,16 +131,8 @@ export const fetchAllJapanArticles = cache(async () => {
         }
     }
 
-    let date = new Date();
-    let day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][date.getUTCDay()];
-    let dayOfMonth = date.getUTCDate().toString().padStart(2, '0');
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let year = date.getUTCFullYear();
-    let hours = date.getUTCHours().toString().padStart(2, '0');
-    let minutes = date.getUTCMinutes().toString().padStart(2, '0');
-    let seconds = date.getUTCSeconds().toString().padStart(2, '0');
-    
-    let formattedString = `${day}, ${dayOfMonth} ${months[date.getUTCMonth()]} ${year} ${hours}:${minutes}:${seconds} +0000`;
+    const date = new Date();
+    const formattedString = formatDate(date);
     console.log(`fetchAllJapanArticles ${formattedString}`);
     return { articles: allArticles, successfulSources, updateTime: formattedString};
 });

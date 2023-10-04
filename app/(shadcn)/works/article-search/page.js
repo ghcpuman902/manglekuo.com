@@ -8,6 +8,7 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import ArticleCard from "./ArticleCard";
 
 import{dotProduct, timeAgo,  getDictionary, getDomainNameFromUrl} from "./utils/utils";
+import { getLocalArticles, updateLocalArticles, searchLocalQueryEmbedding, appendLocalQueryEmbedding } from './utils/local-articles';
 
 export default function Page() {
     const router = useRouter();
@@ -39,10 +40,11 @@ export default function Page() {
     }
     const dict = getDictionary(locale);
 
+
     const [loading, setLoading] = useState(0);
     const [articles, setArticles] = useState(null);
     const [successfulSources, setSuccessfulSources] = useState(null);
-    const [updateTime, setUpdateTime] = useState(0);
+    const [updateTime, setUpdateTime] = useState(null);
     const [queryText, setQueryText] = useState(defaultQueryText);
     const queryEmbedding = useRef(null);
 
@@ -132,14 +134,33 @@ export default function Page() {
         }
     
         async function fetchData() {
+            const [ LArticles, LSuccessfulSources, LUpdateTime ] = getLocalArticles();
+            if(LUpdateTime){
+                const diffInSeconds = Math.floor((new Date() - new Date(LUpdateTime) ) / 1000);
+                if(diffInSeconds < 3600){
+                    console.log(`less than an hour, using local cached articles`);
+                    setArticles(LArticles);
+                    setSuccessfulSources(LSuccessfulSources);
+                    setUpdateTime(LUpdateTime);
+                    setLoading(200);
+                    return;
+                }
+            }
             console.log(`fetching articles`);
-            const res = await fetch(articlesFetchUrl, { next: { revalidate: 3600 } });
+            const res = await fetch(articlesFetchUrl);
             const resJson = await res.json();
             if (!res.ok) {
                 throw new Error('Failed to fetch', resJson);
             }
-            console.log(`fetching targetEmbeddings`);
-            queryEmbedding.current = await getQueryEmbedding(queryText);
+            if(searchLocalQueryEmbedding(queryText)){
+                console.log(`using local cached targetEmbedding`);
+                queryEmbedding.current = searchLocalQueryEmbedding(queryText);
+            }else{
+                console.log(`fetching targetEmbeddings`);
+                const targetEmbedding = await getQueryEmbedding(queryText);
+                queryEmbedding.current = targetEmbedding;
+                appendLocalQueryEmbedding({query:queryText,embedding:targetEmbedding});
+            }
             console.log(`updating articles (fetching individual embeddings + calculate distance)`);
             const updatedArticles = await updateEmbeddings(resJson.articles,queryEmbedding.current);
             console.log(`sorting articles`);
@@ -147,6 +168,7 @@ export default function Page() {
             setArticles(sortedAndUpdatedArticles);
             setSuccessfulSources(resJson.successfulSources);
             setUpdateTime(resJson.updateTime);
+            updateLocalArticles({articles: sortedAndUpdatedArticles, successfulSources: resJson.successfulSources, updateTime: resJson.updateTime});
             setLoading(200);
         }
         setLoading(1);
@@ -175,8 +197,15 @@ export default function Page() {
                 }
                 return resJson.result;
             }
-            console.log(`fetching targetEmbeddings`);
-            queryEmbedding.current = await getQueryEmbedding(queryText);
+            if(searchLocalQueryEmbedding(queryText)){
+                console.log(`using local cached targetEmbedding`);
+                queryEmbedding.current = searchLocalQueryEmbedding(queryText);
+            }else{
+                console.log(`fetching targetEmbeddings`);
+                const targetEmbedding = await getQueryEmbedding(queryText);
+                queryEmbedding.current = targetEmbedding;
+                appendLocalQueryEmbedding({query:queryText,embedding:targetEmbedding});
+            }
             const updatedArticles = articles.map((article) => {
                 article.distance = dotProduct(article.embedding, queryEmbedding.current);
                 return article;
@@ -184,6 +213,7 @@ export default function Page() {
             console.log(`sorting articles`);
             const sortedAndUpdatedArticles = sortArticles(updatedArticles);
             setArticles(sortedAndUpdatedArticles);
+            updateLocalArticles({articles: sortedAndUpdatedArticles, successfulSources, updateTime});
             setLoading(200);
         }
         fetchData();
@@ -209,8 +239,15 @@ export default function Page() {
                     }
                     return resJson.result;
                 }
-                console.log(`fetching targetEmbeddings`);
-                queryEmbedding.current = await getQueryEmbedding(searchParams.get('q'));
+                if(searchLocalQueryEmbedding(searchParams.get('q'))){
+                    console.log(`using local cached targetEmbedding`);
+                    queryEmbedding.current = searchLocalQueryEmbedding(searchParams.get('q'));
+                }else{
+                    console.log(`fetching targetEmbeddings`);
+                    const targetEmbedding = await getQueryEmbedding(searchParams.get('q'));
+                    queryEmbedding.current = targetEmbedding;
+                    appendLocalQueryEmbedding({query:searchParams.get('q'),embedding:targetEmbedding});
+                }
                 const updatedArticles = articles.map((article) => {
                     article.distance = dotProduct(article.embedding, queryEmbedding.current);
                     return article;
@@ -218,6 +255,7 @@ export default function Page() {
                 console.log(`sorting articles`);
                 const sortedAndUpdatedArticles = sortArticles(updatedArticles);
                 setArticles(sortedAndUpdatedArticles);
+                updateLocalArticles({articles: sortedAndUpdatedArticles, successfulSources, updateTime});
                 setLoading(200);
             }
             fetchData();

@@ -55,7 +55,7 @@ export default function ArticleCard({ article }) {
             {article ? (<Card className={`overflow-clip ${zoneBorderColors[mapValue(article.distance).zone]}`}>
                 <CardHeader>
                     <CardTitle><a href={article.link} target="_blank" rel="noopener noreferrer" className={`underline ${locale=='jp'?'leading-relaxed':''}`}>{article.title}</a></CardTitle>
-                    <CardDescription className="pt-1"><Badge variant="secondary" className="mr-1" suppressHydrationWarning>{timeAgo(article.pubDate,locale)}</Badge><Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]} ({dToPercentage(mapValue(article.distance).newDistance)})</Badge></CardDescription>
+                    <div className="text-sm text-muted-foreground pt-1"><Badge variant="secondary" className="mr-1" suppressHydrationWarning>{timeAgo(article.pubDate,locale)}</Badge><Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]} ({dToPercentage(mapValue(article.distance).newDistance)})</Badge></div>
                 </CardHeader>
                 <CardContent>
                     <div dangerouslySetInnerHTML={{ __html: article.description }}></div>
