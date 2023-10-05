@@ -1,5 +1,5 @@
 import { fetchAllArticles } from '../../utils/fetchRSS';
-// export const revalidate = 3600
+export const revalidate = 3600;
 
 export async function GET() {
     const {articles, successfulSources, updateTime} = await fetchAllArticles();
