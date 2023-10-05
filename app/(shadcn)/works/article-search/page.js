@@ -313,7 +313,7 @@ export default function Page() {
                 <Button className="max-w-sm my-2 mr-2" onClick={() => { handleReorder() }} disabled={loading!=200}>{loading!=200?(<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;{dict.button.wait}</>):dict.button.sort}</Button>
                 <Button className="max-w-sm my-2" onClick={() => { handleReorder({type:"newest_first"}) }} variant="secondary" disabled={loading!=200}>{loading!=200?(<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;{dict.button.wait}</>):dict.button.sort_newest_first}</Button>
             </div>
-            <div className="items-stretch justify-center gap-6 rounded-lg grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+            <div className="items-stretch justify-center gap-6 rounded-lg grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {articles ?
                     articles.map((article, index) => (
                         <ArticleCard key={article.key} article={article}/>
