@@ -1,10 +1,10 @@
-import { cache } from 'react'
-import 'server-only'
+import { cache } from 'react';
+import 'server-only';
 import {formatDate} from './utils'; 
 
 export const revalidate = 3600;
- 
-import xml2js from 'xml2js';
+
+import * as htmlparser2 from "htmlparser2";
 
 export const linkToKey =  function (message) {
     // Replace symbols with ASCII characters
@@ -44,51 +44,49 @@ export const fetchArticlesFromFeed = cache(async (url) => {
     try {
         const response = await fetch(url);
         const data = await response.text();
-        const parsedResult = await xml2js.parseStringPromise(data);
-        
-        if (parsedResult.rss && parsedResult.rss.channel && parsedResult.rss.channel[0].item) {
+        const parsedResult = htmlparser2.parseFeed(data, {xmlMode:true});
+        // return;
+        if (parsedResult.type === 'rss' && parsedResult.items) {
             // RSS format
-            const items = parsedResult.rss.channel[0].item;
+            const items = parsedResult.items;
             for(let item of items) {
-                const title = item.title[0];
-                const link = item.link[0];
-                const pubDate = item.pubDate[0];
-                let description = item.description ? item.description[0] : '';
-                const thumbnail = item['media:thumbnail'] ? item['media:thumbnail'][0].$.url : null
+                const title = item.title;
+                const link = item.link;
+                const pubDate = item.pubDate;
+                let description = item.description?item.description:'';
+                const thumbnail = item.media.length > 0 ? item.media[0] : null;
                 if (thumbnail) {
-                    description = "<img src = '"+ thumbnail +"' style='max-width:100%;height:auto;'>" + description
+                    description = "<img src = '"+ thumbnail +"' style='max-width:100%;height:auto;'>" + description;
                 }
                 articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
             }
-        } else if (parsedResult.feed && parsedResult.feed.entry) {
+        } else if (parsedResult.type === 'atom' && parsedResult.items) {
             // Atom format
-            const entries = parsedResult.feed.entry;
-            for(let entry of entries) {
-                if(entry && entry.title && entry.title[0] && entry.link){
-                    const title = entry.title[0];
-                    const link = entry.link && entry.link[0] && entry.link[0].$.href;
-                    const pubDate = entry.updated[0];
-                    let description = entry.summary ? entry.summary[0] : '';
-                    const thumbnail = entry['media:thumbnail'] ? entry['media:thumbnail'][0].$.url : null
-                    if (thumbnail) {
-                        description = "<img src = '"+ thumbnail +"' style='max-width:100%;height:auto;'>" + description
-                    }
-                    articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
-                }
-            }
-        } else if (parsedResult['rdf:RDF'] && parsedResult['rdf:RDF'].item) {
-            // RDF format
-            const items = parsedResult['rdf:RDF'].item;
+            const items = parsedResult.items;
             for(let item of items) {
-                const title = item.title[0];
-                const link = item.about || item.link[0]; // 'about' attribute or <link> tag corresponds to 'link' in RDF
-                const pubDate = item['dc:date'][0];
-                let description = item.description ? item.description[0] : '';
-
+                const title = item.title;
+                const link = item.link;
+                const pubDate = item.pubDate;
+                let description = item.description?item.description:'';
+                const thumbnail = item.media && item.media.length > 0 ? item.media[0] : null;
+                if (thumbnail) {
+                     description = "<img src = '"+ thumbnail +"' style='max-width:100%;height:auto;'>" + description;
+                }
+                articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
+            }
+        } else if (parsedResult.type === 'rdf' && parsedResult.items) {
+            // RDF format
+            const items = parsedResult.items;
+            for(let item of items) {
+                const title = item.title;
+                const link = item.link;
+                const pubDate = item.pubDate;
+                let description = item.description?item.description:'';
+        
                 articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
             }
         } else {
-            console.error(`Unexpected XML structure for URL: ${url}`);
+            console.error(`Unexpected XML structure for URL: ${url}, possible type: ${parsedResult.type?parsedResult.type:'unknown'}`);
             return [];
         }
         
