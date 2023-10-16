@@ -80,6 +80,9 @@ dependencies:
   openai:
     specifier: ^4.12.1
     version: 4.12.1(encoding@0.1.13)
+  pako:
+    specifier: ^2.1.0
+    version: 2.1.0
   raw-loader:
     specifier: ^4.0.2
     version: 4.0.2(webpack@5.89.0)
@@ -4795,6 +4798,10 @@ packages:
     dependencies:
       p-limit: 3.1.0
     dev: true
+
+  /pako@2.1.0:
+    resolution: {integrity: sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug==}
+    dev: false
 
   /parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}

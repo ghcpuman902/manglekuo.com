@@ -4,7 +4,7 @@ import { Input } from "@components/ui/input";
 import { Label } from "@components/ui/label";
 import { Badge } from "@components/ui/badge";
 import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
-
+import { gzip } from 'pako';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
@@ -120,17 +120,20 @@ export default function Page() {
         }
 
         async function updateEmbeddings(articles, targetEmbedding) {
+            console.time("batch-embedding");
             setLoading(3);
             const res = await fetch('/works/article-search/api/batch-embedding', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
+                    'Content-Encoding': 'gzip',
                 },
-                body: JSON.stringify({
+                body: gzip(JSON.stringify({
                     texts: articles.map(article => `${article.title}||||${article.description.replace(/\n|\t|[ ]{4}/g, '').replace(/<[^>]*>/g, '')}`)
-                }),
+                })),
             });
             const embeddingsResult = await res.json();
+            console.timeLog("batch-embedding");
 
             const updatedArticles = articles.map((article, index) => {
                 if (!article.embedding || article.embedding.length == 0) {
@@ -192,7 +195,9 @@ export default function Page() {
                 await updateCacheArticles({ articles: sortedAndUpdatedArticles, successfulSources: resJson.successfulSources, updateTime: resJson.updateTime });
                 setLoading(200);
             }
-            addEmbeddings(sortedAndUpdatedArticles);
+            if(loading <= 2){
+                addEmbeddings(sortedAndUpdatedArticles);
+            }
         }
         setLoading(1);
         fetchData();

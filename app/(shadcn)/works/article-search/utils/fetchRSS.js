@@ -46,47 +46,52 @@ export const fetchArticlesFromFeed = cache(async (url) => {
         const data = await response.text();
         const parsedResult = htmlparser2.parseFeed(data, {xmlMode:true});
         // return;
-        if (parsedResult.type === 'rss' && parsedResult.items) {
-            // RSS format
-            const items = parsedResult.items;
-            for(let item of items) {
-                const title = item.title;
-                const link = item.link;
-                const pubDate = item.pubDate;
-                let description = item.description?item.description:'';
-                const thumbnail = item.media.length > 0 ? item.media[0] : null;
-                if (thumbnail) {
-                    description = "<img src = '"+ thumbnail +"' style='max-width:100%;height:auto;'>" + description;
+        function processMedia(media) {
+            if (Array.isArray(media) && media.length > 0 && media[0].url) {
+                const thumbnail = media[0].url;
+                const altText = media[0].description || 'Image';
+                let width = media[0].width || null;
+                let height = media[0].height || null;
+            
+                if(!width || !height) {
+                    const pattern = /(\d+)x(\d+)\.[\w\d]+$/i;
+                    const match = thumbnail.match(pattern);
+                    if(match) {
+                        width = match[1];
+                        height = match[2];
+                    }
                 }
-                articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
+            
+                return (width && height) ? `<img src='${thumbnail}' alt='${altText}' width:='${width}' height='${height}' style='width:${width};height:${height};max-width:100%;'>` : `<img src='${thumbnail}' alt='${altText}' style='max-width:100%;height:auto;'>`;
             }
-        } else if (parsedResult.type === 'atom' && parsedResult.items) {
-            // Atom format
+            return '';
+        }
+        
+        const types = ['rss', 'atom', 'rdf'];
+        
+        if (types.includes(parsedResult.type) && parsedResult.items) {
             const items = parsedResult.items;
             for(let item of items) {
                 const title = item.title;
                 const link = item.link;
                 const pubDate = item.pubDate;
-                let description = item.description?item.description:'';
-                const thumbnail = item.media && item.media.length > 0 ? item.media[0] : null;
-                if (thumbnail) {
-                     description = "<img src = '"+ thumbnail +"' style='max-width:100%;height:auto;'>" + description;
+                let description = item.description || '';
+                description = description.replace(/decoding="async"|loading="lazy"|class="[^"]*"/g, "");
+                const figureRegex = /<figure>[\s\S]*?<\/figure>/g;
+                let figureMatches = description.match(figureRegex);
+                if (figureMatches && figureMatches.length > 1) {
+                    description = description.replace(figureMatches[1], "");
                 }
-                articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
-            }
-        } else if (parsedResult.type === 'rdf' && parsedResult.items) {
-            // RDF format
-            const items = parsedResult.items;
-            for(let item of items) {
-                const title = item.title;
-                const link = item.link;
-                const pubDate = item.pubDate;
-                let description = item.description?item.description:'';
+        
+                const img_html = processMedia(item.media);
+                if (img_html) {
+                    description = img_html + description;
+                }
         
                 articles.push({ title, link, pubDate, description, source: url, distance: null, embedding: null, key: linkToKey(link) });
             }
         } else {
-            console.error(`Unexpected XML structure for URL: ${url}, possible type: ${parsedResult.type?parsedResult.type:'unknown'}`);
+            console.error(`Unexpected XML structure for URL: ${url}, possible type: ${parsedResult.type || 'unknown'}`);
             return [];
         }
         
