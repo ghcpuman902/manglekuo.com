@@ -1,65 +1,86 @@
+import pLimit from 'p-limit';
 import { type NextRequest, NextResponse } from 'next/server'
-import OpenAI from "openai";
-import { cache } from 'react'
+
 import { gzip, inflate } from 'pako';
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY });
+async function getEmbedding(text: string, host: string | null) {
+    try {
+        let urlPrefix;
+        host = host ? host : 'localhost:3000'
+        if (host.includes('localhost') || host.includes('.local')) {
+            urlPrefix = 'http://' + host;
+        } else {
+            urlPrefix = 'https://' + host;
+        }
+        var myHeaders = new Headers();
+        myHeaders.append("Referer", "https://manglekuo.com");
+        myHeaders.append("Content-Type", "application/json");
+        const res = await fetch(urlPrefix + "/works/article-search/api/internal_embedding", {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify({ "text": text, "key": process.env.OPENAI_KEY }),
+            cache: 'force-cache'
+        });
 
-const getEmbeddingFromOpenAI = cache(async (text: string) => {
-    const response = await openai.embeddings.create({
-        model: "text-embedding-ada-002",
-        input: text
-    });
-    const embedding = response['data'][0]['embedding'];
-    return embedding;
-});
-
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const resJson = await res.json();
+        return resJson.result?resJson.result:[];
+    } catch (error) {
+        console.error(`Fetch to get embedding failed with message: ${error.message}`);
+        console.error(`Stack trace: ${error.stack}`);
+        if ('type' in error) {
+           console.error(`Error type: ${error.type}`);
+        }
+        throw error; // or handle error appropriately
+    }
+}
 export async function POST(request: NextRequest) {
     const rawData = await request.arrayBuffer();
 
-    // Get the compressed size (in bytes) from the ArrayBuffer
-    const compressedSize = rawData.byteLength;
-
     const decompressedData = inflate(rawData, { to: 'string' });
-    
-     // Convert the decompressedData to a byte array and get its length
-     // This gets the size of the original uncompressed data
-     const encoder = new TextEncoder();
-     const byteArray = encoder.encode(decompressedData);
-     const originalSize = byteArray.length;
 
-    const { texts } = JSON.parse(decompressedData); 
+    const { texts } = JSON.parse(decompressedData);
 
-    // Calculate the compression rate (as a percentage)
-    const compressionRate = (compressedSize / originalSize) * 100;
 
-    console.log(`compressionRate: ${compressionRate}`);
-    
-    console.time('getting embeddings');
-    const embeddings = await Promise.all(texts.map(getEmbeddingFromOpenAI));
-    console.timeEnd('getting embeddings');
-
-    if(process.env.NODE_ENV == "development"){
-        return new Response(gzip(JSON.stringify({result: embeddings})), {
-            headers: {
-                'Content-Type': 'application/json',
-                'Content-Encoding': 'gzip'
-            },
+    try {
+        let embeddings;
+        const limit = pLimit(150);
+        // Use p-limit to execute the promises with controlled concurrency
+        const tasks = texts.map((text) => {
+            return limit(() => getEmbedding(text, request.headers.get('host')));
         });
-    }
-    else if (process.env.NODE_ENV == "production"){
-        const referer = request.headers.get('referer');
-        if (!referer || !referer.startsWith('https://manglekuo.com')) {
-            return NextResponse.json('Unauthorized', { status: 401 });
+        embeddings = await Promise.all(tasks);
+        if (process.env.NODE_ENV == "development") {
+            return new Response(gzip(JSON.stringify({ result: embeddings })), {
+                headers: {
+                    'Access-Control-Allow-Origin': 'https://manglekuo.com',
+                    'Access-Control-Allow-Methods': 'POST',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Content-Type': 'application/json',
+                    'Content-Encoding': 'gzip'
+                },
+            });
+        } else if (process.env.NODE_ENV == "production") {
+            const referer = request.headers.get('referer');
+            if (!referer || !referer.startsWith('https://manglekuo.com')) {
+                return NextResponse.json('Unauthorized', { status: 401 });
+            }
+            return new Response(gzip(JSON.stringify({ result: embeddings })), {
+                headers: {
+                    'Access-Control-Allow-Origin': 'https://manglekuo.com',
+                    'Access-Control-Allow-Methods': 'POST',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Content-Type': 'application/json',
+                    'Content-Encoding': 'gzip'
+                },
+            });
         }
-        return new Response(gzip(JSON.stringify({result: embeddings})), {
-            headers: {
-                'Access-Control-Allow-Origin': 'https://manglekuo.com',
-                'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Content-Type': 'application/json',
-                'Content-Encoding': 'gzip'
-            },
-        });
+    } catch (error) {
+        console.error(`Error with getting embeddings: ${error}`);
+        return NextResponse.json(error, { status: 403 });
     }
+
+
 }

@@ -310,7 +310,6 @@ export default function Page() {
             setSortingMethod("relevance");
             handleReorder({ sortingMethod: "relevance", filterByDays: filterByDays });
         }
-        console.log(e);
     }
 
 
@@ -323,7 +322,6 @@ export default function Page() {
         };
         setFilterByDays(durations.hasOwnProperty(e) ? durations[e] : 4);
         handleReorder({ sortingMethod: sortingMethod, filterByDays: durations.hasOwnProperty(e) ? durations[e] : 4 });
-        console.log(e);
     }
 
 
@@ -396,7 +394,7 @@ export default function Page() {
                         </RadioGroup>
                     </div>
                 </div>
-                {loading != 200 ? (
+                { loading != 200 && (articles == null || articles[0].distance==0) ? (
                     <div className="col-span-4 flex flex-wrap justify-center">
                         {loading >= 1 ? dict.loading_text.getting_articles : ''}<br />
                         {loading >= 2 ? dict.loading_text.getting_embedding.replace("[QUERY TEXT]", queryText) : ''}<br />

@@ -1,34 +1,45 @@
 import { type NextRequest, NextResponse } from 'next/server'
-import OpenAI from "openai";
-import { cache } from 'react'
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY });
 
-const getEmbeddingFromOpenAI = cache(async (text) => {
-    const response = await openai.embeddings.create({
-        model: "text-embedding-ada-002",
-        input: text
+async function getEmbedding(inputString: string, host: string | null) {
+    const text = inputString.toLowerCase()
+        .replace(/\s+/g, ' ')
+        .trim();
+    let urlPrefix;
+    host = host ? host : 'manglekuo.com'
+    if (host.includes('localhost') || host.includes('.local')) {
+        urlPrefix = 'http://' + host;
+    } else {
+        urlPrefix = 'https://' + host;
+    }
+    const res = await fetch(urlPrefix + "/works/article-search/api/internal_embedding", {
+        method: 'POST',
+        headers: {
+            'Referer': 'https://manglekuo.com',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ "text": text, "key": process.env.OPENAI_KEY }),
+        redirect: 'follow',
+        cache: 'force-cache'
     });
-
-    const embedding = response['data'][0]['embedding'];
-    // console.log(embedding);
-    return embedding;
-})
+    const resJson = await res.json();
+    return resJson.result ? resJson.result : [];
+}
 
 export async function POST(request: NextRequest) {
     const { text } = await request.json();
     // Get embedding for new text 
-    let embedding = await getEmbeddingFromOpenAI(text);
+    let embedding = await getEmbedding(text, request.headers.get('host'));
 
-    if(process.env.NODE_ENV == "development"){
-        return NextResponse.json({result: embedding});
+    if (process.env.NODE_ENV == "development") {
+        return NextResponse.json({ result: embedding });
     }
-    else if (process.env.NODE_ENV == "production"){
+    else if (process.env.NODE_ENV == "production") {
         const referer = request.headers.get('referer');
         if (!referer || !referer.startsWith('https://manglekuo.com')) {
             return NextResponse.json('Unauthorized', { status: 401 });
         }
-        return NextResponse.json({result: embedding}, {
+        return NextResponse.json({ result: embedding }, {
             headers: {
                 'Access-Control-Allow-Origin': 'https://manglekuo.com',
                 'Access-Control-Allow-Methods': 'POST',
