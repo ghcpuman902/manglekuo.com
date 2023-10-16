@@ -27,7 +27,7 @@ export function getDictionary(locale) {
                 "sort_newest_first": "最新のものから",
                 "wait": "待機..."
             },
-            "zoneBadgeNames": ['不適当', '可能', '良好', '絶妙', '似た話題', '同じ記事'],
+            "zoneBadgeNames": ['不適当', '可能', '良好', '絶妙', '似た話題', '同じ記事', ''],
             "loading_text": {
                 "getting_articles": "記事取得中...",
                 "getting_embedding": `"[QUERY TEXT]]"の埋め込み取得中...`,
@@ -64,7 +64,7 @@ export function getDictionary(locale) {
                 "sort_newest_first": "Newest first",
                 "wait": "wait..."
             },
-            "zoneBadgeNames": ['Bad Match', 'Maybe', 'Good Match', 'Excellent Match', 'Similar Topic', 'Same Article'],
+            "zoneBadgeNames": ['Bad Match', 'Maybe', 'Good Match', 'Excellent Match', 'Similar Topic', 'Same Article', ''],
             "loading_text": {
                 "getting_articles": "Getting articles...",
                 "getting_embedding": `Getting embedding for "[QUERY TEXT]"...`,

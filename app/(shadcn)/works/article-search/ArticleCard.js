@@ -20,7 +20,7 @@ export default function ArticleCard({ article }) {
         locale = 'jp';
     }
     const dict = getDictionary(locale);
-    const colorData = ["amber|100|600","sky|100|400","sky|200|600","blue|200|600","emerald|200|600","violet|200|600"];
+    const colorData = ["amber|100|600","sky|100|400","sky|200|600","blue|200|600","emerald|200|600","violet|200|600","neutral|200|600"];
 
     const zoneColors = colorData.map(color => {
         const [baseColor, defaultIntensity, darkModeIntensity] = color.split("|");
@@ -35,6 +35,8 @@ export default function ArticleCard({ article }) {
     const zoneBadgeNames = dict["zoneBadgeNames"];
 
     function mapValue(d) {
+        if(d==null){return {newDistance:-5, zone:6}}
+
         const mu = 0.785;
         const sigma = 0.0306;
     
@@ -55,6 +57,7 @@ export default function ArticleCard({ article }) {
 
     function dToPercentage(d){
         if(d>=5){return `100%`;}
+        if(d<=-5){return `???%`;}
         const percentage = Math.floor(d/5*10000)/100;
         return `${percentage}%`;
     }

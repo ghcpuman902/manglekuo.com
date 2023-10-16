@@ -57,46 +57,68 @@ export default function Page() {
     const sortArticles = (arts, options = {}) => {
         setLoading(4);
         const daysAgo = Date.now() - (options.filterByDays ? options.filterByDays : 4) * 24 * 60 * 60 * 1000;
-    
+
         const updatedArticles = JSON.parse(JSON.stringify(arts)); // create a deep copy of arts
-    
+
         // Filter for articles published within the last n days
         const filteredArticles = updatedArticles.map(art => {
             // Create a new Date object from the pubDate string
             const pubDate = new Date(art.pubDate);
             // Convert the date to the number of milliseconds elapsed since January 1, 1970
             const articleDateInMs = pubDate.getTime();
-    
+
             // If article is not from the specified last days, hide it.
             art.hidden = !(articleDateInMs >= daysAgo);
             return art;
         });
-    
+
         // First sort by date in descending order (newest first)
         filteredArticles.sort((a, b) => {
             const aDate = new Date(a.pubDate);
             const bDate = new Date(b.pubDate);
-    
+
             return bDate - aDate; // swap these to change order
         });
-    
+
         if (options.sortingMethod && options.sortingMethod === "date") {
             return filteredArticles;
         }
-    
+
         // Next sort by distance
         const final = filteredArticles.sort((a, b) => {
             if (!a.hasOwnProperty('distance') || a.distance == null) return 1;
             if (!b.hasOwnProperty('distance') || b.distance == null) return -1;
-    
+
             return b.distance - a.distance;
         });
-    
+
         // console.log(final.map(a => a.distance).join(`|`));
         return final;
     }
 
     useEffect(() => {
+
+        async function getQueryEmbedding(text) {
+            setLoading(2);
+            if (text == '') {
+                console.error(`getQueryEmbedding: text empty!`);
+                return;
+            }
+            router.push(pathname + '?' + createQueryString('q', queryText));
+            const res = await fetch('/works/article-search/api/embedding', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text }),
+            });
+            const resJson = await res.json();
+            if (!res.ok) {
+                throw new Error('Failed to fetch', resJson);
+            }
+            return resJson.result;
+        }
+
         async function updateEmbeddings(articles, targetEmbedding) {
             setLoading(3);
             const res = await fetch('/works/article-search/api/batch-embedding', {
@@ -122,27 +144,6 @@ export default function Page() {
             });
 
             return updatedArticles;
-        }
-
-        async function getQueryEmbedding(text) {
-            setLoading(2);
-            if (text == '') {
-                console.error(`getQueryEmbedding: text empty!`);
-                return;
-            }
-            router.push(pathname + '?' + createQueryString('q', queryText));
-            const res = await fetch('/works/article-search/api/embedding', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text }),
-            });
-            const resJson = await res.json();
-            if (!res.ok) {
-                throw new Error('Failed to fetch', resJson);
-            }
-            return resJson.result;
         }
 
         async function fetchData() {
@@ -174,21 +175,30 @@ export default function Page() {
                 queryEmbedding.current = targetEmbedding;
                 await appendCacheQueryEmbedding({ query: queryText, embedding: targetEmbedding });
             }
-            console.log(`updating articles (fetching individual embeddings + calculate distance)`);
-            const updatedArticles = await updateEmbeddings(resJson.articles, queryEmbedding.current);
             console.log(`sorting articles`);
-            const sortedAndUpdatedArticles = sortArticles(updatedArticles,{sortingMethod:sortingMethod,filterByDays:filterByDays});
+            const sortedAndUpdatedArticles = sortArticles(resJson.articles, { sortingMethod: "date", filterByDays: filterByDays });
             setArticles(sortedAndUpdatedArticles);
             setSuccessfulSources(resJson.successfulSources);
             setUpdateTime(resJson.updateTime);
-            await updateCacheArticles({ articles: sortedAndUpdatedArticles, successfulSources: resJson.successfulSources, updateTime: resJson.updateTime });
-            setLoading(200);
+
+            async function addEmbeddings(arts) {
+                console.log(`updating articles (fetching individual embeddings + calculate distance)`);
+                const updatedArticles = await updateEmbeddings(arts, queryEmbedding.current);
+                console.log(`sorting articles`);
+                const sortedAndUpdatedArticles = sortArticles(updatedArticles, { sortingMethod: sortingMethod, filterByDays: filterByDays });
+                setArticles(sortedAndUpdatedArticles);
+                setSuccessfulSources(resJson.successfulSources);
+                setUpdateTime(resJson.updateTime);
+                await updateCacheArticles({ articles: sortedAndUpdatedArticles, successfulSources: resJson.successfulSources, updateTime: resJson.updateTime });
+                setLoading(200);
+            }
+            addEmbeddings(sortedAndUpdatedArticles);
         }
         setLoading(1);
         fetchData();
     }, []);
 
-    const handleReorder = (options={}) => {
+    const handleReorder = (options = {}) => {
         if (queryText == '') {
             console.log(`query text empty!`);
             return;
@@ -278,7 +288,7 @@ export default function Page() {
                     return article;
                 });
                 console.log(`sorting articles`);
-                const sortedAndUpdatedArticles = sortArticles(updatedArticles,{sortingMethod:sortingMethod,filterByDays:filterByDays});
+                const sortedAndUpdatedArticles = sortArticles(updatedArticles, { sortingMethod: sortingMethod, filterByDays: filterByDays });
                 setArticles(sortedAndUpdatedArticles);
                 await updateCacheArticles({ articles: sortedAndUpdatedArticles, successfulSources, updateTime });
                 setLoading(200);
@@ -290,10 +300,10 @@ export default function Page() {
     const updateSortingMethod = (e) => {
         if (e == "date") {
             setSortingMethod("date");
-            handleReorder({sortingMethod:"date",filterByDays:filterByDays});
+            handleReorder({ sortingMethod: "date", filterByDays: filterByDays });
         } else {
             setSortingMethod("relevance");
-            handleReorder({sortingMethod:"relevance",filterByDays:filterByDays});
+            handleReorder({ sortingMethod: "relevance", filterByDays: filterByDays });
         }
         console.log(e);
     }
@@ -307,7 +317,7 @@ export default function Page() {
             "fourty-eight-hours": 2
         };
         setFilterByDays(durations.hasOwnProperty(e) ? durations[e] : 4);
-        handleReorder({sortingMethod:sortingMethod,filterByDays:durations.hasOwnProperty(e) ? durations[e] : 4});
+        handleReorder({ sortingMethod: sortingMethod, filterByDays: durations.hasOwnProperty(e) ? durations[e] : 4 });
         console.log(e);
     }
 
@@ -381,19 +391,20 @@ export default function Page() {
                         </RadioGroup>
                     </div>
                 </div>
+                {loading != 200 ? (
+                    <div className="col-span-4 flex flex-wrap justify-center">
+                        {loading >= 1 ? dict.loading_text.getting_articles : ''}<br />
+                        {loading >= 2 ? dict.loading_text.getting_embedding.replace("[QUERY TEXT]", queryText) : ''}<br />
+                        {loading >= 3 ? dict.loading_text.article_embedding : ''}<br />
+                        {loading >= 4 ? dict.loading_text.sorting_articles : ''}<br />
+                    </div>
+                ) : null}
             </div>
             <div className="items-stretch justify-center gap-6 rounded-lg grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {articles ?
                     articles.map((article, index) => {
-                        return (article.hidden&&article.hidden===true)?null:(<ArticleCard key={article.key} article={article} />);
-                    }) : (loading != 200 ? (
-                        <>
-                            {loading >= 1 ? dict.loading_text.getting_articles : ''}<br />
-                            {loading >= 2 ? dict.loading_text.getting_embedding.replace("[QUERY TEXT]", queryText) : ''}<br />
-                            {loading >= 3 ? dict.loading_text.article_embedding : ''}<br />
-                            {loading >= 4 ? dict.loading_text.sorting_articles : ''}<br />
-                        </>
-                    ) : dict.loading_text.final_steps)
+                        return (article.hidden && article.hidden === true) ? null : (<ArticleCard key={article.key} article={article} />);
+                    }) : null
                 }
             </div>
             <div className="hidden">
@@ -404,6 +415,7 @@ export default function Page() {
                 <div className="bg-blue-200 dark:bg-blue-600 hover:bg-blue-300 dark:hover:bg-blue-700 active:bg-blue-400 dark:active:bg-blue-700" />
                 <div className="bg-emerald-200 dark:bg-emerald-600 hover:bg-emerald-300 dark:hover:bg-emerald-700 active:bg-emerald-400 dark:active:bg-emerald-700" />
                 <div className="bg-violet-200 dark:bg-violet-600 hover:bg-violet-300 dark:hover:bg-violet-700 active:bg-violet-400 dark:active:bg-violet-700" />
+                <div className="bg-neutral-200 dark:bg-neutral-600 hover:bg-neutral-300 dark:hover:bg-neutral-700 active:bg-neutral-400 dark:active:bg-neutral-700" />
                 {/* Sample border colors to help tailwind treeshaking correctly*/}
                 <div className="border-amber-200 dark:border-amber-500" />
                 <div className="border-sky-200 dark:border-sky-300" />
@@ -411,6 +423,7 @@ export default function Page() {
                 <div className="border-blue-300 dark:border-blue-500" />
                 <div className="border-emerald-300 dark:border-emerald-500" />
                 <div className="border-violet-300 dark:border-violet-500" />
+                <div className="border-neutral-300 dark:border-neutral-500" />
             </div>
             <div className="mt-4 md:mt-8 flex flex-col w-full items-center">
                 Made by Mangle Kuo. All rights reserved.<br />
