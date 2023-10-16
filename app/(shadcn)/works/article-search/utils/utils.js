@@ -4,15 +4,25 @@ export function getDictionary(locale) {
             "title": {
                 "article_search": "記事検索",
                 "fetched_articles": "取得した記事",
-                "_within_the_past_": "（過去4日間の記事：[NUMBER]件）"
+                "_within_the_past_": "（過去[DAYS]日間の記事：[NUMBER]件）"
             },
             "label": {
                 "article_sources": "記事ソース：",
                 "input_hint": "次のテキストに近い記事でソート：",
                 "last_fetched": "毎時自動取得、最後の取得は[TIME AGO]。",
-                "loading": "読み込み中..."
+                "please_refresh": "新しい記事のリストを取得するために、再度更新してください。",
+                "loading": "読み込み中...",
+                "sort_by": "ソート",
+                "relevance": "関連性",
+                "date": "日付",
+                "filter_by": "フィルタ",
+                "one-month": "1ヶ月",
+                "one-week": "1週間",
+                "four-days": "4日間",
+                "fourty-eight-hours": "48時間",
             },
             "button": {
+                "search": "検索",
                 "sort": "並べ替え",
                 "sort_newest_first": "最新のものから",
                 "wait": "待機..."
@@ -31,15 +41,25 @@ export function getDictionary(locale) {
             "title": {
                 "article_search": "Article Search",
                 "fetched_articles": "Fetched Articles ",
-                "_within_the_past_": "([NUMBER] within the past 4 days): "
+                "_within_the_past_": "([NUMBER] within the past [DAYS] days): "
             },
             "label": {
                 "article_sources": "Article sources: ",
                 "input_hint": "Sort by how closely the article matches: ",
                 "last_fetched": "articles are fetched from these sources every hour, last fetch happened [TIME AGO].",
-                "loading": "loading..."
+                "please_refresh": "Please refresh again for new list of articles.",
+                "loading": "loading...",
+                "sort_by": "Sort by",
+                "relevance": "Relevance",
+                "date": "Date",
+                "filter_by": "Filter by",
+                "one-month": "1month",
+                "one-week": "1week",
+                "four-days": "4days",
+                "fourty-eight-hours": "48hrs",
             },
             "button": {
+                "search": "Search",
                 "sort": "Sort",
                 "sort_newest_first": "Newest first",
                 "wait": "wait..."
@@ -86,6 +106,20 @@ export function timeAgo(dateString, locale = 'en') {
     }
 
     return `${rtf.format(0, 'second')}`;
+}
+
+
+export function olderThan1hr(dateString) {
+    if (!dateString) { return false; }
+    const eventTime = new Date(dateString);
+    const currentTime = new Date();
+
+    const diffInSeconds = Math.floor((currentTime - eventTime) / 1000);
+
+    if(diffInSeconds > 3600){
+        return true;
+    }
+    return false;
 }
 
 export function dotProduct(a, b) {

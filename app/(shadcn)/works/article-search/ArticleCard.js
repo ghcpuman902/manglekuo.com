@@ -20,9 +20,18 @@ export default function ArticleCard({ article }) {
         locale = 'jp';
     }
     const dict = getDictionary(locale);
+    const colorData = ["amber|100|600","sky|100|400","sky|200|600","blue|200|600","emerald|200|600","violet|200|600"];
 
-    const zoneColors = [ 'bg-amber-100 dark:bg-amber-600', 'bg-sky-100 dark:bg-sky-400', 'bg-sky-200 dark:bg-sky-600','bg-blue-200 dark:bg-blue-600','bg-emerald-200 dark:bg-emerald-600','bg-violet-200 dark:bg-violet-600'];
-    const zoneBorderColors = [ 'border-amber-400', 'border-sky-200', 'border-sky-400','border-blue-400','border-emerald-400','border-violet-400'];
+    const zoneColors = colorData.map(color => {
+        const [baseColor, defaultIntensity, darkModeIntensity] = color.split("|");
+        return `bg-${baseColor}-${defaultIntensity} dark:bg-${baseColor}-${darkModeIntensity} hover:bg-${baseColor}-${parseInt(defaultIntensity)} dark:hover:bg-${baseColor}-${parseInt(darkModeIntensity)} active:bg-${baseColor}-${parseInt(defaultIntensity)} dark:active:bg-${baseColor}-${parseInt(darkModeIntensity)}`;
+    });
+
+    const zoneBorderColors = colorData.map(color => {
+        const [baseColor, defaultIntensity, darkModeIntensity] = color.split("|");
+        return `border-${baseColor}-${parseInt(defaultIntensity)+100} dark:border-${baseColor}-${parseInt(darkModeIntensity)-100}`;
+    });
+    
     const zoneBadgeNames = dict["zoneBadgeNames"];
 
     function mapValue(d) {
