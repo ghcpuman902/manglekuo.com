@@ -32,26 +32,13 @@ export default function Page() {
 
     let defaultQueryText = `astronomy scientific research, space exploration, deep sky news`;
     let articlesFetchUrl = '/works/article-search/api/articles';
-    let batchEmbeddingUrl = '/works/article-search/api/batch-embedding';
+    let batchEmbeddingUrl = '/works/article-search/api/batch-embedding-kv';
     let locale = 'en';
     if (searchParams.has('jp')) {
         defaultQueryText = `天文学の研究、宇宙探査、深宇宙のニュース`;
         articlesFetchUrl = '/works/article-search/api/articles-jp';
         locale = 'jp';
         updateCacheArticles({ articles: null, successfulSources: null, updateTime: null });
-    }
-    if (searchParams.has('ebdm')) {
-        const embeddingMethod = searchParams.get('ebdm');
-        switch (embeddingMethod) {
-            case 'kv':
-                batchEmbeddingUrl = '/works/article-search/api/batch-embedding-kv';
-                break;
-            case 'fetch':
-                batchEmbeddingUrl = '/works/article-search/api/batch-embedding-fetch';
-                break;
-            default:
-                break;
-        }
     }
     if (searchParams.has('q')) {
         defaultQueryText = searchParams.get('q');
@@ -134,7 +121,6 @@ export default function Page() {
         }
 
         async function updateEmbeddings(articles, targetEmbedding) {
-            console.time("batch-embedding");
             setLoading(3);
             const res = await fetch(batchEmbeddingUrl, {
                 method: "POST",
@@ -146,21 +132,24 @@ export default function Page() {
                     texts: articles.map(article => `${article.title}||||${article.description.replace(/\n|\t|[ ]{4}/g, '').replace(/<[^>]*>/g, '')}`)
                 })),
             });
-            const embeddingsResult = await res.json();
-            console.timeLog("batch-embedding");
 
-            const updatedArticles = articles.map((article, index) => {
-                if (!article.embedding || article.embedding.length == 0) {
-                    console.log(`article embedding fetched.`);
-                    article.embedding = embeddingsResult.result[index];
-                    article.distance = dotProduct(embeddingsResult.result[index], targetEmbedding);
-                } else {
-                    article.distance = dotProduct(article.embedding, targetEmbedding);
-                }
+            // Retrieve the binary data
+            const arrayBuffer = await res.arrayBuffer();
+        
+            // Convert the ArrayBuffer to Float64Array
+            let embeddingsResult = new Float64Array(arrayBuffer);
+
+            // split embeddingsResult into individual embeddings
+            const embeddingSize = 1536;
+            let processedArticles = articles.map((article, i) => {
+                let start = i * embeddingSize;
+                let end = start + embeddingSize;
+                article.embedding = Array.from(embeddingsResult.slice(start, end));
+                article.distance = dotProduct(article.embedding, targetEmbedding);
                 return article;
-            });
-
-            return updatedArticles;
+            })
+        
+            return processedArticles;
         }
 
         async function fetchData() {
