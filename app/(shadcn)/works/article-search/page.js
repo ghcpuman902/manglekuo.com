@@ -32,12 +32,26 @@ export default function Page() {
 
     let defaultQueryText = `astronomy scientific research, space exploration, deep sky news`;
     let articlesFetchUrl = '/works/article-search/api/articles';
+    let batchEmbeddingUrl = '/works/article-search/api/batch-embedding';
     let locale = 'en';
     if (searchParams.has('jp')) {
         defaultQueryText = `天文学の研究、宇宙探査、深宇宙のニュース`;
         articlesFetchUrl = '/works/article-search/api/articles-jp';
         locale = 'jp';
         updateCacheArticles({ articles: null, successfulSources: null, updateTime: null });
+    }
+    if (searchParams.has('ebdm')) {
+        const embeddingMethod = searchParams.get('ebdm');
+        switch (embeddingMethod) {
+            case 'kv':
+                batchEmbeddingUrl = '/works/article-search/api/batch-embedding-kv';
+                break;
+            case 'fetch':
+                batchEmbeddingUrl = '/works/article-search/api/batch-embedding-fetch';
+                break;
+            default:
+                break;
+        }
     }
     if (searchParams.has('q')) {
         defaultQueryText = searchParams.get('q');
@@ -122,7 +136,7 @@ export default function Page() {
         async function updateEmbeddings(articles, targetEmbedding) {
             console.time("batch-embedding");
             setLoading(3);
-            const res = await fetch('/works/article-search/api/batch-embedding', {
+            const res = await fetch(batchEmbeddingUrl, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
