@@ -76,7 +76,12 @@ export const fetchArticlesFromFeed = cache(async (url) => {
                 const link = item.link;
                 const pubDate = item.pubDate;
                 let description = item.description || '';
-                description = description.replace(/decoding="async"|loading="lazy"|class="[^"]*"/g, "");
+                // description = description.replace(/decoding="async"|loading="lazy"|class="[^"]*"/g, "");
+                description = description.replace(/<((?!img|a|figure)[a-z][^>]*)>/g, '').replace(/class="[^"]*"/g, "").replace(/&[a-z]+?;/g, function(match) {
+                    var entities = { 'amp': '&', 'lt': '<', 'gt': '>', 'quot': '\"' };
+                    var entity = match.slice(1,-1);
+                    return entities[entity] || match;
+                }).replace(/\s+/g, " ");
                 const figureRegex = /<figure>[\s\S]*?<\/figure>/g;
                 let figureMatches = description.match(figureRegex);
                 if (figureMatches && figureMatches.length > 1) {

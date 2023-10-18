@@ -4,14 +4,7 @@ import OpenAI from 'openai';
 import { inflate } from 'pako';
 import { kv } from '@vercel/kv';
 
-function customHash(text) {
-    const str = text.split("").map(char => char.charCodeAt(0).toString(16)).join('');
-    const firstTen = str.slice(0, 10);
-    const lastTen = str.slice(-10);
-    const totalCharCount = str.length.toString();
-    let hash = firstTen + lastTen + totalCharCount;
-    return hash;
-}
+import { customHash } from '../../utils/utils'
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY });
 
@@ -56,15 +49,15 @@ export async function POST(request: NextRequest) {
 
         let cachedEmbeddings = await kv.get(dependencyHash);
         if (cachedEmbeddings) {
-            console.log('Cache hit:', dependencyHash);
+            // console.log('Cache hit:', dependencyHash);
             //@ts-ignore
             return decodeBase64(cachedEmbeddings);
         }
 
-        console.log('Cache miss:', dependencyHash);
+        // console.log('Cache miss:', dependencyHash);
         const embedding = await getEmbeddingFromOpenAI(text);
         kv.set(dependencyHash, encodeBase64(embedding),
-            { ex: 30 * 24 * 60 * 60 });
+            { ex: 7 * 24 * 60 * 60 });
         return embedding;
     });
 
@@ -73,17 +66,17 @@ export async function POST(request: NextRequest) {
     const embeddings = results.filter(result => result.status === 'fulfilled')
         .map(result => (result as PromiseFulfilledResult<any>).value); // map the value from the result
 
-    const binaryEmbeddings = Buffer.from(new Float64Array(embeddings).buffer);
-    const stringifiedEmbeddings = JSON.stringify(embeddings);
-    const sizeBinary = binaryEmbeddings.length / 1024;
-    const sizeBinaryBase64 = Buffer.byteLength(binaryEmbeddings.toString('base64'), 'utf8') / 1024;
-    const sizeJSON = Buffer.byteLength(stringifiedEmbeddings, 'utf8') / 1024;
-    console.log(`binary length: ${sizeBinary}, binary base64 length: ${sizeBinaryBase64} stringified length: ${sizeJSON}; ratio: ${sizeBinary / sizeJSON}; ratio64: ${sizeBinaryBase64 / sizeJSON}`);
+    // const binaryEmbeddings = Buffer.from(new Float64Array(embeddings).buffer);
+    // const stringifiedEmbeddings = JSON.stringify(embeddings);
+    // const sizeBinary = binaryEmbeddings.length / 1024;
+    // const sizeBinaryBase64 = Buffer.byteLength(binaryEmbeddings.toString('base64'), 'utf8') / 1024;
+    // const sizeJSON = Buffer.byteLength(stringifiedEmbeddings, 'utf8') / 1024;
+    // console.log(`binary length: ${sizeBinary}, binary base64 length: ${sizeBinaryBase64} stringified length: ${sizeJSON}; ratio: ${sizeBinary / sizeJSON}; ratio64: ${sizeBinaryBase64 / sizeJSON}`);
 
     const totalLength = embeddings.reduce((total, arr) => total + arr.length, 0);
     const responseArray = new Float64Array(totalLength);
-    console.log("Size of individual arrays in embeddings:", embeddings.map(arr => arr.length));
-    console.log("Total size required: ", totalLength);
+    // console.log("Size of individual arrays in embeddings:", embeddings.map(arr => arr.length));
+    // console.log("Total size required: ", totalLength);
     let currIdx = 0;
     for (let array of embeddings) {
         responseArray.set(array, currIdx); // copy each array into the new large array.

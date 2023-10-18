@@ -123,7 +123,7 @@ export function olderThan1hr(dateString) {
 }
 
 export function dotProduct(a, b) {
-    if (a.length != b.length) { return 1; }
+    if (!a || !b || a.length != b.length) { return 1; }
     let dotProduct = 0;
     for (let i = 0; i < a.length; i++) {
         dotProduct += a[i] * b[i];
@@ -163,3 +163,12 @@ export function formatDate(date) {
     return formattedString;
   }
   
+
+export function customHash(text) {
+    const str = text.split("").map(char => char.charCodeAt(0).toString(16)).join('');
+    const firstTen = str.slice(0, 10);
+    const lastTen = str.slice(-10);
+    const totalCharCount = str.length.toString();
+    let hash = firstTen + lastTen + totalCharCount;
+    return hash;
+}

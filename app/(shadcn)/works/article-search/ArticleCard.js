@@ -70,7 +70,7 @@ export default function ArticleCard({ article }) {
                     <div className="text-sm text-muted-foreground pt-1"><Badge variant="secondary" className="mr-1" suppressHydrationWarning>{timeAgo(article.pubDate,locale)}</Badge><Badge variant="secondary" className={zoneColors[mapValue(article.distance).zone]}>{zoneBadgeNames[mapValue(article.distance).zone]} ({dToPercentage(mapValue(article.distance).newDistance)})</Badge></div>
                 </CardHeader>
                 <CardContent>
-                    <div dangerouslySetInnerHTML={{ __html: article.description }}></div>
+                    <div dangerouslySetInnerHTML={{ __html: article.description}}></div>
                 </CardContent>
                 <CardFooter>
                     <p className="leading-7 [&:not(:first-child)]:mt-6 text-ellipsis overflow-hidden">Source: <Link href={article.source} target="_blank" rel="noopener noreferrer" className="hover:underline">{getDomainNameFromUrl(article.source)}</Link></p>

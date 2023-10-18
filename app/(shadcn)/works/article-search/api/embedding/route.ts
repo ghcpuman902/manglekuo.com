@@ -27,9 +27,9 @@ async function getEmbedding(inputString: string, host: string | null) {
 }
 
 export async function POST(request: NextRequest) {
-    const { text } = await request.json();
-    // Get embedding for new text 
-    let embedding = await getEmbedding(text, request.headers.get('host'));
+    const { query } = await request.json();
+    // Get embedding for new query 
+    let embedding = await getEmbedding(query, request.headers.get('host'));
 
     if (process.env.NODE_ENV == "development") {
         return NextResponse.json({ result: embedding });

@@ -2,43 +2,54 @@
 const ARTICLES = 'articles';
 const SUCCESSFULSOURCES = 'successful-sources';
 const TIME = 'update-time';
+const LOCALE = 'locale';
 const QUERYEMBEDDINGS = 'query-embeddings';
+const ARTICLEEMBEDDINGS = 'article-embeddings';
 
 // Check if caches is available
 const cacheAvailable = (typeof window !== "undefined")?('caches' in self):false;
 
+let cacheStorage;
+
+export const initializeCache = async () => {
+  if (cacheAvailable) {
+    cacheStorage = await caches.open('article-search');
+  }
+}
+
 // Retrieve articles data from cache
 export const getCacheArticles = async () => {
-  if (cacheAvailable) {
+  if (cacheAvailable && cacheStorage) {
     try {
-      const cache = await caches.open('article-search');
-      const articles = await cache.match(ARTICLES);
-      const successfulSources = await cache.match(SUCCESSFULSOURCES);
-      const updateTime = await cache.match(TIME);
+      const articles = await cacheStorage.match(ARTICLES);
+      const successfulSources = await cacheStorage.match(SUCCESSFULSOURCES);
+      const updateTime = await cacheStorage.match(TIME);
+      const localeLang = await cacheStorage.match(LOCALE);
 
       const parsedArticles = articles ? await articles.json() : null;
       const parsedSuccessfulSources = successfulSources ? await successfulSources.json() : null;
       const parsedUpdateTime = updateTime ? await updateTime.json() : null;
+      const parsedLocale = localeLang ? await localeLang.json() : null;
 
-      return [parsedArticles, parsedSuccessfulSources, parsedUpdateTime];
+      return [parsedArticles, parsedSuccessfulSources, parsedUpdateTime, parsedLocale];
     } catch (error) {
       console.error("Error reading from cache:", error);
-      return [null, null, null];
+      return [null, null, null, null];
     }
   }
   // In case caches is not available
-  return [null, null, null];
+  return [null, null, null, null];
 }
 
 // Update the articles data in cache
-export const updateCacheArticles = async ({ articles, successfulSources, updateTime }) => {
-  if (cacheAvailable) {
+export const updateCacheArticles = async ({ articles, successfulSources, updateTime, locale }) => {
+  if (cacheAvailable && cacheStorage) {
     try {
-      const cache = await caches.open('article-search');
-      await cache.put(ARTICLES, new Response(JSON.stringify(articles)));
-      await cache.put(SUCCESSFULSOURCES, new Response(JSON.stringify(successfulSources)));
-      await cache.put(TIME, new Response(JSON.stringify(updateTime)));
-      return { articles, successfulSources, updateTime };
+      await cacheStorage.put(ARTICLES, new Response(JSON.stringify(articles)));
+      await cacheStorage.put(SUCCESSFULSOURCES, new Response(JSON.stringify(successfulSources)));
+      await cacheStorage.put(TIME, new Response(JSON.stringify(updateTime)));
+      await cacheStorage.put(LOCALE, new Response(JSON.stringify(locale)));
+      return { articles, successfulSources, updateTime, locale };
     } catch (error) {
       console.error("Error setting cache:", error);
       return {};
@@ -48,12 +59,14 @@ export const updateCacheArticles = async ({ articles, successfulSources, updateT
   return {};
 }
 
+
+
+
 // Retrieve embedding of a query from cache
 export const searchCacheQueryEmbedding = async (query) => {
-  if (cacheAvailable) {
+  if (cacheAvailable && cacheStorage) {
     try {
-      const cache = await caches.open('article-search');
-      const queryEmbeddingsResponse = await cache.match(QUERYEMBEDDINGS);
+      const queryEmbeddingsResponse = await cacheStorage.match(QUERYEMBEDDINGS);
       if (!queryEmbeddingsResponse) {
         return null;
       }
@@ -68,35 +81,41 @@ export const searchCacheQueryEmbedding = async (query) => {
   return null;
 }
 
-// Append new embedding to cache, keep only 20 latest
 export const appendCacheQueryEmbedding = async ({ query, embedding }) => {
-  if (cacheAvailable) {
+  if (cacheAvailable && cacheStorage) {
     try {
-      const cache = await caches.open('article-search');
-      let queryEmbeddingsResponse = await cache.match(QUERYEMBEDDINGS);
+      let queryEmbeddingsResponse = await cacheStorage.match(QUERYEMBEDDINGS);
 
       let queryEmbeddings = queryEmbeddingsResponse ? await queryEmbeddingsResponse.json() : {};
 
-      // Add new embedding to the front
-      queryEmbeddings = { [query]: embedding, ...queryEmbeddings };
+      queryEmbeddings[query] = embedding;
 
-      // Trim to the 20 latest
-      queryEmbeddings = Object.keys(queryEmbeddings)
-        .slice(0, 20)
-        .reduce((result, key) => {
-          result[key] = queryEmbeddings[key];
-          return result;
-        }, {});
-
-      await cache.put(QUERYEMBEDDINGS, new Response(JSON.stringify(queryEmbeddings)));
-      return queryEmbeddings;
+      await cacheStorage.put(QUERYEMBEDDINGS, new Response(JSON.stringify(queryEmbeddings)));
+      return {[query]:embedding};
     } catch (error) {
       console.error("Error setting cache:", error);
-      return {};
     }
   }
   // In case caches is not available
   return {};
+}
+
+
+export const borrowCacheEmbeddings = async () => {
+  if (cacheAvailable && cacheStorage) {
+    let queryEmbeddingsResponse = await cacheStorage.match(ARTICLEEMBEDDINGS);
+    let cacheEmbeddings = queryEmbeddingsResponse ? await queryEmbeddingsResponse.json() : {};
+
+    return cacheEmbeddings;
+  } else {
+    return {};
+  }
+}
+
+export const returnCacheEmbeddings = async (cacheEmbeddings) => {
+  if (cacheAvailable && cacheStorage) {
+    return cacheStorage.put(ARTICLEEMBEDDINGS, new Response(JSON.stringify(cacheEmbeddings)));
+  }
 }
 
 export const clearAllData = async () => {
