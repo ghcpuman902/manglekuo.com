@@ -3,8 +3,7 @@ export function getDictionary(locale) {
         return {
             "title": {
                 "article_search": "記事検索",
-                "fetched_articles": "取得した記事",
-                "_within_the_past_": "（過去[DAYS]日間の記事：[NUMBER]件）"
+                "articles_in_past_days": "過去[DAYS]日間の記事：[NUMBER]件"
             },
             "label": {
                 "article_sources": "記事ソース：",
@@ -40,8 +39,7 @@ export function getDictionary(locale) {
         return {
             "title": {
                 "article_search": "Article Search",
-                "fetched_articles": "Fetched Articles ",
-                "_within_the_past_": "([NUMBER] within the past [DAYS] days): "
+                "articles_in_past_days": "[NUMBER] articles in the past [DAYS] days",
             },
             "label": {
                 "article_sources": "Article sources: ",
@@ -123,7 +121,7 @@ export function olderThan1hr(dateString) {
 }
 
 export function dotProduct(a, b) {
-    if (!a || !b || a.length != b.length) { return 1; }
+    if (!a || !b || a.length != b.length) { return null; }
     let dotProduct = 0;
     for (let i = 0; i < a.length; i++) {
         dotProduct += a[i] * b[i];

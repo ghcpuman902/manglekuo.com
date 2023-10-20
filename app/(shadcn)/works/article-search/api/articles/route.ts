@@ -1,4 +1,4 @@
-import { fetchAllArticles } from '../../utils/fetchRSS';
+import { fetchAllArticles } from '../../_utils/fetchRSS';
 export const revalidate = 3600;
 
 export async function GET() {

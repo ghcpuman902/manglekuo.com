@@ -1,12 +1,16 @@
-import { SearchSortFilter } from './_components/search-sort-filter'
-import { ArticlesGrid } from './_components/articles-grid'
-import { SuccessfulSources } from "./_components/succesful-sources";
-import { LoadingCardGrid } from './_components/loading-card-grid'
+import { SearchSortFilter } from '../_components/search-sort-filter'
+import { ArticlesGrid } from '../_components/articles-grid'
+import { SuccessfulSources } from "../_components/succesful-sources";
+import { LoadingCardGrid } from '../_components/loading-card-grid'
 import { Suspense } from 'react';
 
+export const metadata = {
+    title: 'Article Search 日本語版',
+};
+
 export default async function Page() {
-    const locale = 'en';
-    const articlesFetchUrl = '/works/article-search/api/articles';
+    const locale = 'jp';
+    const articlesFetchUrl = '/works/article-search/api/articles-jp';
 
     const env = process.env.NODE_ENV;
     let baseURL = 'https://manglekuo.com';

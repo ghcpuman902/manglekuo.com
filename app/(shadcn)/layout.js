@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 const inter = Inter({ subsets: ['latin'] })
 import './global.css'
 import { ThemeProvider } from "@components/theme-provider";
+import { Toaster } from "@components/ui/toaster"
 
 export const metadata = {
   title: 'Article Search',
@@ -82,6 +83,7 @@ export default async function RootLayout({
         >
             {children}
         </ThemeProvider>
+        <Toaster />
         <Analytics/>
       </body>
     </html>

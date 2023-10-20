@@ -2,9 +2,6 @@ import { type NextRequest, NextResponse } from 'next/server'
 
 
 async function getEmbedding(inputString: string, host: string | null) {
-    const text = inputString.toLowerCase()
-        .replace(/\s+/g, ' ')
-        .trim();
     let urlPrefix;
     host = host ? host : 'manglekuo.com'
     if (host.includes('localhost') || host.includes('.local')) {
@@ -18,7 +15,7 @@ async function getEmbedding(inputString: string, host: string | null) {
             'Referer': 'https://manglekuo.com',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "text": text, "key": process.env.OPENAI_KEY }),
+        body: JSON.stringify({ "text": inputString, "key": process.env.OPENAI_KEY }),
         redirect: 'follow',
         cache: 'force-cache'
     });
@@ -28,8 +25,16 @@ async function getEmbedding(inputString: string, host: string | null) {
 
 export async function POST(request: NextRequest) {
     const { query } = await request.json();
+
+    const text = query.toLowerCase()
+        .replace(/\s+/g, ' ')
+        .trim().slice(0, 280);
+
+    if(!text){
+        return NextResponse.json('Bad request', { status: 400 });
+    }
     // Get embedding for new query 
-    let embedding = await getEmbedding(query, request.headers.get('host'));
+    let embedding = await getEmbedding(text, request.headers.get('host'));
 
     if (process.env.NODE_ENV == "development") {
         return NextResponse.json({ result: embedding });

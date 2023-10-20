@@ -22,34 +22,41 @@ export const getCacheArticles = async () => {
   if (cacheAvailable && cacheStorage) {
     try {
       const articles = await cacheStorage.match(ARTICLES);
-      const successfulSources = await cacheStorage.match(SUCCESSFULSOURCES);
       const updateTime = await cacheStorage.match(TIME);
       const localeLang = await cacheStorage.match(LOCALE);
 
       const parsedArticles = articles ? await articles.json() : null;
-      const parsedSuccessfulSources = successfulSources ? await successfulSources.json() : null;
       const parsedUpdateTime = updateTime ? await updateTime.json() : null;
       const parsedLocale = localeLang ? await localeLang.json() : null;
 
-      return [parsedArticles, parsedSuccessfulSources, parsedUpdateTime, parsedLocale];
+      if (!parsedArticles || 
+        parsedArticles.length === 0 || 
+        !parsedArticles[0] || 
+        !parsedArticles[0].embedding || 
+        parsedArticles[0].embedding.length === 0) {
+        // Return or take action: parsedArticles is null, empty, its first element is null or undefined, 
+        // or the first element's embedding property is null, undefined, or an empty array
+        // invalidate the cache
+        return  [null, null, null];
+    }
+      return [parsedArticles, parsedUpdateTime, parsedLocale];
     } catch (error) {
       console.error("Error reading from cache:", error);
-      return [null, null, null, null];
+      return [null, null, null];
     }
   }
   // In case caches is not available
-  return [null, null, null, null];
+  return [null, null, null];
 }
 
 // Update the articles data in cache
-export const updateCacheArticles = async ({ articles, successfulSources, updateTime, locale }) => {
+export const updateCacheArticles = async ({ articles, updateTime, locale }) => {
   if (cacheAvailable && cacheStorage) {
     try {
       await cacheStorage.put(ARTICLES, new Response(JSON.stringify(articles)));
-      await cacheStorage.put(SUCCESSFULSOURCES, new Response(JSON.stringify(successfulSources)));
       await cacheStorage.put(TIME, new Response(JSON.stringify(updateTime)));
       await cacheStorage.put(LOCALE, new Response(JSON.stringify(locale)));
-      return { articles, successfulSources, updateTime, locale };
+      return { articles, updateTime, locale };
     } catch (error) {
       console.error("Error setting cache:", error);
       return {};
@@ -58,9 +65,6 @@ export const updateCacheArticles = async ({ articles, successfulSources, updateT
   // In case caches is not available
   return {};
 }
-
-
-
 
 // Retrieve embedding of a query from cache
 export const searchCacheQueryEmbedding = async (query) => {

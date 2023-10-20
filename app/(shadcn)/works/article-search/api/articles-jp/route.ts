@@ -1,4 +1,4 @@
-import { fetchAllJapanArticles } from '../../utils/fetchRSS';
+import { fetchAllJapanArticles } from '../../_utils/fetchRSS';
 export const revalidate = 3600;
 
 
