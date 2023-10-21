@@ -19,12 +19,23 @@ export function getDictionary(locale) {
                 "one-week": "1週間",
                 "four-days": "4日間",
                 "fourty-eight-hours": "48時間",
+                "having-issues": "問題がありますか？",
+                "issue-alert-title":"うーん、予定よりも時間がかかっています...",
+                "issue-alert-description":`試してみてください:
+                1.あなたのローカルキャッシュデータをクリアする
+                2.ページを再読込する
+                原因:
+                1.インターネット接続が悪い (中国にいる場合はVPNを試してみてください)
+                2.あなたのローカルキャッシュデータが破損している可能性があります
+                もし問題が続く場合は、次のアドレスに連絡してください: manglekuo@gmail.com または WeChat: manglekuo.`
             },
             "button": {
                 "search": "検索",
                 "sort": "並べ替え",
                 "sort_newest_first": "最新のものから",
-                "wait": "待機..."
+                "wait": "待機...",
+                "clear-all-data": "すべてのデータを消去",
+                "reload": "再読込"
             },
             "zoneBadgeNames": ['不適当', '可能', '良好', '絶妙', '似た話題', '同じ記事', ''],
             "loading_text": {
@@ -55,12 +66,23 @@ export function getDictionary(locale) {
                 "one-week": "1week",
                 "four-days": "4days",
                 "fourty-eight-hours": "48hrs",
+                "having-issues": "Having issues? Try ",
+                "issue-alert-title":"Hm.. it's taking longer than it should...",
+                "issue-alert-description":`TRY:
+                1. clear your local cached data 
+                2. reload the page
+                REASON:
+                1. you have bad internet connection (try a VPN if you are in China)
+                2. your local cached data might be corrupted  
+                If issue persists, please contact me at manglekuo@gmail.com or on WeChat: manglekuo.`
             },
             "button": {
                 "search": "Search",
                 "sort": "Sort",
                 "sort_newest_first": "Newest first",
-                "wait": "wait..."
+                "wait": "wait...",
+                "clear-all-data": "clear all data",
+                "reload": "reload"
             },
             "zoneBadgeNames": ['Bad Match', 'Maybe', 'Good Match', 'Excellent Match', 'Similar Topic', 'Same Article', ''],
             "loading_text": {

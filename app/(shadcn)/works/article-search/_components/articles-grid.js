@@ -294,7 +294,7 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                 }
             </div>
             <div className="flex justify-center my-3">
-            <Button variant="link" onClick={() => { clearAllData(); }}>clear all data</Button>
+             <div>{dict.label['having-issues']}<Button variant="outline" onClick={() => { clearAllData(); }}>{dict.button['clear-all-data']}</Button></div>
             </div>
         </>
     );
