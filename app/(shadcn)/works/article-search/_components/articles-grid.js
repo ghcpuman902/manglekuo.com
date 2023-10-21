@@ -1,6 +1,7 @@
 'use client';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { Button } from "@components/ui/button";
 import { Label } from "@components/ui/label";
 import { ArticleCard } from "./article-card";
 import { useLoading, useQueryString, useSortingMethod, useFilterByDays } from './article-context';
@@ -291,6 +292,9 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                         return (article.hidden && article.hidden === true) ? null : (<ArticleCard locale={locale} key={article.key} article={article} />);
                     }) : null
                 }
+            </div>
+            <div className="flex justify-center my-3">
+            <Button variant="link" onClick={() => { clearAllData(); }}>clear all data</Button>
             </div>
         </>
     );

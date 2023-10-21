@@ -1,6 +1,7 @@
 'use client';
+const pV='';
+const thisV='23102101';
 const ARTICLES = 'articles';
-const SUCCESSFULSOURCES = 'successful-sources';
 const TIME = 'update-time';
 const LOCALE = 'locale';
 const QUERYEMBEDDINGS = 'query-embeddings';
@@ -14,6 +15,7 @@ let cacheStorage;
 export const initializeCache = async () => {
   if (cacheAvailable) {
     cacheStorage = await caches.open('article-search');
+    clearPrevData();
   }
 }
 
@@ -21,9 +23,9 @@ export const initializeCache = async () => {
 export const getCacheArticles = async () => {
   if (cacheAvailable && cacheStorage) {
     try {
-      const articles = await cacheStorage.match(ARTICLES);
-      const updateTime = await cacheStorage.match(TIME);
-      const localeLang = await cacheStorage.match(LOCALE);
+      const articles = await cacheStorage.match(ARTICLES+thisV);
+      const updateTime = await cacheStorage.match(TIME+thisV);
+      const localeLang = await cacheStorage.match(LOCALE+thisV);
 
       const parsedArticles = articles ? await articles.json() : null;
       const parsedUpdateTime = updateTime ? await updateTime.json() : null;
@@ -42,6 +44,7 @@ export const getCacheArticles = async () => {
       return [parsedArticles, parsedUpdateTime, parsedLocale];
     } catch (error) {
       console.error("Error reading from cache:", error);
+      clearAllData();
       return [null, null, null];
     }
   }
@@ -53,12 +56,13 @@ export const getCacheArticles = async () => {
 export const updateCacheArticles = async ({ articles, updateTime, locale }) => {
   if (cacheAvailable && cacheStorage) {
     try {
-      await cacheStorage.put(ARTICLES, new Response(JSON.stringify(articles)));
-      await cacheStorage.put(TIME, new Response(JSON.stringify(updateTime)));
-      await cacheStorage.put(LOCALE, new Response(JSON.stringify(locale)));
+      await cacheStorage.put(ARTICLES+thisV, new Response(JSON.stringify(articles)));
+      await cacheStorage.put(TIME+thisV, new Response(JSON.stringify(updateTime)));
+      await cacheStorage.put(LOCALE+thisV, new Response(JSON.stringify(locale)));
       return { articles, updateTime, locale };
     } catch (error) {
       console.error("Error setting cache:", error);
+      clearAllData();
       return {};
     }
   }
@@ -122,13 +126,26 @@ export const returnCacheEmbeddings = async (cacheEmbeddings) => {
   }
 }
 
+
 export const clearAllData = async () => {
   if (typeof window !== "undefined") {
     localStorage.clear();
+    console.log('localStorage cleared');
   }
 
   if (cacheAvailable) {
     const cacheNames = await caches.keys();
     await Promise.all(cacheNames.map(cache => caches.delete(cache)));
+    console.log('cache cleared');
   }
+  return true;
+}
+
+export const clearPrevData = async () => {
+  if (cacheAvailable) {
+    const cacheNames = [ARTICLES+pV,TIME+pV,LOCALE+pV,'succesful-sources'];
+    await Promise.all(cacheNames.map(cache => caches.delete(cache)));
+    console.log('previous cache cleared');
+  }
+  return true;
 }
