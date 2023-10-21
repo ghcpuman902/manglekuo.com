@@ -1,6 +1,6 @@
 'use client';
-const pV='';
-const thisV='23102101';
+const pV=['','23102101'];
+const thisV='23102102';
 const ARTICLES = 'articles';
 const TIME = 'update-time';
 const LOCALE = 'locale';
@@ -143,7 +143,8 @@ export const clearAllData = async () => {
 
 export const clearPrevData = async () => {
   if (cacheAvailable) {
-    const cacheNames = [ARTICLES+pV,TIME+pV,LOCALE+pV,'succesful-sources'];
+    let cacheNames = ['succesful-sources'];
+    pV.map(name => cacheNames = cacheNames.concat([ARTICLES+name,TIME+name,LOCALE+name]));
     await Promise.all(cacheNames.map(cache => caches.delete(cache)));
     console.log('previous cache cleared');
   }
