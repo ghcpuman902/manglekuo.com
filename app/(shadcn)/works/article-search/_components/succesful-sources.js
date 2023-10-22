@@ -1,8 +1,9 @@
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import { Label } from "@components/ui/label";
 import { Badge } from "@components/ui/badge";
 import { timeAgo, olderThan1hr, getDictionary, getDomainNameFromUrl } from "../_utils/utils";
-
-export const revalidate = 30;
 
 export const SuccessfulSources = async ({ locale, successfulSources, updateTime }) => {
     const dict = getDictionary(locale);
