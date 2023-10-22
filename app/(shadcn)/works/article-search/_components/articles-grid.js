@@ -111,6 +111,7 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
     }, []);
 
     useEffect(() => {
+        router.refresh();
         const updateEmbeddings = async (articles, targetEmbedding, updateRestFlag = false) => {
             let articlesToFetchEmbeddingsFor = [];
             const cacheEmbeddings = await borrowCacheEmbeddings();

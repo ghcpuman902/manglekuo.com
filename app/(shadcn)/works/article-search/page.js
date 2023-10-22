@@ -14,7 +14,7 @@ export default async function Page() {
         baseURL = 'http://localhost:3000';
     }
     const res = await fetch(baseURL + articlesFetchUrl, {
-        next: { revalidate: 0 },
+        next: { revalidate: 3590 },
     });
     const resJson = await res.json();
     if (!res.ok) {
