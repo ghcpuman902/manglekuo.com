@@ -23,7 +23,7 @@ const rss_feeds = [
     "https://www.space.com/feeds/news",
     "https://www.sciencealert.com/feed",
     "https://skyandtelescope.org/astronomy-news/feed",
-    "https://spacenews.com/feed/",
+    // "https://spacenews.com/feed/",
     "http://rss.sciam.com/ScientificAmerican-Global",
     "https://ras.ac.uk/rss.xml",
     "https://www.sci.news/astronomy/feed",

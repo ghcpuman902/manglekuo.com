@@ -1,8 +1,8 @@
-export const revalidate = 3600
+// export const revalidate = 3600
 
 import { fetchAllArticles } from '../../_utils/fetchRSS';
 
-export async function GET() {
+export async function POST() {
     const {articles, successfulSources, updateTime} = await fetchAllArticles();
     const env = process.env.NODE_ENV;
 
@@ -18,7 +18,7 @@ export async function GET() {
                 'Cache-Control': 'no-cache',
                 'Expires': expireDate.toUTCString(),
                 'Pragma': 'no-cache',
-                'Access-Control-Allow-Methods': 'GET',
+                'Access-Control-Allow-Methods': 'POST',
                 'Access-Control-Allow-Headers': 'Content-Type',
             }
         });
@@ -31,7 +31,7 @@ export async function GET() {
                 'Expires': expireDate.toUTCString(),
                 'Pragma': 'no-cache',
                 'Access-Control-Allow-Origin': 'https://manglekuo.com',
-                'Access-Control-Allow-Methods': 'GET',
+                'Access-Control-Allow-Methods': 'POST',
                 'Access-Control-Allow-Headers': 'Content-Type',
             },
         });
