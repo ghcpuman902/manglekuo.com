@@ -8,7 +8,7 @@ export const metadata = {
     title: 'Article Search 日本語版',
 };
 
-export default async function Page() {
+export default async function Page({searchParams}) {
     const locale = 'jp';
     const articlesFetchUrl = '/works/article-search/api/articles-jp';
 
@@ -34,6 +34,9 @@ export default async function Page() {
             <Suspense fallback={<LoadingCardGrid />}>
                 <ArticlesGrid locale={locale} articles={articles} updateTime={updateTime} />
             </Suspense>
+            <div className="mt-4 md:mt-8 flex flex-col w-full items-center text-neutral-400">
+                {JSON.stringify(searchParams, null, 2)}
+            </div>
         </>
     );
 }

@@ -4,7 +4,7 @@ import { SuccessfulSources } from "./_components/succesful-sources";
 import { LoadingCardGrid } from './_components/loading-card-grid'
 import { Suspense } from 'react';
 
-export default async function Page() {
+export default async function Page({searchParams}) {
     const locale = 'en';
     const articlesFetchUrl = '/works/article-search/api/articles';
 
@@ -30,6 +30,9 @@ export default async function Page() {
             <Suspense fallback={<LoadingCardGrid />}>
                 <ArticlesGrid locale={locale} articles={articles} updateTime={updateTime} />
             </Suspense>
+            <div className="mt-4 md:mt-8 flex flex-col w-full items-center text-neutral-400">
+                {JSON.stringify(searchParams, null, 2)}
+            </div>
         </>
     );
 }
