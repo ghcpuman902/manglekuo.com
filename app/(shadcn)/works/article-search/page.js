@@ -1,12 +1,10 @@
-export const revalidate = 0
-
 import { SearchSortFilter } from './_components/search-sort-filter'
 import { ArticlesGrid } from './_components/articles-grid'
 import { SuccessfulSources } from "./_components/succesful-sources";
 import { LoadingCardGrid } from './_components/loading-card-grid'
 import { Suspense } from 'react';
 
-export default async function Page() {
+export default async function Page({searchParams}) {
     const locale = 'en';
     const articlesFetchUrl = '/works/article-search/api/articles';
 
@@ -33,6 +31,7 @@ export default async function Page() {
                 <ArticlesGrid locale={locale} articles={articles} updateTime={updateTime} />
             </Suspense>
             <div className="mt-4 md:mt-8 flex flex-col w-full items-center text-neutral-400" suppressHydrationWarning>
+                {JSON.stringify(searchParams, null, 2)}<br/>
                 Server page render time: {new Date().toISOString()}<br/>
                 Server articles update time: {JSON.stringify(updateTime, null, 2)}
             </div>
