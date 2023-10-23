@@ -85,8 +85,8 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
         }
         try {
             query = query.toLowerCase()
-            .replace(/\s+/g, ' ')
-            .trim().slice(0, 280);
+                .replace(/\s+/g, ' ')
+                .trim().slice(0, 280);
             const cachedQueryEmbedding = await searchCacheQueryEmbedding(query);
             if (cachedQueryEmbedding) {
                 console.log(`using cached targetEmbedding`);
@@ -178,7 +178,7 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
             if (cUpdateTime) {
                 const diffInSeconds = Math.floor((new Date() - new Date(cUpdateTime)) / 1000);
                 if (diffInSeconds < 3600 && cLocale && cLocale == locale) {
-                    console.log({cLocale, locale});
+                    console.log({ cLocale, locale });
                     console.log(`less than an hour & same locale, using cached articles`);
                     const sortedAndUpdatedArticles = sortArticles(cArticles);
                     setLArticles(sortedAndUpdatedArticles);
@@ -188,37 +188,36 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                     });
                     return;
                 }
-            } else {
-                try {
-                    console.log(`older than an hour or locale changed, attempt to add embeddings`);
-                    toast({
-                        description: `Using new articles from server ${timeAgo(updateTime, locale)}`,
-                    });
+            }
+            try {
+                console.log(`older than an hour or locale changed, attempt to add embeddings`);
+                toast({
+                    description: `Using new articles from server ${timeAgo(updateTime, locale)}`,
+                });
 
-                    queryEmbedding.current = await getQueryEmbedding(queryString);
+                queryEmbedding.current = await getQueryEmbedding(queryString);
 
-                    const partiallyAddEmbeddings = async (articlesWithoutEmbeddings) => {
-                        console.log(`updating displaying articles (fetching individual embeddings + calculate distance)`);
-                        const updatedArticles = await updateEmbeddings(articlesWithoutEmbeddings, queryEmbedding.current);
+                const partiallyAddEmbeddings = async (articlesWithoutEmbeddings) => {
+                    console.log(`updating displaying articles (fetching individual embeddings + calculate distance)`);
+                    const updatedArticles = await updateEmbeddings(articlesWithoutEmbeddings, queryEmbedding.current);
+                    console.log(`sorting articles`);
+                    const sortedAndUpdatedArticles = sortArticles(updatedArticles);
+                    setLArticles(sortedAndUpdatedArticles);
+                    setLoading(200);
+                    const fullyAddEmbeddings = async (articlesWithSomeEmbeddings) => {
+                        console.log(`updating remaining articles (fetching individual embeddings + calculate distance)`);
+                        const updatedArticles = await updateEmbeddings(articlesWithSomeEmbeddings, queryEmbedding.current, true);
                         console.log(`sorting articles`);
                         const sortedAndUpdatedArticles = sortArticles(updatedArticles);
                         setLArticles(sortedAndUpdatedArticles);
-                        setLoading(200);
-                        const fullyAddEmbeddings = async (articlesWithSomeEmbeddings) => {
-                            console.log(`updating remaining articles (fetching individual embeddings + calculate distance)`);
-                            const updatedArticles = await updateEmbeddings(articlesWithSomeEmbeddings, queryEmbedding.current, true);
-                            console.log(`sorting articles`);
-                            const sortedAndUpdatedArticles = sortArticles(updatedArticles);
-                            setLArticles(sortedAndUpdatedArticles);
-                            updateCacheArticles({ articles: sortedAndUpdatedArticles, updateTime: updateTime, locale: locale });
-                        }
-                        fullyAddEmbeddings(sortedAndUpdatedArticles);
+                        updateCacheArticles({ articles: sortedAndUpdatedArticles, updateTime: updateTime, locale: locale });
                     }
-                    setLoading(3);
-                    partiallyAddEmbeddings(articles);
-                } catch (error) {
-                    throw new Error(`something went wrong! please let the developer know!\n${JSON.stringify(error, null, 2)}`);
+                    fullyAddEmbeddings(sortedAndUpdatedArticles);
                 }
+                setLoading(3);
+                partiallyAddEmbeddings(articles);
+            } catch (error) {
+                throw new Error(`something went wrong! please let the developer know!\n${JSON.stringify(error, null, 2)}`);
             }
         }
         fetchData();
@@ -281,7 +280,7 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
         console.log(`re-sorting articles after page nav`);
         reorderArticlesByDistance(searchParams.get('q'), lArticles);;
     }, [searchParams]);
-    
+
     return (
         <>
             <div className="items-stretch justify-center mb-6">
@@ -304,7 +303,7 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                 }
             </div>
             <div className="flex justify-center my-3">
-             <div>{dict.label['having-issues']}<Button variant="outline" onClick={() => { clearAllData(); }}>{dict.button['clear-all-data']}</Button></div>
+                <div>{dict.label['having-issues']}<Button variant="outline" onClick={() => { clearAllData(); }}>{dict.button['clear-all-data']}</Button></div>
             </div>
         </>
     );
