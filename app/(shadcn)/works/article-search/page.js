@@ -31,7 +31,8 @@ export default async function Page({searchParams}) {
                 <ArticlesGrid locale={locale} articles={articles} updateTime={updateTime} />
             </Suspense>
             <div className="mt-4 md:mt-8 flex flex-col w-full items-center text-neutral-400">
-                {JSON.stringify(searchParams, null, 2)}
+                {JSON.stringify(searchParams, null, 2)}<br/>
+                {JSON.stringify(updateTime, null, 2)}
             </div>
         </>
     );

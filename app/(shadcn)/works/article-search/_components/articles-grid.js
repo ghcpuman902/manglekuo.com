@@ -3,6 +3,8 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { Button } from "@components/ui/button";
 import { Label } from "@components/ui/label";
+
+import { useToast } from "@components/ui/use-toast"
 import { ArticleCard } from "./article-card";
 import { useLoading, useQueryString, useSortingMethod, useFilterByDays } from './article-context';
 import { initializeCache, getCacheArticles, updateCacheArticles, searchCacheQueryEmbedding, appendCacheQueryEmbedding, borrowCacheEmbeddings, returnCacheEmbeddings, clearAllData } from '../_utils/local-articles';
@@ -12,6 +14,7 @@ import { gzip } from 'pako';
 
 
 export const ArticlesGrid = ({ locale, articles, updateTime }) => {
+    const { toast } = useToast();
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -111,7 +114,6 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
     }, []);
 
     useEffect(() => {
-        router.refresh();
         const updateEmbeddings = async (articles, targetEmbedding, updateRestFlag = false) => {
             let articlesToFetchEmbeddingsFor = [];
             const cacheEmbeddings = await borrowCacheEmbeddings();
@@ -180,11 +182,17 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                     console.log(`less than an hour & same locale, using cached articles`);
                     setLArticles(cArticles);
                     setLoading(200);
+                    toast({
+                        description: `Using cache, ${cUpdateTime}`,
+                    });
                     return;
                 }
             } else {
                 try {
                     console.log(`older than an hour or locale changed, attempt to add embeddings`);
+                    toast({
+                        description: `Using new articles, ${updateTime}`,
+                    });
 
                     queryEmbedding.current = await getQueryEmbedding(queryString);
 
