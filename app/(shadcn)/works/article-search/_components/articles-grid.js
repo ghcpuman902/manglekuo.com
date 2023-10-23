@@ -175,59 +175,67 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
         const fetchData = async () => {
             await initializeCache();
             const [cArticles, cUpdateTime, cLocale] = await getCacheArticles();
+
+            let action = '';
+
             if (cUpdateTime) {
-                const diffInSeconds = Math.floor((new Date() - new Date(cUpdateTime)) / 1000);
-                if (diffInSeconds < 3600 && cLocale && cLocale == locale) {
-                    console.log(`less than an hour & same locale, using cached articles`);
-                    const sortedAndUpdatedArticles = sortArticles(cArticles);
-                    setLArticles(sortedAndUpdatedArticles);
-                    setLoading(200);
-                    toast({
-                        description: `Using locally cached articles ${timeAgo(cUpdateTime, locale)}`,
-                    });
-                    return;
-                } else if (Math.floor((new Date(updateTime) - new Date(cUpdateTime)) / 1000) < 0){
-                    console.log(`more than an hour OR diff locale, but cached articles is still newer, so using cached articles`);
-                    const sortedAndUpdatedArticles = sortArticles(cArticles);
-                    setLArticles(sortedAndUpdatedArticles);
-                    setLoading(200);
-                    toast({
-                        description: `Using locally cached articles ${timeAgo(cUpdateTime, locale)}`,
-                    });
-                    return;
-
+                if ((new Date(cUpdateTime) - new Date(updateTime)) >= 0) {
+                    if (cLocale && cLocale === locale) {
+                        action = 'use cA';
+                        console.log(`cache was fresh and locale matched`);
+                    } else {
+                        action = 'use A';
+                        console.log(`cache was fresh but locale did not match`);
+                    }
+                } else {
+                    action = 'use A';
+                    console.log(`server articles newer than cache`);
                 }
+            } else {
+                action = 'use A';
+                console.log(`cache do not exist`);
             }
-            try {
-                console.log(`older than an hour or locale changed, attempt to add embeddings`);
-                toast({
-                    description: `Using new articles from server ${timeAgo(updateTime, locale)}`,
-                });
 
-                queryEmbedding.current = await getQueryEmbedding(queryString);
-
-                const partiallyAddEmbeddings = async (articlesWithoutEmbeddings) => {
-                    console.log(`updating displaying articles (fetching individual embeddings + calculate distance)`);
-                    const updatedArticles = await updateEmbeddings(articlesWithoutEmbeddings, queryEmbedding.current);
-                    console.log(`sorting articles`);
-                    const sortedAndUpdatedArticles = sortArticles(updatedArticles);
-                    setLArticles(sortedAndUpdatedArticles);
-                    setLoading(200);
-                    const fullyAddEmbeddings = async (articlesWithSomeEmbeddings) => {
-                        console.log(`updating remaining articles (fetching individual embeddings + calculate distance)`);
-                        const updatedArticles = await updateEmbeddings(articlesWithSomeEmbeddings, queryEmbedding.current, true);
+            if (action === 'use A') {
+                try {
+                    console.log(`using server articles, attempt to add embeddings`);
+                    toast({
+                        description: `${dict.toast_text.using_server}${timeAgo(updateTime, locale)}`,
+                    });
+                    queryEmbedding.current = await getQueryEmbedding(queryString);
+    
+                    const partiallyAddEmbeddings = async (articlesWithoutEmbeddings) => {
+                        console.log(`updating displaying articles (fetching individual embeddings + calculate distance)`);
+                        const updatedArticles = await updateEmbeddings(articlesWithoutEmbeddings, queryEmbedding.current);
                         console.log(`sorting articles`);
                         const sortedAndUpdatedArticles = sortArticles(updatedArticles);
                         setLArticles(sortedAndUpdatedArticles);
-                        updateCacheArticles({ articles: sortedAndUpdatedArticles, updateTime: updateTime, locale: locale });
+                        setLoading(200);
+                        const fullyAddEmbeddings = async (articlesWithSomeEmbeddings) => {
+                            console.log(`updating remaining articles (fetching individual embeddings + calculate distance)`);
+                            const updatedArticles = await updateEmbeddings(articlesWithSomeEmbeddings, queryEmbedding.current, true);
+                            console.log(`sorting articles`);
+                            const sortedAndUpdatedArticles = sortArticles(updatedArticles);
+                            setLArticles(sortedAndUpdatedArticles);
+                            updateCacheArticles({ articles: sortedAndUpdatedArticles, updateTime: updateTime, locale: locale });
+                        }
+                        fullyAddEmbeddings(sortedAndUpdatedArticles);
                     }
-                    fullyAddEmbeddings(sortedAndUpdatedArticles);
+                    setLoading(3);
+                    partiallyAddEmbeddings(articles);
+                } catch (error) {
+                    throw new Error(`something went wrong! please let the developer know!\n${JSON.stringify(error, null, 2)}`);
                 }
-                setLoading(3);
-                partiallyAddEmbeddings(articles);
-            } catch (error) {
-                throw new Error(`something went wrong! please let the developer know!\n${JSON.stringify(error, null, 2)}`);
+            } else if (action === 'use cA') {
+                console.log(`using cached articles`);
+                const sortedAndUpdatedArticles = sortArticles(cArticles);
+                setLArticles(sortedAndUpdatedArticles);
+                setLoading(200);
+                toast({
+                    description: `${dict.toast_text.using_local_cache}${timeAgo(cUpdateTime, locale)}`,
+                });
             }
+            return;
         }
         fetchData();
     }, []);

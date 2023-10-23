@@ -13,9 +13,9 @@ export default async function Page({searchParams}) {
     if (env == "development") {
         baseURL = 'http://localhost:3000';
     }
-    const res = await fetch(baseURL + articlesFetchUrl, {
-        next: { revalidate: 3600 },
-    });
+    const res = await fetch(baseURL + articlesFetchUrl, 
+        { next: { revalidate: 600, tags: ['articles'] } },
+    );
     const resJson = await res.json();
     if (!res.ok) {
         throw new Error('Failed to fetch', resJson);
@@ -32,8 +32,8 @@ export default async function Page({searchParams}) {
             </Suspense>
             <div className="mt-4 md:mt-8 flex flex-col w-full items-center text-neutral-400" suppressHydrationWarning>
                 {JSON.stringify(searchParams, null, 2)}<br/>
-                Server page render time: {new Date().toISOString()}<br/>
-                Server articles update time: {JSON.stringify(updateTime, null, 2)}
+                server page render: {new Date().toISOString()}<br/>
+                server articles: {JSON.stringify(updateTime, null, 2)}
             </div>
         </>
     );

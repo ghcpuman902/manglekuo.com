@@ -9,6 +9,8 @@ export async function GET() {
     var expireDate = new Date(updateTime);
     expireDate.setHours(expireDate.getHours() + 1); 
 
+    console.log(`GET Japan articles, time now:${new Date().toUTCString()} expireDate:${expireDate.toUTCString()}`);
+
     if(env === "development"){
         return Response.json({articles, successfulSources, updateTime}, {
             headers: {

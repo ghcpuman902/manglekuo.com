@@ -44,6 +44,10 @@ export function getDictionary(locale) {
                 "article_embedding": "記事の埋め込み取得中＋距離計算...",
                 "sorting_articles": "記事並べ替え中...",
                 "final_steps": "最終ステップ..."
+            },
+            "toast_text": {
+                "using_local_cache": "ローカルにキャッシュされた記事を利用中 ",
+                "using_server": "サーバーからの新しい記事を利用中 "
             }
         };
     } else {
@@ -91,6 +95,10 @@ export function getDictionary(locale) {
                 "article_embedding": "Getting article embeddings + calculating distances...",
                 "sorting_articles": "Sorting articles...",
                 "final_steps": "Final steps..."
+            },
+            "toast_text": {
+                "using_local_cache": "Using locally cached articles ",
+                "using_server": "Using new articles from server "
             }
         };
     }
