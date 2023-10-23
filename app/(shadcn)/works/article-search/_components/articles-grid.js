@@ -180,10 +180,11 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                 if (diffInSeconds < 3600 && cLocale && cLocale == locale) {
                     console.log({cLocale, locale});
                     console.log(`less than an hour & same locale, using cached articles`);
-                    setLArticles(cArticles);
+                    const sortedAndUpdatedArticles = sortArticles(cArticles);
+                    setLArticles(sortedAndUpdatedArticles);
                     setLoading(200);
                     toast({
-                        description: `Using cache, ${cUpdateTime}`,
+                        description: `Using locally cached articles ${timeAgo(cUpdateTime, locale)}`,
                     });
                     return;
                 }
@@ -191,7 +192,7 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                 try {
                     console.log(`older than an hour or locale changed, attempt to add embeddings`);
                     toast({
-                        description: `Using new articles, ${updateTime}`,
+                        description: `Using new articles from server ${timeAgo(updateTime, locale)}`,
                     });
 
                     queryEmbedding.current = await getQueryEmbedding(queryString);

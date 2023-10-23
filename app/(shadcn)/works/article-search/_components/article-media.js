@@ -18,7 +18,7 @@ export const ArticleMedia = ({ description, placeHolder }) => {
         setInnerHTML(description);
     }, [description]);
     
-    return (<AspectRatio ratio={16 / 9} className="relative overflow-hidden shadow-inner shadow-neutral-300 [&_img]:absolute [&_img]:min-h-full [&_img]:w-full [&_img]:top-1/2 [&_img]:left-1/2 [&_img]:transform [&_img]:-translate-x-1/2 [&_img]:-translate-y-1/2">
+    return (<AspectRatio ratio={16 / 9} className="relative overflow-hidden shadow-inner shadow-neutral-300 [&_img]:absolute [&_img]:min-h-full [&_img]:min-w-full [&_img]:top-1/2 [&_img]:left-1/2 [&_img]:transform [&_img]:-translate-x-1/2 [&_img]:-translate-y-1/2">
         {innerHTML ?
             (<div dangerouslySetInnerHTML={{ __html: innerHTML }}></div>) :
             (<>
