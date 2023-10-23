@@ -1,3 +1,5 @@
+export const revalidate = 1800
+
 import { SearchSortFilter } from '../_components/search-sort-filter'
 import { ArticlesGrid } from '../_components/articles-grid'
 import { SuccessfulSources } from "../_components/succesful-sources";

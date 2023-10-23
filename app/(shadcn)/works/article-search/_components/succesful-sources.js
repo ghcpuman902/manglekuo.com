@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import { Label } from "@components/ui/label";
 import { Badge } from "@components/ui/badge";
 import { timeAgo, olderThan1hr, getDictionary, getDomainNameFromUrl } from "../_utils/utils";
