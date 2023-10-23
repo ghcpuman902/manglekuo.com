@@ -178,7 +178,6 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
             if (cUpdateTime) {
                 const diffInSeconds = Math.floor((new Date() - new Date(cUpdateTime)) / 1000);
                 if (diffInSeconds < 3600 && cLocale && cLocale == locale) {
-                    console.log({ cLocale, locale });
                     console.log(`less than an hour & same locale, using cached articles`);
                     const sortedAndUpdatedArticles = sortArticles(cArticles);
                     setLArticles(sortedAndUpdatedArticles);
@@ -187,6 +186,16 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                         description: `Using locally cached articles ${timeAgo(cUpdateTime, locale)}`,
                     });
                     return;
+                } else if (Math.floor((new Date(updateTime) - new Date(cUpdateTime)) / 1000) < 0){
+                    console.log(`more than an hour OR diff locale, but cached articles is still newer, so using cached articles`);
+                    const sortedAndUpdatedArticles = sortArticles(cArticles);
+                    setLArticles(sortedAndUpdatedArticles);
+                    setLoading(200);
+                    toast({
+                        description: `Using locally cached articles ${timeAgo(cUpdateTime, locale)}`,
+                    });
+                    return;
+
                 }
             }
             try {

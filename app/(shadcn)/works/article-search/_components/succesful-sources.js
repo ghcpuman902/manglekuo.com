@@ -1,9 +1,7 @@
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
-
 import { Label } from "@components/ui/label";
 import { Badge } from "@components/ui/badge";
-import { timeAgo, olderThan1hr, getDictionary, getDomainNameFromUrl } from "../_utils/utils";
+import { getDictionary, getDomainNameFromUrl } from "../_utils/utils";
+import { LastFetched } from "./last-fetched";
 
 export const SuccessfulSources = async ({ locale, successfulSources, updateTime }) => {
     const dict = getDictionary(locale);
@@ -19,7 +17,7 @@ export const SuccessfulSources = async ({ locale, successfulSources, updateTime 
                     </Badge>
                 );
             }) : dict.label.loading}
-            <Label className="text-neutral-400 dark:text-neutral-600" suppressHydrationWarning>{dict.label.last_fetched.replace("[TIME AGO]", timeAgo(updateTime, locale))} {olderThan1hr(updateTime) ? dict.label.please_refresh : null}</Label>
+            <LastFetched locale={locale} updateTime={updateTime} />
         </div>
     );
 }
