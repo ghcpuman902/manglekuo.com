@@ -8,7 +8,7 @@ export const metadata = {
     title: 'Article Search 日本語版',
 };
 
-export default async function Page({searchParams}) {
+export default async function Page() {
     const locale = 'jp';
     const articlesFetchUrl = '/works/article-search/api/articles-jp';
 
@@ -35,8 +35,8 @@ export default async function Page({searchParams}) {
                 <ArticlesGrid locale={locale} articles={articles} updateTime={updateTime} />
             </Suspense>
             <div className="mt-4 md:mt-8 flex flex-col w-full items-center text-neutral-400">
-                {JSON.stringify(searchParams, null, 2)}<br/>
-                Server articles update time: UTC {JSON.stringify(updateTime, null, 2)}
+                Server page render time: {new Date().toISOString()}<br/>
+                Server articles update time: {JSON.stringify(updateTime, null, 2)}
             </div>
         </>
     );
