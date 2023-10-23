@@ -1,4 +1,4 @@
-export const revalidate = 1800
+export const revalidate = 0
 
 import { SearchSortFilter } from './_components/search-sort-filter'
 import { ArticlesGrid } from './_components/articles-grid'
