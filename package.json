@@ -60,7 +60,7 @@
     "@types/react": "18.2.21",
     "@types/styled-components": "^5.1.28",
     "autoprefixer": "^10.4.16",
-    "eslint-config-next": "^13.5.5",
+    "eslint-config-next": "^13.5.6",
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3"
