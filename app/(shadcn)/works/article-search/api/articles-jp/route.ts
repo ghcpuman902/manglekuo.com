@@ -1,7 +1,8 @@
+export const revalidate = 3600
+
 import { fetchAllJapanArticles } from '../../_utils/fetchRSS';
 
-export async function GET(request: Request) {
-    console.log(request);
+export async function GET() {
     const {articles, successfulSources, updateTime} = await fetchAllJapanArticles();
     const env = process.env.NODE_ENV;
 

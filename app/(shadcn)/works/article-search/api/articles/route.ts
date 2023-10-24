@@ -1,7 +1,8 @@
+export const revalidate = 3600
+
 import { fetchAllArticles } from '../../_utils/fetchRSS';
 
-export async function GET(request: Request) {
-    console.log(request);
+export async function GET() {
     const {articles, successfulSources, updateTime} = await fetchAllArticles();
     const env = process.env.NODE_ENV;
 

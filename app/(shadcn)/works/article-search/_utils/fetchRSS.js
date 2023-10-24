@@ -23,7 +23,7 @@ const rss_feeds = [
     "https://www.space.com/feeds/news",
     "https://www.sciencealert.com/feed",
     "https://skyandtelescope.org/astronomy-news/feed",
-    // "https://spacenews.com/feed/",
+    "https://spacenews.com/feed/",
     "http://rss.sciam.com/ScientificAmerican-Global",
     "https://ras.ac.uk/rss.xml",
     "https://www.sci.news/astronomy/feed",
@@ -102,7 +102,10 @@ export const fetchArticlesFromFeed = cache(async (url) => {
         const parsedResult = htmlparser2.parseFeed(data, { xmlMode: true });
 
         const types = ['rss', 'atom', 'rdf'];
-
+        if (!parsedResult) {
+            // skip
+            return [];
+        }
         if (types.includes(parsedResult.type) && parsedResult.items) {
             const items = parsedResult.items;
             for (let item of items) {
