@@ -1,8 +1,5 @@
 import 'server-only';
-import { cache } from 'react';
 import { formatDate } from './utils';
-
-export const revalidate = 3600;
 
 import * as htmlparser2 from "htmlparser2";
 import render from "dom-serializer";
@@ -93,7 +90,7 @@ function parseDescription(oDescription) {
     return { description, images };
 }
 
-export const fetchArticlesFromFeed = cache(async (url) => {
+export const fetchArticlesFromFeed = async (url) => {
     let articles = [];
     let currentTime = (new Date()).getTime();
     try {
@@ -128,7 +125,7 @@ export const fetchArticlesFromFeed = cache(async (url) => {
         return [];
     }
     return articles;
-});
+};
 
 
 async function fetchArticles(urls) {
@@ -162,12 +159,12 @@ async function fetchArticles(urls) {
     return { articles: allArticles, successfulSources, updateTime: formatDate(new Date()) };
 }
 
-export const fetchAllArticles = cache(async () => {
+export const fetchAllArticles = async () => {
     console.log(`fetchAllArticles ${formatDate(new Date())}`);
     return fetchArticles(rss_feeds);
-});
+};
 
-export const fetchAllJapanArticles = cache(async () => {
+export const fetchAllJapanArticles = async () => {
     console.log(`fetchAllJapanArticles ${formatDate(new Date())}`);
     return fetchArticles(rss_feed_jp);
-});
+};

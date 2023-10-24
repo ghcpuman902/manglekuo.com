@@ -18,7 +18,7 @@ export default async function Page({searchParams}) {
         baseURL = 'http://localhost:3000';
     }
     const res = await fetch(baseURL + articlesFetchUrl, 
-        { next: { revalidate: 600, tags: ['articles'] } },
+        { next: { revalidate: 3600, tags: ['articles'] } },
     );
     const resJson = await res.json();
     if (!res.ok) {
