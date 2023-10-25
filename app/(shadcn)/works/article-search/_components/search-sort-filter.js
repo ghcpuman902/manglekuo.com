@@ -77,7 +77,7 @@ export const SearchSortFilter = ({ locale }) => {
     }, [loading]);
 
     return (
-        <div className="mt-6 mb-3 w-full flex flex-wrap justify-center">
+        <div className="mt-6 w-full flex flex-wrap justify-center">
             <div className="w-full flex">
                 <Input id="query" type="text" className="mr-2" defaultValue={queryString} ref={queryInputRef} onKeyPress={event => {
                     if (event.key === 'Enter') {

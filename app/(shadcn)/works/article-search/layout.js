@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ArticleSearchLayout({ children }) {
     return (
-        <div className="p-4 md:p-8">
+        <div className="p-4 md:p-8 overflow-clip">
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Article Search<Suspense fallback={null}>
                 <LocaleDetector />
             </Suspense></h1>
