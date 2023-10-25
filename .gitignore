@@ -35,3 +35,4 @@ yarn-error.log*
 # local node.js files
 /app/works/taiwan-ramen-2023/getshoplist/
 .vercel
+.env*.local

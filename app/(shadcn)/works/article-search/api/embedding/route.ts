@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from 'next/server'
 
 
 async function getEmbedding(inputString: string, host: string | null) {
-    let urlPrefix;
+    let urlPrefix = '';
     host = host ? host : 'manglekuo.com'
     if (host.includes('localhost') || host.includes('.local')) {
         urlPrefix = 'http://' + host;
@@ -15,7 +15,7 @@ async function getEmbedding(inputString: string, host: string | null) {
             'Referer': 'https://manglekuo.com',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "text": inputString, "key": process.env.OPENAI_KEY }),
+        body: JSON.stringify({ "text": inputString, "key": process.env.APP_INTERNAL_API_KEY }),
         redirect: 'follow',
         cache: 'force-cache'
     });

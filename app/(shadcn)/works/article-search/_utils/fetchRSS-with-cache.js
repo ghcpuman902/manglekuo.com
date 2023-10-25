@@ -1,4 +1,7 @@
+export const revalidate = 120
+
 import 'server-only';
+import { cache } from 'react';
 import { formatDate } from './utils';
 
 import * as htmlparser2 from "htmlparser2";
@@ -90,11 +93,13 @@ function parseDescription(oDescription) {
     return { description, images };
 }
 
-export const fetchArticlesFromFeed = async (url) => {
+const fetchArticlesFromFeed = async (url) => {
     let articles = [];
     let currentTime = (new Date()).getTime();
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, {
+            next: { revalidate: 1800 },
+          });
         const data = await response.text();
         const parsedResult = htmlparser2.parseFeed(data, { xmlMode: true });
 
@@ -128,7 +133,7 @@ export const fetchArticlesFromFeed = async (url) => {
 };
 
 
-async function fetchArticles(urls) {
+const fetchArticles = async (urls) => {
     let allArticles = [];
     let successfulSources = [];
     const currentTime = (new Date()).getTime();
@@ -162,12 +167,12 @@ async function fetchArticles(urls) {
     return { articles: allArticles, successfulSources, updateTime: formatDate(new Date()) };
 }
 
-export const fetchAllArticles = async () => {
+export const fetchAllArticles = cache(async () => {
     console.log(`fetchAllArticles ${formatDate(new Date())}`);
     return fetchArticles(rss_feeds);
-};
+});
 
-export const fetchAllJapanArticles = async () => {
+export const fetchAllJapanArticles = cache(async () => {
     console.log(`fetchAllJapanArticles ${formatDate(new Date())}`);
     return fetchArticles(rss_feed_jp);
-};
+});

@@ -1,7 +1,7 @@
 import { SearchSortFilter } from '../_components/search-sort-filter'
 import { ArticlesGrid } from '../_components/articles-grid'
 import { SuccessfulSources } from "../_components/succesful-sources";
-import { LoadingCardGrid } from '../_components/loading-card-grid'
+import { LoadingCardGrid } from '../_components/loading-templates'
 import { Suspense } from 'react';
 
 export const metadata = {
@@ -17,7 +17,7 @@ export default async function Page({searchParams}) {
     if (env == "development") {
         baseURL = 'http://localhost:3000';
     }
-    const res = await fetch(baseURL + articlesFetchUrl, 
+    const res = await fetch(baseURL + articlesFetchUrl + '?key=' + process.env.APP_INTERNAL_API_KEY,
         { next: { revalidate: 3600, tags: ['articles'] } },
     );
     const resJson = await res.json();
@@ -28,16 +28,17 @@ export default async function Page({searchParams}) {
 
     return (
         <>
-            {/* @ts-expect-error Async Server Component */}
-            <SuccessfulSources locale={locale} successfulSources={successfulSources} updateTime={updateTime} />
-            <SearchSortFilter locale={locale} />
+            <Suspense fallback={<LoadingSources />}>
+                <SuccessfulSources locale={locale} successfulSources={successfulSources} updateTime={updateTime} />
+            </Suspense>
+            <Suspense fallback={<LoadingSearchSortFilter />}>
+                <SearchSortFilter locale={locale} />
+            </Suspense>
             <Suspense fallback={<LoadingCardGrid />}>
                 <ArticlesGrid locale={locale} articles={articles} updateTime={updateTime} />
             </Suspense>
-            <div className="mt-4 md:mt-8 flex flex-col w-full items-center text-neutral-400" suppressHydrationWarning>
-                {JSON.stringify(searchParams, null, 2)}<br/>
-                server page render: {new Date().toISOString()}<br/>
-                server articles: {JSON.stringify(updateTime, null, 2)}
+            <div className="flex flex-col w-full items-center text-neutral-400">
+                server page render: {new Date().toISOString()}<br />
             </div>
         </>
     );

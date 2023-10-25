@@ -2,9 +2,12 @@ export const revalidate = 0
 
 import { fetchAllArticles } from '../../_utils/fetchRSS';
 
-export async function GET() {
+export async function GET(request: Request) {
     const {articles, successfulSources, updateTime} = await fetchAllArticles();
     const env = process.env.NODE_ENV;
+    const referer = request.headers.get('referer');
+    const { searchParams } = new URL(request.url);
+    const key = searchParams.get('key');
 
     var expireDate = new Date(updateTime);
     expireDate.setHours(expireDate.getHours() + 1); 
@@ -12,6 +15,9 @@ export async function GET() {
     console.log(`GET articles, time now:${new Date().toUTCString()} expireDate:${expireDate.toUTCString()}`);
 
     if(env === "development"){
+        if ( !key || key != process.env.APP_INTERNAL_API_KEY ) {
+            return Response.json('Unauthorized', { status: 401 });
+        }
         return Response.json({articles, successfulSources, updateTime}, {
             headers: {
                 'Content-Type': 'application/json',
@@ -24,6 +30,9 @@ export async function GET() {
         });
     }
     else if (env === "production"){
+        if (!referer || !referer.startsWith('https://manglekuo.com') || !key || key != process.env.APP_INTERNAL_API_KEY) {
+            return Response.json('Unauthorized', { status: 401 });
+        }
         return Response.json({articles, successfulSources, updateTime}, {
             headers: {
                 'Content-Type': 'application/json',

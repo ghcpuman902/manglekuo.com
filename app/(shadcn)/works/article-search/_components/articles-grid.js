@@ -9,7 +9,7 @@ import { ArticleCard } from "./article-card";
 import { useLoading, useQueryString, useSortingMethod, useFilterByDays } from './article-context';
 import { initializeCache, getCacheArticles, updateCacheArticles, searchCacheQueryEmbedding, appendCacheQueryEmbedding, borrowCacheEmbeddings, returnCacheEmbeddings, clearAllData } from '../_utils/local-articles';
 
-import { dotProduct, timeAgo, olderThan1hr, getDictionary, getDomainNameFromUrl, customHash } from "../_utils/utils";
+import { dotProduct, timeAgo, getDictionary, customHash } from "../_utils/utils";
 import { gzip } from 'pako';
 
 
@@ -203,7 +203,7 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                         description: `${dict.toast_text.using_server}${timeAgo(updateTime, locale)}`,
                     });
                     queryEmbedding.current = await getQueryEmbedding(queryString);
-    
+
                     const partiallyAddEmbeddings = async (articlesWithoutEmbeddings) => {
                         console.log(`updating displaying articles (fetching individual embeddings + calculate distance)`);
                         const updatedArticles = await updateEmbeddings(articlesWithoutEmbeddings, queryEmbedding.current);
@@ -300,8 +300,8 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
 
     return (
         <>
-            <div className="sticky top-0 left-0 right-0 z-50 w-screen items-stretch -ml-4 md:-ml-8 justify-center">
-                <div className="scroll-m-20 text-center font-semibold tracking-tight p-6 text-neutral-400 dark:text-neutral-600 backdrop-brightness-150 dark:backdrop-brightness-50 backdrop-blur-lg backdrop-saturate-150">{
+            <div className="sticky top-0 left-0 right-0 z-50 py-6 flex place-content-center">
+                <span className="scroll-m-20 text-center tracking-tight py-1 px-2 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-lg backdrop-saturate-200">{
                     lArticles ?
                         dict.title.articles_in_past_days.replace(
                             "[NUMBER]",
@@ -311,19 +311,19 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                             filterByDays
                         ) : 'fetching articles'
                 } | "{
-                queryString
-                }" | {
-                dict.label.sort_by} {sortingMethod == "relevance" ? dict.label.relevance : dict.label.date
-                } | {
-                dict.label.filter_by} {
-                            filterByDays == 30?dict.label["one-month"]:''
-                            }{
-                            filterByDays == 7?dict.label["one-week"]:''
-                            }{
-                            filterByDays == 4?dict.label["four-days"]:''
-                            }{
-                            filterByDays == 2?dict.label["fourty-eight-hours"]:''}
-                </div>
+                        queryString
+                    }" | {
+                        dict.label.sort_by} {sortingMethod == "relevance" ? dict.label.relevance : dict.label.date
+                    } | {
+                        dict.label.filter_by} {
+                        filterByDays == 30 ? dict.label["one-month"] : ''
+                    }{
+                        filterByDays == 7 ? dict.label["one-week"] : ''
+                    }{
+                        filterByDays == 4 ? dict.label["four-days"] : ''
+                    }{
+                        filterByDays == 2 ? dict.label["fourty-eight-hours"] : ''}
+                </span>
             </div>
             <div className="items-stretch justify-center gap-6 rounded-lg grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {lArticles ?
@@ -334,6 +334,9 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
             </div>
             <div className="flex justify-center my-3">
                 <div>{dict.label['having-issues']}<Button variant="outline" onClick={() => { clearAllData(); }}>{dict.button['clear-all-data']}</Button></div>
+            </div>
+            <div className="mt-4 md:mt-8 flex flex-col w-full items-center text-neutral-400" suppressHydrationWarning>
+                server articles: {JSON.stringify(updateTime, null, 2)} ({timeAgo(updateTime)})
             </div>
         </>
     );
