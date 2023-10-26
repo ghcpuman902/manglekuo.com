@@ -14,9 +14,9 @@ export async function GET(request: Request) {
 
     console.log(`GET articles, time now:${new Date().toUTCString()} expireDate:${expireDate.toUTCString()}`);
 
-    if(env === "development"){
+    // if(env === "development"){
         if ( !key || key != 'Bearer '+process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY ) {
-            return Response.json('Unauthorized', { status: 401 });
+            return Response.json(`Unauthorized, key: '${key}'`, { status: 401 });
         }
         return Response.json({articles, successfulSources, updateTime}, {
             headers: {
@@ -28,21 +28,21 @@ export async function GET(request: Request) {
                 'Access-Control-Allow-Headers': 'Content-Type',
             }
         });
-    }
-    else if (env === "production"){
-        if (!referer || !referer.startsWith('https://manglekuo.com') || !key || key != 'Bearer '+process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY) {
-            return Response.json(`Unauthorized, referer:${referer}, key:${key}`, { status: 401 });
-        }
-        return Response.json({articles, successfulSources, updateTime}, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Cache-Control': 'no-cache',
-                'Expires': expireDate.toUTCString(),
-                'Pragma': 'no-cache',
-                'Access-Control-Allow-Origin': 'https://manglekuo.com',
-                'Access-Control-Allow-Methods': 'GET',
-                'Access-Control-Allow-Headers': 'Content-Type',
-            },
-        });
-    }
+    // }
+    // else if (env === "production"){
+    //     if (!referer || !referer.startsWith('https://manglekuo.com') || !key || key != 'Bearer '+process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY) {
+    //         return Response.json(`Unauthorized, referer:${referer}, key:${key}`, { status: 401 });
+    //     }
+    //     return Response.json({articles, successfulSources, updateTime}, {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Cache-Control': 'no-cache',
+    //             'Expires': expireDate.toUTCString(),
+    //             'Pragma': 'no-cache',
+    //             'Access-Control-Allow-Origin': 'https://manglekuo.com',
+    //             'Access-Control-Allow-Methods': 'GET',
+    //             'Access-Control-Allow-Headers': 'Content-Type',
+    //         },
+    //     });
+    // }
 }
