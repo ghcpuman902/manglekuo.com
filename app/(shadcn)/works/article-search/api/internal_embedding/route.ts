@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     const { text, key } = await request.json();
     const referer = request.headers.get('referer');
     if (!referer || !referer.startsWith('https://manglekuo.com') || key != process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY) {
-        return NextResponse.json('Unauthorized', { status: 401 });
+        return Response.json(`Unauthorized, referer:${referer}, key:${key}`, { status: 401 });
     }
     // Get embedding for new text 
     try {
@@ -31,14 +31,6 @@ export async function POST(request: NextRequest) {
             },
         });
     } catch (error) {
-        console.error(`Error with getting embeddings from OpenAI`,{ text, key, referer: request.headers.get('referer') });
-        return NextResponse.json({ result: error }, {
-            headers: {
-                'Access-Control-Allow-Origin': 'https://manglekuo.com',
-                'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Content-Type': 'application/json',
-            },
-        });
+        return Response.json(`Error: ${error}`, { status: 403 });
     }
 }

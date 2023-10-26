@@ -30,8 +30,8 @@ export async function GET(request: Request) {
         });
     }
     else if (env === "production"){
-        if (!referer || !referer.startsWith('https://manglekuo.com') || !key || key != 'Bearer '+process.env.APP_INTERNAL_API_KEY) {
-            return Response.json('Unauthorized', { status: 401 });
+        if (!referer || !referer.startsWith('https://manglekuo.com') || !key || key != 'Bearer '+process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY) {
+            return Response.json(`Unauthorized, referer:${referer}, key:${key}`, { status: 401 });
         }
         return Response.json({articles, successfulSources, updateTime}, {
             headers: {
