@@ -16,7 +16,7 @@ const getEmbeddingFromOpenAI = async (text: string) => {
 export async function POST(request: NextRequest) {
     const { text, key } = await request.json();
     const referer = request.headers.get('referer');
-    if (!referer || !referer.startsWith('https://manglekuo.com') || key != process.env.APP_INTERNAL_API_KEY) {
+    if (!referer || !referer.startsWith('https://manglekuo.com') || key != process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY) {
         return NextResponse.json('Unauthorized', { status: 401 });
     }
     // Get embedding for new text 

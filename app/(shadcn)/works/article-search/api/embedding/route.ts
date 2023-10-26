@@ -15,7 +15,7 @@ async function getEmbedding(inputString: string, host: string | null) {
             'Referer': 'https://manglekuo.com',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "text": inputString, "key": process.env.APP_INTERNAL_API_KEY }),
+        body: JSON.stringify({ "text": inputString, "key": process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY}),
         redirect: 'follow',
         cache: 'force-cache'
     });

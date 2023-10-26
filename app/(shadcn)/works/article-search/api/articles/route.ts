@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     console.log(`GET articles, time now:${new Date().toUTCString()} expireDate:${expireDate.toUTCString()}`);
 
     if(env === "development"){
-        if ( !key || key != 'Bearer '+process.env.APP_INTERNAL_API_KEY ) {
+        if ( !key || key != 'Bearer '+process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY ) {
             return Response.json('Unauthorized', { status: 401 });
         }
         return Response.json({articles, successfulSources, updateTime}, {

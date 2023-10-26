@@ -12,7 +12,7 @@ export default async function Page({ searchParams }) {
         const articlesFetchUrl = '/works/article-search/api/articles';
     
         const env = process.env.NODE_ENV;
-        const api_key = process.env.APP_INTERNAL_API_KEY;
+        const api_key = process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY;
         let baseURL = 'https://manglekuo.com';
         if (env == "development") {
             baseURL = 'http://localhost:3000';
