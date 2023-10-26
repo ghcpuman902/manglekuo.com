@@ -2,7 +2,7 @@
 import { Label } from "@components/ui/label";
 import { timeAgo, olderThan1hr, getDictionary } from "../_utils/utils";
 
-export const LastFetched = async ({ locale, updateTime }) => {
+export const LastFetched = ({ locale, updateTime }) => {
     const dict = getDictionary(locale);
     
     return (

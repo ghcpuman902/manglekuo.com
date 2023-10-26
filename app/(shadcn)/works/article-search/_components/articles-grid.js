@@ -301,6 +301,64 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
     return (
         <>
             <div className="sticky top-0 left-0 right-0 z-50 py-6 flex place-content-center">
+            {/* <span className="rounded-full overflow-hidden bien-wrap">
+                    <div className="bien-glass-edge">
+                        <span className="scroll-m-20 text-center tracking-tight py-1 px-2 bien-glass rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-lg backdrop-saturate-200">{
+                            lArticles ?
+                                dict.title.articles_in_past_days.replace(
+                                    "[NUMBER]",
+                                    lArticles.filter(article => !article.hidden).length
+                                ).replace(
+                                    "[DAYS]",
+                                    filterByDays
+                                ) : 'fetching articles'
+                        } | "{
+                                queryString
+                            }" | {
+                                dict.label.sort_by} {sortingMethod == "relevance" ? dict.label.relevance : dict.label.date
+                            } | {
+                                dict.label.filter_by} {
+                                filterByDays == 30 ? dict.label["one-month"] : ''
+                            }{
+                                filterByDays == 7 ? dict.label["one-week"] : ''
+                            }{
+                                filterByDays == 4 ? dict.label["four-days"] : ''
+                            }{
+                                filterByDays == 2 ? dict.label["fourty-eight-hours"] : ''}
+                        </span>
+                    </div>
+                </span>
+                <style jsx>{`
+                    .bien-wrap {
+                        height: calc( 1rem + 2 * 0.25rem + 4 * 2px );
+                        position: absolute;
+                    }
+                    .bien-glass{
+                        position: relative;
+                        top: 2px;
+                    }
+                    .bien-glass-edge {
+                        z-index: -1;
+                        padding: 2px;
+                        position: relative;
+                        --extended-by: 80px;
+                        --offset: 2rem;
+                        --thickness: 2px;
+                        height: calc(var(--extended-by) + var(--offset));
+                        top: calc(100% - var(--offset) + var(--thickness));
+                        --filter: blur(90px) saturate(160%) brightness(1.3);
+                        -webkit-backdrop-filter: var(--filter);
+                        backdrop-filter: var(--filter);
+                        pointer-events: none;
+                        -webkit-mask-image: linear-gradient(
+                            to bottom,
+                            black 0,
+                            black var(--offset),
+                            transparent var(--offset)
+                        );
+                    }
+                `}</style>
+            </div> */}
                 <span className="scroll-m-20 text-center tracking-tight py-1 px-2 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-lg backdrop-saturate-200">{
                     lArticles ?
                         dict.title.articles_in_past_days.replace(

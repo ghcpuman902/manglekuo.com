@@ -1,5 +1,4 @@
 import React from 'react';
-import { AppContextProvider } from './_components/article-context';
 import { LocaleDetector } from './_components/locale-detector';
 import { Suspense } from 'react';
 
@@ -13,9 +12,7 @@ export default function ArticleSearchLayout({ children }) {
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Article Search<Suspense fallback={null}>
                 <LocaleDetector />
             </Suspense></h1>
-            <AppContextProvider>
                 {children}
-            </AppContextProvider>
             <div className="hidden">
                 {/* Sample colors to help tailwind treeshaking correctly*/}
                 <div className="bg-amber-100 dark:bg-amber-600 hover:bg-amber-200 dark:hover:bg-amber-700 active:bg-amber-300 dark:active:bg-amber-700" />

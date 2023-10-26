@@ -6,8 +6,8 @@ export async function GET(request: Request) {
     const {articles, successfulSources, updateTime} = await fetchAllJapanArticles();
     const env = process.env.NODE_ENV;
     const referer = request.headers.get('referer');
-    const { searchParams } = new URL(request.url);
-    const key = searchParams.get('key');
+    const key = request.headers.get('Authorization');
+
 
     var expireDate = new Date(updateTime);
     expireDate.setHours(expireDate.getHours() + 1); 
@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     console.log(`GET Japan articles, time now:${new Date().toUTCString()} expireDate:${expireDate.toUTCString()}`);
 
     if(env === "development"){
-        if ( !key || key != process.env.APP_INTERNAL_API_KEY ) {
+        if ( !key || key != 'Bearer '+process.env.APP_INTERNAL_API_KEY ) {
             return Response.json('Unauthorized', { status: 401 });
         }
         return Response.json({articles, successfulSources, updateTime}, {
@@ -30,7 +30,7 @@ export async function GET(request: Request) {
         });
     }
     else if (env === "production"){
-        if (!referer || !referer.startsWith('https://manglekuo.com') || !key || key != process.env.APP_INTERNAL_API_KEY) {
+        if (!referer || !referer.startsWith('https://manglekuo.com') || !key || key != 'Bearer '+process.env.APP_INTERNAL_API_KEY) {
             return Response.json('Unauthorized', { status: 401 });
         }
         return Response.json({articles, successfulSources, updateTime}, {
