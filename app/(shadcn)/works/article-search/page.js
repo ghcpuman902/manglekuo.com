@@ -12,7 +12,7 @@ export const revalidate = 'force-cache'
 export default async function Page() {
     // const locale = 'en';
     // const { articles, successfulSources, updateTime } = await fetchAllArticles();
-    const res = await fetch('http://localhost:3000/works/article-search/api/getTime', { cache: 'force-cache' });
+    const res = await fetch('https://postman-echo.com/get?foo1=bar1&foo2=bar2', { cache: 'force-cache' });
     const resJson = await res.json();
     const serverRenderTime = new Date().toISOString();
     return (
