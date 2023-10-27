@@ -88,7 +88,7 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                 .replace(/\s+/g, ' ')
                 .trim().slice(0, 280);
             const cachedQueryEmbedding = await searchCacheQueryEmbedding(query);
-            if (cachedQueryEmbedding) {
+            if (cachedQueryEmbedding !== null && cachedQueryEmbedding !== undefined && cachedQueryEmbedding.length !== 0) {
                 console.log(`using cached targetEmbedding`);
                 return cachedQueryEmbedding;
             } else {

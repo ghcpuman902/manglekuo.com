@@ -15,7 +15,7 @@ async function getEmbedding(inputString: string, host: string | null) {
             'Referer': 'https://manglekuo.com',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "text": inputString, "key": process.env.APP_INTERNAL_API_KEY }),
+        body: JSON.stringify({ "text": inputString, "key": process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY }),
         redirect: 'follow',
         cache: 'force-cache'
     });
@@ -36,21 +36,21 @@ export async function POST(request: NextRequest) {
     // Get embedding for new query 
     let embedding = await getEmbedding(text, request.headers.get('host'));
 
-    if (process.env.NODE_ENV == "development") {
+    // if (process.env.NODE_ENV == "development") {
         return NextResponse.json({ result: embedding });
-    }
-    else if (process.env.NODE_ENV == "production") {
-        const referer = request.headers.get('referer');
-        if (!referer || !referer.startsWith('https://manglekuo.com')) {
-            return NextResponse.json('Unauthorized', { status: 401 });
-        }
-        return NextResponse.json({ result: embedding }, {
-            headers: {
-                'Access-Control-Allow-Origin': 'https://manglekuo.com',
-                'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Content-Type': 'application/json',
-            },
-        });
-    }
+    // }
+    // else if (process.env.NODE_ENV == "production") {
+    //     const referer = request.headers.get('referer');
+    //     if (!referer || !referer.startsWith('https://manglekuo.com')) {
+    //         return NextResponse.json('Unauthorized', { status: 401 });
+    //     }
+    //     return NextResponse.json({ result: embedding }, {
+    //         headers: {
+    //             'Access-Control-Allow-Origin': 'https://manglekuo.com',
+    //             'Access-Control-Allow-Methods': 'POST',
+    //             'Access-Control-Allow-Headers': 'Content-Type',
+    //             'Content-Type': 'application/json',
+    //         },
+    //     });
+    // }
 }
