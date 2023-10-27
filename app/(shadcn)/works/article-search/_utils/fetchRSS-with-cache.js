@@ -1,7 +1,7 @@
-export const revalidate = 120
+import { cache } from 'react'
+export const revalidate = 600
 
 import 'server-only';
-import { cache } from 'react';
 import { formatDate } from './utils';
 
 import * as htmlparser2 from "htmlparser2";
