@@ -4,7 +4,7 @@ import OpenAI from 'openai';
 import { inflate } from 'pako';
 import { kv } from '@vercel/kv';
 
-import { customHash } from '../../_utils/utils'
+import { customHash } from '../../lib/utils'
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY });
 

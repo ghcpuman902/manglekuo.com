@@ -1,10 +1,10 @@
-import { SearchSortFilter } from '../_components/search-sort-filter'
-import { ArticlesGrid } from '../_components/articles-grid'
-import { SuccessfulSources } from "../_components/succesful-sources";
-import { LoadingCardGrid, LoadingSources, LoadingSearchSortFilter } from '../_components/loading-templates'
+import { SearchSortFilter } from '../ui/search-sort-filter'
+import { ArticlesGrid } from '../ui/articles-grid'
+import { SuccessfulSources } from "../ui/succesful-sources";
+import { LoadingCardGrid, LoadingSources, LoadingSearchSortFilter } from '../ui/loading-templates'
 import { Suspense } from 'react';
-import { AppContextProvider } from '../_components/article-context';
-import { fetchAllJapanArticles } from '../_utils/fetchRSS';
+import { AppContextProvider } from '../ui/article-context';
+import { fetchAllJapanArticles } from '../lib/fetchRSS';
 
 export const metadata = {
     title: 'Article Search 日本語版',

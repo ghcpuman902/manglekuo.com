@@ -1,6 +1,6 @@
 export const revalidate = 0
 
-import { fetchAllJapanArticles } from '../../_utils/fetchRSS';
+import { fetchAllJapanArticles } from '../../lib/fetchRSS';
 
 export async function GET(request: Request) {
     const {articles, successfulSources, updateTime} = await fetchAllJapanArticles();

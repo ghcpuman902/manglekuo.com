@@ -12,7 +12,7 @@ import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
 import { Label } from "@components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
-import { getDictionary } from "../_utils/utils";
+import { getDictionary } from "../lib/utils";
 
 import { Badge } from "@components/ui/badge";
 

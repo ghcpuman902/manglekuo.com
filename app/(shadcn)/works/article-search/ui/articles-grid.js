@@ -7,10 +7,11 @@ import { Label } from "@components/ui/label";
 import { useToast } from "@components/ui/use-toast"
 import { ArticleCard } from "./article-card";
 import { useLoading, useQueryString, useSortingMethod, useFilterByDays } from './article-context';
-import { initializeCache, getCacheArticles, updateCacheArticles, searchCacheQueryEmbedding, appendCacheQueryEmbedding, borrowCacheEmbeddings, returnCacheEmbeddings, clearAllData } from '../_utils/local-articles';
+import { initializeCache, getCacheArticles, updateCacheArticles, searchCacheQueryEmbedding, appendCacheQueryEmbedding, borrowCacheEmbeddings, returnCacheEmbeddings, clearAllData } from '../lib/local-articles';
 
-import { dotProduct, timeAgo, getDictionary, customHash } from "../_utils/utils";
+import { dotProduct, timeAgo, getDictionary, customHash } from "../lib/utils";
 import { gzip } from 'pako';
+import Link from 'next/link';
 
 
 export const ArticlesGrid = ({ locale, articles, updateTime }) => {
@@ -298,6 +299,10 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
         reorderArticlesByDistance(searchParams.get('q'), lArticles);;
     }, [searchParams]);
 
+    const boxShadow = "0px 2px 2px -1px rgba(100, 100, 100, 0.1), inset 0px -1px 4px 0px rgba(100, 100, 100, 0.05)";
+
+    const borderColor = "solid 1px rgba(160, 160, 160, 0.7)";
+
     return (
         <>
             <div className="sticky top-0 left-0 right-0 z-50 py-6 flex place-content-center">
@@ -359,7 +364,8 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                     }
                 `}</style>
             </div> */}
-                <span className="scroll-m-20 text-center tracking-tight py-1 px-2 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-lg backdrop-saturate-200">{
+                <span className="scroll-m-20 text-center tracking-tight py-1 px-2 rounded-lg bg-white/50 dark:bg-black/50 backdrop-blur-lg backdrop-saturate-200 shadow-[0px_4px_10px_2px_rgba(100,100,100,0.05)]"
+                    style={{ boxShadow, border: borderColor, borderLeftStyle: 'none', borderRightStyle: 'none' }}>{
                     lArticles ?
                         dict.title.articles_in_past_days.replace(
                             "[NUMBER]",
@@ -390,7 +396,8 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                     }) : null
                 }
             </div>
-            <div className="flex justify-center my-3">
+            <div className="flex justify-center my-3 items-center gap-x-5">
+                <div><Link href="/works/article-search/jp" className='hover:underline'>🇯🇵日本語版</Link></div>
                 <div>{dict.label['having-issues']}<Button variant="outline" onClick={() => { clearAllData(); }}>{dict.button['clear-all-data']}</Button></div>
             </div>
             <div className="mt-4 md:mt-8 flex flex-col w-full items-center text-neutral-400" suppressHydrationWarning>

@@ -1,10 +1,10 @@
-import { SearchSortFilter } from './_components/search-sort-filter'
-import { ArticlesGrid } from './_components/articles-grid'
-import { SuccessfulSources } from "./_components/succesful-sources";
-import { LoadingCardGrid, LoadingSources, LoadingSearchSortFilter } from './_components/loading-templates'
+import { SearchSortFilter } from './ui/search-sort-filter'
+import { ArticlesGrid } from './ui/articles-grid'
+import { SuccessfulSources } from "./ui/succesful-sources";
+import { LoadingCardGrid, LoadingSources, LoadingSearchSortFilter } from './ui/loading-templates'
 import { Suspense } from 'react';
-import { AppContextProvider } from './_components/article-context';
-import { fetchAllArticles } from './_utils/fetchRSS';
+import { AppContextProvider } from './ui/article-context';
+import { fetchAllArticles } from './lib/fetchRSS';
 
 export default async function Page({ searchParams }) {
     const locale = 'en';
@@ -41,7 +41,7 @@ export default async function Page({ searchParams }) {
                         <ArticlesGrid locale={locale} articles={articles} updateTime={updateTime} />
                     </AppContextProvider>
                 </Suspense>
-                <div className="flex flex-col w-full items-center text-neutral-400">
+                <div className="flex flex-col w-full items-center text-center text-neutral-400">
                     {JSON.stringify(searchParams, null, 2)}<br />
                     server page render: {new Date().toISOString()}<br />
                 </div>
@@ -59,7 +59,7 @@ export default async function Page({ searchParams }) {
                         <ArticlesGrid locale={locale} articles={articles} updateTime={updateTime} />
                     </AppContextProvider>
                 </Suspense>
-                <div className="flex flex-col w-full items-center text-neutral-400">
+                <div className="flex flex-col w-full items-center text-center text-neutral-400">
                     {JSON.stringify(searchParams, null, 2)}<br />
                     server page render: {new Date().toISOString()}<br />
                 </div>

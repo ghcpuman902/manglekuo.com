@@ -1,6 +1,6 @@
 import { Label } from "@components/ui/label";
 import { Badge } from "@components/ui/badge";
-import { getDictionary, getDomainNameFromUrl } from "../_utils/utils";
+import { getDictionary, getDomainNameFromUrl } from "../lib/utils";
 import { LastFetched } from "./last-fetched";
 
 export const SuccessfulSources = async ({ locale, successfulSources, updateTime }) => {

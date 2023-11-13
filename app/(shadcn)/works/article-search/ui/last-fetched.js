@@ -1,6 +1,6 @@
 'use client'
 import { Label } from "@components/ui/label";
-import { timeAgo, olderThan1hr, getDictionary } from "../_utils/utils";
+import { timeAgo, olderThan1hr, getDictionary } from "../lib/utils";
 
 export const LastFetched = ({ locale, updateTime }) => {
     const dict = getDictionary(locale);

@@ -1,6 +1,6 @@
 export const revalidate = 0
 
-import { fetchAllArticles } from '../../_utils/fetchRSS';
+import { fetchAllArticles } from '../../lib/fetchRSS';
 
 export async function GET(request: Request) {
     const {articles, successfulSources, updateTime} = await fetchAllArticles();

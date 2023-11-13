@@ -7,10 +7,10 @@ import { AlertCircle } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert"
 
 import { useLoading, useQueryString, useSortingMethod, useFilterByDays } from './article-context';
-import { clearAllData } from '../_utils/local-articles';
+import { clearAllData } from '../lib/local-articles';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { getDictionary } from "../_utils/utils";
+import { getDictionary } from "../lib/utils";
 
 export const SearchSortFilter = ({ locale }) => {
     const [loading, setLoading] = useLoading();

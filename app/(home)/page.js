@@ -3,7 +3,7 @@ import aS from './index.module.css'
 import { useEffect, useState, useRef, useReducer } from 'react'
 import copy from 'copy-to-clipboard';
 import { useSearchParams } from 'next/navigation'
-
+import Link from 'next/link'
 
 function AnimationVideoPlayer({replay}) {
     const e = useRef();
@@ -213,13 +213,13 @@ export default function Alt() {
         setReplayTrigger(replayTrigger+1);
     }
 
-    function handleThingsIdidClick() {
-        if (state.isOpen.ThingsIdidCover) {
-            dispatch({ type: 'showOverlay', val: 'HideAll' });
-        }else{
-            dispatch({ type: 'showOverlay', val: 'ThingsIdidCover' });
-        }
-    }
+    // function handleThingsIdidClick() {
+    //     if (state.isOpen.ThingsIdidCover) {
+    //         dispatch({ type: 'showOverlay', val: 'HideAll' });
+    //     }else{
+    //         dispatch({ type: 'showOverlay', val: 'ThingsIdidCover' });
+    //     }
+    // }
 
     function handleThingsIwroteClick() {
         setReplayTrigger(replayTrigger+1);
@@ -254,17 +254,12 @@ export default function Alt() {
 
     return (
         <>
-            <main className={aS.main}>
                 <section className={aS.videoSection}>
                     <AnimationVideoPlayer replay={replayTrigger} />
                 </section>
                 <section>
-                    <div className={`${aS.MangleKuo} ${aS['z-' + zIdx('MangleKuo')]}`} onClick={handleMangleKuoClick}>
-                        Mangle Kuo
-                        <div className={aS.moon} />
-                    </div>
 
-                    <div className={`${aS.ThingsIdid} ${aS['z-' + zIdx('ThingsIdid')]}`} onClick={handleThingsIdidClick}>About me</div>
+                    <Link href="/aboutme"><div className={`${aS.ThingsIdid} ${aS['z-' + zIdx('ThingsIdid')]}`}>About me</div></Link>
                     <div className={`${aS.ThingsIdidCover} ${aS['z-' + zIdx('ThingsIdidCover')]} ${state.isOpen.ThingsIdidCover ? aS.open : aS.closed}`}>
                         <div className={aS.ThingsIdidWrapper}>
                         <div className={aS.AboutMeTextWrapper}>
@@ -322,7 +317,6 @@ I am currently seeking job opportunities, so if you are interested, please feel 
                     </div>
 
                 </section>
-            </main>
         </>
     );
 }

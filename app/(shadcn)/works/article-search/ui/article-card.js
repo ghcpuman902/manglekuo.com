@@ -15,7 +15,7 @@ import { Suspense } from 'react';
 
 // import { useSearchParams } from 'next/navigation';
 
-import { timeAgo, getDictionary, getDomainNameFromUrl } from "../_utils/utils";
+import { timeAgo, getDictionary, getDomainNameFromUrl } from "../lib/utils";
 
 export const ArticleCard = ({ locale, article }) => {
     const dict = getDictionary(locale);
