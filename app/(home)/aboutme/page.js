@@ -146,7 +146,7 @@ export default async function Page() {
                     {/* <CardFooter>
                     <p>Card Footer</p>
                 </CardFooter> */}
-                    <Image src="/cv_assets/head.png" width="397" height="306" className='w-1/2 absolute right-0 bottom-0' />
+                    <Image src="/cv_assets/Head.png" width="397" height="306" className='w-1/2 absolute right-0 bottom-0' />
                 </Card>
                 <Card className="">
                     <CardHeader>
