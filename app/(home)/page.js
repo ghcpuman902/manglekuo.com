@@ -298,7 +298,7 @@ I am currently seeking job opportunities, so if you are interested, please feel 
                         <div className={aS.findMeContentWrapper}>
                             <div className={aS.findMeContent}>
                                 <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
-                                <SocialLink link="https://www.linkedin.com/htkuo/" type="LinkedIn" tag="Mangle Kuo" />
+                                <SocialLink link="https://www.linkedin.com/in/htkuo" type="LinkedIn" tag="Mangle Kuo" />
                                 <SocialLink link="https://www.behance.net/manglekuo" type="Behance" tag="manglekuo" />
                                 <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
                                 <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />

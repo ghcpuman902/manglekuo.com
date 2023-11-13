@@ -27,10 +27,13 @@ const description = "I'm Mangle Kuo, a web developer who has strong interest in 
 export const metadata = {
     title: 'Mangle Kuo',
     description: description,
-    themeColor: [
-      { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-      { media: '(prefers-color-scheme: dark)', color: '#000000' },
-    ],
+}
+
+export const viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
 }
 
 export default function RootLayout({ children }) {

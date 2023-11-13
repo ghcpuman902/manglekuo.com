@@ -17,26 +17,11 @@ export const metadata = {
     publisher: 'Mangle Kuo',
     generator: 'Next.js',
     referrer: 'origin-when-cross-origin',
-    themeColor: [
-      { 
-        media: '(prefers-color-scheme: light)', 
-        color: 'hsl(0, 0%, 100%)' 
-      },
-      { 
-        media: '(prefers-color-scheme: dark)', 
-        color: 'hsl(20, 14.3%, 4.1%)' 
-      }
-    ],
     formatDetection: {
       email: false,
       address: false,
       telephone: false,
     },
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      maximumScale: 1,
-    },  
     metadataBase: new URL('https://manglekuo.com'),
     twitter: {
       card: 'summary_large_image', 
@@ -62,6 +47,21 @@ export const metadata = {
       locale: 'en_US',
     }
   };
+  export const viewport = {
+    themeColor: [
+      { 
+        media: '(prefers-color-scheme: light)', 
+        color: 'hsl(0, 0%, 100%)' 
+      },
+      { 
+        media: '(prefers-color-scheme: dark)', 
+        color: 'hsl(20, 14.3%, 4.1%)' 
+      }
+    ],
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  }
 
 export default function ArticleSearchLayout({ children }) {
     return (

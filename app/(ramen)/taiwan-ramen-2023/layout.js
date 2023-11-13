@@ -25,15 +25,18 @@ export const metadata = {
   publisher: '郭皓存 (Mangle Kuo)',
   generator: 'Next.js',
   referrer: 'origin-when-cross-origin',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'oklch(55% 0.231 13)' },
-    { media: '(prefers-color-scheme: dark)', color: 'oklch(0.43 0.19 14.04)' },
-  ],
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
+}
+
+export const viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'oklch(55% 0.231 13)' },
+    { media: '(prefers-color-scheme: dark)', color: 'oklch(0.43 0.19 14.04)' },
+  ],
 }
 
 export default async function RamenLayout({

@@ -301,8 +301,6 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
 
     const boxShadow = "0px 2px 2px -1px rgba(100, 100, 100, 0.1), inset 0px -1px 4px 0px rgba(100, 100, 100, 0.05)";
 
-    const borderColor = "solid 1px rgba(160, 160, 160, 0.7)";
-
     return (
         <>
             <div className="sticky top-0 left-0 right-0 z-50 py-6 flex place-content-center">
@@ -364,8 +362,8 @@ export const ArticlesGrid = ({ locale, articles, updateTime }) => {
                     }
                 `}</style>
             </div> */}
-                <span className="scroll-m-20 text-center tracking-tight py-1 px-2 rounded-lg bg-white/50 dark:bg-black/50 backdrop-blur-lg backdrop-saturate-200 shadow-[0px_4px_10px_2px_rgba(100,100,100,0.05)]"
-                    style={{ boxShadow, border: borderColor, borderLeftStyle: 'none', borderRightStyle: 'none' }}>{
+                <span className="scroll-m-20 text-center tracking-tight py-1 px-3 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-lg backdrop-saturate-200 shadow-[0px_4px_10px_2px_rgba(100,100,100,0.05)] border border-white border-opacity-70 dark:border-gray-600 dark:border-opacity-70"
+                    style={{ boxShadow }}>{
                     lArticles ?
                         dict.title.articles_in_past_days.replace(
                             "[NUMBER]",

@@ -53,40 +53,51 @@ const certifications = [
 
 const experience = [
     {
-        position: "IT and BD Consultant",
-        company: "Quintex",
-        duration: "Mar 2023 - Sep 2023",
-        location: "Taipei, TAIWAN | Remote",
-        workType: "project-based work",
-        points: [
-            "Leveraged Figma and Next.js with Sanity CMS to successfully overhaul Quintex's website project and enhance their digital presence",
-            "Used OpenAI API for a detailed company's exhibitor evaluation report, showcasing proficiency in data interpretation and API usage",
-            "Showcased end-to-end execution in preparing and presenting exhibition materials for a China event"
+        "position": "IT and Business Development Consultant",
+        "company": "Quintex",
+        "duration": "Mar 2023 - Sep 2023",
+        "location": "Taipei, Taiwan | Remote",
+        "workType": "Project-Based",
+        "points": [
+            "Revamped Quintex's digital footprint by skillfully leveraging Figma, Next.js, and Sanity CMS for their website overhaul.",
+            "Enhanced data analysis and API integration capabilities by employing OpenAI API for comprehensive exhibitor evaluation reports.",
+            "Demonstrated project management excellence from conception to delivery, including material preparation and presentation at a key exhibition in China."
         ]
     },
     {
-        position: "Software Project Manager",
-        company: "Leapsy Co",
-        duration: "Jul 2020 - Dec 2021",
-        location: "Taipei, TAIWAN | Shenzhen, CHINA",
-        workType: "Full time",
-        points: [
-            "Successfully led 2 AR/XR projects, enhancing user experience through a Mixed Reality OS optimised for iOS, Android, and smart TV platforms",
-            "Contributed to Android development using Kotlin, C# for Unity, and Flutter, expanding the project's technical scope",
-            "Implemented MediaPipe Gesture Recognition and AirBnB Lottie and developed testing software for GPS and Gyro cursor features using Flutter",
-            "Streamlined communication and used project tracking tools leading to a 50% productivity increase",
-            "Adapted to the clients' specific AR solutions needs, supporting various different industries"
+        "position": "Software Project Manager",
+        "company": "Leapsy Co",
+        "duration": "Jul 2020 - Dec 2021",
+        "location": "Taipei, Taiwan | Shenzhen, China",
+        "workType": "Full-Time",
+        "points": [
+            "Spearheaded two AR/XR projects, delivering enhanced user experiences across iOS, Android, and smart TV platforms via a Mixed Reality OS.",
+            "Expanded technical horizons in Android development with Kotlin, C# for Unity, and Flutter.",
+            "Pioneered the integration of MediaPipe Gesture Recognition and AirBnB Lottie, and developed GPS and Gyro cursor testing software using Flutter, significantly boosting project capabilities.",
+            "Elevated team productivity by 50% through effective communication and utilisation of project tracking tools.",
+            "Tailored AR solutions to diverse industry requirements, showcasing adaptability and client-focused innovation."
         ]
     },
     {
-        position: "Editor / Translator",
-        company: "MuFuTianWen",
-        duration: "Jan 2017 - Present",
-        location: "Remote",
-        workType: "Volunteer",
-        points: [
-            "Translating and editing astronomy articles for a WeChat account with 150k+ subscribers, generating pieces with up to 100k reads",
-            "Utilised OpenAI's Embedding API and GPT API to develop a tailor-made translation topic analysing tool that updates RSS feeds from news websites and offers the most relevant topics to translate for readers"
+        "position": "Editor / Translator",
+        "company": "MuFuTianWen",
+        "duration": "Jan 2017 - Present",
+        "location": "Remote",
+        "workType": "Volunteer",
+        "points": [
+            "Translated and edited astronomy articles for a WeChat account with over 150,000 subscribers, achieving up to 100,000 reads per article.",
+            "Developed a bespoke translation topic analysis tool using OpenAI's Embedding and GPT APIs, enhancing content relevance by integrating RSS feeds from news websites."
+        ]
+    },
+    {
+        "position": "Web Developer",
+        "company": "ImpVis",
+        "duration": "Jun 2017 - Sep 2017",
+        "location": "London, UK",
+        "workType": "Summer Project",
+        "points": [
+            "Contributed to the pioneering team at Imperial College London, developing interactive educational visualisations for STEM modules.",
+            "Collaborated effectively in a team environment, focusing on demystifying abstract concepts and contributing to expansion across four academic departments."
         ]
     }
 ]
@@ -98,7 +109,7 @@ const education = [
         "duration": "in progress; aim to finish Nov 2023",
         "points": [],
         "status": "current",
-        "location": ""
+        "location": "Online"
     },
     {
         "course": "Google Project Management Certificate on Coursera",
@@ -106,7 +117,7 @@ const education = [
         "duration": "in progress; aim to finish Dec 2023",
         "points": [],
         "status": "current",
-        "location": ""
+        "location": "Online"
     },
     {
         "course": "B.Sc. in Physics",
@@ -125,7 +136,7 @@ const education = [
         "duration": "2013 - 2015",
         "points": [],
         "status": "completed",
-        "location": ""
+        "location": "London"
     }
 ]
 
@@ -206,7 +217,7 @@ export default async function Page() {
                 </Card>
                 <Card className="row-span-2 md:col-span-2 flex flex-col">
                     <CardHeader>
-                        <CardTitle>experiences</CardTitle>
+                        <CardTitle>experience</CardTitle>
                     </CardHeader>
                     <CardContent className="md:relative h-full max-h-full pr-0">
                         <div className="flex flex-row space-x-4 overflow-x-auto md:absolute inset-0 px-1 md:px-6 mb-4">
@@ -238,7 +249,7 @@ export default async function Page() {
 
                 <Card className="row-span-2 md:col-span-2 flex flex-col">
                     <CardHeader>
-                        <CardTitle>educations</CardTitle>
+                        <CardTitle>education</CardTitle>
                     </CardHeader>
                     <CardContent className="md:relative h-full max-h-full pr-0">
                         <div className="flex flex-row space-x-4 overflow-x-auto md:absolute inset-0 px-1 md:px-6 mb-4">
