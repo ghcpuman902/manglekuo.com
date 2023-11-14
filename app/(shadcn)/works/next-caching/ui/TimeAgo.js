@@ -8,6 +8,9 @@ export function timeAgo(dateString) {
     const currentTime = new Date();
 
     const diffInSeconds = -1*Math.floor((currentTime - eventTime) / 1000);
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    const diffInDays = Math.floor(diffInHours / 24);
 
     // Create the formatter
     const rtf = new Intl.RelativeTimeFormat( 'en-US', {
@@ -15,6 +18,19 @@ export function timeAgo(dateString) {
         numeric: 'auto',
         style: "narrow",
     });
+
+    if (diffInDays > 0) {
+        return `${rtf.format(-diffInDays, 'day')} (${rtf.format(-diffInHours, 'hour')})`;
+    }
+
+    if (diffInHours > 0) {
+        return `${rtf.format(-diffInHours, 'hour')}`;
+    }
+
+    if (diffInMinutes > 0) {
+        return `${rtf.format(-diffInMinutes, 'minute')}`;
+    }
+    
     return `${rtf.format(diffInSeconds, 'second')}`;
 }
 
@@ -25,13 +41,13 @@ export const TimeAgo = ({ timestamp }) => {
         // Update the label every 500 milliseconds (0.5 seconds)
         const intervalId = setInterval(() => {
             setLabel(timeAgo(timestamp));
-        }, 500);
+        }, 100);
         
         // Clean up the interval on component unmount
         return () => clearInterval(intervalId);
     }, [timestamp]); // Effect depends on timestamp, so if the timestamp changes, restart the interval
 
     return (
-        <Label className="text-neutral-400 dark:text-neutral-600" suppressHydrationWarning>{label}</Label>
+        <Label suppressHydrationWarning>{label}</Label>
     );
 }

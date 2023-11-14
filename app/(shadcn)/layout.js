@@ -13,7 +13,6 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Article Search</title>
       </head>
       <body className={inter.className}>
         <ThemeProvider
