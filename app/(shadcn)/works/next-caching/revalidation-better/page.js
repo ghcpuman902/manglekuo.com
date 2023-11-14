@@ -8,7 +8,7 @@ import prism from 'react-syntax-highlighter/dist/esm/styles/prism/prism';
 SyntaxHighlighter.registerLanguage('jsx', jsx);
 
 export default async function Page() {
-    const res = await fetch('https://manglekuo.com/works/next-caching/api/get-bitcoin-C');
+    const res = await fetch('https://manglekuo.com/works/next-caching/api/get-bitcoin-B');
 
     if (!res.ok) {
         throw new Error(`Failed to fetch: ${JSON.stringify({ baseURL, env: process.env, status: res.status }, null, 2)} `);
