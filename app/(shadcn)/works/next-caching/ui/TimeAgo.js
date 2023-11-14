@@ -21,15 +21,15 @@ export function timeAgo(dateString) {
 export const TimeAgo = ({ timestamp }) => {
     const [label, setLabel] = useState(timeAgo(timestamp));
 
-    // useEffect(() => {
-    //     // Update the label every 500 milliseconds (0.5 seconds)
-    //     const intervalId = setInterval(() => {
-    //         setLabel(timeAgo(timestamp));
-    //     }, 500);
+    useEffect(() => {
+        // Update the label every 500 milliseconds (0.5 seconds)
+        const intervalId = setInterval(() => {
+            setLabel(timeAgo(timestamp));
+        }, 500);
         
-    //     // Clean up the interval on component unmount
-    //     return () => clearInterval(intervalId);
-    // }, [timestamp]); // Effect depends on timestamp, so if the timestamp changes, restart the interval
+        // Clean up the interval on component unmount
+        return () => clearInterval(intervalId);
+    }, [timestamp]); // Effect depends on timestamp, so if the timestamp changes, restart the interval
 
     return (
         <Label className="text-neutral-400 dark:text-neutral-600" suppressHydrationWarning>{label}</Label>
