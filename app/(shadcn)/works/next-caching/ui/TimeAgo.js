@@ -7,7 +7,7 @@ export function timeAgo(dateString) {
     const eventTime = new Date(dateString);
     const currentTime = new Date();
 
-    const diffInSeconds = -1*Math.floor((currentTime - eventTime) / 1000);
+    const diffInSeconds = Math.floor((currentTime - eventTime) / 1000);
     const diffInMinutes = Math.floor(diffInSeconds / 60);
     const diffInHours = Math.floor(diffInMinutes / 60);
     const diffInDays = Math.floor(diffInHours / 24);
@@ -30,8 +30,8 @@ export function timeAgo(dateString) {
     if (diffInMinutes > 0) {
         return `${rtf.format(-diffInMinutes, 'minute')}`;
     }
-    
-    return `${rtf.format(diffInSeconds, 'second')}`;
+
+    return `${rtf.format(-diffInSeconds, 'second')}`;
 }
 
 export const TimeAgo = ({ timestamp }) => {
@@ -44,7 +44,7 @@ export const TimeAgo = ({ timestamp }) => {
         }, 100);
         
         // Clean up the interval on component unmount
-        return () => clearInterval(intervalId);
+        return () => {clearInterval(intervalId);setLabel('');};
     }, [timestamp]); // Effect depends on timestamp, so if the timestamp changes, restart the interval
 
     return (

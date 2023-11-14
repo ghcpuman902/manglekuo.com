@@ -1,5 +1,17 @@
 import { PageNav } from "./ui/PageNav"
 
+export const metadata = {
+  title: 'Next.js Bad Caching Patterns',
+  description: '',
+  creator: 'Mangle Kuo',
+  authors: [
+    {
+      name: 'Mangle Kuo',
+      url: 'https://github.com/ghcpuman902/',
+    }
+  ],
+}
+
 export default async function Layout({
   children,
 }) {

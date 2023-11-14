@@ -1,15 +1,3 @@
-export const metadata = {
-    title: 'Next.js Bad Caching Patterns',
-    description: '',
-    creator: 'Mangle Kuo',
-    authors: [
-      {
-        name: 'Mangle Kuo',
-        url: 'https://github.com/ghcpuman902/',
-      }
-    ],
-}
-
 import {
     Table,
     TableBody,
@@ -48,10 +36,10 @@ export default function Page() {
                 <Link href="/works/next-caching/revalidation-bad">Try bad example</Link>
             </Button>
             <Button variant='outline' className='mr-4 border-blue-400' asChild>
-                <Link href="/works/next-caching/revalidation-good">Try good example</Link>
+                <Link href="/works/next-caching/revalidation-better">Try better example</Link>
             </Button>
             <Button variant='outline' className='border-green-400' asChild>
-                <Link href="/works/next-caching/revalidation-better">Try better example</Link>
+                <Link href="/works/next-caching/revalidation-best">Try best example</Link>
             </Button>
             </div>
 

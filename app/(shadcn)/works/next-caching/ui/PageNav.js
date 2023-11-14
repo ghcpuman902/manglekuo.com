@@ -10,8 +10,8 @@ export const PageNav = () => {
     const listOfExamples = [
         {path: '/', name: 'All Patterns', segment: null},
         {path: 'revalidation-bad', name: 'Revalidation: bad example', segment: 'revalidation-bad'},
-        {path: 'revalidation-good', name: 'Revalidation: good example', segment: 'revalidation-good'},
-        {path: 'revalidation-better', name: 'Revalidation: better example', segment: 'revalidation-better'}
+        {path: 'revalidation-better', name: 'Revalidation: better example', segment: 'revalidation-better'},
+        {path: 'revalidation-best', name: 'Revalidation: best example', segment: 'revalidation-best'}
     ];
 
     return (

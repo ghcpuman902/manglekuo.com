@@ -16,7 +16,6 @@ export default async function Page() {
 
     const resJson = await res.json();
 
-    const t = new Date().toISOString();
     const btcPrice = resJson.btcPrice;
     const timestamp = resJson.timestamp;
 
@@ -39,7 +38,7 @@ export default async function Page() {
             <p className="">
                 price updated: <TimeAgo timestamp={timestamp} />
             </p>
-            <p className="mt-3">page rendered: <TimeAgo timestamp={t} /></p>
+            <p className="mt-3">page rendered: <TimeAgo timestamp={new Date().toISOString()} /></p>
         </div>
 
         <SyntaxHighlighter language="jsx" style={prism} wrapLongLines={true}>{`export`}</SyntaxHighlighter>
