@@ -10,7 +10,7 @@ export default async function Page({ searchParams }) {
     const articlesFetchUrl = '/works/article-search/api/articles';
     const api_key = process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY;
 
-    let baseURL = process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL || process.env.NEXT_PUBLIC_URL;
+    let baseURL = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_URL;
     const fetchURL = baseURL + articlesFetchUrl;
     const res = await fetch(fetchURL,
         {
