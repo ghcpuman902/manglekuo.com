@@ -26,6 +26,7 @@ export default async function Page({ searchParams }) {
     if (!res.ok) {
         if (process.env.NEXT_PHASE == 'phase-production-build' && res.status == 404) {
             console.log(`API end point not found because they are not deployed yet, will continue with build ${JSON.stringify({ baseURL, status: res.status })}`);
+            return null;
         }else{
             throw new Error(`Failed to fetch: ${JSON.stringify({ baseURL, env: process.env, status: res.status }, null, 2)} `);
         }
