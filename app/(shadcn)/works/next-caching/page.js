@@ -31,7 +31,7 @@ let baseURL = `https://manglekuo.com` || process.env.NEXT_PUBLIC_URL;
 const BitcoinInfoBad = async () => {
 
     try {
-        const res = await fetch(baseURL + '/works/next-caching/api/get-bitcoin-price-stale-while-revalidate', { next: { revalidate: 20 } });
+        const res = await fetch(baseURL + '/works/next-caching/api/get-bitcoin-A', { next: { revalidate: 20 } });
 
         if (!res.ok) {
             if (process.env.NEXT_PHASE == 'phase-production-build' && res.status == 404) {
@@ -73,7 +73,7 @@ const BitcoinInfoBad = async () => {
 const BitcoinInfoGood = async () => {
 
     try {
-        const res = await fetch(baseURL + '/works/next-caching/api/get-bitcoin-price-stale-while-revalidate', { next: { revalidate: 0 } });
+        const res = await fetch(baseURL + '/works/next-caching/api/get-bitcoin-B', { next: { revalidate: 0 } });
 
         if (!res.ok) {
             if (process.env.NEXT_PHASE == 'phase-production-build' && res.status == 404) {
