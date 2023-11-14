@@ -26,7 +26,7 @@ export default async function Page() {
     const res = await fetch(baseURL+'/works/next-caching/api/get-bitcoin-price-stale-while-revalidate');
 
     if (!res.ok) {
-        throw new Error(`Failed to fetch: ${JSON.stringify({baseURL, env, status: res.status }, null, 2)} `);
+        throw new Error(`Failed to fetch: ${JSON.stringify({baseURL, env: process.env, status: res.status }, null, 2)} `);
     }
     const resJson = await res.json();
     const {
