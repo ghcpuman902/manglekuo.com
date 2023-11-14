@@ -22,7 +22,7 @@ SyntaxHighlighter.registerLanguage('jsx', jsx);
 import { Suspense } from 'react';
 
 export default async function Page() {
-    let baseURL = process.env.NEXT_PUBLIC_URL;
+    let baseURL = process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL || process.env.NEXT_PUBLIC_URL;
     const res = await fetch(baseURL+'/works/next-caching/api/get-bitcoin-price-stale-while-revalidate');
 
     if (!res.ok) {
