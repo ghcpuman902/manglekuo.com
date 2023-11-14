@@ -17,6 +17,7 @@ import {
 
 
 import { TimeAgo } from "./ui/TimeAgo"
+import { LocalFetcherOne, LocalFetcherTwo } from "./ui/LocalFetchers"
 
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
@@ -112,7 +113,6 @@ const BitcoinInfoGood = async () => {
 export default function Page() {
 
     return (<main className='max-w-[1000px] ml-6 m-2'>
-        <Suspense fallback={`main shit loading...`}>
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                 Next.js Caching Bad Examples
             </h1>
@@ -125,6 +125,17 @@ export default function Page() {
             <p className="leading-7 [&:not(:first-child)]:mt-6">
                 Try to refresh the page, for the Bad Example even tho we expect the data to revalidate every 20s, using it both on the page and at the API end point will cause the data
             </p>
+
+            <LocalFetcherOne />
+
+
+
+
+
+
+
+
+
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
                 ❌ Bad Example
             </h3>
@@ -324,7 +335,6 @@ export async function GET() {
             {/* <SyntaxHighlighter language="jsx" style={prism}>
             {JSON.stringify(resHeaders, null, 2)}
         </SyntaxHighlighter> */}
-        </Suspense>
     </main>
     );
 }
