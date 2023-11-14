@@ -15,7 +15,8 @@ export default async function Page({ searchParams }) {
 
     const api_key = process.env.NEXT_PUBLIC_APP_INTERNAL_API_KEY;
 
-    let baseURL = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_URL;
+    let baseURL = process.env.NEXT_PUBLIC_URL;
+    
     const fetchURL = baseURL + articlesFetchUrl;
     const res = await fetch(fetchURL,
         {
@@ -28,7 +29,11 @@ export default async function Page({ searchParams }) {
     );
     const resJson = await res.json();
     if (!res.ok) {
-        throw new Error('Failed to fetch', resJson);
+        if (process.env.NEXT_PHASE == 'phase-production-build' && res.status == 404) {
+            console.log(`API end point not found because they are not deployed yet, will continue with build ${JSON.stringify({ baseURL, status: res.status })}`);
+        }else{
+            throw new Error(`Failed to fetch: ${JSON.stringify({ baseURL, env: process.env, status: res.status }, null, 2)} `);
+        }
     }
     const { articles, successfulSources, updateTime } = resJson;
 

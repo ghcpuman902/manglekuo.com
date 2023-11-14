@@ -22,17 +22,22 @@ SyntaxHighlighter.registerLanguage('jsx', jsx);
 import { Suspense } from 'react';
 
 export default async function Page() {
-    let baseURL = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_URL;
-    const res = await fetch(baseURL+'/works/next-caching/api/get-bitcoin-price-stale-while-revalidate');
+    let baseURL = process.env.NEXT_PUBLIC_URL;
+    const res = await fetch(baseURL + '/works/next-caching/api/get-bitcoin-price-stale-while-revalidate');
 
     if (!res.ok) {
-        throw new Error(`Failed to fetch: ${JSON.stringify({baseURL, env: process.env, status: res.status }, null, 2)} `);
+        if (process.env.NEXT_PHASE == 'phase-production-build' && res.status == 404) {
+            console.log(`API end point not found because they are not deployed yet, will continue with build ${JSON.stringify({ baseURL, status: res.status })}`);
+        }else{
+            throw new Error(`Failed to fetch: ${JSON.stringify({ baseURL, env: process.env, status: res.status }, null, 2)} `);
+        }
     }
     const resJson = await res.json();
     const {
         btcPrice,
         timestamp
     } = resJson;
+
 
 
     return (<main className='max-w-[1000px] mx-auto my-2'>
