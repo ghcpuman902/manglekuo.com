@@ -181,7 +181,7 @@ function reducer(state, action) {
 
 
 
-export default function Alt() {
+export default function Page() {
 
 
     let fMInx = useRef(0);
