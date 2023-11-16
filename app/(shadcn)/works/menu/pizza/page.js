@@ -72,7 +72,7 @@ for (let discount of discounts) {
 
 // Sort combo from least to most total final pay amount
 combos.sort((a, b) => a.totalPrice - b.totalPrice);
-console.log(combos);
+// console.log(combos);
 
 for (let combo of combos) {
     combo.items = combo.items.map(

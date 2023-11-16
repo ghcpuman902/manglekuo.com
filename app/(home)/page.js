@@ -26,7 +26,7 @@ function AnimationVideoPlayer({replay}) {
 
     return (
         <>
-            <video ref={e} onClick={handleClick} className={aS.video} src="/images/Output6.mp4" width="820" height="880" autoPlay={true} muted={true} playsInline={true}>
+            <video ref={e} onClick={handleClick} className={aS.video} src="/images/Output6.mp4" width="820" height="880" autoPlay={true} playsInline={true} muted={true}>
             </video>
         </>
     );
