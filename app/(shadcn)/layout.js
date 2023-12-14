@@ -4,7 +4,7 @@ const inter = Inter({ subsets: ['latin'] })
 import './global.css'
 import { ThemeProvider } from "@components/theme-provider";
 import { Toaster } from "@components/ui/toaster"
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 export default async function RootLayout({
@@ -25,6 +25,7 @@ export default async function RootLayout({
         </ThemeProvider>
         <Toaster />
         <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   )
