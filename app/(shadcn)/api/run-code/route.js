@@ -1,4 +1,30 @@
-import safeEval from 'safe-eval';
+function looseJsonParse(obj) {
+  return eval?.(`"use strict";(${obj})`);
+}
+
+function executeUserCode(code) {
+  let logs = [];
+  const originalConsoleLog = console.log;
+  console.log = (...args) => {
+    logs.push(args.join(' '));
+  };
+
+  try {
+    // Wrap code in a function to capture return value
+    const wrappedCode = `
+      (function() {
+        ${code}
+      })()
+    `;
+
+    const result = looseJsonParse(wrappedCode);
+    return { logs, result };
+  } catch (error) {
+    return { logs, error: error.message };
+  } finally {
+    console.log = originalConsoleLog; // Restore original console.log
+  }
+}
 
 export async function POST(request) {
   if (!request.headers.has('x-api-key')) {
@@ -22,24 +48,9 @@ export async function POST(request) {
     const body = await request.json();
     const { codeArray } = body;
 
-    const results = codeArray.map(code => {
-      try {
-        // Execute code safely
-        return safeEval(code);
-      } catch (error) {
-        return error.message;
-      }
-    });
-    if(results && results.length > 0){
+    const results = codeArray.map(executeUserCode);
 
-      return new Response(JSON.stringify({ results }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-    }
-
-    return new Response(JSON.stringify({results: []}), {
+    return new Response(JSON.stringify({ results }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
