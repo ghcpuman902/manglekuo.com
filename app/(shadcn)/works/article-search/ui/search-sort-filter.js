@@ -1,4 +1,5 @@
 'use client';
+import { track } from '@vercel/analytics';
 import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
 import { Label } from "@components/ui/label";
@@ -11,6 +12,7 @@ import { clearAllData } from '../lib/local-articles';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { getDictionary } from "../lib/utils";
+
 
 export const SearchSortFilter = ({ locale }) => {
     const [loading, setLoading] = useLoading();
@@ -82,10 +84,11 @@ export const SearchSortFilter = ({ locale }) => {
                 <Input id="query" type="text" className="mr-2" defaultValue={queryString} ref={queryInputRef} onKeyPress={event => {
                     if (event.key === 'Enter') {
                         event.preventDefault(); // Prevents the default action of enter key
+                        track('ArticleSearch',{queryString:queryInputRef.current.value ? queryInputRef.current.value : queryString});
                         setQueryString(queryInputRef.current.value ? queryInputRef.current.value : queryString);
                     }
                 }} />
-                <Button className="flex flex-nowrap whitespace-nowrap" onClick={() => { setQueryString(queryInputRef.current.value ? queryInputRef.current.value : queryString); }} disabled={loading != 200}>{loading != 200 ? (<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;{dict.button.wait}</>) : dict.button.search}</Button>
+                <Button className="flex flex-nowrap whitespace-nowrap" onClick={() => { track('ArticleSearch',{queryString:queryInputRef.current.value ? queryInputRef.current.value : queryString}); setQueryString(queryInputRef.current.value ? queryInputRef.current.value : queryString); }} disabled={loading != 200}>{loading != 200 ? (<><span className="animate-spin text-xl">☻</span>&nbsp;&nbsp;{dict.button.wait}</>) : dict.button.search}</Button>
             </div>
             <div className="flex items-center mx-2">
                 <Label htmlFor="sort-by-options" className="my-2 mr-3">{dict.label.sort_by}</Label>
