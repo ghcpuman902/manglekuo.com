@@ -209,9 +209,9 @@ export default function Page() {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [replayTrigger, setReplayTrigger] = useState(0);
 
-    function handleMangleKuoClick() {
-        setReplayTrigger(replayTrigger+1);
-    }
+    // function handleMangleKuoClick() {
+    //     setReplayTrigger(replayTrigger+1);
+    // }
 
     // function handleThingsIdidClick() {
     //     if (state.isOpen.ThingsIdidCover) {

@@ -44,14 +44,14 @@ const createSunHeightCalculator = ({ latitude, longitude, date }: CalculatorPara
 };
 
 // Example usage:
-const calculator = createSunHeightCalculator({
-  latitude: 40.7128, // New York City
-  longitude: -74.0060,
-  date: new Date(),
-});
-const sunHeightAtNoon = calculator.calculateSunHeight(12, 0); // Height at 12:00 PM
-console.log(`Sun height at 12:00 PM: ${sunHeightAtNoon}`);
-console.log(`Max sun height today: ${calculator.getMaxHeight()}`);
-console.log(`Min sun height: ${calculator.getMinHeight()}`);
+// const calculator = createSunHeightCalculator({
+//   latitude: 40.7128, // New York City
+//   longitude: -74.0060,
+//   date: new Date(),
+// });
+// const sunHeightAtNoon = calculator.calculateSunHeight(12, 0); // Height at 12:00 PM
+// console.log(`Sun height at 12:00 PM: ${sunHeightAtNoon}`);
+// console.log(`Max sun height today: ${calculator.getMaxHeight()}`);
+// console.log(`Min sun height: ${calculator.getMinHeight()}`);
 
 export default createSunHeightCalculator;
