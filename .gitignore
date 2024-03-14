@@ -33,6 +33,6 @@ yarn-error.log*
 .env.production.local
 
 # local node.js files
-/app/works/taiwan-ramen-2023/getshoplist/
+/app/(ramen)/taiwan-ramen-2023/getshoplist
 .vercel
 .env*.local

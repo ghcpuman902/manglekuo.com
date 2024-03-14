@@ -1,28 +1,28 @@
 'use client';
 import aS from './index.module.css'
-import { useEffect, useState, useRef, useReducer } from 'react'
+import { useEffect, useState, useRef, useReducer, Suspense } from 'react'
 import copy from 'copy-to-clipboard';
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
-function AnimationVideoPlayer({replay}) {
+function AnimationVideoPlayer({ replay }) {
     const e = useRef();
     // const isVideoPlaying = (v) => (!v.paused && !v.ended && v.readyState > 2);
     // const isVideoPlaying = (v) => (!v.paused);
 
     function handleClick() {
         e.current.currentTime = 0;
-        if(e.current.paused){
+        if (e.current.paused) {
             e.current.play();
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         e.current.currentTime = 0;
-        if(e.current.paused){
+        if (e.current.paused) {
             e.current.play();
         }
-    },[replay]);
+    }, [replay]);
 
     return (
         <>
@@ -179,7 +179,17 @@ function reducer(state, action) {
     }
 }
 
+function SearchParamsHandler() {
+    const searchParams = useSearchParams()
 
+    useEffect(() => {
+        if (searchParams.has('findme')) {
+            handleFindmeeClick()
+        }
+    }, [])
+
+    return (<></>);
+}
 
 export default function Page() {
 
@@ -222,7 +232,7 @@ export default function Page() {
     // }
 
     function handleThingsIwroteClick() {
-        setReplayTrigger(replayTrigger+1);
+        setReplayTrigger(replayTrigger + 1);
     }
 
     function handleFindmeeClick() {
@@ -244,26 +254,19 @@ export default function Page() {
     }
 
 
-    const searchParams = useSearchParams()
-
-    useEffect(() => {
-      if (searchParams.has('findme')) {
-        handleFindmeeClick()
-      }
-    }, [])
 
     return (
         <>
-                <section className={aS.videoSection}>
-                    <AnimationVideoPlayer replay={replayTrigger} />
-                </section>
-                <section>
+            <section className={aS.videoSection}>
+                <AnimationVideoPlayer replay={replayTrigger} />
+            </section>
+            <section>
 
-                    <Link href="/aboutme"><div className={`${aS.ThingsIdid} ${aS['z-' + zIdx('ThingsIdid')]}`}>About me</div></Link>
-                    <div className={`${aS.ThingsIdidCover} ${aS['z-' + zIdx('ThingsIdidCover')]} ${state.isOpen.ThingsIdidCover ? aS.open : aS.closed}`}>
-                        <div className={aS.ThingsIdidWrapper}>
+                <Link href="/aboutme"><div className={`${aS.ThingsIdid} ${aS['z-' + zIdx('ThingsIdid')]}`}>About me</div></Link>
+                <div className={`${aS.ThingsIdidCover} ${aS['z-' + zIdx('ThingsIdidCover')]} ${state.isOpen.ThingsIdidCover ? aS.open : aS.closed}`}>
+                    <div className={aS.ThingsIdidWrapper}>
                         <div className={aS.AboutMeTextWrapper}>
-                        {/* {
+                            {/* {
                             [
                                 {slug:'ten-facts',title:'Ten Facts',url:''},
                                 {slug:'who-is-that-person',title:'Who is that person',url:''},
@@ -274,39 +277,39 @@ export default function Page() {
                                 return (<div key={val.slug} className={aS.ThingsIdidBox}><h1>{val.title}</h1><div>IMAGE</div><figcaption>CAPTION</figcaption></div>);
                             })
                         } */}
-Greetings! My name is Mangle Kuo, and I am a versatile full-stack developer with a strong background in project management and a passion for AR/XR technologies. In my leisure time, I enjoy urban exploration, photography, music, and indulging in craft beer.
-<br /><br />
-After completing my studies in the UK, I returned to Taiwan and took on a project management role at an AR glasses start-up, which was later acquired by Foxconn, a global electronics manufacturer renowned for assembling the iPhone. This experience provided me with invaluable insights into hardware design and manufacturing.
-<br /><br />
-One of my key strengths is my comprehensive knowledge across various domains and my ability to communicate effectively with professionals from diverse backgrounds. This skill proved vital in my previous role, where we tailored hardware and software solutions for a wide array of clients, including fire-fighting departments and museums.
-<br /><br />
-As a people-oriented individual, I am seeking opportunities in AR/XR project management or full-stack/front-end web development roles within innovative companies that value open communication and end-user feedback. I believe that fostering a strong connection between the engineering team and end-users is crucial for success.
-<br /><br />
-Please explore my <a target="_blank" rel="noopener" href="https://www.instagram.com/manglekuo/">Instagram</a> for photography, my <a target="_blank" rel="noopener" href="https://www.behance.net/manglekuo">Behance</a> for Photoshop/Illustrator works, my <a target="_blank" rel="noopener" href="https://github.com/ghcpuman902">GitHub</a> for coding projects, and my <a target="_blank" rel="noopener" href="https://manglekuo.medium.com">Medium</a> for written articles.
-<br /><br />
-I am currently seeking job opportunities, so if you are interested, please feel free to get in touch here: <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />. Thank you in advance!
+                            Greetings! My name is Mangle Kuo, and I am a versatile full-stack developer with a strong background in project management and a passion for AR/XR technologies. In my leisure time, I enjoy urban exploration, photography, music, and indulging in craft beer.
+                            <br /><br />
+                            After completing my studies in the UK, I returned to Taiwan and took on a project management role at an AR glasses start-up, which was later acquired by Foxconn, a global electronics manufacturer renowned for assembling the iPhone. This experience provided me with invaluable insights into hardware design and manufacturing.
+                            <br /><br />
+                            One of my key strengths is my comprehensive knowledge across various domains and my ability to communicate effectively with professionals from diverse backgrounds. This skill proved vital in my previous role, where we tailored hardware and software solutions for a wide array of clients, including fire-fighting departments and museums.
+                            <br /><br />
+                            As a people-oriented individual, I am seeking opportunities in AR/XR project management or full-stack/front-end web development roles within innovative companies that value open communication and end-user feedback. I believe that fostering a strong connection between the engineering team and end-users is crucial for success.
+                            <br /><br />
+                            Please explore my <a target="_blank" rel="noopener" href="https://www.instagram.com/manglekuo/">Instagram</a> for photography, my <a target="_blank" rel="noopener" href="https://www.behance.net/manglekuo">Behance</a> for Photoshop/Illustrator works, my <a target="_blank" rel="noopener" href="https://github.com/ghcpuman902">GitHub</a> for coding projects, and my <a target="_blank" rel="noopener" href="https://manglekuo.medium.com">Medium</a> for written articles.
+                            <br /><br />
+                            I am currently seeking job opportunities, so if you are interested, please feel free to get in touch here: <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />. Thank you in advance!
                         </div>
-                        </div>
-                        {/* https://manglekuo.com/androidlangxmlsearch/index.html */}
                     </div>
+                    {/* https://manglekuo.com/androidlangxmlsearch/index.html */}
+                </div>
 
-                    <div className={`${aS.ThingsIwrote} ${aS['z-' + zIdx('ThingsIwrote')]}`} onClick={handleThingsIwroteClick}>Re-animate</div>
-                    {/* <div className={`${aS.ThingsIwroteCover} ${aS['z-' + zIdx('ThingsIwroteCover')]}`}></div> */}
+                <div className={`${aS.ThingsIwrote} ${aS['z-' + zIdx('ThingsIwrote')]}`} onClick={handleThingsIwroteClick}>Re-animate</div>
+                {/* <div className={`${aS.ThingsIwroteCover} ${aS['z-' + zIdx('ThingsIwroteCover')]}`}></div> */}
 
-                    <div className={`${aS.Findmee} ${aS['z-' + zIdx('Findmee')]}`} onClick={handleFindmeeClick}>{state.fMText}</div>
-                    <div className={`${aS.FindmeeCover} ${aS['z-' + zIdx('FindmeeCover')]} ${state.isOpen.FindmeeCover ? aS.open : aS.closed}`}>
-                        <div className={aS.findMeContentWrapper}>
-                            <div className={aS.findMeContent}>
-                                <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
-                                <SocialLink link="https://www.linkedin.com/in/htkuo" type="LinkedIn" tag="Mangle Kuo" />
-                                <SocialLink link="https://www.behance.net/manglekuo" type="Behance" tag="manglekuo" />
-                                <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
-                                <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
-                                <SocialLink link="https://www.instagram.com/ghcpuman902/" type="Instagram" tag="@ghcpuman902" />
-                                <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
-                            </div>
+                <div className={`${aS.Findmee} ${aS['z-' + zIdx('Findmee')]}`} onClick={handleFindmeeClick}>{state.fMText}</div>
+                <div className={`${aS.FindmeeCover} ${aS['z-' + zIdx('FindmeeCover')]} ${state.isOpen.FindmeeCover ? aS.open : aS.closed}`}>
+                    <div className={aS.findMeContentWrapper}>
+                        <div className={aS.findMeContent}>
+                            <SocialLink link="https://github.com/ghcpuman902" type="GitHub" tag="ghcpuman902" />
+                            <SocialLink link="https://www.linkedin.com/in/htkuo" type="LinkedIn" tag="Mangle Kuo" />
+                            <SocialLink link="https://www.behance.net/manglekuo" type="Behance" tag="manglekuo" />
+                            <SocialLink link="https://www.flickr.com/photos/65271177@N06/albums" type="Flickr" tag="Mangle Kuo" />
+                            <SocialLink link="https://twitter.com/manglekuo" type="Twitter" tag="@MangleKuo" />
+                            <SocialLink link="https://www.instagram.com/ghcpuman902/" type="Instagram" tag="@ghcpuman902" />
+                            <SocialLink link="manglekuo@gmail.com" type="Email" tag="MangleKuo@gmail.com" />
                         </div>
-                        {/* <img
+                    </div>
+                    {/* <img
                             className={aS.imgBG}
                             srcSet="elva-fairy-480w.jpg 480w,
                                     elva-fairy-800w.jpg 800w"
@@ -314,9 +317,12 @@ I am currently seeking job opportunities, so if you are interested, please feel 
                                     800px"
                             src="elva-fairy-800w.jpg"
                             alt="Elva dressed as a fairy" /> */}
-                    </div>
+                </div>
 
-                </section>
+            </section>
+            <Suspense>
+                <SearchParamsHandler />
+            </Suspense>
         </>
     );
 }
