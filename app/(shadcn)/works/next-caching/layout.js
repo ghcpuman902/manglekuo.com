@@ -21,10 +21,16 @@ export default async function Layout({
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                 Next.js Bad Caching Patterns
             </h1>
-            <p className="leading-7 [&:not(:first-child)]:mt-6 mb-4">
-                This is some example of bad caching pattern in next.js
-            </p>
             <PageNav />
+            <p className="leading-7 max-w-[600px] [&:not(:first-child)]:mt-6 mb-4">
+            Hi friend, here I show some examples of bad caching pattern in next.js so you can avoid them!
+            </p>
+            <p className="leading-7 max-w-[600px] [&:not(:first-child)]:mt-6 mb-4">
+            Part of the caching mechanism in next.js only works when it's deployed on to the server so it's difficult to understand their behaviours when testing locally, I hope this site can help you!
+            </p>
+            <p className="leading-7 max-w-[600px] [&:not(:first-child)]:mt-6 mb-4">
+            Please note this is mianly for the App Router instead of the Page Rounter.
+            </p>
             {children}
     </main>
     </>

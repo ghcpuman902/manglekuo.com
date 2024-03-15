@@ -8,6 +8,7 @@ import {
     TableRow,
 } from "@components/ui/table"
 import { Button } from "@components/ui/button"
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@components/ui/accordion"
 
 
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -26,27 +27,50 @@ export default function Page() {
     return (
         <>
             <h2 id="revalidation" className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-                #1 Time-based Revalidation on both the Page and the Route Handler
+                #1 Using Time-based Revalidation on both the Page and the API (Route Handler)
             </h2>
             <p className="leading-7 max-w-[600px] [&:not(:first-child)]:mt-6">
-             It's a bad idea to have time-based revalidation for both the Page and the Route Handler, let's find out why.
+                It's a bad idea to have time-based revalidation for both the Page and the Route Handler, let's find out why.
             </p>
+            {/* <Accordion>
+                <AccordionItem>
+                    <AccordionTrigger>Trigger</AccordionTrigger>
+                    <AccordionContent>????</AccordionContent>
+                </AccordionItem>
+            </Accordion> */}
+            <blockquote className="mt-6 max-w-[600px] border-l-2 pl-6 italic">
+                <p className="leading-7 [&:not(:first-child)]:mt-6 opacity-60">
+                    While next.js provide easy ways to create API end points, It is actually not recommeded to call your API from the Server Component.
+                </p>
+                <p className="leading-7 [&:not(:first-child)]:mt-6 opacity-60">
+                    API aka Rounte Handler are meant to be call from client side code, and you are meant to fetch from data source directly from the Server Component.
+                </p>
+                <p className="leading-7 [&:not(:first-child)]:mt-6 opacity-60">
+                    This means next.js is not designed to let you fetch your own APIs from the Server side, and work arounds will be needed.
+                </p>
+                <p className="leading-7 [&:not(:first-child)]:mt-6 opacity-60">
+                    You can iether 
+                </p>
+                <p className="leading-7 [&:not(:first-child)]:mt-6 opacity-60">
+                    This causes issues because you are requested to use absolutely URL when using fetch(), however the API point is not live yet when you build the Server Component / Page.
+                </p>
+            </blockquote>
             <div className="mt-6">
-            <Button variant='outline' className='mr-4 border-red-400' asChild>
-                <Link href="/works/next-caching/revalidation-bad">Try bad example</Link>
-            </Button>
-            <Button variant='outline' className='mr-4 border-blue-400' asChild>
-                <Link href="/works/next-caching/revalidation-better">Try better example</Link>
-            </Button>
-            <Button variant='outline' className='border-green-400' asChild>
-                <Link href="/works/next-caching/revalidation-best">Try best example</Link>
-            </Button>
+                <Button variant='outline' className='mr-4 border-red-400' asChild>
+                    <Link href="/works/next-caching/revalidation-bad">Try bad example</Link>
+                </Button>
+                <Button variant='outline' className='mr-4 border-blue-400' asChild>
+                    <Link href="/works/next-caching/revalidation-better">Try better example</Link>
+                </Button>
+                <Button variant='outline' className='border-green-400' asChild>
+                    <Link href="/works/next-caching/revalidation-best">Try best example</Link>
+                </Button>
             </div>
 
             <p className="leading-7 max-w-[600px] [&:not(:first-child)]:mt-6">
-Here we have a Page (page.js) and an API (route.ts) both using <Link href='https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#revalidate'>Route Segment Config</Link> to set <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
-export const revalidate = 20</code>:
-</p>
+                Here we have a Page (page.js) and an API (route.ts) both using <Link href='https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#revalidate'>Route Segment Config</Link> to set <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+                    export const revalidate = 20</code>:
+            </p>
 
             <div className="grid grid-cols-2 gap-x-2 w-full mt-6">
                 <div>
@@ -110,17 +134,17 @@ export async function GET() {
                 </div>
             </div>
             <p className="leading-7 max-w-[600px] [&:not(:first-child)]:mt-6">
-            This means they will server the cached data within 20s, and server new data when cached data is expired (after 20s). 
+                This means they will server the cached data within 20s, and server new data when cached data is expired (after 20s).
             </p>
             <p className="leading-7 max-w-[600px] [&:not(:first-child)]:mt-6">
-            However, due to the "stale-while-revalidate" behaviour mentioned <Link href="https://nextjs.org/docs/app/building-your-application/caching#time-based-revalidation">here</Link>, that is not what the user experiences. 
-            When page.js calls the API again after 20s. the API tries to server the new data, however because the new data takes 3 second to generate, it will server the "stale" data first, and attempt to get the new data in the background. Because the page.js doesnt know this is staled data, it will use this as the new data to set its cache, causing issues.
+                However, due to the "stale-while-revalidate" behaviour mentioned <Link href="https://nextjs.org/docs/app/building-your-application/caching#time-based-revalidation">here</Link>, that is not what the user experiences.
+                When page.js calls the API again after 20s. the API tries to server the new data, however because the new data takes 3 second to generate, it will server the "stale" data first, and attempt to get the new data in the background. Because the page.js doesnt know this is staled data, it will use this as the new data to set its cache, causing issues.
             </p>
             <p className="leading-7 max-w-[600px] [&:not(:first-child)]:mt-6">
-            Have a look at this timeline table and pay attention to the{" "}
-            <span className="bg-blue-200 dark:bg-blue-600 px-2 rounded-full">stale</span>
-            -while-
-            <span className="bg-purple-200 dark:bg-purple-600 px-2 rounded-full">revalidate</span> logic:
+                Have a look at this timeline table and pay attention to the{" "}
+                <span className="bg-blue-200 dark:bg-blue-600 px-2 rounded-full">stale</span>
+                -while-
+                <span className="bg-purple-200 dark:bg-purple-600 px-2 rounded-full">revalidate</span> logic:
             </p>
             <Table className="max-w-[600px] border [&_th]:border [&_td]:border mt-6">
                 <TableCaption>A timeline illustrating the interaction between page and API caching with time-based revalidation.</TableCaption>
@@ -181,7 +205,7 @@ export async function GET() {
                     </TableRow>
                 </TableBody>
             </Table>
-    </>
+        </>
     );
 }
 

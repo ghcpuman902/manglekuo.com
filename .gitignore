@@ -39,3 +39,6 @@ yarn-error.log*
 
 /manglekuowebsite
 /_manglekuowebsite
+/public/cv_sw_v4.html
+/public/cv_sw_v3.html
+/public/cv_sw_v3_for_vercel.html
