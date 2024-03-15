@@ -36,3 +36,6 @@ yarn-error.log*
 /app/(ramen)/taiwan-ramen-2023/getshoplist
 .vercel
 .env*.local
+
+/manglekuowebsite
+/_manglekuowebsite
