@@ -3,7 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 const inter = Inter({ subsets: ['latin'] })
 import './global.css'
 import { ThemeProvider } from "@components/theme-provider";
-import { Toaster } from "@components/ui/toaster"
+import { Toaster } from "@components/ui/sonner"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 

@@ -1,12 +1,11 @@
 'use client';
 
-import { useToast } from "@components/ui/use-toast"
+import { toast } from "sonner"
 
 import { useEffect, useState } from 'react'
 import { redirect, usePathname, useSearchParams } from 'next/navigation'
 
 export const LocaleDetector = () => {
-    const { toast } = useToast();
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const [betaText, setBetaText] = useState('beta');

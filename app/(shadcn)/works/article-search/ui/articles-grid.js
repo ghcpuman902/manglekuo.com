@@ -4,7 +4,8 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { Button } from "@components/ui/button";
 import { Label } from "@components/ui/label";
 
-import { useToast } from "@components/ui/use-toast"
+import { toast } from "sonner"
+
 import { ArticleCard } from "./article-card";
 import { useLoading, useQueryString, useSortingMethod, useFilterByDays } from './article-context';
 import { initializeCache, getCacheArticles, updateCacheArticles, searchCacheQueryEmbedding, appendCacheQueryEmbedding, borrowCacheEmbeddings, returnCacheEmbeddings, clearAllData } from '../lib/local-articles';
@@ -15,7 +16,6 @@ import Link from 'next/link';
 
 
 export const ArticlesGrid = ({ locale, articles, updateTime }) => {
-    const { toast } = useToast();
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();

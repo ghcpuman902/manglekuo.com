@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import './global.css'
 import { ThemeProvider } from "@components/theme-provider";
-import { Toaster } from "@components/ui/toaster"
+import { Toaster } from "@components/ui/sonner"
 import Link from 'next/link'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'

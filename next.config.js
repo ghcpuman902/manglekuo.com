@@ -19,6 +19,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.festival-cannes.com',
+        port: '',
+        pathname: '/affiches/**',
+      },
     ],
   }
 }
