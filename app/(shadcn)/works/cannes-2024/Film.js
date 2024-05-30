@@ -51,7 +51,7 @@ export default function Film({ film }) {
                                 film.category == "Special Screenings" || film.category == "Cannes Premiere" ? "bg-orange-400" :
                                     film.category == "Cannes Classics - Documentaries about Cinema" || film.category == "Cannes Classics - Restored prints" || film.category == "Cannes Classics - World Cinéma Project" ? "bg-yellow-500" :
                                         "bg-gray-400"} ${film.hasTicket ? 'opacity-100' : 'opacity-40'} w-full`}>
-                    <p className='w-[0px] mb-[-100%] transform -rotate-90 leading-tight'>
+                    <p className='w-[0px] mb-[-100%] transform -rotate-90 leading-tight text-xs md:text-base'>
                         {abbrTitle(film.filmTitle)}
                     </p>
                 </div>

@@ -9268,8 +9268,8 @@ export default async function Cannes2024() {
 
     return (
         <div className="w-full h-lvh flex bg-white">
-            <div className="w-full h-lvh overflow-auto grid grid-cols-[60px_repeat(12,300px)] grid-rows-[repeat(117,_1fr)]">
-                <div className='grid col-span-1 row-span-full grid-rows-subgrid border-r border-gray-400'>
+            <div className="w-full h-lvh overflow-auto grid grid-cols-[60px_repeat(12,165px)] md:grid-cols-[60px_repeat(12,300px)] grid-rows-[repeat(117,_1fr)]">
+                <div className='grid col-span-1 row-span-full grid-rows-subgrid border-r border-gray-400 self-start sticky left-0 bg-white z-50'>
                     {[...Array(38).keys()].map(n => {
                         const h = ((8 + Math.floor(n / 2)) % 24);  // We start at 8:00, then increment by 1 hour on each iteration, cycle every 24 hours
                         const halfHour = n % 2 !== 0;
@@ -9277,7 +9277,7 @@ export default async function Cannes2024() {
                         const amPM = h >= 12 ? 'pm' : 'am';
 
                         return (
-                            <div key={n} className={`border-b ${halfHour ? 'text-gray-200 border-gray-100' : 'text-gray-400 border-gray-200'} text-xs text-right flex flex-col justify-end`}
+                            <div key={n} className={`border-b ${halfHour ? 'text-gray-200 border-gray-100' : 'text-gray-400 border-gray-200'} text-xs text-right pr-1 flex flex-col justify-end`}
                                 style={{
                                     gridRow: `${((n - 1) * 3) + 7} / ${(n * 3) + 7}`
                                 }}
