@@ -18,19 +18,30 @@ export default function DrawingCanvas() {
     const startDrawing = (e) => {
         const ctx = canvasRef.current.getContext('2d', { willReadFrequently: true });
         ctx.strokeStyle = 'white';
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 1;
         ctx.shadowColor = 'white';
         ctx.shadowBlur = 0;
         ctx.beginPath();
-        ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+
+        const rect = e.target.getBoundingClientRect();
+        const x = e.nativeEvent.touches ? (e.nativeEvent.touches[0].clientX - rect.left) * (canvasRef.current.width / rect.width) : (e.nativeEvent.clientX - rect.left) * (canvasRef.current.width / rect.width);
+        const y = e.nativeEvent.touches ? (e.nativeEvent.touches[0].clientY - rect.top) * (canvasRef.current.height / rect.height) : (e.nativeEvent.clientY - rect.top) * (canvasRef.current.height / rect.height);
+
+        ctx.moveTo(x, y);
         setDrawing(true);
     };
 
     const draw = (e) => {
         if (!drawing) return;
+        e.preventDefault(); // Add this line to prevent scrolling.
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
-        ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+        const rect = e.target.getBoundingClientRect();
+
+        const x = e.nativeEvent.touches ? (e.nativeEvent.touches[0].clientX - rect.left) * (canvasRef.current.width / rect.width) : (e.nativeEvent.clientX - rect.left) * (canvasRef.current.width / rect.width);
+        const y = e.nativeEvent.touches ? (e.nativeEvent.touches[0].clientY - rect.top) * (canvasRef.current.height / rect.height) : (e.nativeEvent.clientY - rect.top) * (canvasRef.current.height / rect.height);
+
+        ctx.lineTo(x, y);
         ctx.stroke();
     };
 
@@ -168,7 +179,7 @@ export default function DrawingCanvas() {
             ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
             // Calculate scale to preserve aspect ratio
-            let scale = Math.min(canvasWidth / image.width, canvasHeight / image.height);
+            let scale = Math.max(canvasWidth / image.width, canvasHeight / image.height);
 
             // Get the top left position of the image
             let x = (canvasWidth / 2) - (image.width / 2) * scale;
@@ -194,31 +205,39 @@ export default function DrawingCanvas() {
     }, []);
 
     return (
-        <div className="flex flex-col items-center gap-y-5 mx-auto my-10 w-[256px]">
+        <div className="flex flex-col items-center gap-y-5 mx-auto my-10 w-full max-w-[512px]">
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
                 Source
             </h3>
-            <canvas
-                ref={canvasRef}
-                width={256}
-                height={256}
-                className="border border-gray-400"
-                onMouseDown={startDrawing}
-                onMouseMove={draw}
-                onMouseUp={endDrawing}
-                onMouseLeave={endDrawing}
-            ></canvas>
+            <div className="w-full border border-white touch-none">
+                <canvas
+                    ref={canvasRef}
+                    width={256}
+                    height={256}
+                    className="w-full border border-gray-400"
+                    onMouseDown={startDrawing}
+                    onMouseMove={draw}
+                    onMouseUp={endDrawing}
+                    onMouseLeave={endDrawing}
+                    onTouchStart={startDrawing}
+                    onTouchMove={draw}
+                    onTouchEnd={endDrawing}
+                ></canvas>
+            </div>
+
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
                 FFT
             </h3>
-            <canvas
-                ref={resultCanvasRef}
-                width={256}
-                height={256}
-                className="border border-gray-400"
-            ></canvas>
-            <Button className="w-full" variant="outline" onClick={clearCanvas}>clear</Button>
-            <div className="grid w-full max-w-sm items-center gap-1.5">
+            <div className="w-full border border-white">
+                <canvas
+                    ref={resultCanvasRef}
+                    width={256}
+                    height={256}
+                    className="w-full border border-gray-400"
+                ></canvas>
+            </div>
+            <div className="grid w-full max-w-sm px-2 items-center gap-1.5">
+                <Button className="" variant="outline" onClick={clearCanvas}>clear</Button>
                 <Label htmlFor="picture" className="text-gray-400">Draw or upload an image as source</Label>
                 <Input id="picture" type="file" onChange={loadImage} />
             </div>
