@@ -12,6 +12,12 @@ export default function DrawingCanvas() {
     const resultCanvasRef = useRef(null);
     const [drawing, setDrawing] = useState(false);
 
+    const [logBase, setLogBase] = useState(2);
+    const [power, setPower] = useState(3);
+    const [offset, setOffset] = useState(0);
+    const [scaleFactor, setScaleFactor] = useState(0.0000001);
+
+
     const canvasWidth = 512;
     const canvasHeight = 512;
 
@@ -158,10 +164,12 @@ export default function DrawingCanvas() {
         const shiftedImag = fftshift(colResultImag);
 
         const magnitude = shiftedReal.map((col, i) =>
-            col.map((val, j) =>
-                Math.log(Math.sqrt(val * val + shiftedImag[i][j] * shiftedImag[i][j]) + 1)
-            )
+            col.map((val, j) => {
+                const magnitudeValue = Math.sqrt(val * val + shiftedImag[i][j] * shiftedImag[i][j]);
+                return Math.log(scaleFactor * Math.pow(magnitudeValue + offset, power)) / Math.log(logBase);
+            })
         );
+
         const magnitudeFlat = new Float32Array(width * height);
         for (let y = 0; y < height; y++) {
             for (let x = 0; x < width; x++) {
@@ -263,6 +271,84 @@ export default function DrawingCanvas() {
                 <Button className="" variant="outline" onClick={clearCanvas}>clear</Button>
                 <Label htmlFor="picture" className="text-gray-400">Draw or upload an image as source</Label>
                 <Input id="picture" type="file" onChange={loadImage} />
+            </div>
+            <div className="grid gap-4 p-4">
+                <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+                    Magnitude Calculator Settings
+                </h4>
+                <div className="grid gap-2">
+                    <Label htmlFor="logBase">Logarithmic Base:</Label>
+                    <Input
+                        type="number"
+                        min="1"
+                        max="20"
+                        id="logBase"
+                        value={logBase}
+                        onChange={e => setLogBase(Number(e.target.value))}
+                    />
+                    <div className="flex gap-2">
+                        <Button onClick={() => setLogBase(2)}>2</Button>
+                        <Button onClick={() => setLogBase(Math.E)}>e</Button>
+                        <Button onClick={() => setLogBase(10)}>10</Button>
+                    </div>
+                </div>
+                <div className="grid gap-2">
+                    <Label htmlFor="power">Power:</Label>
+                    <Input
+                        type="number"
+                        min="1"
+                        max="20"
+                        id="power"
+                        value={power}
+                        onChange={e => setPower(Number(e.target.value))}
+                    />
+                    <div className="flex gap-2">
+                        <Button onClick={() => setPower(2)}>2</Button>
+                        <Button onClick={() => setPower(3)}>3</Button>
+                        <Button onClick={() => setPower(4)}>4</Button>
+                    </div>
+                </div>
+                <div className="grid gap-2">
+                    <Label htmlFor="offset">Offset:</Label>
+                    <Input
+                        type="number"
+                        min="-1000"
+                        max="1000"
+                        id="offset"
+                        value={offset}
+                        onChange={e => setOffset(Number(e.target.value))}
+                    />
+                    <div className="flex gap-2">
+                        <Button onClick={() => setOffset(-5)}>-5</Button>
+                        <Button onClick={() => setOffset(0)}>0</Button>
+                        <Button onClick={() => setOffset(5)}>+5</Button>
+                    </div>
+                </div>
+                <div className="grid gap-2">
+                    <Label htmlFor="scaleFactor">Scaling Factor:</Label>
+                    <Input
+                        type="number"
+                        min="0.00000000001"
+                        max="100000"
+                        id="scaleFactor"
+                        value={scaleFactor}
+                        onChange={e => setScaleFactor(Number(e.target.value))}
+                    />
+                    <div className="flex gap-2">
+                        <Button onClick={() => setScaleFactor(1e-7)}>10E-7</Button>
+                        <Button onClick={() => setScaleFactor(1e-5)}>10E-5</Button>
+                        <Button onClick={() => setScaleFactor(1)}>1</Button>
+                    </div>
+                </div>
+                <div className="flex gap-2">
+                    <Button onClick={updateResultCanvas}>Calculate Magnitude</Button>
+                    <Button onClick={() => {
+                        setLogBase(2);
+                        setPower(3);
+                        setOffset(0);
+                        setScaleFactor(0.0000001);
+                    }} variant="secondary">Reset</Button>
+                </div>
             </div>
         </div>
     );
