@@ -12,8 +12,8 @@ export default function DrawingCanvas() {
     const resultCanvasRef = useRef(null);
     const [drawing, setDrawing] = useState(false);
 
-    const canvasWidth = 256;
-    const canvasHeight = 256;
+    const canvasWidth = 512;
+    const canvasHeight = 512;
 
     const startDrawing = (e) => {
         const ctx = canvasRef.current.getContext('2d', { willReadFrequently: true });
@@ -96,6 +96,24 @@ export default function DrawingCanvas() {
         return imageData;
     };
 
+    function fftshift(arr) {
+        const rows = arr.length;
+        const cols = arr[0].length;
+        const out = new Array(rows).fill().map(() => new Array(cols).fill(0));
+
+        const halfRow = Math.floor(rows / 2);
+        const halfCol = Math.floor(cols / 2);
+
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const newR = (r + halfRow) % rows;
+                const newC = (c + halfCol) % cols;
+                out[newR][newC] = arr[r][c];
+            }
+        }
+        return out;
+    }
+
 
     const fft2d = (imageData) => {
         const floatArray = imageDataToFloatArray(imageData);
@@ -136,9 +154,13 @@ export default function DrawingCanvas() {
             }
         }
 
-        const magnitude = colResultReal.map((col, i) =>
+        const shiftedReal = fftshift(colResultReal);
+        const shiftedImag = fftshift(colResultImag);
+
+        const magnitude = shiftedReal.map((col, i) =>
             col.map((val, j) =>
-                Math.log(Math.sqrt(val * val + colResultImag[i][j] * colResultImag[i][j]) + 1))
+                Math.log(Math.sqrt(val * val + shiftedImag[i][j] * shiftedImag[i][j]) + 1)
+            )
         );
         const magnitudeFlat = new Float32Array(width * height);
         for (let y = 0; y < height; y++) {
@@ -161,10 +183,11 @@ export default function DrawingCanvas() {
             const originalImageData = ctxSource.getImageData(0, 0, sourceCanvas.width, sourceCanvas.height);
 
             const magnitudeSpectrum = fft2d(originalImageData);
-            const maxMagnitude = Math.max(...magnitudeSpectrum);
+            const maxMagnitude = magnitudeSpectrum.reduce((max, val) => Math.max(max, val), -Infinity);
             const normalizedSpectrum = magnitudeSpectrum.map(value => (value / maxMagnitude) * 255);
             const resultImageData = floatArrayToImageData(normalizedSpectrum, originalImageData.width, originalImageData.height);
             ctxResult.putImageData(resultImageData, 0, 0);
+
         }
     };
 
@@ -212,8 +235,8 @@ export default function DrawingCanvas() {
             <div className="w-full border border-white touch-none">
                 <canvas
                     ref={canvasRef}
-                    width={256}
-                    height={256}
+                    width={512}
+                    height={512}
                     className="w-full border border-gray-400"
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
@@ -231,8 +254,8 @@ export default function DrawingCanvas() {
             <div className="w-full border border-white">
                 <canvas
                     ref={resultCanvasRef}
-                    width={256}
-                    height={256}
+                    width={512}
+                    height={512}
                     className="w-full border border-gray-400"
                 ></canvas>
             </div>
